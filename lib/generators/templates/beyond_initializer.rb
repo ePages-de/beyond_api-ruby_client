@@ -11,4 +11,7 @@ BeyondAPI.setup do |config|
 
   # Configure the request timeout in seconds. Default is 5 seconds.
   # config.timeout = 5.seconds
+
+  # Transform the Hash responses to ObjectStruct
+  # config.object_struct_responses = true
 end
