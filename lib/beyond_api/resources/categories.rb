@@ -6,6 +6,24 @@ module BeyondAPI
   class Categories < Base
     include BeyondAPI::Utils
 
+    #
+    # A +GET+ request is used to list all available categories in a paged manner.
+    #
+    # @beyond_api.scopes +catg:r+
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/categories' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @categories = session.categories.all(size: 100, page: 0)
+    #
     def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/categories", params)
 

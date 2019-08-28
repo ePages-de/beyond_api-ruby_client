@@ -9,6 +9,9 @@ module BeyondAPI
     #
     # A +POST+ request is used to create a cart.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts' -i -X POST \
+    #       -H 'Accept: application/hal+json'
+    #
     # @return [OpenStruct]
     #
     # @example
@@ -22,6 +25,10 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve the details of a cart.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/26857145-aeab-4210-9191-3906573a14ae' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
     #
     # @param cart_id [String] the cart UUID
     #

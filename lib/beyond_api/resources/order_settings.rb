@@ -9,7 +9,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the order settings.
     #
-    # @scopes +oset:r
+    # @beyond_api.scopes +oset:r
     #
     # @return [OpenStruct]
     #
@@ -25,7 +25,7 @@ module BeyondAPI
     #
     # A +PUT+ request is used to update the order settings.
     #
-    # @scopes +oset:u
+    # @beyond_api.scopes +oset:u
     #
     # @param body [Hash] the request body
     #
@@ -53,8 +53,3 @@ module BeyondAPI
     #
     def update(order_settings, body)
       response, status = BeyondAPI::Request.put(@session, "/order-settings", body)
-
-      handle_response(response, status)
-    end
-  end
-end

@@ -9,7 +9,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to list all orders of the shop in a paged way. Each item in the response represents a summary of the order data.
     #
-    # @scopes +ordr:r
+    # @beyond_api.scopes +ordr:r
     #
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
@@ -26,9 +26,38 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to create an invoice for the order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/a5d4d6c6-e77d-4180-8dbf-729f38a698b2/create-invoice' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{"deliveryDateNote": "Test DeliveryDateNote", "invoiceNote": "Test invoiceNote"}'
+    #
+    # @beyond_api.scopes +ordr:u
+    #
+    # @param order_id [String] the order UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "deliveryDateNote" => "Test DeliveryDateNote",
+    #     "invoiceNote" => "Test invoiceNote"
+    #   }
+    #   @order = session.orders.create_invoice("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #
+    def create_invoice(order_id, body)
+      response, status = BeyondAPI::Request.put(@session, "/orders/#{order_id}/create-invoice", body)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the details of an order.
     #
-    # @scopes +ordr:r
+    # @beyond_api.scopes +ordr:r
     #
     # @param order_id [String] the order UUID
     #
@@ -46,7 +75,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of an order by cart ID.
     #
-    # @scopes +ordr:r
+    # @beyond_api.scopes +ordr:r
     #
     # @param cart_id [String] the cart UUID
     #
@@ -79,6 +108,8 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to change the customer’s billing address.
+    #
+    # @beyond_api.scopes +ordr:u
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -126,6 +157,8 @@ module BeyondAPI
     #
     # A +PUT+ request is used to change the order note.
     #
+    # @beyond_api.scopes +ordr:u
+    #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
     #
@@ -145,6 +178,8 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to change the customer’s shipping.
+    #
+    # @beyond_api.scopes +ordr:u
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body

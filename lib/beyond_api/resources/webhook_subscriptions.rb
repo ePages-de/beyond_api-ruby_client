@@ -9,7 +9,10 @@ module BeyondAPI
     #
     # A +POST+ request is used to activate a webhook subscription.
     #
-    # @scopes +ordr:r+, +prod:r+
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions/268a8629-55cd-4890-9013-936b9b5ea14c/activate' -i -X POST \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r+, +prod:r+
     #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     #
@@ -26,6 +29,10 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to list all of the webhook subscriptions in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
@@ -45,6 +52,15 @@ module BeyondAPI
     # A +POST+ request is used to create a webhook subscription.
     #
     # The scopes needed for the operation depend on the event types you register for. e.g. Order events require the scope +orde:r+.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "callbackUri":"http://example.com/test",
+    #       "eventTypes": ["order.created", "product.created"]
+    #   }'
     #
     # @param body [Hash] the request body
     #
@@ -67,6 +83,9 @@ module BeyondAPI
     #
     # A +POST+ request is used to deactivate a webhook subscription.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions/a597cea4-b688-4164-8c56-b6568ea4d5aa/deactivate' -i -X POST \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     #
     # @return true
@@ -83,6 +102,9 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete a webhook subscription.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions/c6076a5a-a8ad-443f-b20b-8a1b268b069e' -i -X DELETE \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     #
     # @return true
@@ -98,6 +120,10 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve the details of a webook subscription.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions/3d44ec71-768c-4927-9069-a96a5153e87c' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     #
@@ -117,7 +143,16 @@ module BeyondAPI
     #
     # The scopes needed for the operation depend on the event types you register for. e.g. Order events require the scope +orde:r+.
     #
-    # @scopes +ordr:r+, +prod:r+
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/webhook-subscriptions/6f3bc033-c2d1-4f44-80e3-1b668f6bd699' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "callbackUri":"http://example.com/test/updated",
+    #       "eventTypes": ["product.updated"]
+    #   }'
+    #
+    # @beyond_api.scopes +ordr:r+, +prod:r+
     #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     # @param body [Hash] the request body

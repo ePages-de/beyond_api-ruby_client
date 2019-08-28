@@ -9,10 +9,11 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
     #
-    # @scopes +shad:r+
+    # @beyond_api.scopes +shad:r+
     #
     # @example
     #   session.shop.address
+    #
     def address
       response, status = BeyondAPI::Request.get(@session, "/shop/address")
 
@@ -22,7 +23,7 @@ module BeyondAPI
     #
     # A +PATCH+ request is used to patch a shop’s address partially with json content type.
     #
-    # @scopes +shad:u+
+    # @beyond_api.scopes +shad:u+
     #
     # @example
     #   session.shop.update_address(body)
@@ -36,7 +37,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to create a shop attribute.
     #
-    # @scopes +shat:c+
+    # @beyond_api.scopes +shat:c+
     #
     # @example
     #   session.shop.create_attribute(body)
@@ -50,7 +51,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a particular shop attribute by its name.
     #
-    # @scopes +shat:r+
+    # @beyond_api.scopes +shat:r+
     #
     # @example
     #   session.shop.attribute(attribute_name)
@@ -64,7 +65,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a list of all shop attributes.
     #
-    # @scopes +shat:r+
+    # @beyond_api.scopes +shat:r+
     #
     # @example
     #   session.shop.attributes(params)
@@ -78,7 +79,7 @@ module BeyondAPI
     #
     # A +PUT+ request is used to update a shop attribute. This operation is idempotent and will create a new shop attribute if required.
     #
-    # @scopes +shat:u+
+    # @beyond_api.scopes +shat:u+
     #
     # @example
     #   session.shop.update_attribute(attribute_name, body)
@@ -92,7 +93,7 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete an shop attribute.
     #
-    # @scopes +shat:d+
+    # @beyond_api.scopes +shat:d+
     #
     # @example
     #   session.shop.delete_attribute(attribute_name)
@@ -106,7 +107,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the images of a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.images(params)
@@ -120,7 +121,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a single shop image.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.image(image_id)
@@ -134,7 +135,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to create a shop image.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.create_image(body)
@@ -148,7 +149,7 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete a shop image.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.delete_image(image_id)
@@ -162,7 +163,7 @@ module BeyondAPI
     #
     # A +GET+ request is issued to search for shop images by label.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.search_images_by_label(label)
@@ -176,7 +177,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to upload a shop image. The body of the request must contain the content of the image.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.upload_image(image_binary, file_name, label)
@@ -190,7 +191,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of the legal resource.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.legal_details
@@ -204,7 +205,7 @@ module BeyondAPI
     #
     # A +PATCH+ request is used to update a legal resource partially with json content type.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.update_legal_content(body)
@@ -218,7 +219,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the legal content of a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.legal_contents(params)
@@ -232,7 +233,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a specific part of the legal content information.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.legal_content(legal_content_type)
@@ -246,7 +247,7 @@ module BeyondAPI
     #
     # A +PUT+ request is used to update the content of a specific part of the legal content information. Changes on the properties type and mandatory will be ignored.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.update_legal_content(body)
@@ -260,7 +261,7 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.current
@@ -274,7 +275,7 @@ module BeyondAPI
     #
     # A +PUT+ request is used to change attributes of a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.update(body)
@@ -288,7 +289,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to open a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.open
@@ -302,7 +303,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to close a shop.
     #
-    # @scopes +ordr:r+
+    # @beyond_api.scopes +ordr:r+
     #
     # @example
     #   session.shop.close
@@ -329,7 +330,7 @@ module BeyondAPI
     #
     # A +POST+ request is used to activate a webhook subscription.
     #
-    # @scopes +ordr:r+, +prod:r+
+    # @beyond_api.scopes +ordr:r+, +prod:r+
     #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     #
@@ -437,7 +438,7 @@ module BeyondAPI
     #
     # The scopes needed for the operation depend on the event types you register for. e.g. Order events require the scope +orde:r+.
     #
-    # @scopes +ordr:r+, +prod:r+
+    # @beyond_api.scopes +ordr:r+, +prod:r+
     #
     # @param webhook_subscription_id [String] the webhook subscription UUID
     # @param body [Hash] the request body
