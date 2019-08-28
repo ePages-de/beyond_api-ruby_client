@@ -26,6 +26,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.update_address(body)
+    #
     def update_address(body)
       response, status = BeyondAPI::Request.patch(@session, "/shop/address", body)
 
@@ -39,6 +40,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.create_attribute(body)
+    #
     def create_attribute(body)
       response, status = BeyondAPI::Request.post(@session, "/shop/attributes", body)
 
@@ -52,8 +54,9 @@ module BeyondAPI
     #
     # @example
     #   session.shop.attribute(attribute_name)
+    #
     def attribute(attribute_name)
-      response, status = BeyondAPI::Request.get(@session, "/shop/attributes/second-unknown-attribute-name", attribute_name)
+      response, status = BeyondAPI::Request.get(@session, "/shop/attributes/#{attribute_name}")
 
       handle_response(response, status)
     end
@@ -65,6 +68,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.attributes(params)
+    #
     def attributes(params)
       response, status = BeyondAPI::Request.get(@session, "/shop/attributes", params)
 
@@ -78,6 +82,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.update_attribute(attribute_name, body)
+    #
     def update_attribute(attribute_name, body)
       response, status = BeyondAPI::Request.put(@session, "/shop/attributes/#{attribute_name}", body)
 
@@ -91,6 +96,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.delete_attribute(attribute_name)
+    #
     def delete_attribute(attribute_name)
       response, status = BeyondAPI::Request.delete(@session, "/shop/attributes/#{attribute_name}")
 
@@ -104,6 +110,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.images(params)
+    #
     def images(params)
       response, status = BeyondAPI::Request.get(@session, "/shop/images", params)
 
@@ -117,6 +124,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.image(image_id)
+    #
     def image(image_id)
       response, status = BeyondAPI::Request.get(@session, "/shop/images/#{image_id}")
 
@@ -130,6 +138,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.create_image(body)
+    #
     def create_image(body)
       response, status = BeyondAPI::Request.post(@session, "/shop/images", body)
 
@@ -143,6 +152,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.delete_image(image_id)
+    #
     def delete_image(image_id)
       response, status = BeyondAPI::Request.delete(@session, "/shop/images/#{image_id}")
 
@@ -156,6 +166,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.search_images_by_label(label)
+    #
     def search_images_by_label(label)
       response, status = BeyondAPI::Request.get(@session, "/shop/images/search/find-by-label", { label: label })
 
@@ -169,6 +180,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.upload_image(image_binary, file_name, label)
+    #
     def upload_image(image_binary, file_name, label)
       response, status = BeyondAPI::Request.post(@session, "/shop/images?fileName=sample.png&label=invoice logo")
 
@@ -182,6 +194,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.legal_details
+    #
     def legal_details
       response, status = BeyondAPI::Request.get(@session, "/shop/legal")
 
@@ -195,6 +208,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.update_legal_content(body)
+    #
     def update_legal_content(body)
       response, status = BeyondAPI::Request.patch(@session, "/shop/legal")
 
@@ -208,6 +222,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.legal_contents(params)
+    #
     def legal_contents(params)
       response, status = BeyondAPI::Request.get(@session, "/legal-content")
 
@@ -221,6 +236,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.legal_content(legal_content_type)
+    #
     def legal_content(legal_content_type)
       response, status = BeyondAPI::Request.get(@session, "/legal-content/right-of-withdrawal")
 
@@ -234,6 +250,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.update_legal_content(body)
+    #
     def update_legal_content(body)
       response, status = BeyondAPI::Request.put(@session, "/legal-content/legal-notice")
 
@@ -247,6 +264,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.current
+    #
     def current
       response, status = BeyondAPI::Request.get(@session, "/shop")
 
@@ -260,6 +278,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.update(body)
+    #
     def update(body)
       response, status = BeyondAPI::Request.patch(@session, "/shop")
 
@@ -273,6 +292,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.open
+    #
     def open
       response, status = BeyondAPI::Request.post(@session, "/shop/open")
 
@@ -286,6 +306,7 @@ module BeyondAPI
     #
     # @example
     #   session.shop.close
+    #
     def close
       response, status = BeyondAPI::Request.post(@session, "/shop/close")
 

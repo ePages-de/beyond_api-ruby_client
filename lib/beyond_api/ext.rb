@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Hash
+class Hash # :nodoc:
   def deep_transform_keys(&block)
     result = {}
     each do |key, value|
@@ -39,7 +39,7 @@ class Hash
   end
 end
 
-class String
+class String # :nodoc:
   def sanitize_key
     chars.first == "_" ? self[1..-1].underscore : self.underscore
   end
