@@ -55,8 +55,6 @@ module BeyondAPI
     #
     # A +POST+ request is used to create an order from the cart.
     #
-    # @scope
-    #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
     #
@@ -82,8 +80,6 @@ module BeyondAPI
     #
     # A +POST+ request is used to add a line item to the cart. Currently only product line items are supported.
     #
-    # @scope
-    #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
     #
@@ -105,8 +101,6 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to replace only one line item in the cart.
-    #
-    # @scope
     #
     # @param cart_id [String] the cart UUID
     # @param line_item_id [String] the line item UUID
@@ -130,8 +124,6 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to replace the current line items in the cart with the given list.
-    #
-    # @scope
     #
     # @param cart_id [String] the cart UUID
     # @param body [String] the array of line items
@@ -167,8 +159,6 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to set the billing address of the cart. The billing address is mandatory for a cart being ready to order.
-    #
-    # @scope
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
@@ -210,8 +200,6 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to set the shipping address of the cart. If a shipping address is not set, it will default to the billing address.
-    #
-    # @scope
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
@@ -294,32 +282,93 @@ module BeyondAPI
     #
     # @param cart_id [String] the cart UUID
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   @cart = session.carts.set_payment_method_to_default("d1efcb74-ab96-43c5-b404-9c1f927dc3d2")
+    #
     def set_payment_method_to_default(cart_id)
       response, status = BeyondAPI::Request.put(@session, "/carts/#{cart_id}/payment-methods/default")
 
       handle_response(response, status)
     end
 
+    #
+    # A +GET+ request is used to retrieve the current payment method.
+    #
+    # @param cart_id [String] the cart UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_method = session.carts.payment_method("26857145-aeab-4210-9191-3906573a14ae")
+    #
     def payment_method(cart_id)
       response, status = BeyondAPI::Request.get(@session, "/carts/#{cart_id}/payment-methods/current")
 
       handle_response(response, status)
     end
 
+    #
+    # A +GET+ request is used to get the applicable payment methods of a cart.
+    # The selectable field indicates if a payment method is currently selectable. Non-selectable payment methods are currently restricted because of rules that apply to a cart.
+    # Trying to set such a payment method as the current one of the cart will fail.
+    #
+    # @param cart_id [String] the cart UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_methods = session.carts.payment_methods("45f9009d-4d2f-43b1-9cd2-ea29ff0d46d6")
+    #
     def payment_methods(cart_id)
       response, status = BeyondAPI::Request.get(@session, "/carts/#{cart_id}/payment-methods")
 
       handle_response(response, status)
     end
 
+    #
+    # A +POST+ request is used to initiate the creation of a payment.
+    #
+    # @param cart_id [String] the cart UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "returnUri" => "http://some.com/return",
+    #     "cancelUri" => "http://some.com/cancel"
+    #   }
+    #   @payment = session.carts.create_payment("158bdcee-178a-4b5f-88ff-1953f5ea8e09/", body)
+    #
     def create_payment(cart_id, body)
       response, status = BeyondAPI::Request.post(@session, "/carts/#{cart_id}/create-payment", body)
 
       handle_response(response, status)
     end
 
+    #
+    # A +POST+ request is used to create an order from a cart and initiate the payment.
+    #
+    # @param cart_id [String] the cart UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "returnUri" => "http://some.com/return",
+    #     "cancelUri" => "http://some.com/cancel",
+    #     "customerComment" => "Send it fast please!",
+    #     "salesChannel" => "Storefront",
+    #     "marketingChannel" => "Google",
+    #     "marketingSubchannel" => "Search page 2",
+    #     "testOrder" => false,
+    #     "termsAndConditionsExplicitlyAccepted" => false
+    #   }
+    #   @payment = session.carts.create_payment_and_order("f6c6615b-a9f6-420e-be1d-46339ddc5fda", body)
+    #
     def create_payment_and_order(cart_id, body)
       response, status = BeyondAPI::Request.post(@session, "/carts/#{cart_id}/create-payment-and-order", body)
 
