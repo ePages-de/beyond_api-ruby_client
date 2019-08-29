@@ -38,7 +38,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.attribute(attribute_name)
+    #   @shop_attribute = session.shop.attribute("second-unknown-attribute-name")
     #
     def attribute(attribute_name)
       response, status = BeyondAPI::Request.get(@session, "/shop/attributes/#{attribute_name}")
@@ -60,7 +60,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.attributes(params)
+    #   @shop_attributes = session.shop.attributes(size: 5, page: 1)
     #
     def attributes(params)
       response, status = BeyondAPI::Request.get(@session, "/shop/attributes", params)
@@ -107,6 +107,12 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
+    #   body = {
+    #     "name" => "second-unknown-attribute-name",
+    #     "value" => "correct-value",
+    #     "public" => false
+    #   }
+    #
     #   session.shop.create_attribute(body)
     #
     def create_attribute(body)
@@ -134,6 +140,11 @@ module BeyondAPI
     # @return true
     #
     # @example
+    #   body = {
+    #     "dataUri" => "file.png?hash=212-2323-4343",
+    #     "label" => "logo"
+    #   }
+    #
     #   session.shop.create_image(body)
     #
     def create_image(body)
@@ -172,7 +183,7 @@ module BeyondAPI
     # @return true
     #
     # @example
-    #   session.shop.delete_attribute(attribute_name)
+    #   session.shop.delete_attribute("second-unknown-attribute-name")
     #
     def delete_attribute(attribute_name)
       response, status = BeyondAPI::Request.delete(@session, "/shop/attributes/#{attribute_name}")
@@ -195,7 +206,7 @@ module BeyondAPI
     # @return true
     #
     # @example
-    #   session.shop.delete_image(image_id)
+    #   session.shop.delete_image("6a7646dc-7f26-4730-a98f-52f9b63978fb")
     #
     def delete_image(image_id)
       response, status = BeyondAPI::Request.delete(@session, "/shop/images/#{image_id}")
@@ -214,7 +225,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.image(image_id)
+    #   session.shop.image("2feee7ac-f1cb-4faf-9488-f3ce07394141")
     #
     def image(image_id)
       response, status = BeyondAPI::Request.get(@session, "/shop/images/#{image_id}")
@@ -234,7 +245,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.images(params)
+    #   session.shop.images(size: 5, page: 1)
     #
     def images(params)
       response, status = BeyondAPI::Request.get(@session, "/shop/images", params)
@@ -254,7 +265,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.legal_content(legal_content_type)
+    #   session.shop.legal_content("right-of-withdrawal")
     #
     def legal_content(legal_content_type)
       response, status = BeyondAPI::Request.get(@session, "/legal-content/right-of-withdrawal")
@@ -275,7 +286,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.legal_contents(params)
+    #   session.shop.legal_contents(size: 5, page: 1)
     #
     def legal_contents(params)
       response, status = BeyondAPI::Request.get(@session, "/legal-content")
@@ -333,7 +344,7 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.search_images_by_label(label)
+    #   session.shop.search_images_by_label("logo")
     #
     def search_images_by_label(label)
       response, status = BeyondAPI::Request.get(@session, "/shop/images/search/find-by-label", { label: label })
@@ -371,6 +382,22 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
+    #   body = {
+    #     "name" => "anotherName",
+    #     "closedShopMessage" => "This shop is opening soon.",
+    #     "primaryHostname" => "cornershop.amazingdiscounts.xyz",
+    #     "fallbackHostname" => "cornershop.beyondshop.cloud",
+    #     "tax" => {
+    #       "taxModel" => "GROSS",
+    #       "vatExempted" => false
+    #     },
+    #     "currencies" => [ "EUR", "USD", "GBP" ],
+    #     "defaultCurrency" => "USD",
+    #     "locales" => [ "en-GB", "de-DE" ],
+    #     "defaultLocale" => "en-GB",
+    #     "closedByMerchant" => false
+    #   }
+    #
     #   session.shop.update(body)
     #
     def update(body)
@@ -397,6 +424,10 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
+    #   body = {
+    #     "city" => "Barcelona"
+    #   }
+    #
     #   session.shop.update_address(body)
     #
     def update_address(body)
@@ -424,7 +455,12 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.update_attribute(attribute_name, body)
+    #   body = {
+    #     "value" => "new-value",
+    #     "public" => false
+    #   }
+    #
+    #   session.shop.update_attribute("second-unknown-attribute-name", body)
     #
     def update_attribute(attribute_name, body)
       response, status = BeyondAPI::Request.put(@session, "/shop/attributes/#{attribute_name}", body)
@@ -476,6 +512,10 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
+    #   body = {
+    #     "vatId" => "GB 111111111"
+    #   }
+    #
     #   session.shop.update_legal_details(body)
     #
     def update_legal_details(body)

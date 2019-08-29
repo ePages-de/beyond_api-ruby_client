@@ -72,6 +72,85 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to cancel an order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/e3f9264a-395b-407d-9036-00f38f609be6/cancel' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "This needs to be done fast!"
+    #   }'
+    #
+    # @beyond_api.scopes +clpr:c
+    #
+    # @param order_id [String] the order UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment"=> "This needs to be done fast!"
+    #   }
+    #   @order = session.orders.cancel("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #
+    def cancel(order_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/cancel", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to retrieve the cancelation process details of an order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/f16cf0db-7449-4029-a886-76f38b4aa464/processes/cancelations/365b4b63-45a8-49f6-94c5-a65e0dee83b5' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +clpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param cancelation_id [String] the cancelation UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @pcancelation_process = session.orders.cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", "365b4b63-45a8-49f6-94c5-a65e0dee83b5")
+    #
+    def cancelation_process(order_id, cancelation_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations/#{cancelation_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all cancelation processes of an order in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/b8cb904d-4c82-4c39-a3a4-de7cb181a5d3/processes/cancelations?page=0&size=20' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +clpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @pcancelation_processes = session.orders.cancelation_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #
+    def cancelation_processes(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations", params)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +POST+ request is used to capture the payment.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/ebfd99d6-f025-4c97-96d2-d5adbb45d6c2/processes/payments/2936deca-fd56-4c0d-88e2-8030c897bf90/capture' -i -X POST \
@@ -90,6 +169,44 @@ module BeyondAPI
     #
     def capture_payment_process(order_id, payment_id)
       response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +POST+ request is used to create a new cancelation process for an order. Cancelation processes trigger a refund process.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/9072c00d-1bc7-4fd8-8836-94ada5084e7a/processes/cancelations' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "This needs to be done fast!",
+    #     "lineItems" : [ {
+    #       "quantity" : 3,
+    #       "productLineItemId" : "0e1f8ab4-ec78-42a6-9a46-a3384cd17d52"
+    #     } ]
+    #   }'
+    #
+    # @beyond_api.scopes +clpr:c
+    #
+    # @param order_id [String] the order UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment"=> "This needs to be done fast!",
+    #     "lineItems"=> [{
+    #       "quantity"=> 3,
+    #       "productLineItemId"=> "0e1f8ab4-ec78-42a6-9a46-a3384cd17d52"
+    #     }]
+    #   }
+    #   @pcancelation_process = session.orders.create_cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #
+    def create_cancelation_process(order_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/cancelations")
 
       handle_response(response, status)
     end
@@ -215,6 +332,30 @@ module BeyondAPI
     #
     def create_shipping_process(order_id, body)
       response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all events of an order in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/66b6aab5-2ed4-4f36-855e-3adb2ea873ee/events' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r
+    #
+    # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @events = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #
+    def events(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/events", params)
 
       handle_response(response, status)
     end

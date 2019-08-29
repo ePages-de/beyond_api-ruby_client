@@ -228,8 +228,95 @@ module BeyondAPI
     #     }
     #   }
     #   @shipping_zone = session.shipping_zones.create("905e981c-1489-45af-9138-0a7dc1f0b085", body)
+    #
     def create_shipping_method(shipping_zone_id, body)
       response, status = BeyondAPI::Request.post(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +DELETE+ request is used to delete a shipping method in a shipping zone. You cannot delete the last shipping method of a shop.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/61c14c3c-ce26-4524-9713-f2ede7ff22fa/shipping-methods/d2eee203-a1c6-4035-8e7a-74bb77cfde47' -i -X DELETE \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +shpz:u+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @param shipping_method_id [String] the shipping method UUID
+    #
+    # @return true
+    #
+    # @example
+    #   session.shipping_zones.delete("61c14c3c-ce26-4524-9713-f2ede7ff22fa", "d2eee203-a1c6-4035-8e7a-74bb77cfde47")
+    #
+    def delete(shipping_zone_id, shipping_method_id)
+      response, status = BeyondAPI::Request.delete(@session, "/shipping-zones/#{shipping_zone_id}/shipping_methods/#{shipping_method_id}")
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
+    #
+    # A +GET+ request is used to list all shipping-methods of a shipping zone in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/8cc24465-3573-4eca-8323-b076bb724080/shipping-methods' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +shpz:r+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @shipping_methods = session.shipping_zones.shipping_methods("8cc24465-3573-4eca-8323-b076bb724080", { size: 20, page: 0 })
+    #
+    def shipping_methods(shipping_zone_id, params = {})
+      response, status = BeyondAPI::Request.get(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", params)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +PUT+ request is used to sort the shipping methods inside a shipping zone.
+    # This is done by passing the self-links of the shipping methods in the desired order. The request must contain URIs for all shipping methods of this shipping zone.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/e54af33b-fadc-4524-8eec-7e0b3e20f625/shipping-methods' -i -X PUT \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +shpz:r+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   session.shipping_zones.sort_shipping_methods(shipping_zone_id)
+    #
+    def sort_shipping_methods(shipping_zone_id)
+      response, status = BeyondAPI::Request.put(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all shipping-methods of a shipping zone in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/search/find-all-serviceable-countries' -i -X GET \
+    #       -H 'Accept: application/hal+json'
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @serviceable_countries = session.shipping_zones.find_serviceable_countries
+    #
+    def find_serviceable_countries
+      response, status = BeyondAPI::Request.get(@session, "/shipping-zones/search/find-all-serviceable-countries")
 
       handle_response(response, status)
     end

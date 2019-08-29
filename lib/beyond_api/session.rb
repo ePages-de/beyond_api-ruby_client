@@ -4,8 +4,13 @@ require "beyond_api/resources/base"
 require "beyond_api/resources/carts"
 require "beyond_api/resources/categories"
 require "beyond_api/resources/checkout_settings"
-require "beyond_api/resources/product_view_categories"
+require "beyond_api/resources/order_settings"
+require "beyond_api/resources/orders"
+require "beyond_api/resources/payment_methods"
 require "beyond_api/resources/products"
+require "beyond_api/resources/scopes"
+require "beyond_api/resources/script_tags"
+require "beyond_api/resources/shipping_zones"
 require "beyond_api/resources/shop"
 require "beyond_api/resources/token"
 require "beyond_api/resources/webhook_subscriptions"
@@ -33,8 +38,8 @@ module BeyondAPI
       BeyondAPI::CheckoutSettings.new(self)
     end
 
-    def product_view_categories
-      BeyondAPI::ProductViewCategories.new(self)
+    def order_settings
+      BeyondAPI::OrderSettings.new(self)
     end
 
     def products

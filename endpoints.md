@@ -597,7 +597,7 @@ A `POST` request is used to create a new return process for an order. Return pro
 session.orders.create_return_process(order_id, body)
 ```
 
-#### 6.30. ✅ List cancelation processes
+#### 6.30. ✅ List cancelation processes 🌞
 
 A `GET` request is used to list all cancelation processes of an order in a paged way.
 
@@ -606,7 +606,7 @@ A `GET` request is used to list all cancelation processes of an order in a paged
 session.orders.cancelation_processes(order_id, params)
 ```
 
-#### 6.31. ✅ Show cancelation process details
+#### 6.31. ✅ Show cancelation process details 🌞
 
 A `GET` request is used to retrieve the cancelation process details of an order.
 
@@ -615,7 +615,7 @@ A `GET` request is used to retrieve the cancelation process details of an order.
 session.orders.cancelation_process(order_id, cancelation_id)
 ```
 
-#### 6.32. ✅ Create cancelation processes
+#### 6.32. ✅ Create cancelation processes 🌞
 
 A `POST` request is used to create a new cancelation process for an order. Cancelation processes trigger a refund process.
 
@@ -624,7 +624,7 @@ A `POST` request is used to create a new cancelation process for an order. Cance
 session.orders.create_cancelation_process(order_id, body)
 ```
 
-#### 6.33. ✅ Cancel order
+#### 6.33. ✅ Cancel order 🌞
 
 A `POST` request is used to cancel an order.
 
@@ -1488,7 +1488,7 @@ A `POST` request is used to create a shipping method with weight-based price in 
 session.shipping_zones.create_shipping_method(shipping_zone_id, body)
 ```
 
-#### 23.11. Delete shipping method in shipping zone
+#### 23.11. ✅ Delete shipping method in shipping zone
 
 A `DELETE` request is used to delete a shipping method in a shipping zone. You cannot delete the last shipping method of a shop.
 
@@ -1503,7 +1503,7 @@ A `GET` request is used to list all shipping-methods of a shipping zone in a pag
 
 ```ruby
 # GET /shipping-zones/2157566e-232b-4f64-ba21-da3d4e8696b6/shipping-methods
-session.shipping_zones.shipping_methods(shipping_zone_id)
+session.shipping_zones.shipping_methods(shipping_zone_id, params)
 ```
 
 #### 23.13. Sort shipping methods in shipping zone
