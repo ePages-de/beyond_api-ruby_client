@@ -432,7 +432,7 @@ A `GET` request is used to list all payment processes of an order in a paged way
 
 ```ruby
 # GET /orders/278f2986-a185-43a1-89ee-21b09ee2dcdf/processes/payments?page=0&size=20
-session.orders.payment_processes(order_id, params)
+session.orders.payment_processes(order_id, params) 🌞
 ```
 
 #### 6.12. ✅ Show payment process details
@@ -441,10 +441,10 @@ A `GET` request is used to retrieve the payment processes.
 
 ```ruby
 # GET /orders/ae913985-afdf-4ff4-b0cd-4baceaa0a8f7/processes/payments/52906964-cb44-45ad-8331-7fbd4a579ba1
-session.orders.payment_process(order_id, payment_id)
+session.orders.payment_process(order_id, payment_id) 🌞
 ```
 
-#### 6.13. ✅ Show online payment process details
+#### 6.13. ✅ Show online payment process details 🌞
 
 A `GET` request is used to retrieve the payment processes.
 
@@ -453,7 +453,7 @@ A `GET` request is used to retrieve the payment processes.
 session.orders.payment_process(order_id, payment_id)
 ```
 
-#### 6.14. ✅ Show active payment process details
+#### 6.14. ✅ Show active payment process details 🌞
 
 A `GET` request is used to retrieve the active payment processes. There is only one active payment process. See Show payment process details for more information about the request and response structure. (6.12 - http://docs.beyondshop.cloud/#resources-payment-process-get)
 
@@ -462,7 +462,7 @@ A `GET` request is used to retrieve the active payment processes. There is only 
 session.orders.active_payment_process(order_id)
 ```
 
-#### 6.15. ✅ Mark payment process as voided
+#### 6.15. ✅ Mark payment process as voided 🌞
 
 A `POST` request is used to mark the payment process as voided.
 

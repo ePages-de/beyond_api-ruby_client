@@ -7,6 +7,29 @@ module BeyondAPI
     include BeyondAPI::Utils
 
     #
+    # A +GET+ request is used to retrieve the active payment processes. There is only one active payment process. See {Show payment process details}[http://docs.beyondshop.cloud/#resources-payment-process-get] for more information about the request and response structure.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/208e2c1d-6610-43c7-b2f1-20aad6f029b9/processes/payments/active' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +pypr:r
+    #
+    # @param order_id [String] the order UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_process = session.orders.active_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #
+    def active_payment_process(order_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/active")
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to list all orders of the shop in a paged way. Each item in the response represents a summary of the order data.
     #
     # @beyond_api.scopes +ordr:r
@@ -73,24 +96,74 @@ module BeyondAPI
     end
 
     #
-    # A +GET+ request is used to list all order processes.
+    # A +GET+ request is used to retrieve the payment processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d44ed295-6a08-47ba-a288-90d4f3ba9fff/processes/payments/be56bfbd-af95-45b9-8b0e-cb0c184aaf60' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +pypr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param payment_id [String] the payment UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_process = session.orders.mark_payment_process_as_voided("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #
+    def mark_payment_process_as_voided(order_id, payment_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to retrieve the payment processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d44ed295-6a08-47ba-a288-90d4f3ba9fff/processes/payments/be56bfbd-af95-45b9-8b0e-cb0c184aaf60' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +pypr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param payment_id [String] the payment UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_process = session.orders.payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #
+    def payment_process(order_id, payment_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all payment processes of an order in a paged way.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/2012b775-a706-41e0-b0f9-5142864ca4a0/processes/payments?page=0&size=20' -i -X GET \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +ordr:r
+    # @beyond_api.scopes +pypr:r
     #
     # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @orders = session.orders.processes("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @payment_processes = session.orders.payment_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def payment_processes(order_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+    def payment_processes(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments", params)
 
       handle_response(response, status)
     end
