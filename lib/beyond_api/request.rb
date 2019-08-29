@@ -8,7 +8,7 @@ module BeyondAPI
           response = BeyondAPI::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
-            request.params = params
+            request.params = params.to_h.camelize_keys.to_json
           end
 
           [response.body.blank? ? nil : JSON.parse(response.body), response.status]
@@ -16,10 +16,11 @@ module BeyondAPI
       end
 
       [:post, :put, :patch].each do |method|
-        define_method(method) do |session, path, body = {}|
+        define_method(method) do |session, path, body = {}, params = {}|
           response = BeyondAPI::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
+            request.params = params.to_h.camelize_keys.to_json
             request.body = body.to_h.camelize_keys.to_json
           end
 

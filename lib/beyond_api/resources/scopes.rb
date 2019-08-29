@@ -22,7 +22,7 @@ module BeyondAPI
     # @example
     #   @scopes = session.scopes.all(size: 20, page: 0)
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/scopes", params)
 
       handle_response(response, status)

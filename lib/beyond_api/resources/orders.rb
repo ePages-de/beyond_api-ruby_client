@@ -49,6 +49,29 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to capture the payment.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/ebfd99d6-f025-4c97-96d2-d5adbb45d6c2/processes/payments/2936deca-fd56-4c0d-88e2-8030c897bf90/capture' -i -X POST \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +pypr:u
+    #
+    # @param order_id [String] the order UUID
+    # @param payment_id [String] the payment UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @payment_process = session.orders.capture_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #
+    def capture_payment_process(order_id, payment_id)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture", body)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +POST+ request is used to create an invoice for the order.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/a5d4d6c6-e77d-4180-8dbf-729f38a698b2/create-invoice' -i -X POST \
@@ -96,25 +119,77 @@ module BeyondAPI
     end
 
     #
-    # A +GET+ request is used to retrieve the payment processes.
+    # A +POST+ request is used to mark the payment process as paid.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d44ed295-6a08-47ba-a288-90d4f3ba9fff/processes/payments/be56bfbd-af95-45b9-8b0e-cb0c184aaf60' -i -X GET \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/9a1a1aaa-e37d-4c71-bc95-cbc228463fec/processes/payments/cb8c9a16-2d81-4ec1-9a4a-84a4c36124ae/mark-paid' -i -X POST \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>'
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #          "comment" : "comment",
+    #          "details" : {
+    #            "amount" : {
+    #              "currency" : "EUR",
+    #              "amount" : 77.44
+    #            }
+    #          }
+    #        }'
     #
-    # @beyond_api.scopes +pypr:r
+    # @beyond_api.scopes +pypr:u
     #
     # @param order_id [String] the order UUID
     # @param payment_id [String] the payment UUID
+    # @param body [Hash] the request body
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @payment_process = session.orders.mark_payment_process_as_voided("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #   body = {
+    #     "comment" => "comment",
+    #     "details" => {
+    #       "amount" => {
+    #         "currency" => "EUR",
+    #         "amount" => 77.44
+    #       }
+    #     }
+    #   }
     #
-    def mark_payment_process_as_voided(order_id, payment_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
+    #   @payment_process = session.orders.mark_payment_process_as_paid("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #
+    def mark_payment_process_as_paid(order_id, payment_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-paid", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +POST+ request is used to mark the payment process as voided.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/a5558b7f-55f4-47d4-b603-9bf7eb59c05b/processes/payments/5bcc48e7-2641-42a8-a042-189ae92e9901/mark-voided' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "comment"
+    #   }'
+    #
+    # @beyond_api.scopes +pypr:u
+    #
+    # @param order_id [String] the order UUID
+    # @param payment_id [String] the payment UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment" => "comment"
+    #   }
+    #
+    #   @payment_process = session.orders.mark_payment_process_as_voided("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #
+    def mark_payment_process_as_voided(order_id, payment_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-voided", body)
 
       handle_response(response, status)
     end
@@ -187,6 +262,31 @@ module BeyondAPI
     #
     def processes(order_id)
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all refund processes of an order in a paged way. Refunds are triggered if either a cancelation or return process is created. See {Create cancelation processes}[http://docs.beyondshop.cloud/#resources-cancel-processes-create] and {Create return processes}[http://docs.beyondshop.cloud/#resources-return-processes-create] for more information.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/6f86e42f-763e-4514-a37d-fb8f88cdc14c/processes/refunds?page=0&size=20' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rfpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @refund_processes = session.orders.refund_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #
+    def refund_processes(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds", params)
 
       handle_response(response, status)
     end

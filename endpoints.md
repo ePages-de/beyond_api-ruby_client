@@ -166,7 +166,7 @@ The `selectable` field indicates if a payment method is currently selectable. No
 
 ```ruby
 # GET /carts/679575cf-6535-469d-ab5c-21eb8f33db09/payment-methods
-session.carts.payment_methods(cart_id, params)
+session.carts.payment_methods(cart_id)
 ```
 
 #### 3.16. ✅ Create payment 🌞
@@ -468,19 +468,19 @@ A `POST` request is used to mark the payment process as voided.
 
 ```ruby
 # POST /orders/aea34cf6-969e-408d-bf2c-608c6c972076/processes/payments/fb56103b-9b7b-42fa-a2b8-b7a322ce1acf/mark-voided
-session.orders.mark_payment_process_as_voided(order_id, payment_id)
+session.orders.mark_payment_process_as_voided(order_id, payment_id, body)
 ```
 
-#### 6.16. ✅ Mark payment process as paid
+#### 6.16. ✅ Mark payment process as paid 🌞
 
 A `POST` request is used to mark the payment process as paid.
 
 ```ruby
 # POST /orders/5156cbde-9fe9-4f84-b88d-57676cf77662/processes/payments/632db897-54c3-443e-a3bb-96d98fa740fc/mark-paid
-session.orders.mark_payment_process_as_paid(order_id, payment_id)
+session.orders.mark_payment_process_as_paid(order_id, payment_id, body)
 ```
 
-#### 6.17. ✅ Capture payment
+#### 6.17. ✅ Capture payment 🌞
 
 A `POST` request is used to capture the payment.
 
@@ -489,7 +489,7 @@ A `POST` request is used to capture the payment.
 session.orders.capture_payment_process(order_id, payment_id)
 ```
 
-#### 6.18. ✅ List refund processes
+#### 6.18. ✅ List refund processes 🌞
 
 A `GET` request is used to list all refund processes of an order in a paged way. Refunds are triggered if either a cancelation or return process is created. See Create cancelation processes (6.32 - http://docs.beyondshop.cloud/#resources-cancel-processes-create) and Create return processes (6.29 - http://docs.beyondshop.cloud/#resources-return-processes-create) for more information.
 

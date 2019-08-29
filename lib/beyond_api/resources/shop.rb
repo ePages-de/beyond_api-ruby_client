@@ -455,7 +455,7 @@ module BeyondAPI
     #   session.shop.upload_image(image_binary, file_name, label)
     #
     def upload_image(image_binary, file_name, label)
-      response, status = BeyondAPI::Request.post(@session, "/shop/images?fileName=sample.png&label=invoice logo")
+      response, status = BeyondAPI::Request.post(@session, "/shop/images", image_binary, { file_name: file_name, label: label })
 
       handle_response(response, status)
     end
