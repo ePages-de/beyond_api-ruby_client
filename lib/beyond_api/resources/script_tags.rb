@@ -113,7 +113,7 @@ module BeyondAPI
     # @example
     #   @script_tag = session.script_tags.create("https://example.org/scripts/someOtherScript.js")
     #
-    def update(script_tag_id, body)
+    def update(script_tag_id, script_tag_url)
       response, status = BeyondAPI::Request.put(@session, "/script-tags/#{script_tag_id}", { scriptUrl: script_tag_url })
 
       handle_response(response, status)

@@ -20,13 +20,24 @@ module BeyondAPI
           response = BeyondAPI::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
-            request.params = params.to_h.camelize_keys.to_json
             request.body = body.to_h.camelize_keys.to_json
           end
 
           [response.body.blank? ? nil : JSON.parse(response.body), response.status]
         end
       end
+    end
+
+    def self.upload(session, path, image_binary, content_type, params)
+      response = BeyondAPI::Connection.default.post do |request|
+        request.url(session.api_url + path)
+        request.headers['Authorization'] = "Bearer #{ session.access_token }"
+        request.headers['Content-Type'] = content_type
+        request.params = params.to_h.camelize_keys.to_json
+        request.body = image_binary
+      end
+
+      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
     end
 
     def self.token(url, params)

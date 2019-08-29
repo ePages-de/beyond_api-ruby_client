@@ -452,10 +452,20 @@ module BeyondAPI
     # @beyond_api.scopes +shim:c+
     #
     # @example
-    #   session.shop.upload_image(image_binary, file_name, label)
+    #   session.shop.upload_image(image_path, image_name)
     #
-    def upload_image(image_binary, file_name, label)
-      response, status = BeyondAPI::Request.post(@session, "/shop/images", image_binary, { file_name: file_name, label: label })
+    def upload_image(image_path, image_name)
+      content_type = case File.extname(image_path)
+        when ".png"
+          "image/png"
+        when ".jpg", ".jpeg"
+          "image/jpeg"
+        when ".gif"
+          "image/gif"
+        end
+      image_binary = File.binread(image_path)
+
+      response, status = BeyondAPI::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: "invoice logo" })
 
       handle_response(response, status)
     end

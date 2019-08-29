@@ -30,6 +30,29 @@ module BeyondAPI
     end
 
     #
+    # A +GET+ request is used to retrieve the active refund processes. There is only one active refund process. See {Show refund process details}[http://docs.beyondshop.cloud/#resources-refund-process-get] for more information about the request and response structure.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/8613295f-4d44-4143-bfd0-6b81fc178618/processes/refunds/active' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rfpr:r
+    #
+    # @param order_id [String] the order UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @refund_process = session.orders.active_refund_process("268a8629-55cd-9845-3114-454b9b5ea14c")
+    #
+    def active_refund_process(order_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/active")
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to list all orders of the shop in a paged way. Each item in the response represents a summary of the order data.
     #
     # @beyond_api.scopes +ordr:r
@@ -195,6 +218,47 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to mark the refund process as paid.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/60baa84c-9e11-4d55-97a9-1a7b00a0691c/processes/refunds/active/mark-paid' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "comment",
+    #     "details" : {
+    #       "amount" : {
+    #         "currency" : "EUR",
+    #         "amount" : 19.98
+    #       }
+    #     }
+    #   }'
+    #
+    # @beyond_api.scopes +rfpr:r
+    #
+    # @param order_id [String] the order UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment" => "comment",
+    #     "details" => {
+    #       "amount" => {
+    #         "currency" => "EUR",
+    #         "amount" => 19.98
+    #       }
+    #     }
+    #   }
+    #   @refund_process = session.orders.mark_refund_process_as_paid("268a8629-55cd-9845-3114-454b9b5ea14c", body)
+    #
+    def mark_refund_process_as_paid(order_id)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/refunds/active/mark-paid")
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the payment processes.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d44ed295-6a08-47ba-a288-90d4f3ba9fff/processes/payments/be56bfbd-af95-45b9-8b0e-cb0c184aaf60' -i -X GET \
@@ -262,6 +326,30 @@ module BeyondAPI
     #
     def processes(order_id)
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to retrieve the refund processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/801885c8-0b25-44a2-a1a4-60cbf3f9ecca/processes/refunds/4c02883f-be31-4fb2-ad0d-ccbc3678a9f5' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rfpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param refund_id [String] the refund UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @refund_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #
+    def refund_process(order_id, refund_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
 
       handle_response(response, status)
     end
@@ -341,6 +429,55 @@ module BeyondAPI
     #
     def send_invoice(order_id)
       response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/send-invoice")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to retrieve the refund processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/801885c8-0b25-44a2-a1a4-60cbf3f9ecca/processes/refunds/4c02883f-be31-4fb2-ad0d-ccbc3678a9f5' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rfpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param refund_id [String] the refund UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @refund_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #
+    def shipping_process(order_id, shipping_process_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all shipping processes of an order in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d6387876-5e93-48dc-a6f3-f85893149819/processes/shippings?page=0&size=20' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +shpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @shipping_processes = session.orders.shipping_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #
+    def shipping_processes(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/shippings", params)
 
       handle_response(response, status)
     end

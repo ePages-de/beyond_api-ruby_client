@@ -498,7 +498,7 @@ A `GET` request is used to list all refund processes of an order in a paged way.
 session.orders.refund_processes(order_id, params)
 ```
 
-#### 6.19. ✅ Show refund process details
+#### 6.19. ✅ Show refund process details 🌞
 
 A `GET` request is used to retrieve the refund processes.
 
@@ -507,7 +507,7 @@ A `GET` request is used to retrieve the refund processes.
 session.orders.refund_process(order_id, refund_id)
 ```
 
-#### 6.20. ✅ Show active refund process details
+#### 6.20. ✅ Show active refund process details 🌞
 
 A `GET` request is used to retrieve the active refund processes. There is only one active refund process. See Show refund process details (6.19 - http://docs.beyondshop.cloud/#resources-refund-process-get) for more information about the request and response structure.
 
@@ -516,7 +516,7 @@ A `GET` request is used to retrieve the active refund processes. There is only o
 session.orders.active_refund_process(order_id)
 ```
 
-#### 6.21. ✅ Mark refund process as paid
+#### 6.21. ✅ Mark refund process as paid 🌞
 
 A `POST` request is used to mark the refund process as paid.
 
@@ -525,7 +525,7 @@ A `POST` request is used to mark the refund process as paid.
 session.orders.mark_refund_process_as_paid(order_id)
 ```
 
-#### 6.22. ✅ List shipping processes
+#### 6.22. ✅ List shipping processes 🌞
 
 A `GET` request is used to list all shipping processes of an order in a paged way.
 
@@ -1362,7 +1362,7 @@ A `PUT` request is used to set the current shipping method of the cart.
 
 ```ruby
 # PUT /carts/ba8ec1c7-dce1-41e9-8daf-5f03b9b96f42/shipping-methods/current
-session.carts.set_shipping_method(cart_id, body)
+session.carts.set_shipping_method(cart_id, shipping_zone_id, shipping_method_id)
 ```
 
 #### 22.2. ✅ Set cart shipping method to current default
@@ -1385,7 +1385,7 @@ session.carts.shipping_method(cart_id)
 
 #### 22.4. ✅ Show applicable cart shipping method details
 
-A `GET` request is used to get the applicable shipping method of a cart. The shipping method type is documented here
+A `GET` request is used to get the applicable shipping methods of a cart. The shipping method type is documented here
 
 The `selectable` field indicates if a shipping method is currently selectable. Non-selectable shipping methods are currently restricted because of rules that apply to a cart. Trying to set such a shipping method as the current one of the cart will fail.
 
@@ -1449,7 +1449,7 @@ A `PUT` request is used to sort the shipping zones. This is done by passing the 
 
 ```ruby
 # PUT /shipping-zones
-session.shipping_zones.sort(body)
+session.shipping_zones.sort(shipping_zone_ids)
 ```
 
 #### 23.7. Show details of shipping method in shipping zone

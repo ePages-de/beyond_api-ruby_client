@@ -460,5 +460,88 @@ module BeyondAPI
 
       handle_response(response, status)
     end
+
+    #
+    # A +PUT+ request is used to set the current shipping method of the cart.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/a4e7922a-f895-4a7d-8cb1-6ecf74d7ceba/shipping-methods/current' -i -X PUT \
+    #       -H 'Content-Type: text/uri-list' \
+    #       -H 'Accept: application/json' \
+    #       -d 'https://api-shop.beyondshop.cloud/api/shipping-zones/59e26c99-ef1d-4ee8-a79f-d078cd6dfe24/shipping-methods/f3d3ce8d-eeab-44b6-81bb-67a4f1d7a57f'
+    #
+    # @param cart_id [String] the cart UUID
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @param shipping_method_id [String] the shipping method UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @cart = session.carts.set_shipping_method("a4e7922a-f895-4a7d-8cb1-6ecf74d7ceba", "59e26c99-ef1d-4ee8-a79f-d078cd6dfe24", "f3d3ce8d-eeab-44b6-81bb-67a4f1d7a57f")
+    #
+    def set_shipping_method(cart_id, shipping_zone_id, shipping_method_id)
+      response, status = BeyondAPI::Request.put(@session, "/carts/#{cart_id}/shipping-methods/current",
+                                                "#{session.api_url}/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +PUT+ request is used to set the shipping method to the current default shipping method.
+    # The default shipping method is the one with the highest priority of the applicable shipping methods.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/64efe22b-2699-4032-a2c9-c94a2e4fa425/shipping-methods/default' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json'
+    #
+    # @param cart_id [String] the cart UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @cart = session.carts.set_shipping_method_to_default("a4e7922a-f895-4a7d-8cb1-6ecf74d7ceba")
+    #
+    def set_shipping_method_to_default(cart_id)
+      response, status = BeyondAPI::Request.put(@session, "/carts/#{cart_id}/shipping-methods/current",
+                                                "#{session.api_url}/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to get the current shipping method.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/9093a339-66fd-4cc1-9dcf-d23003c38b41/shipping-methods/current' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
+    #
+    # @param cart_id [String] the cart UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @shipping_method = session.carts.shipping_method("9093a339-66fd-4cc1-9dcf-d23003c38b41")
+    #
+    def shipping_method(cart_id)
+      response, status = BeyondAPI::Request.get(@session, "/carts/#{cart_id}")
+      handle_response(response, status)
+    end
+
+    # A +GET+ request is used to get the applicable shipping method of a cart.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/05a547a0-80dc-4a8c-b9b6-aa028b6ef7d8/shipping-methods' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
+    #
+    # @param cart_id [String] the cart UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @cart = session.carts.shipping_methods("05a547a0-80dc-4a8c-b9b6-aa028b6ef7d8")
+    #
+    def shipping_methods(cart_id)
+      response, status = BeyondAPI::Request.get(@session, "/carts/#{cart_id}")
+      handle_response(response, status)
+    end
   end
 end

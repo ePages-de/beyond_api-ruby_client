@@ -6,6 +6,7 @@ require "beyond_api/resources/categories"
 require "beyond_api/resources/checkout_settings"
 require "beyond_api/resources/product_view_categories"
 require "beyond_api/resources/products"
+require "beyond_api/resources/shop"
 require "beyond_api/resources/token"
 require "beyond_api/resources/webhook_subscriptions"
 
