@@ -444,7 +444,7 @@ module BeyondAPI
     # @beyond_api.scopes +rfpr:r
     #
     # @param order_id [String] the order UUID
-    # @param refund_id [String] the refund UUID
+    # @param shipping_process_id [String] the shipping process UUID
     #
     # @return [OpenStruct]
     #
