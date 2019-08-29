@@ -13,7 +13,8 @@ module BeyondAPI
           response
         end
       else
-        BeyondAPI::Error.new(response)
+        puts response
+        # BeyondAPI::Error.new(response)
       end
     end
 

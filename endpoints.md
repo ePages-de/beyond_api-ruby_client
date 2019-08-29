@@ -534,7 +534,7 @@ A `GET` request is used to list all shipping processes of an order in a paged wa
 session.orders.shipping_processes(order_id, params)
 ```
 
-#### 6.23. ✅ Show shipping process details
+#### 6.23. ✅ Show shipping process details 🌞
 
 A `GET` request is used to retrieve the shipping process details.
 
@@ -543,7 +543,7 @@ A `GET` request is used to retrieve the shipping process details.
 session.orders.shipping_process(order_id, shipping_id)
 ```
 
-#### 6.24. ✅ Create shipping processes
+#### 6.24. ✅ Create shipping processes 🌞
 
 A `POST` request is ussed to create a new shipping processes for an order.
 
@@ -552,7 +552,7 @@ A `POST` request is ussed to create a new shipping processes for an order.
 session.orders.create_shipping_process(order_id, body)
 ```
 
-#### 6.25. ✅ Mark shipment as shipped
+#### 6.25. ✅ Mark shipment as shipped 🌞
 
 A `POST` request is used to mark the shipment as shipped.
 
@@ -561,7 +561,7 @@ A `POST` request is used to mark the shipment as shipped.
 session.orders.mark_shipping_process_as_shipped(order_id, shipping_id)
 ```
 
-#### 6.26. ✅ Mark shipment as delivered
+#### 6.26. ✅ Mark shipment as delivered 🌞
 
 A `POST` request is used to mark the shipment as delivered.
 
@@ -570,7 +570,7 @@ A `POST` request is used to mark the shipment as delivered.
 session.orders.mark_shipping_process_as_delivered(order_id, shipping_id)
 ```
 
-#### 6.27. ✅ List return processes
+#### 6.27. ✅ List return processes 🌞
 
 A `GET` request is used to list all return processes of an order in a paged way.
 
@@ -579,7 +579,7 @@ A `GET` request is used to list all return processes of an order in a paged way.
 session.orders.return_processes(order_id, params)
 ```
 
-#### 6.28. ✅ Show return process details
+#### 6.28. ✅ Show return process details 🌞
 
 A `GET` request is used to retrieve the return process details.
 
@@ -588,7 +588,7 @@ A `GET` request is used to retrieve the return process details.
 session.orders.return_process(order_id, return_id)
 ```
 
-#### 6.29. ✅ Create return processes
+#### 6.29. ✅ Create return processes 🌞
 
 A `POST` request is used to create a new return process for an order. Return processes trigger a refund process.
 
@@ -1452,7 +1452,7 @@ A `PUT` request is used to sort the shipping zones. This is done by passing the 
 session.shipping_zones.sort(shipping_zone_ids)
 ```
 
-#### 23.7. Show details of shipping method in shipping zone
+#### 23.7. ✅ Show details of shipping method in shipping zone
 
 A `GET` request is used to retrieve the details of a shipping method in a shipping zone.
 
@@ -1461,7 +1461,7 @@ A `GET` request is used to retrieve the details of a shipping method in a shippi
 session.shipping_zones.shipping_method(shipping_zone_id, shipping_method_id)
 ```
 
-#### 23.8. Show details of shipping method with weight-based price in shipping zone
+#### 23.8. ✅ Show details of shipping method with weight-based price in shipping zone
 
 A `GET` request is used to retrieve the details of a shipping method with weight-based price in a shipping zone.
 
@@ -1470,22 +1470,22 @@ A `GET` request is used to retrieve the details of a shipping method with weight
 session.shipping_zones.shipping_method(shipping_zone_id, shipping_method_id)
 ```
 
-#### 23.9. Create shipping method in shipping zone
+#### 23.9. ✅ Create shipping method in shipping zone
 
 A `POST` request is used to create a shipping method in a shipping zone.
 
 ```ruby
 # POST /shipping-zones/9ff15c7b-70c2-42de-a900-7a924ae0e4a0/shipping-methods
-session.shipping_zones.create_shipping_method(body)
+session.shipping_zones.create_shipping_method(shipping_zone_id, body)
 ```
 
-#### 23.10. Create shipping method with weight-based price in shipping zone
+#### 23.10. ✅ Create shipping method with weight-based price in shipping zone
 
 A `POST` request is used to create a shipping method with weight-based price in a shipping zone.
 
 ```ruby
 # POST /shipping-zones/0fcdd0f6-20df-4b09-a871-7568b64e11f1/shipping-methods
-session.shipping_zones.create_shipping_method(body)
+session.shipping_zones.create_shipping_method(shipping_zone_id, body)
 ```
 
 #### 23.11. Delete shipping method in shipping zone
@@ -1528,7 +1528,7 @@ session.shipping_zones.find_serviceable_countries
 
 This resource represents the requests to manage the merchant’s shop address.
 
-#### 24.1. ✅ Show address details
+#### 24.1. ✅ Show address details 🌞
 
 A `GET` request is used to retrieve the details of a shop’s address.
 
@@ -1545,7 +1545,7 @@ A `PATCH` request is used to update a shop’s address partially with json patch
 # PATCH /shop/address
 ```
 
-#### 24.3. ✅ Update address partially (json)
+#### 24.3. ✅ Update address partially (json) 🌞
 
 A `PATCH` request is used to patch a shop’s address partially with json content type.
 
@@ -1554,7 +1554,7 @@ A `PATCH` request is used to patch a shop’s address partially with json conten
 session.shop.update_address(body)
 ```
 
-#### 24.4. ✅ Create shop attribute
+#### 24.4. ✅ Create shop attribute 🌞
 
 A `POST` request is used to create a shop attribute.
 
@@ -1563,7 +1563,7 @@ A `POST` request is used to create a shop attribute.
 session.shop.create_attribute(body)
 ```
 
-#### 24.5. ✅ Show shop attribute details
+#### 24.5. ✅ Show shop attribute details 🌞
 
 A `GET` request is used to retrieve a particular shop attribute by its name.
 
@@ -1572,7 +1572,7 @@ A `GET` request is used to retrieve a particular shop attribute by its name.
 session.shop.attribute(attribute_name)
 ```
 
-#### 24.6. ✅ List shop attributes
+#### 24.6. ✅ List shop attributes 🌞
 
 A `GET` request is used to retrieve a list of all shop attributes.
 
@@ -1581,7 +1581,7 @@ A `GET` request is used to retrieve a list of all shop attributes.
 session.shop.attributes(params)
 ```
 
-#### 24.7. ✅ Update shop attribute
+#### 24.7. ✅ Update shop attribute 🌞
 
 A `PUT` request is used to update a shop attribute. This operation is idempotent and will create a new shop attribute if required.
 
@@ -1590,7 +1590,7 @@ A `PUT` request is used to update a shop attribute. This operation is idempotent
 session.shop.update_attribute(attribute_name, body)
 ```
 
-#### 24.8. ✅ Delete shop attribute
+#### 24.8. ✅ Delete shop attribute 🌞
 
 A `DELETE` request is used to delete an shop attribute.
 
@@ -1599,7 +1599,7 @@ A `DELETE` request is used to delete an shop attribute.
 session.shop.delete_attribute(attribute_name)
 ```
 
-#### 24.9. ✅ List shop images
+#### 24.9. ✅ List shop images 🌞
 
 A `GET` request is used to retrieve the images of a shop.
 
@@ -1608,7 +1608,7 @@ A `GET` request is used to retrieve the images of a shop.
 session.shop.images(params)
 ```
 
-#### 24.10. ✅ Show shop image details
+#### 24.10. ✅ Show shop image details 🌞
 
 A `GET` request is used to retrieve a single shop image.
 
@@ -1617,7 +1617,7 @@ A `GET` request is used to retrieve a single shop image.
 session.shop.image(image_id)
 ```
 
-#### 24.11. ✅ Create shop image
+#### 24.11. ✅ Create shop image 🌞
 
 A `POST` request is used to create a shop image.
 
@@ -1626,7 +1626,7 @@ A `POST` request is used to create a shop image.
 session.shop.create_image(body)
 ```
 
-#### 24.12. ✅ Delete shop image
+#### 24.12. ✅ Delete shop image 🌞
 
 A `DELETE` request is used to delete a shop image.
 
@@ -1635,7 +1635,7 @@ A `DELETE` request is used to delete a shop image.
 session.shop.delete_image(image_id)
 ```
 
-#### 24.13. ✅ Find shop images by label
+#### 24.13. ✅ Find shop images by label 🌞
 
 A `GET` request is issued to search for shop images by label.
 
@@ -1644,7 +1644,7 @@ A `GET` request is issued to search for shop images by label.
 session.shop.search_images_by_label(label)
 ```
 
-#### 24.14. ✅ Upload shop image
+#### 24.14. ✅ Upload shop image 🌞
 
 A `POST` request is used to upload a shop image. The body of the request must contain the content of the image.
 
@@ -1653,7 +1653,7 @@ A `POST` request is used to upload a shop image. The body of the request must co
 session.shop.upload_image(image_binary, file_name, label)
 ```
 
-#### 24.15. ✅ Show legal details
+#### 24.15. ✅ Show legal details 🌞
 
 A `GET` request is used to retrieve the details of the legal resource.
 
@@ -1670,7 +1670,7 @@ A `PATCH` request is used to update a legal resource partially with json patch c
 # PATCH /shop/legal
 ```
 
-#### 24.17. ✅ Update legal resource partially (json)
+#### 24.17. ✅ Update legal resource partially (json) 🌞
 
 A `PATCH` request is used to update a legal resource partially with json content type.
 
@@ -1679,7 +1679,7 @@ A `PATCH` request is used to update a legal resource partially with json content
 session.shop.update_legal_content(body)
 ```
 
-#### 24.18. ✅ List legal content
+#### 24.18. ✅ List legal content 🌞
 
 A `GET` request is used to retrieve the legal content of a shop.
 
@@ -1688,7 +1688,7 @@ A `GET` request is used to retrieve the legal content of a shop.
 session.shop.legal_contents(params)
 ```
 
-#### 24.19. ✅ Show legal content details
+#### 24.19. ✅ Show legal content details 🌞
 
 A `GET` request is used to retrieve a specific part of the legal content information.
 
@@ -1697,7 +1697,7 @@ A `GET` request is used to retrieve a specific part of the legal content informa
 session.shop.legal_content(legal_content_type)
 ```
 
-#### 24.20. ✅ Update legal content
+#### 24.20. ✅ Update legal content 🌞
 
 A `PUT` request is used to update the content of a specific part of the legal content information. Changes on the properties type and mandatory will be ignored.
 
@@ -1706,7 +1706,7 @@ A `PUT` request is used to update the content of a specific part of the legal co
 session.shop.update_legal_content(body)
 ```
 
-#### 24.21. ✅ Show shop details
+#### 24.21. ✅ Show shop details 🌞
 
 A `GET` request is used to retrieve the details of a shop.
 
@@ -1715,7 +1715,7 @@ A `GET` request is used to retrieve the details of a shop.
 session.shop.current
 ```
 
-#### 24.22. ✅ Update shop
+#### 24.22. ✅ Update shop 🌞
 
 A `PUT` request is used to change attributes of a shop.
 
@@ -1732,7 +1732,7 @@ A `PATCH` request is used to partially update a shop resource with json patch co
 # PATCH /shop
 ```
 
-#### 24.24. ✅ Open shop
+#### 24.24. ✅ Open shop 🌞
 
 A `POST` request is used to open a shop.
 
@@ -1741,7 +1741,7 @@ A `POST` request is used to open a shop.
 session.shop.open
 ```
 
-#### 24.25. ✅ Close shop
+#### 24.25. ✅ Close shop 🌞
 
 A `POST` request is used to close a shop.
 
@@ -1949,7 +1949,7 @@ This resource is used to manage webhook subscriptions. ePages can send webhook n
 | product.updated  | Triggered when a product is updated.  | prod:r  |
 | product.deleted  | Triggered when a product is deleted.  | prod:r  |
 
-#### 27.1. ✅ Create webhook subscription
+#### 27.1. ✅ Create webhook subscription 🌞
 
 A `POST` request is used to create a webhook subscription.
 

@@ -124,6 +124,102 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to create a new return process for an order. Return processes trigger a refund process.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/29007bb7-739a-46f5-8c70-4e1029b52fa5/processes/returns' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "This needs to be done fast!",
+    #     "sendMail" : true,
+    #     "lineItems" : [ {
+    #       "quantity" : 3,
+    #       "productLineItemId" : "bb9ad011-6417-4f04-8bc2-39651edebd2f",
+    #       "status" : "RETURNED"
+    #     } ],
+    #     "shippingPriceRefund" : {
+    #       "currency" : "EUR",
+    #       "amount" : 19.99
+    #     }
+    #   }'
+    #
+    # @beyond_api.scopes +rtpr:c
+    #
+    # @param order_id [String] the order UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment": "This needs to be done fast!",
+    #     "sendMail": true,
+    #     "lineItems": [{
+    #       "quantity": 3,
+    #       "productLineItemId": "bb9ad011-6417-4f04-8bc2-39651edebd2f",
+    #       "status": "RETURNED"
+    #     }],
+    #     "shippingPriceRefund": {
+    #       "currency": "EUR",
+    #       "amount": 19.99
+    #     }
+    #   }
+    #   @return_process = session.orders.create_return_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #
+    def create_return_process(order_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/returns", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +POST+ request is ussed to create a new shipping processes for an order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/8df2fe3b-5149-492f-932a-073f012305eb/processes/shippings' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "This needs to be done fast!",
+    #     "sendMail" : true,
+    #     "createDeliveryNote" : true,
+    #     "trackingCode" : "lookAtMyTrackingCodeWow",
+    #     "trackingLink" : "http://tracking.is/fun?code=lookAtMyTrackingCodeWow",
+    #     "lineItems" : [ {
+    #       "quantity" : 3,
+    #       "productLineItemId" : "e96e1b33-d9e9-4508-862a-816235b541f7"
+    #     } ]
+    #   }'
+    #
+    # @beyond_api.scopes +shpr:c
+    #
+    # @param order_id [String] the order UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment" => "This needs to be done fast!",
+    #     "sendMail" => true,
+    #     "createDeliveryNote" => true,
+    #     "trackingCode" => "lookAtMyTrackingCodeWow",
+    #     "trackingLink" => "http=>//tracking.is/fun?code=lookAtMyTrackingCodeWow",
+    #     "lineItems" => [ {
+    #       "quantity" => 3,
+    #       "productLineItemId" => "e96e1b33-d9e9-4508-862a-816235b541f7"
+    #     } ]
+    #   }
+    #   @shipping_process = session.orders.create_shipping_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #
+    def create_shipping_process(order_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings")
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the details of an order.
     #
     # @beyond_api.scopes +ordr:r
@@ -259,6 +355,80 @@ module BeyondAPI
     end
 
     #
+    # A +POST+ request is used to mark the shipment as delivered.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/b5642d1f-0f7f-444e-96d5-1c1d1642ea5e/processes/shippings/619d06d8-0077-4efd-b341-5103f71bfb2d/mark-delivered' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "comment"
+    #   }'
+    #
+    # @beyond_api.scopes +shpr:u
+    #
+    # @param order_id [String] the order UUID
+    # @param shipping_id [String] the shipping UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment" => "comment",
+    #   }
+    #
+    #   @shipping_process = session.orders.mark_shipping_process_as_delivered("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #
+    def mark_shipping_process_as_delivered(order_id, shipping_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{payment_id}/mark-delivered", body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +POST+ request is used to mark the shipment as shipped.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/dd6a7e20-16be-4509-bf83-fb8ee072ddad/processes/shippings/a0b0c4a5-0c80-47f4-98c3-0f55f4161176/mark-shipped' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "comment" : "This needs to be done fast!",
+    #     "sendMail" : true,
+    #     "details" : {
+    #       "trackingCode" : "lookAtMyTrackingCodeWow",
+    #       "trackingLink" : "http://tracking.is/fun?code=lookAtMyTrackingCodeWow"
+    #     }
+    #   }'
+    #
+    # @beyond_api.scopes +shpr:u
+    #
+    # @param order_id [String] the order UUID
+    # @param shipping_id [String] the shipping UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "comment" => "This needs to be done fast!",
+    #     "sendMail" => true,
+    #     "details" => {
+    #       "trackingCode" => "lookAtMyTrackingCodeWow",
+    #       "trackingLink" => "http://tracking.is/fun?code=lookAtMyTrackingCodeWow"
+    #     }
+    #   }
+    #
+    #   @shipping_process = session.orders.mark_shipping_process_as_shipped("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #
+    def mark_shipping_process_as_shipped(order_id, shipping_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{shipping_id}/mark-shipped", body)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the payment processes.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/d44ed295-6a08-47ba-a288-90d4f3ba9fff/processes/payments/be56bfbd-af95-45b9-8b0e-cb0c184aaf60' -i -X GET \
@@ -380,6 +550,55 @@ module BeyondAPI
     end
 
     #
+    # A +GET+ request is used to list all return processes of an order in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/cb9927e4-60d1-4a90-b40c-f5a8e2b25301/processes/returns/910a3fde-cb23-418f-876a-694ce42245ef' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rtpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @param return_process_id [String] the return process UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @return_process = session.orders.return_process("268a8629-55cd-4890-9013-936b9b5ea14c", "910a3fde-cb23-418f-876a-694ce42245ef")
+    #
+    def return_process(order_id, return_process_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/returns/#{return_process_id}")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all return processes of an order in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/9e26232f-aa7a-408b-8041-9439999268c5/processes/returns?page=0&size=20' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +rtpr:r
+    #
+    # @param order_id [String] the order UUID
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @return_processes = session.orders.return_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #
+    def return_processes(order_id, params)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/returns", params)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the details of an order by cart ID.
     #
     # @beyond_api.scopes +ordr:r
@@ -434,14 +653,14 @@ module BeyondAPI
     end
 
     #
-    # A +GET+ request is used to retrieve the refund processes.
+    # A +GET+ request is used to retrieve the shipping process details.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/801885c8-0b25-44a2-a1a4-60cbf3f9ecca/processes/refunds/4c02883f-be31-4fb2-ad0d-ccbc3678a9f5' -i -X GET \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/af42860f-2813-4130-85d9-2d315a4f802e/processes/shippings/80ebe96b-bcd5-4a34-a428-8a67ed114ce6' -i -X GET \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rfpr:r
+    # @beyond_api.scopes +shpr:r
     #
     # @param order_id [String] the order UUID
     # @param shipping_process_id [String] the shipping process UUID
@@ -449,10 +668,10 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @refund_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #   @shipping_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
     #
     def shipping_process(order_id, shipping_process_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/shippings/#{shipping_process_id}")
 
       handle_response(response, status)
     end

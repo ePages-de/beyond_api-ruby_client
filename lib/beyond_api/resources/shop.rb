@@ -14,6 +14,8 @@ module BeyondAPI
     #
     # @beyond_api.scopes +shad:r+
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.address
     #
@@ -32,6 +34,8 @@ module BeyondAPI
     # @beyond_api.scopes +shat:r+
     #
     # @param attribute_name [String] the attribute name
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.attribute(attribute_name)
@@ -53,6 +57,8 @@ module BeyondAPI
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.attributes(params)
     #
@@ -70,6 +76,8 @@ module BeyondAPI
     #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +shcl:c+
+    #
+    # @return true
     #
     # @example
     #   session.shop.close
@@ -96,6 +104,8 @@ module BeyondAPI
     #
     # @param body [Hash] the request body
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.create_attribute(body)
     #
@@ -121,13 +131,15 @@ module BeyondAPI
     #
     # @param body [Hash] the request body
     #
+    # @return true
+    #
     # @example
     #   session.shop.create_image(body)
     #
     def create_image(body)
       response, status = BeyondAPI::Request.post(@session, "/shop/images", body)
 
-      handle_response(response, status)
+      handle_response(response, status, respond_with_true: true)
     end
 
     #
@@ -135,6 +147,8 @@ module BeyondAPI
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/shop' -i -X GET \
     #       -H 'Accept: application/hal+json'
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.current
@@ -155,13 +169,15 @@ module BeyondAPI
     #
     # @param attribute_name [String] the attribute name
     #
+    # @return true
+    #
     # @example
     #   session.shop.delete_attribute(attribute_name)
     #
     def delete_attribute(attribute_name)
       response, status = BeyondAPI::Request.delete(@session, "/shop/attributes/#{attribute_name}")
 
-      handle_response(response, status)
+      handle_response(response, status, respond_with_true: true)
     end
 
     #
@@ -176,13 +192,15 @@ module BeyondAPI
     #
     # @param image_id [String] the image UUID
     #
+    # @return true
+    #
     # @example
     #   session.shop.delete_image(image_id)
     #
     def delete_image(image_id)
       response, status = BeyondAPI::Request.delete(@session, "/shop/images/#{image_id}")
 
-      handle_response(response, status)
+      handle_response(response, status, respond_with_true: true)
     end
 
     #
@@ -192,6 +210,8 @@ module BeyondAPI
     #       -H 'Accept: application/hal+json'
     #
     # @param image_id [String] the image UUID
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.image(image_id)
@@ -211,6 +231,8 @@ module BeyondAPI
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.images(params)
     #
@@ -228,6 +250,8 @@ module BeyondAPI
     #       -H 'Accept: application/json'
     #
     # @param legal_content_type [String] the legal content type
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.legal_content(legal_content_type)
@@ -248,6 +272,8 @@ module BeyondAPI
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.legal_contents(params)
     #
@@ -264,6 +290,8 @@ module BeyondAPI
     #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +legl:r+
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.legal_details
@@ -283,13 +311,15 @@ module BeyondAPI
     #
     # @beyond_api.scopes +shcl:c+
     #
+    # @return true
+    #
     # @example
     #   session.shop.open
     #
     def open
       response, status = BeyondAPI::Request.post(@session, "/shop/open")
 
-      handle_response(response, status)
+      handle_response(response, status, respond_with_true: true)
     end
 
     #
@@ -299,6 +329,8 @@ module BeyondAPI
     #       -H 'Accept: application/hal+json'
     #
     # @param label [String] the image label
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.search_images_by_label(label)
@@ -336,6 +368,8 @@ module BeyondAPI
     #
     # @param body [Hash] the request body
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.update(body)
     #
@@ -359,6 +393,8 @@ module BeyondAPI
     # @beyond_api.scopes +shad:u+
     #
     # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.update_address(body)
@@ -385,6 +421,8 @@ module BeyondAPI
     # @param attribute_name [String] the attribute name
     # @param body [Hash] the request body
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.update_attribute(attribute_name, body)
     #
@@ -408,6 +446,8 @@ module BeyondAPI
     # @beyond_api.scopes +lcnt:u+
     #
     # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   session.shop.update_legal_content(body)
@@ -433,6 +473,8 @@ module BeyondAPI
     #
     # @param body [Hash] the request body
     #
+    # @return [OpenStruct]
+    #
     # @example
     #   session.shop.update_legal_details(body)
     #
@@ -451,10 +493,16 @@ module BeyondAPI
     #
     # @beyond_api.scopes +shim:c+
     #
-    # @example
-    #   session.shop.upload_image(image_path, image_name)
+    # @param image_path [String] the image path
+    # @param image_name [String] the image name
+    # @param label [String] the image label
     #
-    def upload_image(image_path, image_name)
+    # @return true
+    #
+    # @example
+    #   session.shop.upload_image("/home/epages/sample.png", "sample.png", "invoice logo")
+    #
+    def upload_image(image_path, image_name, label)
       content_type = case File.extname(image_path)
         when ".png"
           "image/png"
@@ -465,9 +513,9 @@ module BeyondAPI
         end
       image_binary = File.binread(image_path)
 
-      response, status = BeyondAPI::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: "invoice logo" })
+      response, status = BeyondAPI::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: label })
 
-      handle_response(response, status)
+      handle_response(response, status, respond_with_true: true)
     end
   end
 end

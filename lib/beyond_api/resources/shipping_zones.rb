@@ -145,19 +145,93 @@ module BeyondAPI
     #
     # @beyond_api.scopes +shpz:u+
     #
-    # @param
+    # @param shipping_zone_ids [Array] the list of shipping zone UUIDs
+    #
+    # @return [OpenStruct]
     #
     # @example
     #   shipping_zone_ids = ["9fa80513-be11-494f-ac01-61832e0d7808", "f0911d4c-1ab0-4bbd-88e3-cb675cbb7da7", "ef2e7cb7-820e-4d62-b361-12240f635164"]
-    #   shipping_zonessession.shipping_zones.sort(shipping_zone_ids)
+    #   session.shipping_zones.sort(shipping_zone_ids)
     #
     def sort(shipping_zone_ids)
       body = shipping_zone_ids.map { |shipping_zone_id| "#{session.api_url}/shipping-zones/#{id}" }
       response, status = BeyondAPI::Request.put(@session, "/shipping-zones", body)
 
+      handle_response(response, status, respond_with_true: true)
+    end
+
+    # A +GET+ request is used to retrieve the details of a shipping method in a shipping zone.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/61780dd6-0150-4fcf-953c-d10c52bab4ab/shipping-methods/13bd1fc9-706c-4774-923a-484a41aaab89' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +shpz:r+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @param shipping_method_id [String] the shipping method UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @shipping_method = session.shipping_zones.shipping_method("61780dd6-0150-4fcf-953c-d10c52bab4ab", "13bd1fc9-706c-4774-923a-484a41aaab89")
+    #
+    def shipping_method(shipping_zone_id, shipping_method_id)
+      response, status = BeyondAPI::Request.get(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
+
       handle_response(response, status)
     end
-, respond_with_true: true)
 
+    #
+    # A +POST+ request is used to create a shipping method in a shipping zone.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/905e981c-1489-45af-9138-0a7dc1f0b085/shipping-methods' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "name" : "Standard Shipping 2",
+    #     "description" : "Standard Shipping",
+    #     "taxClass" : "REGULAR",
+    #     "freeShippingValue" : {
+    #       "taxModel" : "GROSS",
+    #       "currency" : "EUR",
+    #       "amount" : 400
+    #     },
+    #     "fixedPrice" : {
+    #       "taxModel" : "GROSS",
+    #       "currency" : "EUR",
+    #       "amount" : "19.99"
+    #     }
+    #   }'
+    #
+    # @beyond_api.scopes +shpz:u+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @param body [Hash] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "name" => "Standard Shipping 2",
+    #     "description" => "Standard Shipping",
+    #     "taxClass" => "REGULAR",
+    #     "freeShippingValue" => {
+    #       "taxModel" => "GROSS",
+    #       "currency" => "EUR",
+    #       "amount" => 400
+    #     },
+    #     "fixedPrice" => {
+    #       "taxModel" => "GROSS",
+    #       "currency" => "EUR",
+    #       "amount" => "19.99"
+    #     }
+    #   }
+    #   @shipping_zone = session.shipping_zones.create("905e981c-1489-45af-9138-0a7dc1f0b085", body)
+    def create_shipping_method(shipping_zone_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", body)
+
+      handle_response(response, status)
+    end
   end
 end
