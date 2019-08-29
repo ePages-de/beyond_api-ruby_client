@@ -408,7 +408,7 @@ A `POST` request is used to create an invoice for the order.
 session.orders.create_invoice(order_id, body)
 ```
 
-#### 6.9. ✅ Send invoice
+#### 6.9. ✅ Send invoice 🌞
 
 A `POST` request is used to send an invoice for the order.
 
@@ -417,16 +417,16 @@ A `POST` request is used to send an invoice for the order.
 session.orders.send_invoice(order_id)
 ```
 
-#### 6.10. ✅ List order processes
+#### 6.10. ✅ List order processes 🌞
 
 A `GET` request is used to list all order processes.
 
 ```ruby
 # GET /orders/2a5ebc2f-41df-4a53-8aa0-4c923938df5a/processes
-session.orders.processes(order_id, params)
+session.orders.processes(order_id)
 ```
 
-#### 6.11. ✅ List payment processes
+#### 6.11. ✅ List payment processes 🌞
 
 A `GET` request is used to list all payment processes of an order in a paged way.
 

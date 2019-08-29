@@ -73,6 +73,52 @@ module BeyondAPI
     end
 
     #
+    # A +GET+ request is used to list all order processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/2012b775-a706-41e0-b0f9-5142864ca4a0/processes/payments?page=0&size=20' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r
+    #
+    # @param order_id [String] the order UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @orders = session.orders.processes("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #
+    def payment_processes(order_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to list all order processes.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/934ece52-055c-4896-8d16-560f1461ea56/processes' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r
+    #
+    # @param order_id [String] the order UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @orders = session.orders.processes("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #
+    def processes(order_id)
+      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to retrieve the details of an order by cart ID.
     #
     # @beyond_api.scopes +ordr:r
@@ -102,6 +148,26 @@ module BeyondAPI
     #
     def search_order_number_by_cart_id(cart_id)
       response, status = BeyondAPI::Request.get(@session, "/orders/search/find-order-number-by-cart-id", {"cartId": cart_id})
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +GET+ request is used to send an invoice for the order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/73bb3fbb-7146-4088-a0d8-dd24dc030e07/send-invoice' -i -X POST \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @param order_id [String] the order_id UUID
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @order = session.orders.send_invoice("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #
+    def send_invoice(order_id)
+      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/send-invoice")
 
       handle_response(response, status)
     end

@@ -53,3 +53,8 @@ module BeyondAPI
     #
     def update(order_settings, body)
       response, status = BeyondAPI::Request.put(@session, "/order-settings", body)
+
+      handle_response(response, status)
+    end
+  end
+end

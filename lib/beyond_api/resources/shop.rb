@@ -9,6 +9,9 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/address' -i -X GET \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +shad:r+
     #
     # @example
@@ -22,6 +25,14 @@ module BeyondAPI
 
     #
     # A +PATCH+ request is used to patch a shop’s address partially with json content type.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/address' -i -X PATCH \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "city" : "Barcelona"
+    #   }'
     #
     # @beyond_api.scopes +shad:u+
     #
@@ -37,6 +48,15 @@ module BeyondAPI
     #
     # A +POST+ request is used to create a shop attribute.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "name" : "second-unknown-attribute-name",
+    #     "value" : "correct-value",
+    #     "public" : false
+    #   }'
+    #
     # @beyond_api.scopes +shat:c+
     #
     # @example
@@ -50,6 +70,9 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve a particular shop attribute by its name.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes/second-unknown-attribute-name' -i -X GET \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +shat:r+
     #
@@ -65,6 +88,9 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a list of all shop attributes.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes' -i -X GET \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +shat:r+
     #
     # @example
@@ -78,6 +104,14 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to update a shop attribute. This operation is idempotent and will create a new shop attribute if required.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes/second-unknown-attribute-name' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "value" : "new-value",
+    #     "public" : false
+    #   }'
     #
     # @beyond_api.scopes +shat:u+
     #
@@ -93,6 +127,9 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete an shop attribute.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes/second-unknown-attribute-name' -i -X DELETE \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +shat:d+
     #
     # @example
@@ -106,6 +143,9 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve the images of a shop.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/images' -i -X GET \
+    #       -H 'Accept: application/hal+json'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -121,6 +161,9 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a single shop image.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/images/2feee7ac-f1cb-4faf-9488-f3ce07394141' -i -X GET \
+    #       -H 'Accept: application/hal+json'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -134,6 +177,15 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to create a shop image.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/images' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "dataUri" : "file.png?hash=212-2323-4343",
+    #     "label" : "logo"
+    #   }'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -149,6 +201,11 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete a shop image.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/images/6a7646dc-7f26-4730-a98f-52f9b63978fb' -i -X DELETE \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -162,6 +219,9 @@ module BeyondAPI
 
     #
     # A +GET+ request is issued to search for shop images by label.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/images/search/find-by-label?label=logo' -i -X GET \
+    #       -H 'Accept: application/hal+json'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -177,6 +237,10 @@ module BeyondAPI
     #
     # A +POST+ request is used to upload a shop image. The body of the request must contain the content of the image.
     #
+    #   $ curl --data-binary '@/home/epages/sample.png' 'https://api-shop.beyondshop.cloud/api/shop/images?fileName=sample.png&label=invoice logo' -X POST \
+    #       -H 'Content-Type: image/png' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -190,6 +254,9 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve the details of the legal resource.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/legal' -i -X GET \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -205,12 +272,20 @@ module BeyondAPI
     #
     # A +PATCH+ request is used to update a legal resource partially with json content type.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/legal' -i -X PATCH \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "vatId" : "GB 111111111"
+    #   }'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
-    #   session.shop.update_legal_content(body)
+    #   session.shop.update_legal_details(body)
     #
-    def update_legal_content(body)
+    def update_legal_details(body)
       response, status = BeyondAPI::Request.patch(@session, "/shop/legal")
 
       handle_response(response, status)
@@ -218,6 +293,10 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to retrieve the legal content of a shop.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/legal-content' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -233,6 +312,10 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve a specific part of the legal content information.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/legal-content/right-of-withdrawal' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -246,6 +329,14 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to update the content of a specific part of the legal content information. Changes on the properties type and mandatory will be ignored.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/legal-content/legal-notice' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "content" : "new legal content"
+    #   }'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -261,6 +352,9 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of a shop.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop' -i -X GET \
+    #       -H 'Accept: application/hal+json'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -274,6 +368,26 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to change attributes of a shop.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop' -i -X PATCH \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "name" : "anotherName",
+    #     "closedShopMessage" : "This shop is opening soon.",
+    #     "primaryHostname" : "cornershop.amazingdiscounts.xyz",
+    #     "fallbackHostname" : "cornershop.beyondshop.cloud",
+    #     "tax" : {
+    #       "taxModel" : "GROSS",
+    #       "vatExempted" : false
+    #     },
+    #     "currencies" : [ "EUR", "USD", "GBP" ],
+    #     "defaultCurrency" : "USD",
+    #     "locales" : [ "en-GB", "de-DE" ],
+    #     "defaultLocale" : "en-GB",
+    #     "closedByMerchant" : false
+    #   }'
     #
     # @beyond_api.scopes +ordr:r+
     #
@@ -289,6 +403,10 @@ module BeyondAPI
     #
     # A +POST+ request is used to open a shop.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/open' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +ordr:r+
     #
     # @example
@@ -302,6 +420,10 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to close a shop.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/close' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +ordr:r+
     #

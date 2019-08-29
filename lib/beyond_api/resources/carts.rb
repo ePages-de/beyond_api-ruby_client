@@ -46,6 +46,8 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete a cart.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/1a58f22f-481a-4993-9947-62c1c2857f87' -i -X DELETE
+    #
     # @param cart_id [String] the cart UUID
     #
     # @return true
@@ -61,6 +63,16 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to create an order from the cart.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/986247da-b78f-422c-a273-917804896974/order' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -d '{"customerComment": "send it fast please",
+    #       "salesChannel": "DifferentChannel",
+    #       "marketingChannel": "Google",
+    #       "marketingSubchannel": "Search page 2",
+    #       "testOrder": false,
+    #       "termsAndConditionsExplicitlyAccepted": true
+    #   }'
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
@@ -87,6 +99,10 @@ module BeyondAPI
     #
     # A +POST+ request is used to add a line item to the cart. Currently only product line items are supported.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/6d529573-b39e-4cd4-99fe-856432ea97f3/line-items' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -d '{"_type":"PRODUCT","_ref":"c3a52c19-2b43-4ceb-a7ca-00c558aec072","quantity":1}'
+    #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
     #
@@ -108,6 +124,10 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to replace only one line item in the cart.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/f73629e5-fecf-4474-9b04-6b2fcd4663c4/line-items/2c9c0f38-0b9e-4fa7-bcbe-960098ff63aa' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -d '{"_type":"PRODUCT","_ref":"f084553c-ea77-4745-b1bd-71c64c8419fd","quantity":2}'
     #
     # @param cart_id [String] the cart UUID
     # @param line_item_id [String] the line item UUID
@@ -132,6 +152,10 @@ module BeyondAPI
     #
     # A +PUT+ request is used to replace the current line items in the cart with the given list.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/c1436110-e283-49b3-a748-0321efec6d35/line-items' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -d '[{"_type":"PRODUCT","_ref":"0612362d-9856-4b40-94c6-a36abec0cf8c","quantity":1}]'
+    #
     # @param cart_id [String] the cart UUID
     # @param body [String] the array of line items
     #
@@ -150,6 +174,8 @@ module BeyondAPI
     #
     # A +DELETE+ request is used to delete a line item from the cart.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/3fb55475-f6d2-471a-90ac-ccee7896b9f7/line-items/51c86195-d2b9-4073-9a14-7ddd5a76b6a7' -i -X DELETE
+    #
     # @param cart_id [String] the cart UUID
     # @param line_item_id [String] the line item UUID
     #
@@ -166,6 +192,14 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to set the billing address of the cart. The billing address is mandatory for a cart being ready to order.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/01da6aa7-8aa2-4383-a496-6611a14afbc9/billing-address' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -d '{"salutation":"Mrs","gender":"FEMALE","title":"","firstName":"Astrid","middleName":"Agnes","lastName":"Alster","street":"Alsterwasserweg",
+    #            "houseNumber":"2","street2":"Erdgeschoss","doorCode":"0185","addressExtension":"Hinterhof","postalCode":"20999","dependentLocality":"Seevetal",
+    #            "city":"Alsterwasser","country":"DE","state":"Hamburg","email":"a.alsterh@example.com","phone":"(800) 555-0102","mobile":"(800) 555-0103",
+    #            "vatId":"123456789","taxNumber":"123-34-6789","birthDate":"1985-03-20"}'
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
@@ -208,6 +242,14 @@ module BeyondAPI
     #
     # A +PUT+ request is used to set the shipping address of the cart. If a shipping address is not set, it will default to the billing address.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/01da6aa7-8aa2-4383-a496-6611a14afbc9/shipping-address' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -d '{"salutation":"Mrs","gender":"FEMALE","title":"","firstName":"Astrid","middleName":"Agnes","lastName":"Alster","street":"Alsterwasserweg",
+    #            "houseNumber":"2","street2":"Erdgeschoss","doorCode":"0185","addressExtension":"Hinterhof","postalCode":"20999","dependentLocality":"Seevetal",
+    #            "city":"Alsterwasser","country":"DE","state":"Hamburg","email":"a.alsterh@example.com","phone":"(800) 555-0102","mobile":"(800) 555-0103",
+    #            "vatId":"123456789","taxNumber":"123-34-6789","birthDate":"1985-03-20"}'
+    #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
     #
@@ -238,7 +280,6 @@ module BeyondAPI
     #     "taxNumber" => "123-34-6789",
     #     "birthDate" => "1985-03-20"
     #   }
-    # @example
     #   @cart = session.carts.set_shipping_address("01da6aa7-8aa2-4383-a496-6611a14afbc9", body)
     #
     def set_shipping_address(cart_id, body)
@@ -249,6 +290,9 @@ module BeyondAPI
 
     #
     # A +DELETE+ request is used to remove the shipping address of the cart. After deletion, the shipping address will default to the billing address.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/2fa7dc36-8305-4628-b961-f2c3f7dda47d/shipping-address' -i -X DELETE \
+    #       -H 'Accept: application/hal+json'
     #
     # @param cart_id [String] the cart UUID
     #
@@ -266,13 +310,15 @@ module BeyondAPI
     #
     # A +PUT+ request is used to set the current payment method of the cart.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/750c8a68-ef58-4955-b05f-29e35fa19687/payment-methods/current' -i -X PUT \
+    #       -H 'Content-Type: text/uri-list' \
+    #       -H 'Accept: application/json' \
+    #       -d 'https://api-shop.beyondshop.cloud/api/payment-methods/6498f339-7fe6-43d4-8e2a-6da68d7cdfe3'
+    #
     # @param cart_id [String] the cart UUID
     # @param payment_method_id [String] the payment method UUID
     #
     # @return [OpenStruct]
-    #
-    # @param cart_id [String] the cart UUID
-    # @param payment_method_id [String] the payment method UUID
     #
     # @example
     #   @cart = session.carts.set_payment_method("750c8a68-ef58-4955-b05f-29e35fa19687", "6498f339-7fe6-43d4-8e2a-6da68d7cdfe3")
@@ -286,6 +332,10 @@ module BeyondAPI
 
     #
     # A +PUT+ request is used to set the payment method to the current default payment method. The default payment method is the one with the highest priority of the applicable payment methods.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/d1efcb74-ab96-43c5-b404-9c1f927dc3d2/payment-methods/default' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json'
     #
     # @param cart_id [String] the cart UUID
     #
@@ -303,6 +353,9 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the current payment method.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/6d9de289-d6a7-44d6-afb3-c31bb0a792ff/payment-methods/current' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
     # @param cart_id [String] the cart UUID
     #
     # @return [OpenStruct]
@@ -321,6 +374,10 @@ module BeyondAPI
     # The selectable field indicates if a payment method is currently selectable. Non-selectable payment methods are currently restricted because of rules that apply to a cart.
     # Trying to set such a payment method as the current one of the cart will fail.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/45f9009d-4d2f-43b1-9cd2-ea29ff0d46d6/payment-methods' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
+    #
     # @param cart_id [String] the cart UUID
     #
     # @return [OpenStruct]
@@ -336,6 +393,14 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to initiate the creation of a payment.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/158bdcee-178a-4b5f-88ff-1953f5ea8e09/create-payment' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -d '{
+    #       "returnUri" : "http://some.com/return",
+    #       "cancelUri" : "http://some.com/cancel"
+    #   }'
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body
@@ -357,6 +422,20 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to create an order from a cart and initiate the payment.
+    #
+    # $ curl 'https://api-shop.beyondshop.cloud/api/carts/f6c6615b-a9f6-420e-be1d-46339ddc5fda/create-payment-and-order' -i -X POST \
+    #     -H 'Content-Type: application/json' \
+    #     -H 'Accept: application/hal+json' \
+    #     -d '{
+    #     "returnUri" : "http://some.com/return",
+    #     "cancelUri" : "http://some.com/cancel",
+    #     "customerComment" : "Send it fast please!",
+    #     "salesChannel" : "Storefront",
+    #     "marketingChannel" : "Google",
+    #     "marketingSubchannel" : "Search page 2",
+    #     "testOrder" : false,
+    #     "termsAndConditionsExplicitlyAccepted" : false
+    #   }'
     #
     # @param cart_id [String] the cart UUID
     # @param body [Hash] the request body

@@ -18,7 +18,7 @@ module BeyondAPI
     #
     # @return true
     #
-    # @example
+    # @example Ruby example request
     #   session.webhook_subscriptions.activate("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def activate(webhook_subscription_id)
