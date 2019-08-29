@@ -42,6 +42,10 @@ module BeyondAPI
       BeyondAPI::OrderSettings.new(self)
     end
 
+    def orders
+      BeyondAPI::Orders.new(self)
+    end
+
     def products
       BeyondAPI::Products.new(self)
     end
