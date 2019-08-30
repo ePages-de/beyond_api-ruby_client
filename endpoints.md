@@ -1906,7 +1906,7 @@ A `POST` request is used to create the newsletter target. Each shop can only hav
 
 ```ruby
 # POST /newsletter-target
-session.newsletter_target.create(body)
+session.newsletter_target.create(submit_url)
 ```
 
 #### 26.2. ✅ Get newsletter target details

@@ -12,6 +12,9 @@ module BeyondAPI
     #
     # @beyond_api.scopes +user:r+
     #
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
     # @return [OpenStruct]
     #
     # @example
@@ -83,6 +86,7 @@ module BeyondAPI
     # @beyond_api.scopes +user:u+
     #
     # @param user_id [String] the user UUID
+    # @param body [Hash] the request body
     #
     # @return true
     #
@@ -101,6 +105,7 @@ module BeyondAPI
     # @beyond_api.scopes +user:r+, +user:u+
     #
     # @param user_id [String] the user UUID
+    # @param body [Hash] the request body
     #
     # @return true
     #
@@ -155,6 +160,8 @@ module BeyondAPI
     # @beyond_api.scopes ++
     #
     # @param user_id [String] the user UUID
+    # @param current_password [String] the current password
+    # @param new_password [String] the new password
     #
     # @return [OpenStruct]
     #
@@ -171,6 +178,9 @@ module BeyondAPI
     # A +POST+ request is used to trigger a password reset email to be sent to a user. The email will contain a link to the change password settings page of the merchant’s cockpit. The link includes a JWT to authorize the password reset.
     #
     # @beyond_api.scopes ++
+    #
+    # @param email [String] the user email
+    # @param locale [String] the email locale
     #
     # @return true
     #
@@ -189,6 +199,8 @@ module BeyondAPI
     # @beyond_api.scopes ++
     #
     # @param user_id [String] the user UUID
+    # @param new_username [String] the new username
+    # @param current_password [String] the current password
     #
     # @return [OpenStruct]
     #
