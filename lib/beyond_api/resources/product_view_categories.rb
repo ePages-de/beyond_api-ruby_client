@@ -12,7 +12,7 @@ module BeyondAPI
       handle_response(response, status)
     end
 
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/product-view/categories", params)
 
       handle_response(response, status)

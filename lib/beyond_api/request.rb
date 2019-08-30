@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "json"
+
 module BeyondAPI
   class Request
     class << self

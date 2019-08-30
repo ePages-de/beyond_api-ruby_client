@@ -199,7 +199,7 @@ A `GET` request will list all available categories in a paged manner.
 
 ```ruby
 # GET /categories
-session.categories.all(params)
+session.categories.all(params = {})
 ```
 
 #### 4.2. ✅ Create category 🌞
@@ -267,7 +267,7 @@ A `GET` request is used to list all product categories.
 
 ```ruby
 # GET /product-view/categories
-session.product_view_categories.all(params)
+session.product_view_categories.all(params = {})
 ```
 
 #### 4.10. ✅ List products 🌞
@@ -695,7 +695,7 @@ A `GET` request is used to list all payment methods in a paged way.
 
 ```ruby
 # GET /payment-methods
-session.payment_methods.all(params)
+session.payment_methods.all(params = {})
 ```
 
 #### 8.3. ✅ Update payment method 🌞
@@ -744,7 +744,7 @@ A `GET` request will list all of the products in a paged manner. The returned da
 
 ```ruby
 # GET /products
-session.products.all(params)
+session.products.all(params = {})
 ```
 
 #### 9.2. Create product
@@ -887,7 +887,7 @@ A `GET` request is used to list all products.
 
 ```ruby
 # GET /product-view/products
-session.product_view_products.all(params)
+session.product_view_products.all(params = {})
 ```
 
 #### 10.8. List products by tags
@@ -954,7 +954,7 @@ A `GET` request is used to retrieve the variations of a product.
 
 ```ruby
 # GET /products/36e920c1-0b82-4096-8bca-0dd833e1e896/variations
-session.products_variations.all(params)
+session.products_variations.all(params = {})
 ```
 
 ## 12. Variation Properties
@@ -1021,7 +1021,7 @@ session.variation_products.adjust_stock_level(product_id, variation_id, body)
 
 Product attachments represent files that come with a product, such as user manuals, product descriptions, or assembly instructions.
 
-#### 14.1. ✅ List product attachments
+#### 14.1. ✅ List product attachments 🌞
 
 A `GET` request is used to list all the attachments of a product.
 
@@ -1030,7 +1030,7 @@ A `GET` request is used to list all the attachments of a product.
 session.products.attachments(product_id, params)
 ```
 
-#### 14.2. ✅ Show product attachment details
+#### 14.2. ✅ Show product attachment details 🌞
 
 A `GET` request is used to retrieve a single attachment of a product.
 
@@ -1039,7 +1039,7 @@ A `GET` request is used to retrieve a single attachment of a product.
 session.products.attachment(product_id, attachment_id)
 ```
 
-#### 14.3. ✅ Add product attachment
+#### 14.3. ✅ Add product attachment 🌞
 
 A `POST` request is used to create an attachment and add it to a product.
 
@@ -1048,7 +1048,7 @@ A `POST` request is used to create an attachment and add it to a product.
 session.products.add_attachment(product_id, body)
 ```
 
-#### 14.4. ✅ Delete product attachment
+#### 14.4. ✅ Delete product attachment 🌞
 
 A `DELETE` request is used to delete a product attribute definition.
 
@@ -1062,16 +1062,16 @@ session.products.delete_attachment(product_id, attachment_id)
 Attribute definitions provide meta data for attributes. An attribute definition is a precondition to create product attributes. (17.1 - http://docs.beyondshop.cloud/#resources-attributes)
 
 
-#### 15.1. List product attribute definitions
+#### 15.1. List product attribute definitions 🌞
 
 A `GET` request will list the available product attribute definitions.
 
 ```ruby
 # GET /product-attribute-definitions
-session.product_attribute_definitions.all(params)
+session.product_attribute_definitions.all(params = {})
 ```
 
-#### 15.2. Show product attribute definition details
+#### 15.2. Show product attribute definition details 🌞
 
 A `GET` request is used to retrieve a single product attribute definition by name.
 
@@ -1080,7 +1080,7 @@ A `GET` request is used to retrieve a single product attribute definition by nam
 session.product_attribute_definitions.find(product_attribute_name)
 ```
 
-#### 15.3. Create product attribute definition
+#### 15.3. Create product attribute definition 🌞
 
 A `POST` request is used to create a product attribute definition.
 
@@ -1089,7 +1089,7 @@ A `POST` request is used to create a product attribute definition.
 session.product_attribute_definitions.create(body)
 ```
 
-#### 15.4. Delete product attribute definition
+#### 15.4. Delete product attribute definition 🌞
 
 A `DELETE` request is used to delete a product attribute definition.
 
@@ -1100,7 +1100,7 @@ session.product_attribute_definitions.delete(product_attribute_name)
 
 ## 16. Product Availability
 
-#### 16.1. Show product availability details
+#### 16.1. Show product availability details  🌞
 
 A `GET` request is used to retrieve the availability of a product.
 
@@ -1109,7 +1109,7 @@ A `GET` request is used to retrieve the availability of a product.
 session.products.availability(product_id)
 ```
 
-#### 16.2. Enable stock management
+#### 16.2. Enable stock management 🌞
 
 A `POST` request is used to enable stock management for a product or variation product.
 
@@ -1118,7 +1118,7 @@ A `POST` request is used to enable stock management for a product or variation p
 session.products.enable_stock_management(product_id, body)
 ```
 
-#### 16.3. Disable stock management
+#### 16.3. Disable stock management 🌞
 
 A `POST` request is used to disable stock management for a product or variation product.
 
@@ -1219,42 +1219,43 @@ session.products.delete_custom_attribute(product_id, attribute_name)
 
 ## 18. Product Images
 
-#### 18.1. List product images
+#### 18.1. List product images   🌞
 
 A `GET` request is used to retrieve the images of a product.
 
 ```ruby
 # GET /products/191c5881-f00c-4c49-b418-9e037209b2ef/images
-session.products.images(params)
+session.products.images(params = {})
 ```
 
-#### 18.2. Show product image details
+#### 18.2. Show product image details 🌞
 
 A `GET` request is used to retrieve a single image of a product.
 
 ```ruby
 # GET /products/4c55e496-7495-422b-bd10-741aa224452a/images/8d64d841-23b9-480c-b12a-4ace9974eaf4
-session.products.find_image(product_id, image_id)
+session.products.image(product_id, image_id)
 ```
 
-#### 18.3. Add product image
+#### 18.3. Add product image 🌞
 
 A `POST` request is used to create an image and add it to a product.
 
 ```ruby
 # POST /products/f856ac14-40b8-4b13-b9c0-e45d632cb02d/images
-session.products.add_image(product_id, body)
+session.products.set_image_as_default(product_id, image_id)
 ```
 
-#### 18.4. Upload product image
+#### 18.4. Upload product image 🌞
 
 A `POST` request is used to upload an image and add it to a product. The body of the request must contain the content of the image.
 
 ```ruby
-#
+# POST /products/4125b993-49fc-47c8-b9b3-76d8871e4e06/images?fileName=file.png'
+session.products.upload_image(product_id, image_path, image_name)
 ```
 
-#### 18.5. Delete product image
+#### 18.5. Delete product image 🌞
 
 A `DELETE` request is used to delete a product image.
 
@@ -1263,7 +1264,7 @@ A `DELETE` request is used to delete a product image.
 session.products.delete_image(product_id, image_id)
 ```
 
-#### 18.6. Assign product image as default image
+#### 18.6. Assign product image as default image 🌞
 
 A `PUT` request is used to assign a product image as the default image. The request contains a single URI of the image to assign.
 
@@ -1302,7 +1303,7 @@ A `GET` request will list all scopes in the system.
 
 ```ruby
 # GET /scopes
-session.scopes.all(params)
+session.scopes.all(params = {})
 ```
 
 ## 21. Script tags
@@ -1331,7 +1332,7 @@ A `GET` request is used to retrieve a list of all script tags for a shop.
 
 ```ruby
 # GET /script-tags
-session.scrip_tags.all(params)
+session.scrip_tags.all(params = {})
 ```
 
 #### 21.4. ✅ Update script tag 🌞
@@ -1440,7 +1441,7 @@ A `GET` request is used to list all shipping zones in a paged way.
 
 ```ruby
 # GET /shipping-zones
-session.shipping_zones.all(params)
+session.shipping_zones.all(params = {})
 ```
 
 #### 23.6. ✅ Sort shipping zones 🌞
@@ -1578,7 +1579,7 @@ A `GET` request is used to retrieve a list of all shop attributes.
 
 ```ruby
 # GET /shop/attributes
-session.shop.attributes(params)
+session.shop.attributes(params = {})
 ```
 
 #### 24.7. ✅ Update shop attribute 🌞
@@ -1605,7 +1606,7 @@ A `GET` request is used to retrieve the images of a shop.
 
 ```ruby
 # GET /shop/images
-session.shop.images(params)
+session.shop.images(params = {})
 ```
 
 #### 24.10. ✅ Show shop image details 🌞
@@ -1685,7 +1686,7 @@ A `GET` request is used to retrieve the legal content of a shop.
 
 ```ruby
 # GET /legal-content
-session.shop.legal_contents(params)
+session.shop.legal_contents(params = {})
 ```
 
 #### 24.19. ✅ Show legal content details 🌞
@@ -1760,7 +1761,7 @@ A `GET` request is used to list all users visible to the current user. This requ
 
 ```ruby
 # GET /users
-session.users.all(params)
+session.users.all(params = {})
 ```
 
 #### 25.2. ✅ Show user details 🌞
@@ -1986,7 +1987,7 @@ A `GET` request is used to list all of the webhook subscriptions in a paged way.
 
 ```ruby
 # GET /webhook-subscriptions
-session.webhook_subscriptions.all(params)
+session.webhook_subscriptions.all(params = {})
 ```
 
 #### 27.5. ✅ Delete webhook subscription 🌞

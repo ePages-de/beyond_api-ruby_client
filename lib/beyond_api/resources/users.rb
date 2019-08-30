@@ -22,9 +22,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.all(params)
+    #   session.users.all(params = {})
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/users")
 
       handle_response(response, status)

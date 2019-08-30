@@ -66,7 +66,7 @@ module BeyondAPI
     #   @script_tag = session.script_tags.create("https://example.org/js/fancy-script.js")
     #
     def create(script_tag_url)
-      response, status = BeyondAPI::Request.post(@session, "/script-tags", { scriptUrl: script_tag_url })
+      response, status = BeyondAPI::Request.post(@session, "/script-tags", { script_url: script_tag_url })
 
       handle_response(response, status)
     end
@@ -114,7 +114,7 @@ module BeyondAPI
     #   @script_tag = session.script_tags.create("https://example.org/scripts/someOtherScript.js")
     #
     def update(script_tag_id, script_tag_url)
-      response, status = BeyondAPI::Request.put(@session, "/script-tags/#{script_tag_id}", { scriptUrl: script_tag_url })
+      response, status = BeyondAPI::Request.put(@session, "/script-tags/#{script_tag_id}", { script_url: script_tag_url })
 
       handle_response(response, status)
     end

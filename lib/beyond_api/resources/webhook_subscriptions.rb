@@ -42,7 +42,7 @@ module BeyondAPI
     # @example
     #   @webhook_subscriptions = session.webhook_subscriptions.all(size: 100, page: 0)
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/webhook-subscriptions", params)
 
       handle_response(response, status)

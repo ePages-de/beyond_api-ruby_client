@@ -25,10 +25,10 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.newsletter_target.create({ submitUrl: "https://example.org/cgi-bin/subscribe.php" })
+    #   session.newsletter_target.create({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
-    def create(body)
-      response, status = BeyondAPI::Request.post(@session, "/newsletter-target", body)
+    def create(submit_url)
+      response, status = BeyondAPI::Request.post(@session, "/newsletter-target", { submit_url: submit_url})
 
       handle_response(response, status)
     end
@@ -67,10 +67,10 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.newsletter_target.update({ submitUrl: "https://example.org/cgi-bin/subscribe.php" })
+    #   session.newsletter_target.update({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
-    def update(body)
-      response, status = BeyondAPI::Request.put(@session, "/newsletter-target", body)
+    def update(submit_url)
+      response, status = BeyondAPI::Request.put(@session, "/newsletter-target", { submit_url: submit_url })
 
       handle_response(response, status)
     end

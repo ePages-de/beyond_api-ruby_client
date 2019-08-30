@@ -62,7 +62,7 @@ module BeyondAPI
     # @example
     #   @shop_attributes = session.shop.attributes(size: 5, page: 1)
     #
-    def attributes(params)
+    def attributes(params = {})
       response, status = BeyondAPI::Request.get(@session, "/shop/attributes", params)
 
       handle_response(response, status)
@@ -247,7 +247,7 @@ module BeyondAPI
     # @example
     #   session.shop.images(size: 5, page: 1)
     #
-    def images(params)
+    def images(params = {})
       response, status = BeyondAPI::Request.get(@session, "/shop/images", params)
 
       handle_response(response, status)
@@ -288,7 +288,7 @@ module BeyondAPI
     # @example
     #   session.shop.legal_contents(size: 5, page: 1)
     #
-    def legal_contents(params)
+    def legal_contents(params = {})
       response, status = BeyondAPI::Request.get(@session, "/legal-content")
 
       handle_response(response, status)

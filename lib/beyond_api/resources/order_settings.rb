@@ -20,7 +20,7 @@ module BeyondAPI
     # @example
     #   @order_settings = session.payment_methods.all
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/order-settings")
 
       handle_response(response, status)

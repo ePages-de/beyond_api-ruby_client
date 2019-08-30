@@ -65,7 +65,7 @@ module BeyondAPI
     # @example
     #   @orders = session.orders.all(size: 100, page: 0)
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders", params)
 
       handle_response(response, status)
