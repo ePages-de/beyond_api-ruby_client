@@ -3,12 +3,16 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  # :category: Utilities
   class Users < Base
     include BeyondAPI::Utils
 
     #
     # A +GET+ request is used to list all users visible to the current user. This request will not list the support user.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +user:r+
     #
@@ -29,6 +33,11 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of a user.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/e4b528ce-bb9e-4cc5-95e1-7dadfa4cf0f3' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +user:r+
     #
     # @param user_id [String] the user UUID
@@ -47,6 +56,16 @@ module BeyondAPI
     #
     # A +POST+ request is used to create a user.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "username" : "user",
+    #     "password" : "GoodPassword01!;)",
+    #     "email" : "baxter@example.org"
+    #   }'
+    #
     # @beyond_api.scopes +user:c+
     #
     # @param body [Hash] the request body
@@ -64,6 +83,9 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to list all roles of a user.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/0d4bd0a5-94dc-498e-b6a6-305c619bb20d/roles' -i -X GET \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +user:r+
     #
@@ -85,6 +107,11 @@ module BeyondAPI
     #
     # @beyond_api.scopes +user:u+
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/cfd08a92-dc96-4947-8142-1b6021177f60/roles' -i -X PUT \
+    #       -H 'Content-Type: text/uri-list' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d 'https://api-shop.beyondshop.cloud/api/roles/165fee2b-f87e-4f33-b036-14b8d96d927a'
+    #
     # @param user_id [String] the user UUID
     # @param body [Hash] the request body
     #
@@ -104,6 +131,11 @@ module BeyondAPI
     #
     # @beyond_api.scopes +user:r+, +user:u+
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/ac186856-59c4-4d78-a444-8c47ff623525/roles' -i -X POST \
+    #       -H 'Content-Type: text/uri-list' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d 'https://api-shop.beyondshop.cloud/api/roles/4553f87f-d232-4bf6-8e15-34c373661e82'
+    #
     # @param user_id [String] the user UUID
     # @param body [Hash] the request body
     #
@@ -120,6 +152,10 @@ module BeyondAPI
 
     #
     # A +GET+ request is used to find a user by username.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/search/find-by-username?username=username' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +user:r+
     #
@@ -139,6 +175,13 @@ module BeyondAPI
     #
     # A +POST+ request is used to verify a password against the password guidelines.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/verify-password' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -d '{
+    #     "password" : "ValidPassword!"
+    #   }'
+    #
     # @beyond_api.scopes ++
     #
     # @param password [String] the password to verify
@@ -156,6 +199,15 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to change the password of a user.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/e112b1fe-5f67-4e22-a3c7-a1f6d1891b22/change-password' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "currentPassword" : "GoodPassword01!;)",
+    #     "newPassword" : "ValidPassword123"
+    #   }'
     #
     # @beyond_api.scopes ++
     #
@@ -177,6 +229,13 @@ module BeyondAPI
     #
     # A +POST+ request is used to trigger a password reset email to be sent to a user. The email will contain a link to the change password settings page of the merchant’s cockpit. The link includes a JWT to authorize the password reset.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/reset-password-request?locale=en-US' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -d '{
+    #     "email" : "customer@host.tld"
+    #   }'
+    #
     # @beyond_api.scopes ++
     #
     # @param email [String] the user email
@@ -195,6 +254,15 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to change the username of a user.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/ea0ddc0b-e3fb-47c7-9133-e9f5fc0ec442/change-username' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "currentPassword" : "GoodPassword01!;)",
+    #     "newUsername" : "new username"
+    #   }'
     #
     # @beyond_api.scopes ++
     #
@@ -216,6 +284,10 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the status of the support access for a shop, i.e. if the support user is enabled or disabled for the shop.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/support' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +user:r+
     #
     # @return [OpenStruct]
@@ -231,6 +303,11 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to enable support access for a shop. If enabled, the customer support will receive specific rights for direct support in the merchant’s cockpit.
+    #
+    # $ curl 'https://api-shop.beyondshop.cloud/api/users/support' -i -X POST \
+    #     -H 'Content-Type: application/json' \
+    #     -H 'Accept: application/json' \
+    #     -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +user:c+
     #
@@ -248,6 +325,11 @@ module BeyondAPI
     #
     # A +POST+ request is used to disable support access.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/support' -i -X DELETE \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +user:c+
     #
     # @return true
@@ -263,6 +345,15 @@ module BeyondAPI
 
     #
     # A +POST+ request is used to trigger an email address change. A confirmation email to change the email address will be sent to the user. The confirmation email will contain a link to the email address change page of the merchant’s cockpit. The link includes a JWT to authorize the email address change.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/8f5fd817-0ea1-4550-b4b9-fc437b1b6905/change-email-request?locale=en-US' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #     "currentPassword" : "GoodPassword01!;)",
+    #     "newEmail" : "newEmail@Gmail.com"
+    #   }'
     #
     # @beyond_api.scopes ++
     #
