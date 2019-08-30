@@ -828,7 +828,7 @@ Search by SKU (10.1 - http://docs.beyondshop.cloud/#products-search-findBySku)
 
 Find used tags starting with a string (10.2 - http://docs.beyondshop.cloud/#find-tags-starts-with)
 
-#### 10.1. Find a product by SKU
+#### 10.1. Find a product by SKU 🌞
 
 A `GET` request is used to search for a product by SKU.
 
@@ -837,7 +837,7 @@ A `GET` request is used to search for a product by SKU.
 session.products.search_by_sku(sku)
 ```
 
-#### 10.2. Find used tags
+#### 10.2. Find used tags 🌞
 
 A `GET` request is used to search used tags by a starting string. All strings are sorted by usage, starting with the biggest.
 

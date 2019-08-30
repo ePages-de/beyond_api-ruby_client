@@ -8,6 +8,8 @@ require "beyond_api/ext"
 require "beyond_api/utils"
 
 module BeyondAPI
+  class Error < StandardError; end
+
   class << self
     attr_accessor :configuration
   end

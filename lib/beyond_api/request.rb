@@ -23,7 +23,7 @@ module BeyondAPI
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
             request.params = params.to_h.camelize_keys
-            request.body = body.to_h.camelize_keys
+            request.body = body.to_h.camelize_keys.to_json
           end
 
           [response.body.blank? ? nil : JSON.parse(response.body), response.status]

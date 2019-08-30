@@ -32,75 +32,148 @@ module BeyondAPI
     #
     # A +POST+ request is used to enable stock management for a product or variation product.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/101fa968-9bb8-4dbe-b166-3add1fc1b35e/availability/enable-stock-management' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{ "initialAvailableStock" : 100, "stockThreshold" : 2 }'
+    #
     # @beyond_api.scopes +prda:u+
     #
-    # POST /products/fa69c896-1c1e-4103-8acf-4ecc29c66025/availability/enable-stock-management
     # @param product_id [String] the product UUID
+    # @param body [Hash] the request body
     #
-    # @return
+    # @return [OpenStruct]
     #
     # @example
-    #session.products.enable_stock_management(product_id, body)
+    #   body = {
+    #     "initialAvailableStock" => 100,
+    #     "stockThreshold" => 2
+    #   }
+    #   @availability = session.products.enable_stock_management("101fa968-9bb8-4dbe-b166-3add1fc1b35e", body)
+    #
+    def enable_stock_management(product_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/enable-stock-management", body)
 
+      handle_response(response, status)
+    end
 
     #
     # A +POST+ request is used to disable stock management for a product or variation product.
     #
-    # POST /products/c8974f6d-2500-410e-a369-b1aa56f5a825/availability/disable-stock-management
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/e966cb17-4047-4b82-ade4-33e7f0978c89/availability/disable-stock-management' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +prda:u+
+    #
     # @param product_id [String] the product UUID
     #
-    # @return
+    # @return true
     #
     # @example
-    #session.products.disable_stock_management(product_id)
+    #   session.products.disable_stock_management("e966cb17-4047-4b82-ade4-33e7f0978c89", respond_with_true: true)
+    #
+    def disable_stock_management(product_id)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/disable-stock-management")
 
+      handle_response(response, status, respond_with_true: true)
+    end
 
     #
     # A +POST+ request is used to adjust the available stock of a product.
     #
-    # POST /products/96821431-0efe-444c-afd1-2de16723f830/availability/adjust-available-stock
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/685f483e-cdda-40af-8091-d5bc31249409/availability/adjust-available-stock' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{ "relativeAmount" : -1 }'
+    #
+    # @beyond_api.scopes +prda:u+
+    #
     # @param product_id [String] the product UUID
     #
-    # @return
+    # @return [OpenStruct]
     #
     # @example
-    #session.products.adjust_stock_level(product_id, body)
+    #   @availability = session.products.adjust_stock_level(product_id, { relativeAmount => -1 })
+    #
+    def adjust_stock_level(product_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/enable-stock-management", body)
+
+      handle_response(response, status)
+    end
 
 
     #
-    # Reserve stock refers to an inventory level that indicates that a product needs to be reordered. A +POST+ request is used to update this reserve stock by changing the +stockThreshold+ value of a product or variation product (incl. all of its variations).
+    # A +POST+ request is used to update the reserve stock by changing the +stockThreshold+ value of a product or variation product (incl. all of its variations). Reserve stock refers to an inventory level that indicates that a product needs to be reordered.
     #
-    # POST /products/48277de8-9866-4eb8-8eb5-bcff85dc2124/availability/update-stock-threshold
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/f74b5f57-43cc-4176-97aa-c6eb9fdeb37c/availability/update-stock-threshold' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{ "stockThreshold" : 5 }'
+    #
+    # @beyond_api.scopes +prda:u+
+    #
     # @param product_id [String] the product UUID
     #
-    # @return
+    # @return [OpenStruct]
     #
     # @example
-    #session.products.update_reserve_stock(product_id, body)
+    #   session.products.update_reserve_stock("f74b5f57-43cc-4176-97aa-c6eb9fdeb37c", { stockThreshold => 5 })
+    #
+    def update_reserve_stock(product_id, body)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/update-stock-threshold", body)
 
+      handle_response(response, status)
+    end
 
     #
     # A +POST+ request is used to enable purchasability for a product.
     #
-    # POST /products/e00ac1c3-7431-4379-b5f3-c990d2095bdd/availability/enable-purchasability
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/17e3a92b-6f3b-4415-bd8f-c9c8921a5a73/availability/enable-purchasability' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +prda:u+
+    #
     # @param product_id [String] the product UUID
     #
-    # @return
+    # @return true
     #
     # @example
-    #session.products.enable_purchasability(product_id)
+    #   session.products.enable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73")
+    #
+    def enable_purchasability(product_id)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/enable-purchasability")
 
+      handle_response(response, status, respond_with_true: true)
+    end
 
     #
     # A +POST+ request is used to disable purchasability for a product.
     #
-    # POST /products/cf4cb507-1e47-4cbc-927f-7d7d9f86695e/availability/disable-purchasability
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/6b30255e-650f-475c-b345-e7247f957689/availability/disable-purchasability' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +prda:u+
+    #
     # @param product_id [String] the product UUID
     #
-    # @return
+    # @return true
     #
     # @example
-    #session.products.disable_purchasability(product_id)
+    #   session.products.disable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73")
+    #
+    def disable_purchasability(product_id)
+      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/availability/disable-purchasability")
 
+      handle_response(response, status, respond_with_true: true)
+    end
   end
 end
