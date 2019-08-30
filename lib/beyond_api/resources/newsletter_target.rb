@@ -67,12 +67,31 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   session.newsletter_target.up({ submitUrl: "https://example.org/cgi-bin/subscribe.php" })
+    #   session.newsletter_target.update({ submitUrl: "https://example.org/cgi-bin/subscribe.php" })
     #
     def update(body)
       response, status = BeyondAPI::Request.put(@session, "/newsletter-target", body)
 
       handle_response(response, status)
+    end
+
+    #
+    # A +DELETE+ request is used to delete the existing newsletter target.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/newsletter-target' -i -X DELETE \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +nltg:m+
+    #
+    # @return true
+    #
+    # @example
+    #   session.newsletter_target.delete
+    #
+    def delete
+      response, status = BeyondAPI::Request.delete(@session, "/newsletter-target")
+
+      handle_response(response, status, respond_with_true: true)
     end
   end
 end
