@@ -20,6 +20,7 @@ module BeyondAPI
           response = BeyondAPI::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
+            request.params = params.to_h.camelize_keys
             request.body = body.to_h.camelize_keys
           end
 

@@ -633,7 +633,7 @@ A `POST` request is used to cancel an order.
 session.orders.cancel(order_id)
 ```
 
-#### 6.34. ✅ List order events
+#### 6.34. ✅ List order events 🌞
 
 A `GET` request is used to list all events of an order in a paged way.
 
@@ -1296,7 +1296,7 @@ session.product_settings.update(json_patch)
 
 ## 20. Scopes
 
-#### 20.1. ✅ List scopes
+#### 20.1. ✅ List scopes 🌞
 
 A `GET` request will list all scopes in the system.
 
@@ -1307,7 +1307,7 @@ session.scopes.all(params)
 
 ## 21. Script tags
 
-#### 21.1. ✅ Create script tag
+#### 21.1. ✅ Create script tag 🌞
 
 A `POST` request is used to create a script tag.
 
@@ -1316,7 +1316,7 @@ A `POST` request is used to create a script tag.
 session.script_tags.create(script_tag_url)
 ```
 
-#### 21.2. ✅ Show script tag details
+#### 21.2. ✅ Show script tag details 🌞
 
 A `GET` request is used to retrieve a single script tag.
 
@@ -1325,7 +1325,7 @@ A `GET` request is used to retrieve a single script tag.
 session.script_tags.find(script_tag_id)
 ```
 
-#### 21.3. ✅ List script tags
+#### 21.3. ✅ List script tags 🌞
 
 A `GET` request is used to retrieve a list of all script tags for a shop.
 
@@ -1334,7 +1334,7 @@ A `GET` request is used to retrieve a list of all script tags for a shop.
 session.scrip_tags.all(params)
 ```
 
-#### 21.4. ✅ Update script tag
+#### 21.4. ✅ Update script tag 🌞
 
 A `PUT` request is used to update an existing script tag. You can only update a script tag created by your app.
 
@@ -1343,7 +1343,7 @@ A `PUT` request is used to update an existing script tag. You can only update a 
 session.script_tags.update(script_tag_id, script_tag_url)
 ```
 
-#### 21.5. ✅ Delete script tag
+#### 21.5. ✅ Delete script tag 🌞
 
 A `DELETE` request is used to delete a script tag. You can only delete a script tag created by your app.
 
@@ -1398,7 +1398,7 @@ session.carts.shipping_methods(cart_id)
 
 The `shipping zone` resources are used to get information about the shipping zones of a shop. Shipping zones hold shipping methods that are applicable inside a shipping zone.
 
-#### 23.1. ✅ Show shipping zone details
+#### 23.1. ✅ Show shipping zone details 🌞
 
 A `GET` request is used to retrieve the details of a shipping zone.
 
@@ -1407,7 +1407,7 @@ A `GET` request is used to retrieve the details of a shipping zone.
 session.shipping_zones.find(shipping_zone_id)
 ```
 
-#### 23.2. ✅ Create shipping zone
+#### 23.2. ✅ Create shipping zone 🌞
 
 A `POST` request is used to create a shipping zone.
 
@@ -1416,7 +1416,7 @@ A `POST` request is used to create a shipping zone.
 session.shipping_zones.create(body)
 ```
 
-#### 23.3. ✅ Update shipping zone
+#### 23.3. ✅ Update shipping zone 🌞
 
 A `PUT` request is used to update a shipping zone.
 
@@ -1425,7 +1425,7 @@ A `PUT` request is used to update a shipping zone.
 session.shipping_zones.update(shipping_zone_id, body)
 ```
 
-#### 23.4. ✅ Delete shipping zone
+#### 23.4. ✅ Delete shipping zone 🌞
 
 A `DELETE` request is used to delete a shipping zone. You cannot delete the shipping zone if it contains the last shipping method of a shop.
 
@@ -1434,7 +1434,7 @@ A `DELETE` request is used to delete a shipping zone. You cannot delete the ship
 session.shipping_zones.delete(shipping_zone_id)
 ```
 
-#### 23.5. ✅ List shipping zones
+#### 23.5. ✅ List shipping zones 🌞
 
 A `GET` request is used to list all shipping zones in a paged way.
 
@@ -1443,7 +1443,7 @@ A `GET` request is used to list all shipping zones in a paged way.
 session.shipping_zones.all(params)
 ```
 
-#### 23.6. ✅ Sort shipping zones
+#### 23.6. ✅ Sort shipping zones 🌞
 
 A `PUT` request is used to sort the shipping zones. This is done by passing the self-links of the shipping zones in the desired order. The request must contain URIs for all shipping zones of the given page.
 
@@ -1452,7 +1452,7 @@ A `PUT` request is used to sort the shipping zones. This is done by passing the 
 session.shipping_zones.sort(shipping_zone_ids)
 ```
 
-#### 23.7. ✅ Show details of shipping method in shipping zone
+#### 23.7. ✅ Show details of shipping method in shipping zone 🌞
 
 A `GET` request is used to retrieve the details of a shipping method in a shipping zone.
 
@@ -1461,7 +1461,7 @@ A `GET` request is used to retrieve the details of a shipping method in a shippi
 session.shipping_zones.shipping_method(shipping_zone_id, shipping_method_id)
 ```
 
-#### 23.8. ✅ Show details of shipping method with weight-based price in shipping zone
+#### 23.8. ✅ Show details of shipping method with weight-based price in shipping zone 🌞
 
 A `GET` request is used to retrieve the details of a shipping method with weight-based price in a shipping zone.
 
@@ -1754,7 +1754,7 @@ session.shop.close
 
 A user is referred to as a merchant of a beyondshop.
 
-#### 25.1. ✅ List users
+#### 25.1. ✅ List users 🌞
 
 A `GET` request is used to list all users visible to the current user. This request will not list the support user.
 
@@ -1763,7 +1763,7 @@ A `GET` request is used to list all users visible to the current user. This requ
 session.users.all(params)
 ```
 
-#### 25.2. ✅ Show user details
+#### 25.2. ✅ Show user details 🌞
 
 A `GET` request is used to retrieve the details of a user.
 
@@ -1772,7 +1772,7 @@ A `GET` request is used to retrieve the details of a user.
 session.users.find(user_id)
 ```
 
-#### 25.3. ✅ Create user
+#### 25.3. ✅ Create user 🌞
 
 A `POST` request is used to create a user.
 
@@ -1781,7 +1781,7 @@ A `POST` request is used to create a user.
 session.users.create(body)
 ```
 
-#### 25.4. ✅ List user roles
+#### 25.4. ✅ List user roles 🌞
 
 A `GET` request is used to list all roles of a user.
 
@@ -1790,7 +1790,7 @@ A `GET` request is used to list all roles of a user.
 session.users.roles(user_id)
 ```
 
-#### 25.5. Set user roles
+#### 25.5. Set user roles 🌞
 
 A `PUT` request is used set the roles of a user.
 
@@ -1799,7 +1799,7 @@ A `PUT` request is used set the roles of a user.
 session.users.set_roles(user_id, body)
 ```
 
-#### 25.6. Add user roles
+#### 25.6. Add user roles 🌞
 
 A `POST` request is used to add the roles of a user.
 
@@ -1808,7 +1808,7 @@ A `POST` request is used to add the roles of a user.
 session.users.add_roles(user_id, body)
 ```
 
-#### 25.7. ⛔ List user searches
+#### 25.7. ⛔ List user searches 🌞
 
 A `GET` request is used to provide an overview of the search endpoints the user resource offers.
 
@@ -1817,7 +1817,7 @@ A `GET` request is used to provide an overview of the search endpoints the user 
 session.users.list_searches
 ```
 
-#### 25.8. ✅ Find user by username
+#### 25.8. ✅ Find user by username 🌞
 
 A `GET` request is used to find a user by username.
 
@@ -1826,7 +1826,7 @@ A `GET` request is used to find a user by username.
 session.users.search_by_username(username)
 ```
 
-#### 25.9. ✅ Verify password
+#### 25.9. ✅ Verify password 🌞
 
 A `POST` request is used to verify a password against the password guidelines.
 
@@ -1835,7 +1835,7 @@ A `POST` request is used to verify a password against the password guidelines.
 session.users.verify_password(password)
 ```
 
-#### 25.10. ✅ Change password
+#### 25.10. ✅ Change password 🌞
 
 A `POST` request is used to change the password of a user.
 
@@ -1844,7 +1844,7 @@ A `POST` request is used to change the password of a user.
 session.users.change_password(user_id, current_password, new_password)
 ```
 
-#### 25.11. ✅ Trigger password reset email
+#### 25.11. ✅ Trigger password reset email 🌞
 
 A `POST` request is used to trigger a password reset email to be sent to a user. The email will contain a link to the change password settings page of the merchant’s cockpit. The link includes a JWT to authorize the password reset.
 
@@ -1853,7 +1853,7 @@ A `POST` request is used to trigger a password reset email to be sent to a user.
 session.users.send_reset_password_email(email, locale)
 ```
 
-#### 25.12. ✅ Change username
+#### 25.12. ✅ Change username 🌞
 
 A `POST` request is used to change the username of a user.
 
@@ -1862,7 +1862,7 @@ A `POST` request is used to change the username of a user.
 session.users.change_username(user_id, current_username, new_username)
 ```
 
-#### 25.13. ✅ Retrieve support access status
+#### 25.13. ✅ Retrieve support access status 🌞
 
 A `GET` request is used to retrieve the status of the support access for a shop, i.e. if the support user is enabled or disabled for the shop.
 
@@ -1871,7 +1871,7 @@ A `GET` request is used to retrieve the status of the support access for a shop,
 session.users.support_access
 ```
 
-#### 25.14. ✅ Enable support access
+#### 25.14. ✅ Enable support access 🌞
 
 A `POST` request is used to enable support access for a shop. If enabled, the customer support will receive specific rights for direct support in the merchant’s cockpit.
 
@@ -1880,7 +1880,7 @@ A `POST` request is used to enable support access for a shop. If enabled, the cu
 session.users.enable_support_access
 ```
 
-#### 25.15. ✅ Disable support access
+#### 25.15. ✅ Disable support access 🌞
 
 A `POST` request is used to disable support access.
 
@@ -1889,7 +1889,7 @@ A `POST` request is used to disable support access.
 session.users.disable_support_access
 ```
 
-#### 25.16. ✅ Trigger email address change
+#### 25.16. ✅ Trigger email address change 🌞
 
 A `POST` request is used to trigger an email address change. A confirmation email to change the email address will be sent to the user. The confirmation email will contain a link to the email address change page of the merchant’s cockpit. The link includes a JWT to authorize the email address change.
 

@@ -13,6 +13,7 @@ require "beyond_api/resources/script_tags"
 require "beyond_api/resources/shipping_zones"
 require "beyond_api/resources/shop"
 require "beyond_api/resources/token"
+require "beyond_api/resources/users"
 require "beyond_api/resources/webhook_subscriptions"
 
 module BeyondAPI
@@ -50,12 +51,28 @@ module BeyondAPI
       BeyondAPI::Products.new(self)
     end
 
+    def scopes
+      BeyondAPI::Scopes.new(self)
+    end
+
+    def script_tags
+      BeyondAPI::ScriptTags.new(self)
+    end
+
+    def shipping_zones
+      BeyondAPI::ShippingZones.new(self)
+    end
+
     def shop
       BeyondAPI::Shop.new(self)
     end
 
     def token
       BeyondAPI::Token.new(self)
+    end
+
+    def users
+      BeyondAPI::Users.new(self)
     end
 
     def webhook_subscriptions
