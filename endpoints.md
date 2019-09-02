@@ -854,7 +854,7 @@ A `GET` request will list the product meta information.
 # GET /products/search
 ```
 
-#### 10.4. Show product details
+#### 10.4. Show product details 🌞
 
 A `GET` request is used to retrieve the details of a product.
 
@@ -863,7 +863,7 @@ A `GET` request is used to retrieve the details of a product.
 session.product_view_products.find(product_id)
 ```
 
-#### 10.5. Show variation product details
+#### 10.5. Show variation product details 🌞
 
 A `GET` request is used to retrieve the details of a variation product.
 
@@ -872,7 +872,7 @@ A `GET` request is used to retrieve the details of a variation product.
 session.product_view_products.find(product_id)
 ```
 
-#### 10.6. Show variation details
+#### 10.6. Show variation details 🌞
 
 A `GET` request is used to retrieve the details of a variation.
 
@@ -881,7 +881,7 @@ A `GET` request is used to retrieve the details of a variation.
 session.product_view_products.find(product_id)
 ```
 
-#### 10.7. List products
+#### 10.7. List products 🌞
 
 A `GET` request is used to list all products.
 
@@ -890,7 +890,7 @@ A `GET` request is used to list all products.
 session.product_view_products.all(params = {})
 ```
 
-#### 10.8. List products by tags
+#### 10.8. List products by tags 🌞
 
 A `GET` request is used to search for products matching any tag of the list given by a client. The intention is to offer product search capabilities for a shop’s storefront.
 
@@ -899,7 +899,7 @@ A `GET` request is used to search for products matching any tag of the list give
 session.product_view_products.search_by_tag(tag, params)
 ```
 
-#### 10.9. List available tags
+#### 10.9. List available tags 🌞
 
 A `GET` request is used to list all available tags.
 
@@ -908,7 +908,7 @@ A `GET` request is used to list all available tags.
 session.product_view_products.search_available_tags
 ```
 
-#### 10.10. List products by term
+#### 10.10. List products by term 🌞
 
 A `GET` request is used to search for products using a search query.
 
@@ -917,7 +917,7 @@ A `GET` request is used to search for products using a search query.
 session.product_view_products.search_by_term(term, params)
 ```
 
-#### 10.11. ⚠️ List products by query
+#### 10.11. ⚠️ List products by query 🌞
 
 A `POST` request is used to search for products using a query provided as request body.
 
