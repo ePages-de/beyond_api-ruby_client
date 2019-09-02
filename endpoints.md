@@ -930,7 +930,7 @@ session.product_view_products.search_by_query(query)
 
 A `GET` request is used to retrieve the variation of a product.
 
-#### 11.1. Show variation details
+#### 11.1. Show variation details 🌞
 
 A `GET` request is used to retrieve the variation of a product.
 
@@ -939,7 +939,7 @@ A `GET` request is used to retrieve the variation of a product.
 session.products_variations.find(product_id, variation_id)
 ```
 
-#### 11.2. Update variation partially (json)
+#### 11.2. Update variation partially (json) 🌞
 
 A `PATCH` request is used to update a variation partially with json content type.
 
@@ -948,7 +948,7 @@ A `PATCH` request is used to update a variation partially with json content type
 session.products_variations.update(product_id, variation_id, body)
 ```
 
-#### 11.3. List variations
+#### 11.3. List variations 🌞
 
 A `GET` request is used to retrieve the variations of a product.
 
@@ -961,7 +961,7 @@ session.products_variations.all(params = {})
 
 The `variation-properties` resource is used to manage the product (9 - http://docs.beyondshop.cloud/#_products) properties that can be customized for the respective variations. These resources also handle the current state of customization for each property, i.e. if a property is currently customized or not.
 
-#### 12.1. List variation properties
+#### 12.1. List variation properties 🌞
 
 A `GET` request is used to retrieve the variation properties of a variation product.
 
@@ -970,7 +970,7 @@ A `GET` request is used to retrieve the variation properties of a variation prod
 session.products_variations.all_variation_properties
 ```
 
-#### 12.2. Update variation properties
+#### 12.2. Update variation properties 🌞
 
 A `PATCH` request is used to update the variation properties of a variation product.
 
@@ -981,7 +981,7 @@ session.products.update_variation_properties(product_id, body)
 
 ## 13. Variation Product Availability
 
-#### 13.1. Show variation availability details
+#### 13.1. Show variation availability details 🌞
 
 A `GET` request is used to retrieve the availability of a variation.
 
@@ -990,7 +990,7 @@ A `GET` request is used to retrieve the availability of a variation.
 session.variation_products.availability(product_id, variation_id)
 ```
 
-#### 13.2. Enable purchasability for variation
+#### 13.2. Enable purchasability for variation 🌞
 
 A `POST` request is used to enable purchasability for a variation.
 
@@ -999,7 +999,7 @@ A `POST` request is used to enable purchasability for a variation.
 session.variation_products.enable_purchasability(product_id, variation_id)
 ```
 
-#### 13.3. Disable purchasability for variation
+#### 13.3. Disable purchasability for variation 🌞
 
 A `POST` request is used to disable purchasability for a product.
 
@@ -1008,7 +1008,7 @@ A `POST` request is used to disable purchasability for a product.
 session.variation_products.disable_purchasability(product_id, variation_id)
 ```
 
-#### 13.4. Adjust stock level of variation
+#### 13.4. Adjust stock level of variation 🌞
 
 A `POST` request is used to adjust the available stock of a variation.
 
@@ -1127,7 +1127,7 @@ A `POST` request is used to disable stock management for a product or variation 
 session.products.disable_stock_management(product_id)
 ```
 
-#### 16.4. Adjust stock level
+#### 16.4. Adjust stock level 🌞
 
 A `POST` request is used to adjust the available stock of a product.
 
@@ -1136,7 +1136,7 @@ A `POST` request is used to adjust the available stock of a product.
 session.products.adjust_stock_level(product_id, body)
 ```
 
-#### 16.5. Update reserve stock
+#### 16.5. Update reserve stock 🌞
 
 Reserve stock refers to an inventory level that indicates that a product needs to be reordered. A `POST` request is used to update this reserve stock by changing the `stockThreshold` value of a product or variation product (incl. all of its variations).
 
@@ -1145,7 +1145,7 @@ Reserve stock refers to an inventory level that indicates that a product needs t
 session.products.update_reserve_stock(product_id, body)
 ```
 
-#### 16.6. Enable purchasability
+#### 16.6. Enable purchasability 🌞
 
 A `POST` request is used to enable purchasability for a product.
 
@@ -1154,7 +1154,7 @@ A `POST` request is used to enable purchasability for a product.
 session.products.enable_purchasability(product_id)
 ```
 
-#### 16.7. Disable purchasability
+#### 16.7. Disable purchasability 🌞
 
 A `POST` request is used to disable purchasability for a product.
 
@@ -1172,7 +1172,7 @@ The `attributes` resource is used to manage additional user-defined attributes w
 | STRING  | String value (max. 4 kb)  |
 | NUMBER  | Double-precision floating number  |
 
-#### 17.1. Create product attribute
+#### 17.1. Create product attribute 🌞
 
 A `POST` request is used to create a product attribute, which defines the value of a certain (15.1 - http://docs.beyondshop.cloud/#resources-product-attribute-definitions) product attribute definition for a specific product (9.1 - http://docs.beyondshop.cloud/#resources-products).
 
@@ -1181,7 +1181,7 @@ A `POST` request is used to create a product attribute, which defines the value 
 session.products.create_custom_attribute(product_id, body)
 ```
 
-#### 17.2. Retrieve product attribute
+#### 17.2. Retrieve product attribute 🌞
 
 A `GET` request is used to retrieve detailed information about a specific product attribute.
 
@@ -1190,7 +1190,7 @@ A `GET` request is used to retrieve detailed information about a specific produc
 session.products.find_custom_attribute(product_id, attribute_name)
 ```
 
-#### 17.3. List product attributes
+#### 17.3. List product attributes 🌞
 
 A `GET` request is used to retrieve all product attributes for a product.
 
