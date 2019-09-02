@@ -28,7 +28,7 @@ module BeyondAPI
       @client_secret = nil
       @open_timeout = 2
       @timeout = 5
-      @object_struct_responses = true
+      @object_struct_responses = false
     end
   end
 end
