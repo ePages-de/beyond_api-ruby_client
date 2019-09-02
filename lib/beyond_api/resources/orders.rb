@@ -363,6 +363,11 @@ module BeyondAPI
     #
     # A +GET+ request is used to retrieve the details of an order.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/a27f1019-3690-40d1-bd9d-d60dff4c4cf8' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
     # @beyond_api.scopes +ordr:r
     #
     # @param order_id [String] the order UUID
