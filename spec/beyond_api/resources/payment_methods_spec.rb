@@ -3,27 +3,27 @@
 require "spec_helper"
 
 RSpec.describe BeyondAPI::PaymentMethods do
-  describe "#activate"
+  describe "#activate" do
     it "returns a true on successful request"
   end
 
-  describe "#all"
+  describe "#all" do
     it "returns a Hash on successful request"
   end
 
-  describe "#deactivate"
+  describe "#deactivate" do
     it "returns a true on successful request"
   end
 
-  describe "#find"
+  describe "#find" do
     it "returns a Hash on successful request"
   end
 
-  describe "#sort"
+  describe "#sort" do
     it "returns a true on successful request"
   end
 
-  describe "#update"
+  describe "#update" do
     it "returns a Hash on successful request"
   end
 end

@@ -3,23 +3,23 @@
 require "spec_helper"
 
 RSpec.describe BeyondAPI::ScriptTags do
-  describe "#all"
+  describe "#all" do
     it "returns a Hash on successful request"
   end
 
-  describe "#find"
+  describe "#find" do
     it "returns a Hash on successful request"
   end
 
-  describe "#create"
+  describe "#create" do
     it "returns a Hash on successful request"
   end
 
-  describe "#delete"
+  describe "#delete" do
     it "returns a true on successful request"
   end
 
-  describe "#update"
+  describe "#update" do
     it "returns a Hash on successful request"
   end
 end

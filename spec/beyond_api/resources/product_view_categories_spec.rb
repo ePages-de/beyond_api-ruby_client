@@ -3,27 +3,27 @@
 require "spec_helper"
 
 RSpec.describe BeyondAPI::ProductViewCategories do
-  describe "#all"
+  describe "#all" do
     it "returns a Hash on successful request"
   end
 
-  describe "#find"
+  describe "#find" do
     it "returns a Hash on successful request"
   end
 
-  describe "#products"
+  describe "#products" do
     it "returns a Hash on successful request"
   end
 
-  describe "#search_by_product_id"
+  describe "#search_by_product_id" do
     it "returns a Hash on successful request"
   end
 
-  describe "#search_by_product"
+  describe "#search_by_product" do
     it "returns a Hash on successful request"
   end
 
-  describe "#search_by_label"
+  describe "#search_by_label" do
     it "returns a Hash on successful request"
   end
 end

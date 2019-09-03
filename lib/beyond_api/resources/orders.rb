@@ -144,7 +144,7 @@ module BeyondAPI
     # @example
     #   @pcancelation_processes = session.orders.cancelation_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def cancelation_processes(order_id, params)
+    def cancelation_processes(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations", params)
 
       handle_response(response, status)
@@ -354,7 +354,7 @@ module BeyondAPI
     # @example
     #   @events = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
-    def events(order_id, params)
+    def events(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/events", params)
 
       handle_response(response, status)
@@ -617,7 +617,7 @@ module BeyondAPI
     # @example
     #   @payment_processes = session.orders.payment_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def payment_processes(order_id, params)
+    def payment_processes(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments", params)
 
       handle_response(response, status)
@@ -689,7 +689,7 @@ module BeyondAPI
     # @example
     #   @refund_processes = session.orders.refund_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def refund_processes(order_id, params)
+    def refund_processes(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds", params)
 
       handle_response(response, status)
@@ -738,7 +738,7 @@ module BeyondAPI
     # @example
     #   @return_processes = session.orders.return_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def return_processes(order_id, params)
+    def return_processes(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/returns", params)
 
       handle_response(response, status)
@@ -841,7 +841,7 @@ module BeyondAPI
     # @example
     #   @shipping_processes = session.orders.shipping_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
-    def shipping_processes(order_id, params)
+    def shipping_processes(order_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/shippings", params)
 
       handle_response(response, status)

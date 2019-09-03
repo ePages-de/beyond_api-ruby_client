@@ -4,9 +4,13 @@ require "beyond_api/resources/base"
 require "beyond_api/resources/carts"
 require "beyond_api/resources/categories"
 require "beyond_api/resources/checkout_settings"
+require "beyond_api/resources/newsletter_target"
 require "beyond_api/resources/order_settings"
 require "beyond_api/resources/orders"
 require "beyond_api/resources/payment_methods"
+require "beyond_api/resources/product_attribute_definitions"
+require "beyond_api/resources/product_view_categories"
+require "beyond_api/resources/product_view_products"
 require "beyond_api/resources/products"
 require "beyond_api/resources/scopes"
 require "beyond_api/resources/script_tags"
@@ -47,8 +51,24 @@ module BeyondAPI
       BeyondAPI::Orders.new(self)
     end
 
+    def newsletter_target
+      BeyondAPI::NewsletterTarget.new(self)
+    end
+
     def products
       BeyondAPI::Products.new(self)
+    end
+
+    def product_attribute_definitionsd
+      BeyondAPI::ProductAttributeDefinition.new(self)
+    end
+
+    def product_view_categories
+      BeyondAPI::ProductViewCategories.new(self)
+    end
+
+    def product_view_products
+      BeyondAPI::ProductViewProducts.new(self)
     end
 
     def scopes

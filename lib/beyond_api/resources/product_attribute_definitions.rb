@@ -22,7 +22,7 @@ module BeyondAPI
     # @example
     #   @product_attribute_definitions = session.product_attribute_definitions.all(size: 100, page: 0)
     #
-    def all(params)
+    def all(params = {})
       response, status = BeyondAPI::Request.get(@session, "/product-attribute-definitions", params)
 
       handle_response(response, status)

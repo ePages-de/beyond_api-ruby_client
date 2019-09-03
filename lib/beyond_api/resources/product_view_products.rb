@@ -127,8 +127,8 @@ module BeyondAPI
     # @example
     #   @products = session.product_view_products.search_by_tag("number0", page: 0, size: 100)
     #
-    def search_by_tag(tag, params)
-      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-by-tags", tag: tag, params)
+    def search_by_tag(tag, params = {})
+      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-by-tags", params.merge(tag: tag))
 
       handle_response(response, status)
     end
@@ -149,8 +149,8 @@ module BeyondAPI
     # @example
     #   @products = session.product_view_products.search_by_term("search snippet", page: 0, size: 100)
     #
-    def search_by_term(term, params)
-      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-by-term", query: term, params)
+    def search_by_term(term, params = {})
+      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-by-term", params.merge(query: term))
 
       handle_response(response, status)
     end

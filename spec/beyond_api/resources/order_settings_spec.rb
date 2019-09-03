@@ -3,11 +3,11 @@
 require "spec_helper"
 
 RSpec.describe BeyondAPI::OrderSettings do
-  describe "#all"
+  describe "#all" do
     it "returns a Hash on successful request"
   end
 
-  describe "#update"
+  describe "#update" do
     it "returns a Hash on successful request"
   end
 end

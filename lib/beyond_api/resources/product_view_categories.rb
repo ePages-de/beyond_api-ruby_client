@@ -18,23 +18,22 @@ module BeyondAPI
       handle_response(response, status)
     end
 
-    def products(category_id, params)
+    def products(category_id, params = {})
       response, status = BeyondAPI::Request.get(@session, "/product-view/categories/#{category_id}/products", params)
 
       handle_response(response, status)
     end
 
-    def search_by_product_id(product_id, params)
-      params.merge! "productId": product_id
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/search/find-by-product", params)
+    def search_by_product_id(product_id, params = {})
+      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/search/find-by-product", params.merge(product_id: product_id))
 
       handle_response(response, status)
     end
 
-    def search_by_product(body, params)
+    def search_by_product(body, params = {})
       response, status = BeyondAPI::Request.post(@session, "/product-view/categories/search/find-by-product", body, params)
 
-      handle_response(response, status)
+      handle_response(response, status = {})
     end
 
     def search_by_label(label)
