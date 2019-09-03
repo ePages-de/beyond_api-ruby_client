@@ -1,4 +1,4 @@
-# BeyondAPI
+# Beyond API Ruby Client
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/beyond_api`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -12,13 +12,17 @@ Add this line to your application's Gemfile:
 gem 'beyond_api'
 ```
 
-And then execute:
+And then execute
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install beyond_api
+```bash
+$ gem install beyond_api
+```
 
 ## Usage
 
@@ -33,3 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/beyond_api.
+
+## License
+
+## About ePages

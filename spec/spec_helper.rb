@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require "bundler/setup"
+require "dotenv/load"
 require "beyond_api"
+require "faker"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -10,5 +14,18 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  # Initialize BeyondAPI
+  config.before(:all) do
+    BeyondAPI.setup do |config|
+      config.client_id =     ENV["CLIENT_ID"]
+      config.client_secret = ENV["CLIENT_SECRET"]
+    end
+
+    @session = BeyondAPI::Session.new(api_url:       ENV["API_URL"],
+                                      access_token:  ENV["ACCESS_TOKEN"],
+                                      refresh_token: ENV["REFRESH_TOKEN"])
+    @session.token.refresh
   end
 end
