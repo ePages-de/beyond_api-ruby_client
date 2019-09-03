@@ -1199,7 +1199,7 @@ A `GET` request is used to retrieve all product attributes for a product.
 session.products.custom_attributes(product_id, params)
 ```
 
-#### 17.4. Update product attribute
+#### 17.4. Update product attribute 🌞
 
 A `PUT` request is used to update the value of a product attribute. If the specified product attribute doesn’t exist, it will be created with the response as described in Create product attribute. (17.1 http://docs.beyondshop.cloud/#resources-product-attribute-create)
 
@@ -1208,7 +1208,7 @@ A `PUT` request is used to update the value of a product attribute. If the speci
 session.products.update_custom_attribute(product_id, attribute_name, body)
 ```
 
-#### 17.5. Delete product attribute
+#### 17.5. Delete product attribute 🌞
 
 A `DELETE` request is used to delete a product attribute.
 
