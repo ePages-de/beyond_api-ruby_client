@@ -1901,7 +1901,7 @@ session.users.send_email_address_change(user_id, email, current_password, locale
 
 ## 26. Newsletter targets
 
-#### 26.1. ✅ Create newsletter target
+#### 26.1. ✅ Create newsletter target 🌞
 
 A `POST` request is used to create the newsletter target. Each shop can only have one newsletter target. You can update this target at any time, or delete the existing one and create a new target.
 
@@ -1910,7 +1910,7 @@ A `POST` request is used to create the newsletter target. Each shop can only hav
 session.newsletter_target.create(submit_url)
 ```
 
-#### 26.2. ✅ Get newsletter target details
+#### 26.2. ✅ Get newsletter target details 🌞
 
 A `GET` request is used to retrieve the newsletter target.
 
@@ -1919,7 +1919,7 @@ A `GET` request is used to retrieve the newsletter target.
 session.newsletter_target.find
 ```
 
-#### 26.3. ✅ Update newsletter target
+#### 26.3. ✅ Update newsletter target 🌞
 
 A `PUT` request is used to update the existing newsletter target.
 
@@ -1928,7 +1928,7 @@ A `PUT` request is used to update the existing newsletter target.
 session.newsletter_target.update(body)
 ```
 
-#### 26.4. ✅ Delete newsletter target
+#### 26.4. ✅ Delete newsletter target 🌞
 
 A `DELETE` request is used to delete the existing newsletter target.
 
