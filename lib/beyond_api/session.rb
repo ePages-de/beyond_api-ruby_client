@@ -95,6 +95,10 @@ module BeyondAPI
       BeyondAPI::Users.new(self)
     end
 
+    def variations
+      BeyondAPI::Variations.new(self)
+    end
+
     def webhook_subscriptions
       BeyondAPI::WebhookSubscriptions.new(self)
     end

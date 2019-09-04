@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::VariationAvailability
-    include BeyondAPI::Utils
+  module ProductVariationAvailability
 
     #
     # A +POST+ request is used to adjust the available stock of a variation.

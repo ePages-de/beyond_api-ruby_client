@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::Variations
-    include BeyondAPI::Utils
+  module ProductVariations
 
     #
     # A +PATCH+ request is used to update a variation partially with json content type.

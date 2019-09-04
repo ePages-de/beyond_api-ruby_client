@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::Search
-    include BeyondAPI::Utils
+  module ProductSearch
 
     #
     # A +GET+ request is used to search for a product by SKU.

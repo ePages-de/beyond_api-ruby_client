@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::Images
-    include BeyondAPI::Utils
+  module ProductImages
 
     #
     # A +GET+ request is used to retrieve the images of a product.

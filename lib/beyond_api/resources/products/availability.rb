@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::Availability
-    include BeyondAPI::Utils
+  module ProductAvailability
 
     #
     # A +GET+ request is used to retrieve the availability of a product.

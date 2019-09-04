@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::VariationProperties
-    include BeyondAPI::Utils
+  module ProductVariationProperties
 
     #
     # A +GET+ request is used to retrieve the variation properties of a variation product.
@@ -20,9 +19,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @variation_properties = session.products.all_variation_properties("7f32696a-df56-4380-a91b-fffb97f025b4")
+    #   @variation_properties = session.products.variation_properties("7f32696a-df56-4380-a91b-fffb97f025b4")
     #
-    def all_variation_properties(product_id)
+    def variation_properties(product_id)
       response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/variation-properties")
 
       handle_response(response, status)

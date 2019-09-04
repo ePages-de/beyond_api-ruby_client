@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class Products::Attachments
-    include BeyondAPI::Utils
+  module ProductAttachments
 
     #
     # A +POST+ request is used to list all the attachments of a product.
