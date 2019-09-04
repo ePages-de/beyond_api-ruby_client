@@ -4,7 +4,7 @@ require "beyond_api/utils"
 
 module BeyondAPI
   class Products < Base
-    include BeyondAPI::Uti
+    include BeyondAPI::Utils
 
     #
     # A +GET+ request will list all of the products in a paged manner. The returned data is an excerpt projection, which includes a small subset of product properties.

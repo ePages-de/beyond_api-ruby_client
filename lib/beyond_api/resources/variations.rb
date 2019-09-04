@@ -4,7 +4,7 @@ require "beyond_api/utils"
 
 module BeyondAPI
   class Variations < Base
-    include BeyondAPI::Uti
+    include BeyondAPI::Utils
 
     #
     # A +GET+ request is used to retrieve the variations of a product.

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::ProductAttributeDefinition do
+RSpec.describe BeyondAPI::ProductAttributeDefinitions do
   describe "#all" do
     it "returns a Hash on successful request"
   end
