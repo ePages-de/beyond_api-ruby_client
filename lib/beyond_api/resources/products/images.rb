@@ -96,7 +96,7 @@ module BeyondAPI
     # @example
     #   session.products.upload_image("4125b993-49fc-47c8-b9b3-76d8871e4e06", "/home/epages/file.png", "file.png")
     #
-    def upload_image(product_id, image_path, image_path)
+    def upload_image(product_id, image_path, image_name)
       content_type = case File.extname(image_path)
         when ".png"
           "image/png"

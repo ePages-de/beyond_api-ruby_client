@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  module ProductSearch
+  module ProductSearches
 
     #
     # A +GET+ request is used to search for a product by SKU.
@@ -13,7 +13,7 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prod:r+
     #
-    # @params sku [String] the product sku to search
+    # @param sku [String] the product sku to search
     #
     # @return [OpenStruct]
     #
@@ -34,17 +34,17 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prod:r+
     #
-    # @params starts_with [String] the tag start to search
-    # @option params [Integer] :size the page size
-    # @option params [Integer] :page the page numbe
+    # @param starts_with [String] the tag start to search
+    # @option param [Integer] :size the page size
+    # @option param [Integer] :page the page numbe
     #
     # @return [OpenStruct]
     #
     # @example
     #   @tags = session.product.search_tags_starting_by("aw")
     #
-    def search_tags_starting_by(starts_with, params)
-      response, status = BeyondAPI::Request.get(@session, "/products/search/tags", starts_with: starts_with, params)
+    def search_tags_starting_by(starts_with, params = {})
+      response, status = BeyondAPI::Request.get(@session, "/products/search/tags", params.merge(starts_with: starts_with))
 
       handle_response(response, status)
     end

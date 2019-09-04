@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class ProductViewCategories < Base
+  class CategoriesView < Base
     include BeyondAPI::Utils
 
     def find(category_id)

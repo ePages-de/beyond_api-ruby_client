@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  module ProductVariationAvailability
+  module VariationAvailability
 
     #
     # A +POST+ request is used to adjust the available stock of a variation.
@@ -23,9 +23,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @availability = session.products.adjust_stock_level(product_id, variation_id, { relativeAmount => -1 })
+    #   @availability = session.variations.adjust_stock_level(product_id, variation_id, { relativeAmount => -1 })
     #
-    def variation_adjust_stock_level(product_id, variation_id, body)
+    def adjust_stock_level(product_id, variation_id, body)
       response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/enable-stock-management", body)
 
       handle_response(response, status)
@@ -47,9 +47,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @availability = session.products.variation_availability("fb22d408-00dc-47e3-ae58-e35769bdb428", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
+    #   @availability = session.variations.availability("fb22d408-00dc-47e3-ae58-e35769bdb428", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
-    def variation_availability(product_id, variation_id)
+    def availability(product_id, variation_id)
       response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}/availability")
 
       handle_response(response, status)
@@ -71,9 +71,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @availability = session.products.variation_enable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
+    #   @availability = session.variations.enable_purchaability("1e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
-    def variation_enable_purchasability(product_id, variation_id)
+    def enable_purchasability(product_id, variation_id)
       response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/enable-purchasability")
 
       handle_response(response, status)
@@ -94,9 +94,9 @@ module BeyondAPI
     # @return true
     #
     # @example
-    #   @availability = session.products.variation_disable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
+    #   @availability = session.variations.disable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
-    def variation_disable_purchasability(product_id, variation_id)
+    def disable_purchasability(product_id, variation_id)
       response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/disable-purchasability")
 
       handle_response(response, status)

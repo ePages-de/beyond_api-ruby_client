@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class ProductViewProducts < Base
+  class ProductsView < Base
     include BeyondAPI::Utils
 
     #
@@ -22,7 +22,7 @@ module BeyondAPI
     #   @products = session.product_view_products.all(page: 0, size: 100)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/product-view/products/#{product_id}")
+      response, status = BeyondAPI::Request.get(@session, "/product-view/products")
 
       handle_response(response, status)
     end
@@ -58,9 +58,9 @@ module BeyondAPI
     # @return [OpenStruct]
     #
     # @example
-    #   @tags = session.product_view_products.search_available_tags
+    #   @tags = session.product_view_products.available_tags
     #
-    def search_available_tags
+    def available_tags
       response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-available-tags")
 
       handle_response(response, status)

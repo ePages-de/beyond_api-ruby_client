@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondAPI
-  class ProductAttributeDefinition < Base
+  class ProductAttributeDefinitions < Base
     include BeyondAPI::Utils
 
     #
@@ -14,8 +14,8 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prad:r+
     #
-    # @option params [Integer] :size the page size
-    # @option params [Integer] :page the page number
+    # @option param [Integer] :size the page size
+    # @option param [Integer] :page the page number
     #
     # @return [OpenStruct]
     #
@@ -43,7 +43,7 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prad:c+
     #
-    # @params product_attribute_name [String] the product attribute key
+    # @param product_attribute_name [String] the product attribute key
     #
     # @return [OpenStruct]
     #
@@ -72,7 +72,7 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prad:d+
     #
-    # @params product_attribute_name [String] the product attribute key
+    # @param product_attribute_name [String] the product attribute key
     #
     # @return [true]
     #
@@ -93,7 +93,7 @@ module BeyondAPI
     #
     # @beyond_api.scopes +prad:r+
     #
-    # @params product_attribute_name [String] the product attribute key
+    # @param product_attribute_name [String] the product attribute key
     #
     # @return [OpenStruct]
     #
