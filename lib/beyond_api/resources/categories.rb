@@ -60,6 +60,28 @@ module BeyondAPI
     end
 
     #
+    # A +DELETE+ request is used to delete a category.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/f461fb56-1984-4ade-bd4e-007c273cc923' -i -X DELETE \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +catg:d+
+    #
+    # @param category_id [String] the category UUID
+    #
+    # @return true
+    #
+    # @example
+    #   session.categories.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
+    #
+    def delete(category_id)
+      response, status = BeyondAPI::Request.delete(@session, "/categories/#{category_id}")
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
+    #
     # A +GET+ request is used to retrieve the details of a category.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/27a94b71-9b17-4f06-9596-fbbf4d18021f' -i -X GET \
@@ -78,37 +100,6 @@ module BeyondAPI
     #
     def find(category_id)
       response, status = BeyondAPI::Request.get(@session, "/categories/#{category_id}")
-
-      handle_response(response, status)
-    end
-
-    #
-    # A PUT request is issued to update all category properties with application/json content type.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/cb2058dc-871a-4e64-83ac-39a0be9e6f82' -i -X PUT \
-    #       -H 'Content-Type: application/json' \
-    #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>' \
-    #       -d '{"name":"updated name","label":"updated-name","type":"MANUAL","query":{"bool":{"filter":[{"terms":{"id":["6c449297-65fc-41aa-a49c-68a3561b33e5","6c449297-65fc-41aa-a49c-68a3561b33e6"]}}]}}}'
-    #
-    # @beyond_api.scopes +catg:u+
-    #
-    # @param category_id [String] the category UUID
-    # @param body [Hash] the request body
-    #
-    # @return [OpenStruct]
-    #
-    # @example
-    #   body = {
-    #     "name" => "updated name",
-    #     "label" => "updated-name",
-    #     "type" => "MANUAL",
-    #     "query" => { "bool" => { "filter" => [ { "terms" => { "id" => [ "6c449297-65fc-41aa-a49c-68a3561b33e5", "6c449297-65fc-41aa-a49c-68a3561b33e6" ] } } ] } }
-    #   }
-    #   @category = session.categories.update(category_id, body)
-    #
-    def update(category_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/categories/#{category_id}", body)
 
       handle_response(response, status)
     end
@@ -144,25 +135,34 @@ module BeyondAPI
     end
 
     #
-    # A +DELETE+ request is used to delete a category.
+    # A PUT request is issued to update all category properties with application/json content type.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/f461fb56-1984-4ade-bd4e-007c273cc923' -i -X DELETE \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/cb2058dc-871a-4e64-83ac-39a0be9e6f82' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>'
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{"name":"updated name","label":"updated-name","type":"MANUAL","query":{"bool":{"filter":[{"terms":{"id":["6c449297-65fc-41aa-a49c-68a3561b33e5","6c449297-65fc-41aa-a49c-68a3561b33e6"]}}]}}}'
     #
-    # @beyond_api.scopes +catg:d+
+    # @beyond_api.scopes +catg:u+
     #
     # @param category_id [String] the category UUID
+    # @param body [Hash] the request body
     #
-    # @return true
+    # @return [OpenStruct]
     #
     # @example
-    #   session.categories.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
+    #   body = {
+    #     "name" => "updated name",
+    #     "label" => "updated-name",
+    #     "type" => "MANUAL",
+    #     "query" => { "bool" => { "filter" => [ { "terms" => { "id" => [ "6c449297-65fc-41aa-a49c-68a3561b33e5", "6c449297-65fc-41aa-a49c-68a3561b33e6" ] } } ] } }
+    #   }
+    #   @category = session.categories.update(category_id, body)
     #
-    def delete(category_id)
-      response, status = BeyondAPI::Request.delete(@session, "/categories/#{category_id}")
+    def update(category_id, body)
+      response, status = BeyondAPI::Request.put(@session, "/categories/#{category_id}", body)
 
-      handle_response(response, status, respond_with_true: true)
+      handle_response(response, status)
     end
   end
 end

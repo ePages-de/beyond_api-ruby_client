@@ -738,7 +738,7 @@ session.payment_methods.deactivate(payment_method_id)
 
 The `products` resource is used to manage products of a shop.
 
-#### 9.1. List products including variation products
+#### 9.1. List products including variation products 🌞
 
 A `GET` request will list all of the products in a paged manner. The returned data is an excerpt projection, which includes a small subset of product properties.
 
@@ -747,7 +747,7 @@ A `GET` request will list all of the products in a paged manner. The returned da
 session.products.all(params = {})
 ```
 
-#### 9.2. Create product
+#### 9.2. Create product 🌞
 
 A `POST` request is used to create a product.
 
@@ -756,7 +756,7 @@ A `POST` request is used to create a product.
 session.products.create(body)
 ```
 
-#### 9.3. Create variation product
+#### 9.3. Create variation product 🌞
 
 A `POST` request is used to create a variation product and all its variations.
 
@@ -765,7 +765,7 @@ A `POST` request is used to create a variation product and all its variations.
 session.products.create(body)
 ```
 
-#### 9.4. Show product details
+#### 9.4. Show product details 🌞
 
 A `GET` request is used to retrieve the details of a product.
 
@@ -774,7 +774,7 @@ A `GET` request is used to retrieve the details of a product.
 session.products.find(product_id)
 ```
 
-#### 9.5. Show variation product details
+#### 9.5. Show variation product details 🌞
 
 A `GET` request is used to retrieve the details of a variation product.
 
@@ -791,7 +791,7 @@ A `PATCH` request is used to update a product partially with json patch content 
 # PATCH /products/4dd2ea16-28aa-4715-9043-26dc0431afae
 ```
 
-#### 9.7. Update product partially (json)
+#### 9.7. Update product partially (json) 🌞
 
 A `PATCH` request is used to update a product partially with json content type.
 
@@ -800,7 +800,7 @@ A `PATCH` request is used to update a product partially with json content type.
 session.products.update(product_id, body)
 ```
 
-#### 9.8. Update variation product partially (json)
+#### 9.8. Update variation product partially (json) 🌞
 
 A `PATCH` request is used to update a variation product with all its variations partially with json content type.
 
@@ -811,7 +811,7 @@ A `PATCH` request is used to update a variation product with all its variations 
 session.products.update(product_id, body)
 ```
 
-#### 9.9. Delete product
+#### 9.9. Delete product 🌞
 
 A `DELETE` request is used to delete a product or variation product. When a variation product is deleted, all its variations are deleted as well.
 
@@ -1283,7 +1283,7 @@ A `GET` request is used to retrieve the product settings.
 
 ```ruby
 # GET /product-settings
-session.product_settings.all
+session.product_settings.all 🌞
 ```
 
 #### 19.2. ⛔ Update product settings (json patch)
@@ -1357,7 +1357,7 @@ session.script_tags.delete(script_tag_id)
 
 The `cart shipping method` resources hold information on the shipping methods handled for a cart.
 
-#### 22.1. ✅ Set current cart shipping method
+#### 22.1. ✅ Set current cart shipping method 🌞
 
 A `PUT` request is used to set the current shipping method of the cart.
 
@@ -1366,7 +1366,7 @@ A `PUT` request is used to set the current shipping method of the cart.
 session.carts.set_shipping_method(cart_id, shipping_zone_id, shipping_method_id)
 ```
 
-#### 22.2. ✅ Set cart shipping method to current default
+#### 22.2. ✅ Set cart shipping method to current default 🌞
 
 A `PUT` request is used to set the shipping method to the current default shipping method. The default shipping method is the one with the highest priority of the applicable shipping methods.
 
@@ -1375,7 +1375,7 @@ A `PUT` request is used to set the shipping method to the current default shippi
 session.carts.set_shipping_method_to_default(cart_id)
 ```
 
-#### 22.3. ✅ Show current cart shipping method details
+#### 22.3. ✅ Show current cart shipping method details 🌞
 
 A `GET` request is used to get the current shipping method. The shipping method type is documented here. (http://docs.beyondshop.cloud/#resources-shipping-method-get)
 
@@ -1384,7 +1384,7 @@ A `GET` request is used to get the current shipping method. The shipping method 
 session.carts.shipping_method(cart_id)
 ```
 
-#### 22.4. ✅ Show applicable cart shipping method details
+#### 22.4. ✅ Show applicable cart shipping method details 🌞
 
 A `GET` request is used to get the applicable shipping methods of a cart. The shipping method type is documented here
 
@@ -1471,7 +1471,7 @@ A `GET` request is used to retrieve the details of a shipping method with weight
 session.shipping_zones.shipping_method(shipping_zone_id, shipping_method_id)
 ```
 
-#### 23.9. ✅ Create shipping method in shipping zone
+#### 23.9. ✅ Create shipping method in shipping zone 🌞
 
 A `POST` request is used to create a shipping method in a shipping zone.
 
@@ -1480,7 +1480,7 @@ A `POST` request is used to create a shipping method in a shipping zone.
 session.shipping_zones.create_shipping_method(shipping_zone_id, body)
 ```
 
-#### 23.10. ✅ Create shipping method with weight-based price in shipping zone
+#### 23.10. ✅ Create shipping method with weight-based price in shipping zone 🌞
 
 A `POST` request is used to create a shipping method with weight-based price in a shipping zone.
 
@@ -1489,7 +1489,7 @@ A `POST` request is used to create a shipping method with weight-based price in 
 session.shipping_zones.create_shipping_method(shipping_zone_id, body)
 ```
 
-#### 23.11. ✅ Delete shipping method in shipping zone
+#### 23.11. ✅ Delete shipping method in shipping zone 🌞
 
 A `DELETE` request is used to delete a shipping method in a shipping zone. You cannot delete the last shipping method of a shop.
 
@@ -1498,7 +1498,7 @@ A `DELETE` request is used to delete a shipping method in a shipping zone. You c
 session.shipping_zones.delete_shipping_method(shipping_zone_id, shipping_method_id)
 ```
 
-#### 23.12. List shipping methods of shipping zone
+#### 23.12. List shipping methods of shipping zone 🌞
 
 A `GET` request is used to list all shipping-methods of a shipping zone in a paged way.
 
@@ -1507,7 +1507,7 @@ A `GET` request is used to list all shipping-methods of a shipping zone in a pag
 session.shipping_zones.shipping_methods(shipping_zone_id, params)
 ```
 
-#### 23.13. Sort shipping methods in shipping zone
+#### 23.13. Sort shipping methods in shipping zone 🌞
 
 A `PUT` request is used to sort the shipping methods inside a shipping zone. This is done by passing the self-links of the shipping methods in the desired order. The request must contain URIs for all shipping methods of this shipping zone.
 
@@ -1516,7 +1516,7 @@ A `PUT` request is used to sort the shipping methods inside a shipping zone. Thi
 session.shipping_zones.sort_shipping_methods(shipping_zone_id)
 ```
 
-#### 23.14. Find serviceable countries
+#### 23.14. Find serviceable countries 🌞
 
 A `GET` request is used to find the serviceable countries.
 

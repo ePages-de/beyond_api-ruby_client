@@ -28,6 +28,24 @@ module BeyondAPI
     end
 
     #
+    # A +GET+ request is used to list all available tags.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/products/search/find-available-tags' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json'
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @tags = session.product_view_products.available_tags
+    #
+    def available_tags
+      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-available-tags")
+
+      handle_response(response, status)
+    end
+
+    #
     # TODO: To be documented.
     # NOTE: 10.4 10.5 and 10.6 are the same call with different response.
     #
@@ -44,24 +62,6 @@ module BeyondAPI
     #
     def find(product_id)
       response, status = BeyondAPI::Request.get(@session, "/product-view/products/#{product_id}")
-
-      handle_response(response, status)
-    end
-
-    #
-    # A +GET+ request is used to list all available tags.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/products/search/find-available-tags' -i -X GET \
-    #       -H 'Content-Type: application/json' \
-    #       -H 'Accept: application/hal+json'
-    #
-    # @return [OpenStruct]
-    #
-    # @example
-    #   @tags = session.product_view_products.available_tags
-    #
-    def available_tags
-      response, status = BeyondAPI::Request.get(@session, "/product-view/products/search/find-available-tags")
 
       handle_response(response, status)
     end

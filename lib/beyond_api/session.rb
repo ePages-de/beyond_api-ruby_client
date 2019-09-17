@@ -2,14 +2,15 @@
 
 require "beyond_api/resources/base"
 require "beyond_api/resources/carts"
-require "beyond_api/resources/categories"
 require "beyond_api/resources/categories_view"
+require "beyond_api/resources/categories"
 require "beyond_api/resources/checkout_settings"
 require "beyond_api/resources/newsletter_target"
 require "beyond_api/resources/order_settings"
 require "beyond_api/resources/orders"
 require "beyond_api/resources/payment_methods"
 require "beyond_api/resources/product_attribute_definitions"
+require "beyond_api/resources/product_settings"
 require "beyond_api/resources/products_view"
 require "beyond_api/resources/products"
 require "beyond_api/resources/scopes"
@@ -18,6 +19,7 @@ require "beyond_api/resources/shipping_zones"
 require "beyond_api/resources/shop"
 require "beyond_api/resources/token"
 require "beyond_api/resources/users"
+require "beyond_api/resources/variations"
 require "beyond_api/resources/webhook_subscriptions"
 
 module BeyondAPI
@@ -35,16 +37,20 @@ module BeyondAPI
       BeyondAPI::Carts.new(self)
     end
 
-    def categories
-      BeyondAPI::Categories.new(self)
-    end
-
     def categories_view
       BeyondAPI::CategoriesView.new(self)
     end
 
+    def categories
+      BeyondAPI::Categories.new(self)
+    end
+
     def checkout_settings
       BeyondAPI::CheckoutSettings.new(self)
+    end
+
+    def newsletter_target
+      BeyondAPI::NewsletterTarget.new(self)
     end
 
     def order_settings
@@ -55,20 +61,24 @@ module BeyondAPI
       BeyondAPI::Orders.new(self)
     end
 
-    def newsletter_target
-      BeyondAPI::NewsletterTarget.new(self)
-    end
-
-    def products
-      BeyondAPI::Products.new(self)
+    def payment_methods
+      BeyondAPI::PaymentMethods.new(self)
     end
 
     def product_attribute_definitions
       BeyondAPI::ProductAttributeDefinitions.new(self)
     end
 
+    def product_settings
+      BeyondAPI::ProductSettings.new(self)
+    end
+
     def products_view
       BeyondAPI::ProductsView.new(self)
+    end
+
+    def products
+      BeyondAPI::Products.new(self)
     end
 
     def scopes

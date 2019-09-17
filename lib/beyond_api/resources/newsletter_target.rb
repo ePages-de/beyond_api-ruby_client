@@ -34,6 +34,25 @@ module BeyondAPI
     end
 
     #
+    # A +DELETE+ request is used to delete the existing newsletter target.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/newsletter-target' -i -X DELETE \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +nltg:m+
+    #
+    # @return true
+    #
+    # @example
+    #   session.newsletter_target.delete
+    #
+    def delete
+      response, status = BeyondAPI::Request.delete(@session, "/newsletter-target")
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
+    #
     # A +GET+ request is used to retrieve the newsletter target.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/newsletter-target' -i -X GET
@@ -73,25 +92,6 @@ module BeyondAPI
       response, status = BeyondAPI::Request.put(@session, "/newsletter-target", { submit_url: submit_url })
 
       handle_response(response, status)
-    end
-
-    #
-    # A +DELETE+ request is used to delete the existing newsletter target.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/newsletter-target' -i -X DELETE \
-    #       -H 'Authorization: Bearer <Access token>'
-    #
-    # @beyond_api.scopes +nltg:m+
-    #
-    # @return true
-    #
-    # @example
-    #   session.newsletter_target.delete
-    #
-    def delete
-      response, status = BeyondAPI::Request.delete(@session, "/newsletter-target")
-
-      handle_response(response, status, respond_with_true: true)
     end
   end
 end
