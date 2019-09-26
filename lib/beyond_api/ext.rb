@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Hash # :nodoc:
+class Hash
   def deep_transform_keys(&block)
     result = {}
     each do |key, value|
@@ -16,34 +16,9 @@ class Hash # :nodoc:
   def underscorize_keys
     deep_transform_keys { |key| key.to_s.underscore }
   end
-
-  def rubify
-    result = {}
-    new_hash = self.delete_if {|key, value| key == '_links' }
-    new_hash.each do |key, value|
-      new_key = key.sanitize_key
-      if key == '_embedded'
-        result.merge!(value.rubify)
-      elsif value.is_a?(Hash)
-        result[new_key] = value.rubify
-      elsif value.is_a?(Array)
-        result[new_key] = []
-        value.each do |val|
-          result[new_key] << val.rubify
-        end
-      else
-        result[new_key] = value
-      end
-    end
-    result
-  end
 end
 
-class String # :nodoc:
-  def sanitize_key
-    chars.first == "_" ? self[1..-1].underscore : self.underscore
-  end
-
+class String
   def blank?
     respond_to?(:empty?) ? !!empty? : !self
   end
