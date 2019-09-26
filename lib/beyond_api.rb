@@ -21,13 +21,16 @@ module BeyondAPI
   end
 
   class Configuration
-    attr_accessor :client_id, :client_secret, :open_timeout, :timeout, :object_struct_responses
+    attr_accessor :client_id, :client_secret, :open_timeout, :timeout,  :remove_response_links,
+                  :remove_response_key_underscores, :object_struct_responses
 
     def initialize
       @client_id = nil
       @client_secret = nil
       @open_timeout = 2
       @timeout = 5
+      @remove_response_links = false
+      @remove_response_key_underscores = false
       @object_struct_responses = false
     end
   end
