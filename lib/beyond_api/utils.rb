@@ -27,8 +27,8 @@ module BeyondApi
     def sanitize_response(hash)
       {}.tap do |h|
         hash.each do |key, value|
-          next if key == "_links" && BeyondAPI.configuration.remove_response_links
-          key = sanitize_key(key) if BeyondAPI.configuration.remove_response_key_underscores
+          next if key == "_links" && BeyondApi.configuration.remove_response_links
+          key = sanitize_key(key) if BeyondApi.configuration.remove_response_key_underscores
           h[key.underscore.to_sym] = transform(value)
         end
       end
