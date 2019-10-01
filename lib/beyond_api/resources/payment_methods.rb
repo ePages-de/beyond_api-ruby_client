@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class PaymentMethods < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +POST+ request is used to activate a payment method.
@@ -23,7 +23,7 @@ module BeyondAPI
     #   session.payment_methods.activate("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def activate(payment_method_id)
-      response, status = BeyondAPI::Request.post(@session, "/payment-methods/#{payment_method_id}/activate")
+      response, status = BeyondApi::Request.post(@session, "/payment-methods/#{payment_method_id}/activate")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -47,7 +47,7 @@ module BeyondAPI
     #   session.payment_methods.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/payment-methods", params)
+      response, status = BeyondApi::Request.get(@session, "/payment-methods", params)
 
       handle_response(response, status)
     end
@@ -69,7 +69,7 @@ module BeyondAPI
     #   session.payment_methods.deactivate("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def deactivate(payment_method_id)
-      response, status = BeyondAPI::Request.post(@session, "/payment-methods/#{payment_method_id}/deactivate")
+      response, status = BeyondApi::Request.post(@session, "/payment-methods/#{payment_method_id}/deactivate")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -87,7 +87,7 @@ module BeyondAPI
     #   session.payment_methods.find("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def find(payment_method_id)
-      response, status = BeyondAPI::Request.get(@session, "/payment-methods/#{payment_method_id}")
+      response, status = BeyondApi::Request.get(@session, "/payment-methods/#{payment_method_id}")
 
       handle_response(response, status)
     end
@@ -123,7 +123,7 @@ module BeyondAPI
       payment_method_ids.each do |payment_method|
         body << "#{@session.api_url}/payment-methods/#{payment_method}"
       end
-      response, status = BeyondAPI::Request.put(@session, "/payment-methods", body)
+      response, status = BeyondApi::Request.put(@session, "/payment-methods", body)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -184,7 +184,7 @@ module BeyondAPI
     #   @payment_method = session.payment_methods.update("6f3bc033-c2d1-4f44-80e3-1b668f6bd699", body)
     #
     def update(payment_method_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/payment-methods/#{payment_method_id}", body)
+      response, status = BeyondApi::Request.put(@session, "/payment-methods/#{payment_method_id}", body)
 
       handle_response(response, status)
     end

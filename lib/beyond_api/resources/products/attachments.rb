@@ -2,7 +2,7 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   module ProductAttachments
 
     #
@@ -37,7 +37,7 @@ module BeyondAPI
     #   @attachment = session.products.add_attachment("fd60a63e-c4c0-496d-af49-c4ed224cca2a", body)
     #
     def add_attachment(product_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/attachments", body)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/attachments", body)
 
       handle_response(response, status)
     end
@@ -61,7 +61,7 @@ module BeyondAPI
     #   @attachment = session.products.attachment("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "36933722-f13f-4ee2-858c-0835ae0a884e")
     #
     def attachment(product_id, attachment_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/attachments/#{attachment_id}")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attachments/#{attachment_id}")
 
       handle_response(response, status)
     end
@@ -86,7 +86,7 @@ module BeyondAPI
     #   @attachments = session.products.attachments("fd60a63e-c4c0-496d-af49-c4ed224cca2a", size: 100, page: 0)
     #
     def attachments(product_id, params)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/attachments", params)
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attachments", params)
 
       handle_response(response, status)
     end
@@ -110,7 +110,7 @@ module BeyondAPI
     #   session.products.delete_attachment("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "36933722-f13f-4ee2-858c-0835ae0a884e")
     #
     def delete_attachment(product_id, attachment_id)
-      response, status = BeyondAPI::Request.delete(@session, "/products/#{product_id}/attachments/#{attachment_id}")
+      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}/attachments/#{attachment_id}")
 
       handle_response(response, status, respond_with_true: true)
     end

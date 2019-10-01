@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe BeyondAPI do
+RSpec.describe BeyondApi do
   it "has a version number" do
-    expect(BeyondAPI::VERSION).not_to be nil
+    expect(BeyondApi::VERSION).not_to be nil
   end
 end

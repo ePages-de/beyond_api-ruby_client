@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class ScriptTags < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve a list of all script tags for a shop.
@@ -21,7 +21,7 @@ module BeyondAPI
     #   @script_tags = session.script_tags.all(size: 20, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/script-tags", params)
+      response, status = BeyondApi::Request.get(@session, "/script-tags", params)
 
       handle_response(response, status)
     end
@@ -40,7 +40,7 @@ module BeyondAPI
     #   @script_tag = session.script_tags.find("df170ab1-13ae-4955-8b51-2478246acf59")
     #
     def find(script_tag_id)
-      response, status = BeyondAPI::Request.get(@session, "/script-tags/#{script_tag_id}")
+      response, status = BeyondApi::Request.get(@session, "/script-tags/#{script_tag_id}")
 
       handle_response(response, status)
     end
@@ -66,7 +66,7 @@ module BeyondAPI
     #   @script_tag = session.script_tags.create("https://example.org/js/fancy-script.js")
     #
     def create(script_tag_url)
-      response, status = BeyondAPI::Request.post(@session, "/script-tags", { script_url: script_tag_url })
+      response, status = BeyondApi::Request.post(@session, "/script-tags", { script_url: script_tag_url })
 
       handle_response(response, status)
     end
@@ -87,7 +87,7 @@ module BeyondAPI
     #   session.script_tags.delete("4a9f7776-d74d-4311-8ddb-121bd5407520")
     #
     def delete(script_tag_id)
-      response, status = BeyondAPI::Request.delete(@session, "/script-tags/#{script_tag_id}")
+      response, status = BeyondApi::Request.delete(@session, "/script-tags/#{script_tag_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -114,7 +114,7 @@ module BeyondAPI
     #   @script_tag = session.script_tags.create("https://example.org/scripts/someOtherScript.js")
     #
     def update(script_tag_id, script_tag_url)
-      response, status = BeyondAPI::Request.put(@session, "/script-tags/#{script_tag_id}", { script_url: script_tag_url })
+      response, status = BeyondApi::Request.put(@session, "/script-tags/#{script_tag_id}", { script_url: script_tag_url })
 
       handle_response(response, status)
     end

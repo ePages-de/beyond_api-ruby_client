@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::WebhookSuscriptions do
+RSpec.describe BeyondApi::WebhookSuscriptions do
   describe "activate" do
     it "returns a Hash on successful request"
   end

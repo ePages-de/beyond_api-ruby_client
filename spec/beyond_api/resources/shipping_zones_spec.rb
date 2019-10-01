@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::ShippingZones do
+RSpec.describe BeyondApi::ShippingZones do
   describe "#all" do
     it "returns a Hash on successful request"
   end

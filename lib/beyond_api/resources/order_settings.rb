@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class OrderSettings < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the order settings.
@@ -21,7 +21,7 @@ module BeyondAPI
     #   @order_settings = session.payment_methods.all
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/order-settings")
+      response, status = BeyondApi::Request.get(@session, "/order-settings")
 
       handle_response(response, status)
     end
@@ -72,7 +72,7 @@ module BeyondAPI
     #   @order_settings = session.order_settings.update(body)
     #
     def update(order_settings, body)
-      response, status = BeyondAPI::Request.put(@session, "/order-settings", body)
+      response, status = BeyondApi::Request.put(@session, "/order-settings", body)
 
       handle_response(response, status)
     end

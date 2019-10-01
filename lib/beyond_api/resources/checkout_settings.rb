@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class CheckoutSettings < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the checkout settings.
@@ -21,7 +21,7 @@ module BeyondAPI
     #   @checkout_settiongs = session.checkout_settings.all
     #
     def all
-      response, status = BeyondAPI::Request.get(@session, "/checkout-settings")
+      response, status = BeyondApi::Request.get(@session, "/checkout-settings")
 
       handle_response(response, status)
     end
@@ -40,7 +40,7 @@ module BeyondAPI
     #       "mustAcceptTermsAndConditions" : true
     #   }'
     def update(body)
-      response, status = BeyondAPI::Request.put(@session, "/checkout-settings", body)
+      response, status = BeyondApi::Request.put(@session, "/checkout-settings", body)
 
       handle_response(response, status)
     end

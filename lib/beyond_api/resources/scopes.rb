@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Scopes < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request will list all scopes in the system.
@@ -23,7 +23,7 @@ module BeyondAPI
     #   @scopes = session.scopes.all(size: 20, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/scopes", params)
+      response, status = BeyondApi::Request.get(@session, "/scopes", params)
 
       handle_response(response, status)
     end

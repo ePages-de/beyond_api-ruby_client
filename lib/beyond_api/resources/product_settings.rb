@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class ProductSettings < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the product settings.
@@ -20,7 +20,7 @@ module BeyondAPI
     #   @product_settings = session.product_settings.all
     #
     def all
-      response, status = BeyondAPI::Request.get(@session, "/product_settings")
+      response, status = BeyondApi::Request.get(@session, "/product_settings")
 
       handle_response(response, status)
     end

@@ -2,7 +2,7 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   module ProductVariationProperties
 
     #
@@ -57,7 +57,7 @@ module BeyondAPI
     #   @variation_properties = session.products.update_variation_properties("7f32696a-df56-4380-a91b-fffb97f025b4", body)
     #
     def update_variation_properties(product_id, body)
-      response, status = BeyondAPI::Request.patch(@session, "/products/#{product_id}/variation-properties", body)
+      response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}/variation-properties", body)
 
       handle_response(response, status)
     end
@@ -79,7 +79,7 @@ module BeyondAPI
     #   @variation_properties = session.products.variation_properties("7f32696a-df56-4380-a91b-fffb97f025b4")
     #
     def variation_properties(product_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/variation-properties")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variation-properties")
 
       handle_response(response, status)
     end

@@ -22,7 +22,7 @@ require "beyond_api/resources/users"
 require "beyond_api/resources/variations"
 require "beyond_api/resources/webhook_subscriptions"
 
-module BeyondAPI
+module BeyondApi
   class Session
     attr_reader :api_url
     attr_accessor :access_token, :refresh_token
@@ -34,83 +34,83 @@ module BeyondAPI
     end
 
     def carts
-      BeyondAPI::Carts.new(self)
+      BeyondApi::Carts.new(self)
     end
 
     def categories_view
-      BeyondAPI::CategoriesView.new(self)
+      BeyondApi::CategoriesView.new(self)
     end
 
     def categories
-      BeyondAPI::Categories.new(self)
+      BeyondApi::Categories.new(self)
     end
 
     def checkout_settings
-      BeyondAPI::CheckoutSettings.new(self)
+      BeyondApi::CheckoutSettings.new(self)
     end
 
     def newsletter_target
-      BeyondAPI::NewsletterTarget.new(self)
+      BeyondApi::NewsletterTarget.new(self)
     end
 
     def order_settings
-      BeyondAPI::OrderSettings.new(self)
+      BeyondApi::OrderSettings.new(self)
     end
 
     def orders
-      BeyondAPI::Orders.new(self)
+      BeyondApi::Orders.new(self)
     end
 
     def payment_methods
-      BeyondAPI::PaymentMethods.new(self)
+      BeyondApi::PaymentMethods.new(self)
     end
 
     def product_attribute_definitions
-      BeyondAPI::ProductAttributeDefinitions.new(self)
+      BeyondApi::ProductAttributeDefinitions.new(self)
     end
 
     def product_settings
-      BeyondAPI::ProductSettings.new(self)
+      BeyondApi::ProductSettings.new(self)
     end
 
     def products_view
-      BeyondAPI::ProductsView.new(self)
+      BeyondApi::ProductsView.new(self)
     end
 
     def products
-      BeyondAPI::Products.new(self)
+      BeyondApi::Products.new(self)
     end
 
     def scopes
-      BeyondAPI::Scopes.new(self)
+      BeyondApi::Scopes.new(self)
     end
 
     def script_tags
-      BeyondAPI::ScriptTags.new(self)
+      BeyondApi::ScriptTags.new(self)
     end
 
     def shipping_zones
-      BeyondAPI::ShippingZones.new(self)
+      BeyondApi::ShippingZones.new(self)
     end
 
     def shop
-      BeyondAPI::Shop.new(self)
+      BeyondApi::Shop.new(self)
     end
 
     def token
-      BeyondAPI::Token.new(self)
+      BeyondApi::Token.new(self)
     end
 
     def users
-      BeyondAPI::Users.new(self)
+      BeyondApi::Users.new(self)
     end
 
     def variations
-      BeyondAPI::Variations.new(self)
+      BeyondApi::Variations.new(self)
     end
 
     def webhook_subscriptions
-      BeyondAPI::WebhookSubscriptions.new(self)
+      BeyondApi::WebhookSubscriptions.new(self)
     end
   end
 end

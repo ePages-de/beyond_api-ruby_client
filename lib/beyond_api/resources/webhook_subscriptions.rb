@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class WebhookSuscriptions < Base # :category: Resources
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +POST+ request is used to activate a webhook subscription.
@@ -22,7 +22,7 @@ module BeyondAPI
     #   session.webhook_subscriptions.activate("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def activate(webhook_subscription_id)
-      response, status = BeyondAPI::Request.post(@session, "/webhook-subscriptions/#{webhook_subscription_id}/activate")
+      response, status = BeyondApi::Request.post(@session, "/webhook-subscriptions/#{webhook_subscription_id}/activate")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -43,7 +43,7 @@ module BeyondAPI
     #   @webhook_subscriptions = session.webhook_subscriptions.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/webhook-subscriptions", params)
+      response, status = BeyondApi::Request.get(@session, "/webhook-subscriptions", params)
 
       handle_response(response, status)
     end
@@ -75,7 +75,7 @@ module BeyondAPI
     #   @webhook_subscription = session.webhook_subscriptions.create(body)
     #
     def create(body)
-      response, status = BeyondAPI::Request.post(@session, "/webhook-subscriptions", body)
+      response, status = BeyondApi::Request.post(@session, "/webhook-subscriptions", body)
 
       handle_response(response, status)
     end
@@ -94,7 +94,7 @@ module BeyondAPI
     #   session.webhook_subscriptions.deactivate("a597cea4-b688-4164-8c56-b6568ea4d5aa")
     #
     def deactivate(webhook_subscription_id)
-      response, status = BeyondAPI::Request.post(@session, "/webhook-subscriptions/#{webhook_subscription_id}/deactivate")
+      response, status = BeyondApi::Request.post(@session, "/webhook-subscriptions/#{webhook_subscription_id}/deactivate")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -113,7 +113,7 @@ module BeyondAPI
     #   webhook_subscriptions = session.webhook_subscriptions.delete("c6076a5a-a8ad-443f-b20b-8a1b268b069e")
     #
     def delete(webhook_subscription_id)
-      response, status = BeyondAPI::Request.delete(@session, "/webhook-subscriptions/#{webhook_subscription_id}")
+      response, status = BeyondApi::Request.delete(@session, "/webhook-subscriptions/#{webhook_subscription_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -133,7 +133,7 @@ module BeyondAPI
     #   @webhook_subscription = session.webhook_subscriptions.find("3d44ec71-768c-4927-9069-a96a5153e87c")
     #
     def find(webhook_subscription_id)
-      response, status = BeyondAPI::Request.get(@session, "/webhook-subscriptions/#{webhook_subscription_id}")
+      response, status = BeyondApi::Request.get(@session, "/webhook-subscriptions/#{webhook_subscription_id}")
 
       handle_response(response, status)
     end
@@ -168,7 +168,7 @@ module BeyondAPI
     #   @webhook_subscription = session.webhook_subscriptions.update("6f3bc033-c2d1-4f44-80e3-1b668f6bd699", body)
     #
     def update(webhook_subscription_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/webhook-subscriptions/#{webhook_subscription_id}", body)
+      response, status = BeyondApi::Request.put(@session, "/webhook-subscriptions/#{webhook_subscription_id}", body)
 
       handle_response(response, status)
     end

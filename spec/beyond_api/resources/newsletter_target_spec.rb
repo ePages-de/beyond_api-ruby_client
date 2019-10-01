@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::NewsletterTarget do
+RSpec.describe BeyondApi::NewsletterTarget do
   describe "#create" do
     it "returns a Hash on successful request" do
       expect(@session.categories.all).to be_a Hash

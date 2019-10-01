@@ -2,7 +2,7 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   module ProductCustomAttribute
 
     #
@@ -32,7 +32,7 @@ module BeyondAPI
     #   @custom_attribute = session.products.attachment("fd60a63e-c4c0-496d-af49-c4ed224cca2a", body)
     #
     def create_custom_attribute(product_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/attributes", body)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/attributes", body)
 
       handle_response(response, status)
     end
@@ -56,7 +56,7 @@ module BeyondAPI
     #   @custom_attribute = session.products.custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key")
     #
     def custom_attribute(product_id, attribute_name)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/attributes/#{attribute_name}")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attributes/#{attribute_name}")
 
       handle_response(response, status)
     end
@@ -79,7 +79,7 @@ module BeyondAPI
     #   @custom_attributes = session.products.custom_attributes("fd60a63e-c4c0-496d-af49-c4ed224cca2a")
     #
     def custom_attributes(product_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/attributes")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attributes")
 
       handle_response(response, status)
     end
@@ -102,7 +102,7 @@ module BeyondAPI
     #   session.products.custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key")
     #
     def delete_custom_attribute(product_id, attribute_name)
-      response, status = BeyondAPI::Request.delete(@session, "/products/#{product_id}/attributes/#{attribute_name}")
+      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}/attributes/#{attribute_name}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -133,7 +133,7 @@ module BeyondAPI
     #   @custom_attribute = session.products.update_custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key", body)
     #
     def update_custom_attribute(product_id, attribute_name, body)
-      response, status = BeyondAPI::Request.put(@session, "/products/#{product_id}/attributes/#{attribute_name}", body)
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/attributes/#{attribute_name}", body)
 
       handle_response(response, status)
     end

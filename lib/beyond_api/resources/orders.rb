@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Orders < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the active payment processes. There is only one active payment process. See {Show payment process details}[http://docs.beyondshop.cloud/#resources-payment-process-get] for more information about the request and response structure.
@@ -24,7 +24,7 @@ module BeyondAPI
     #   @payment_process = session.orders.active_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def active_payment_process(order_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/active")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/active")
 
       handle_response(response, status)
     end
@@ -47,7 +47,7 @@ module BeyondAPI
     #   @refund_process = session.orders.active_refund_process("268a8629-55cd-9845-3114-454b9b5ea14c")
     #
     def active_refund_process(order_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/active")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds/active")
 
       handle_response(response, status)
     end
@@ -66,7 +66,7 @@ module BeyondAPI
     #   @orders = session.orders.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders", params)
+      response, status = BeyondApi::Request.get(@session, "/orders", params)
 
       handle_response(response, status)
     end
@@ -96,7 +96,7 @@ module BeyondAPI
     #   @order = session.orders.cancel("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def cancel(order_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/cancel", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/cancel", body)
 
       handle_response(response, status)
     end
@@ -120,7 +120,7 @@ module BeyondAPI
     #   @pcancelation_process = session.orders.cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", "365b4b63-45a8-49f6-94c5-a65e0dee83b5")
     #
     def cancelation_process(order_id, cancelation_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations/#{cancelation_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations/#{cancelation_id}")
 
       handle_response(response, status)
     end
@@ -145,7 +145,7 @@ module BeyondAPI
     #   @pcancelation_processes = session.orders.cancelation_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
     def cancelation_processes(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations", params)
 
       handle_response(response, status)
     end
@@ -168,7 +168,7 @@ module BeyondAPI
     #   @payment_process = session.orders.capture_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
     #
     def capture_payment_process(order_id, payment_id)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture", body)
 
       handle_response(response, status)
     end
@@ -206,7 +206,7 @@ module BeyondAPI
     #   @pcancelation_process = session.orders.create_cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def create_cancelation_process(order_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/cancelations")
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/cancelations")
 
       handle_response(response, status)
     end
@@ -235,7 +235,7 @@ module BeyondAPI
     #   @order = session.orders.create_invoice("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def create_invoice(order_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/orders/#{order_id}/create-invoice", body)
+      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/create-invoice", body)
 
       handle_response(response, status)
     end
@@ -285,7 +285,7 @@ module BeyondAPI
     #   @return_process = session.orders.create_return_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def create_return_process(order_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/returns", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/returns", body)
 
       handle_response(response, status)
     end
@@ -331,7 +331,7 @@ module BeyondAPI
     #   @shipping_process = session.orders.create_shipping_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
     #
     def create_shipping_process(order_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings")
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings")
 
       handle_response(response, status)
     end
@@ -355,7 +355,7 @@ module BeyondAPI
     #   @events = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def events(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/events", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/events", params)
 
       handle_response(response, status)
     end
@@ -378,7 +378,7 @@ module BeyondAPI
     #   @order = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def find(order_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}")
 
       handle_response(response, status)
     end
@@ -422,7 +422,7 @@ module BeyondAPI
     #   @payment_process = session.orders.mark_payment_process_as_paid("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
     #
     def mark_payment_process_as_paid(order_id, payment_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-paid", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-paid", body)
 
       handle_response(response, status)
     end
@@ -454,7 +454,7 @@ module BeyondAPI
     #   @payment_process = session.orders.mark_payment_process_as_voided("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
     #
     def mark_payment_process_as_voided(order_id, payment_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-voided", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-voided", body)
 
       handle_response(response, status)
     end
@@ -495,7 +495,7 @@ module BeyondAPI
     #   @refund_process = session.orders.mark_refund_process_as_paid("268a8629-55cd-9845-3114-454b9b5ea14c", body)
     #
     def mark_refund_process_as_paid(order_id)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/refunds/active/mark-paid")
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/refunds/active/mark-paid")
 
       handle_response(response, status)
     end
@@ -527,7 +527,7 @@ module BeyondAPI
     #   @shipping_process = session.orders.mark_shipping_process_as_delivered("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
     #
     def mark_shipping_process_as_delivered(order_id, shipping_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{payment_id}/mark-delivered", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{payment_id}/mark-delivered", body)
 
       handle_response(response, status)
     end
@@ -569,7 +569,7 @@ module BeyondAPI
     #   @shipping_process = session.orders.mark_shipping_process_as_shipped("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
     #
     def mark_shipping_process_as_shipped(order_id, shipping_id, body)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{shipping_id}/mark-shipped", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{shipping_id}/mark-shipped", body)
 
       handle_response(response, status)
     end
@@ -593,7 +593,7 @@ module BeyondAPI
     #   @payment_process = session.orders.payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
     #
     def payment_process(order_id, payment_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
 
       handle_response(response, status)
     end
@@ -618,7 +618,7 @@ module BeyondAPI
     #   @payment_processes = session.orders.payment_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
     def payment_processes(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/payments", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments", params)
 
       handle_response(response, status)
     end
@@ -641,7 +641,7 @@ module BeyondAPI
     #   @orders = session.orders.processes("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def processes(order_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes")
 
       handle_response(response, status)
     end
@@ -665,7 +665,7 @@ module BeyondAPI
     #   @refund_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
     #
     def refund_process(order_id, refund_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
 
       handle_response(response, status)
     end
@@ -690,7 +690,7 @@ module BeyondAPI
     #   @refund_processes = session.orders.refund_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
     def refund_processes(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/refunds", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds", params)
 
       handle_response(response, status)
     end
@@ -714,7 +714,7 @@ module BeyondAPI
     #   @return_process = session.orders.return_process("268a8629-55cd-4890-9013-936b9b5ea14c", "910a3fde-cb23-418f-876a-694ce42245ef")
     #
     def return_process(order_id, return_process_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/returns/#{return_process_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/returns/#{return_process_id}")
 
       handle_response(response, status)
     end
@@ -739,7 +739,7 @@ module BeyondAPI
     #   @return_processes = session.orders.return_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
     def return_processes(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/returns", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/returns", params)
 
       handle_response(response, status)
     end
@@ -757,7 +757,7 @@ module BeyondAPI
     #   @order = session.orders.search_by_cart_id("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def search_by_cart_id(cart_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/search/find-by-cart-id", {"cartId": cart_id})
+      response, status = BeyondApi::Request.get(@session, "/orders/search/find-by-cart-id", {"cartId": cart_id})
 
       handle_response(response, status)
     end
@@ -773,7 +773,7 @@ module BeyondAPI
     #   @order = session.orders.search_by_cart_id("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def search_order_number_by_cart_id(cart_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/search/find-order-number-by-cart-id", {"cartId": cart_id})
+      response, status = BeyondApi::Request.get(@session, "/orders/search/find-order-number-by-cart-id", {"cartId": cart_id})
 
       handle_response(response, status)
     end
@@ -793,7 +793,7 @@ module BeyondAPI
     #   @order = session.orders.send_invoice("268a8629-55cd-4890-9013-936b9b5ea14c")
     #
     def send_invoice(order_id)
-      response, status = BeyondAPI::Request.post(@session, "/orders/#{order_id}/send-invoice")
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/send-invoice")
 
       handle_response(response, status)
     end
@@ -817,7 +817,7 @@ module BeyondAPI
     #   @shipping_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
     #
     def shipping_process(order_id, shipping_process_id)
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/shippings/#{shipping_process_id}")
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/shippings/#{shipping_process_id}")
 
       handle_response(response, status)
     end
@@ -842,7 +842,7 @@ module BeyondAPI
     #   @shipping_processes = session.orders.shipping_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
     #
     def shipping_processes(order_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/orders/#{order_id}/processes/shippings", params)
+      response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/shippings", params)
 
       handle_response(response, status)
     end
@@ -890,7 +890,7 @@ module BeyondAPI
     #   @order = session.orders.update_billing_address("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def update_billing_address(order_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/orders/#{order_id}/billing-address", body)
+      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/billing-address", body)
 
       handle_response(response, status)
     end
@@ -912,7 +912,7 @@ module BeyondAPI
     #   @order = session.orders.update_order_note("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def update_order_note(order_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/orders/#{order_id}/order-note", body)
+      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/order-note", body)
 
       handle_response(response, status)
     end
@@ -960,7 +960,7 @@ module BeyondAPI
     #   @order = session.orders.update_shipping_address("268a8629-55cd-4890-9013-936b9b5ea14c", body)
     #
     def update_shipping_address(order_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/orders/#{order_id}/shipping-address", body)
+      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/shipping-address", body)
 
       handle_response(response, status)
     end
