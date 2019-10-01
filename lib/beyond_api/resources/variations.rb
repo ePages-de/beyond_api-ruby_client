@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Variations < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the variations of a product.
@@ -24,7 +24,7 @@ module BeyondAPI
     #   @products = session.variations.all(size: 100, page: 0)
     #
     def all(product_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/variations", params)
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations", params)
 
       handle_response(response, status)
     end
@@ -48,7 +48,7 @@ module BeyondAPI
     #   @product = session.variations.find("f461fb56-1984-4ade-bd4e-007c273cc923", "f6e5bb16-af2e-440f-acd3-a883ad3c1922")
     #
     def find(product_id, variation_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}")
 
       handle_response(response, status)
     end
@@ -137,7 +137,7 @@ module BeyondAPI
     #   @product = session.variations.update("f461fb56-1984-4ade-bd4e-007c273cc923", "f6e5bb16-af2e-440f-acd3-a883ad3c1922", body)
     #
     def update(product_id, variation_id, body)
-      response, status = BeyondAPI::Request.patch(@session, "/products/#{product_id}/variations/#{variation_id}", body)
+      response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}/variations/#{variation_id}", body)
 
       handle_response(response, status)
     end

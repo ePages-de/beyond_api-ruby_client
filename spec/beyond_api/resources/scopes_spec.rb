@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::Scopes do
+RSpec.describe BeyondApi::Scopes do
   describe "#all" do
     it "returns a Hash on successful request"
   end

@@ -16,14 +16,14 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  # Initialize BeyondAPI
+  # Initialize BeyondApi
   config.before(:all) do
-    BeyondAPI.setup do |config|
+    BeyondApi.setup do |config|
       config.client_id =     ENV["CLIENT_ID"]
       config.client_secret = ENV["CLIENT_SECRET"]
     end
 
-    @session = BeyondAPI::Session.new(api_url:       ENV["API_URL"],
+    @session = BeyondApi::Session.new(api_url:       ENV["Api_URL"],
                                       access_token:  ENV["ACCESS_TOKEN"],
                                       refresh_token: ENV["REFRESH_TOKEN"])
     @session.token.refresh

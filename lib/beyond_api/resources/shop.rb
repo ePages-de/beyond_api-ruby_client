@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Shop < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
@@ -20,7 +20,7 @@ module BeyondAPI
     #   session.shop.address
     #
     def address
-      response, status = BeyondAPI::Request.get(@session, "/shop/address")
+      response, status = BeyondApi::Request.get(@session, "/shop/address")
 
       handle_response(response, status)
     end
@@ -41,7 +41,7 @@ module BeyondAPI
     #   @shop_attribute = session.shop.attribute("second-unknown-attribute-name")
     #
     def attribute(attribute_name)
-      response, status = BeyondAPI::Request.get(@session, "/shop/attributes/#{attribute_name}")
+      response, status = BeyondApi::Request.get(@session, "/shop/attributes/#{attribute_name}")
 
       handle_response(response, status)
     end
@@ -63,7 +63,7 @@ module BeyondAPI
     #   @shop_attributes = session.shop.attributes(size: 5, page: 1)
     #
     def attributes(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/shop/attributes", params)
+      response, status = BeyondApi::Request.get(@session, "/shop/attributes", params)
 
       handle_response(response, status)
     end
@@ -83,7 +83,7 @@ module BeyondAPI
     #   session.shop.close
     #
     def close
-      response, status = BeyondAPI::Request.post(@session, "/shop/close")
+      response, status = BeyondApi::Request.post(@session, "/shop/close")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -116,7 +116,7 @@ module BeyondAPI
     #   session.shop.create_attribute(body)
     #
     def create_attribute(body)
-      response, status = BeyondAPI::Request.post(@session, "/shop/attributes", body)
+      response, status = BeyondApi::Request.post(@session, "/shop/attributes", body)
 
       handle_response(response, status)
     end
@@ -148,7 +148,7 @@ module BeyondAPI
     #   session.shop.create_image(body)
     #
     def create_image(body)
-      response, status = BeyondAPI::Request.post(@session, "/shop/images", body)
+      response, status = BeyondApi::Request.post(@session, "/shop/images", body)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -165,7 +165,7 @@ module BeyondAPI
     #   session.shop.current
     #
     def current
-      response, status = BeyondAPI::Request.get(@session, "/shop")
+      response, status = BeyondApi::Request.get(@session, "/shop")
 
       handle_response(response, status)
     end
@@ -186,7 +186,7 @@ module BeyondAPI
     #   session.shop.delete_attribute("second-unknown-attribute-name")
     #
     def delete_attribute(attribute_name)
-      response, status = BeyondAPI::Request.delete(@session, "/shop/attributes/#{attribute_name}")
+      response, status = BeyondApi::Request.delete(@session, "/shop/attributes/#{attribute_name}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -209,7 +209,7 @@ module BeyondAPI
     #   session.shop.delete_image("6a7646dc-7f26-4730-a98f-52f9b63978fb")
     #
     def delete_image(image_id)
-      response, status = BeyondAPI::Request.delete(@session, "/shop/images/#{image_id}")
+      response, status = BeyondApi::Request.delete(@session, "/shop/images/#{image_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -228,7 +228,7 @@ module BeyondAPI
     #   session.shop.image("2feee7ac-f1cb-4faf-9488-f3ce07394141")
     #
     def image(image_id)
-      response, status = BeyondAPI::Request.get(@session, "/shop/images/#{image_id}")
+      response, status = BeyondApi::Request.get(@session, "/shop/images/#{image_id}")
 
       handle_response(response, status)
     end
@@ -248,7 +248,7 @@ module BeyondAPI
     #   session.shop.images(size: 5, page: 1)
     #
     def images(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/shop/images", params)
+      response, status = BeyondApi::Request.get(@session, "/shop/images", params)
 
       handle_response(response, status)
     end
@@ -268,7 +268,7 @@ module BeyondAPI
     #   session.shop.legal_content("right-of-withdrawal")
     #
     def legal_content(legal_content_type)
-      response, status = BeyondAPI::Request.get(@session, "/legal-content/right-of-withdrawal")
+      response, status = BeyondApi::Request.get(@session, "/legal-content/right-of-withdrawal")
 
       handle_response(response, status)
     end
@@ -289,7 +289,7 @@ module BeyondAPI
     #   session.shop.legal_contents(size: 5, page: 1)
     #
     def legal_contents(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/legal-content")
+      response, status = BeyondApi::Request.get(@session, "/legal-content")
 
       handle_response(response, status)
     end
@@ -308,7 +308,7 @@ module BeyondAPI
     #   session.shop.legal_details
     #
     def legal_details
-      response, status = BeyondAPI::Request.get(@session, "/shop/legal")
+      response, status = BeyondApi::Request.get(@session, "/shop/legal")
 
       handle_response(response, status)
     end
@@ -328,7 +328,7 @@ module BeyondAPI
     #   session.shop.open
     #
     def open
-      response, status = BeyondAPI::Request.post(@session, "/shop/open")
+      response, status = BeyondApi::Request.post(@session, "/shop/open")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -347,7 +347,7 @@ module BeyondAPI
     #   session.shop.search_images_by_label("logo")
     #
     def search_images_by_label(label)
-      response, status = BeyondAPI::Request.get(@session, "/shop/images/search/find-by-label", { label: label })
+      response, status = BeyondApi::Request.get(@session, "/shop/images/search/find-by-label", { label: label })
 
       handle_response(response, status)
     end
@@ -401,7 +401,7 @@ module BeyondAPI
     #   session.shop.update(body)
     #
     def update(body)
-      response, status = BeyondAPI::Request.patch(@session, "/shop")
+      response, status = BeyondApi::Request.patch(@session, "/shop")
 
       handle_response(response, status)
     end
@@ -431,7 +431,7 @@ module BeyondAPI
     #   session.shop.update_address(body)
     #
     def update_address(body)
-      response, status = BeyondAPI::Request.patch(@session, "/shop/address", body)
+      response, status = BeyondApi::Request.patch(@session, "/shop/address", body)
 
       handle_response(response, status)
     end
@@ -463,7 +463,7 @@ module BeyondAPI
     #   session.shop.update_attribute("second-unknown-attribute-name", body)
     #
     def update_attribute(attribute_name, body)
-      response, status = BeyondAPI::Request.put(@session, "/shop/attributes/#{attribute_name}", body)
+      response, status = BeyondApi::Request.put(@session, "/shop/attributes/#{attribute_name}", body)
 
       handle_response(response, status)
     end
@@ -489,7 +489,7 @@ module BeyondAPI
     #   session.shop.update_legal_content(body)
     #
     def update_legal_content(body)
-      response, status = BeyondAPI::Request.put(@session, "/legal-content/legal-notice")
+      response, status = BeyondApi::Request.put(@session, "/legal-content/legal-notice")
 
       handle_response(response, status)
     end
@@ -519,7 +519,7 @@ module BeyondAPI
     #   session.shop.update_legal_details(body)
     #
     def update_legal_details(body)
-      response, status = BeyondAPI::Request.patch(@session, "/shop/legal")
+      response, status = BeyondApi::Request.patch(@session, "/shop/legal")
 
       handle_response(response, status)
     end
@@ -553,7 +553,7 @@ module BeyondAPI
         end
       image_binary = File.binread(image_path)
 
-      response, status = BeyondAPI::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: label })
+      response, status = BeyondApi::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: label })
 
       handle_response(response, status, respond_with_true: true)
     end

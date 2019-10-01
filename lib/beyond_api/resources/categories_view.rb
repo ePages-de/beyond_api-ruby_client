@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class CategoriesView < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to list all product categories.
@@ -23,7 +23,7 @@ module BeyondAPI
     #   @categories = session.categories_view.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories", params)
+      response, status = BeyondApi::Request.get(@session, "/product-view/categories", params)
 
       handle_response(response, status)
     end
@@ -43,7 +43,7 @@ module BeyondAPI
     #   @category = session.categories_view.find("23bb1430-6e82-40e4-9a92-4cb404da74a8")
     #
     def find(category_id)
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/#{category_id}")
+      response, status = BeyondApi::Request.get(@session, "/product-view/categories/#{category_id}")
 
       handle_response(response, status)
     end
@@ -65,7 +65,7 @@ module BeyondAPI
     #   @products = session.categories_view.products("681beef2-cd3e-4ce3-8034-4d07c1184447", { size: 100, page: 0 })
     #
     def products(category_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/#{category_id}/products", params)
+      response, status = BeyondApi::Request.get(@session, "/product-view/categories/#{category_id}/products", params)
 
       handle_response(response, status)
     end
@@ -85,7 +85,7 @@ module BeyondAPI
     #   @category = session.categories_view.search_by_label("power-bar")
     #
     def search_by_label(label)
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/search/find-by-label", { label: label })
+      response, status = BeyondApi::Request.get(@session, "/product-view/categories/search/find-by-label", { label: label })
 
       handle_response(response, status)
     end
@@ -105,7 +105,7 @@ module BeyondAPI
     #   @category = session.categories_view.search_by_product_id("ba68427f-603c-4741-9185-3b379f7769b5")
     #
     def search_by_product_id(product_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/product-view/categories/search/find-by-product", params.merge(product_id: product_id))
+      response, status = BeyondApi::Request.get(@session, "/product-view/categories/search/find-by-product", params.merge(product_id: product_id))
 
       handle_response(response, status)
     end
@@ -134,7 +134,7 @@ module BeyondAPI
     #   @category = session.categories_view.search_by_product_id("ba68427f-603c-4741-9185-3b379f7769b5")
     #
     def search_by_product(body, params = {})
-      response, status = BeyondAPI::Request.post(@session, "/product-view/categories/search/find-by-product", body, params)
+      response, status = BeyondApi::Request.post(@session, "/product-view/categories/search/find-by-product", body, params)
 
       handle_response(response, status = {})
     end

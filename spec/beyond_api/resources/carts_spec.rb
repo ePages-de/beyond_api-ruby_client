@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::Carts do
+RSpec.describe BeyondApi::Carts do
   describe "#create" do
     it "returns a Hash on successful request"
   end

@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Products < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request will list all of the products in a paged manner. The returned data is an excerpt projection, which includes a small subset of product properties.
@@ -25,7 +25,7 @@ module BeyondAPI
     #   @products = session.products.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/products", params)
+      response, status = BeyondApi::Request.get(@session, "/products", params)
 
       handle_response(response, status)
     end
@@ -152,7 +152,7 @@ module BeyondAPI
     #   @product = session.products.create(body)
     #
     def create(body)
-      response, status = BeyondAPI::Request.post(@session, "/products", body)
+      response, status = BeyondApi::Request.post(@session, "/products", body)
 
       handle_response(response, status)
     end
@@ -174,7 +174,7 @@ module BeyondAPI
     #   session.products.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
     #
     def delete(product_id)
-      response, status = BeyondAPI::Request.delete(@session, "/products/#{product_id}")
+      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -197,7 +197,7 @@ module BeyondAPI
     #   @product = session.products.find("f461fb56-1984-4ade-bd4e-007c273cc923")
     #
     def find(product_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}")
 
       handle_response(response, status)
     end
@@ -233,7 +233,7 @@ module BeyondAPI
     #   @product = session.products.update("75ebcb57-aefb-4963-8225-060c528e070d", body)
     #
     def update(product_id, body)
-      response, status = BeyondAPI::Request.patch(@session, "/products/#{product_id}", body)
+      response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}", body)
 
       handle_response(response, status)
     end

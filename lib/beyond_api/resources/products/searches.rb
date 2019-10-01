@@ -2,7 +2,7 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   module ProductSearches
 
     #
@@ -21,7 +21,7 @@ module BeyondAPI
     #   @product = session.product.search_by_sku("vino020")
     #
     def search_by_sku(sku)
-      response, status = BeyondAPI::Request.get(@session, "/products/search/find-by-sku", sku: sku)
+      response, status = BeyondApi::Request.get(@session, "/products/search/find-by-sku", sku: sku)
 
       handle_response(response, status)
     end
@@ -44,7 +44,7 @@ module BeyondAPI
     #   @tags = session.product.search_tags_starting_by("aw")
     #
     def search_tags_starting_by(starts_with, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/products/search/tags", params.merge(starts_with: starts_with))
+      response, status = BeyondApi::Request.get(@session, "/products/search/tags", params.merge(starts_with: starts_with))
 
       handle_response(response, status)
     end

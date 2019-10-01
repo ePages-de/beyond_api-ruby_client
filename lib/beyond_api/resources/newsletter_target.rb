@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class NewsletterTarget < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +POST+ request is used to create the newsletter target. Each shop can only have one newsletter target.
@@ -28,7 +28,7 @@ module BeyondAPI
     #   session.newsletter_target.create({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
     def create(submit_url)
-      response, status = BeyondAPI::Request.post(@session, "/newsletter-target", { submit_url: submit_url})
+      response, status = BeyondApi::Request.post(@session, "/newsletter-target", { submit_url: submit_url})
 
       handle_response(response, status)
     end
@@ -47,7 +47,7 @@ module BeyondAPI
     #   session.newsletter_target.delete
     #
     def delete
-      response, status = BeyondAPI::Request.delete(@session, "/newsletter-target")
+      response, status = BeyondApi::Request.delete(@session, "/newsletter-target")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -63,7 +63,7 @@ module BeyondAPI
     #   session.newsletter_target.find
     #
     def find
-      response, status = BeyondAPI::Request.get(@session, "/newsletter-target")
+      response, status = BeyondApi::Request.get(@session, "/newsletter-target")
 
       handle_response(response, status)
     end
@@ -89,7 +89,7 @@ module BeyondAPI
     #   session.newsletter_target.update({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
     def update(submit_url)
-      response, status = BeyondAPI::Request.put(@session, "/newsletter-target", { submit_url: submit_url })
+      response, status = BeyondApi::Request.put(@session, "/newsletter-target", { submit_url: submit_url })
 
       handle_response(response, status)
     end

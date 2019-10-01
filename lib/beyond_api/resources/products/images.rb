@@ -2,7 +2,7 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   module ProductImages
 
 
@@ -27,7 +27,7 @@ module BeyondAPI
     #   @image = session.products.add_image(product_id, { dataUri: "photostore-2.JPG?hash=8a627f655c68f56dfbbf217ab7d5563281225998" })
     #
     def add_image(product_id, image_uri)
-      response, status = BeyondAPI::Request.post(@session, "/products/#{product_id}/images", { dataUri: image_uri})
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/images", { dataUri: image_uri})
 
       handle_response(response, status)
     end
@@ -51,7 +51,7 @@ module BeyondAPI
     #   session.products.delete_image("8f5e979e-4a47-47ca-84ce-7c026d623974", "ac318d53-df29-4f43-9356-d91aed8bdb39")
     #
     def delete_image(product_id, image_id)
-      response, status = BeyondAPI::Request.delete(@session, "/products/#{product_id}/images/#{image_id}")
+      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}/images/#{image_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -76,7 +76,7 @@ module BeyondAPI
     #   @products = session.products.images("7f32696a-df56-4380-a91b-fffb97f025b4", { size: 20, page: 0 })
     #
     def images(product_id, params = {})
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/images", params)
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/images", params)
 
       handle_response(response, status)
     end
@@ -99,7 +99,7 @@ module BeyondAPI
     #   @image = session.products.image("124c5c94-4e62-410a-8599-e5b29dae3491", "715f5154-9fde-4213-bcab-41ceaaf8b70e")
     #
     def image(product_id, image_id)
-      response, status = BeyondAPI::Request.get(@session, "/products/#{product_id}/images/#{image_id}")
+      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/images/#{image_id}")
 
       handle_response(response, status)
     end
@@ -123,7 +123,7 @@ module BeyondAPI
     #   session.products.set_image_as_default("150015b9-0b9b-45a2-bcfb-f9006b16a8b8", "8ef3591c-d05f-4aa1-acf6-950ba51ec4f7")
     #
     def set_image_as_default(product_id, image_id)
-      response, status = BeyondAPI::Request.put(@session, "/products/#{product_id}",
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}",
                                                 "#{@session.api_url}/productsimages/#{image_id}")
 
       handle_response(response, status, respond_with_true: true)
@@ -157,7 +157,7 @@ module BeyondAPI
         end
       image_binary = File.binread(image_path)
 
-      response, status = BeyondAPI::Request.upload(@session, "/products/#{product_id}/images", image_binary, content_type, { file_name: image_name })
+      response, status = BeyondApi::Request.upload(@session, "/products/#{product_id}/images", image_binary, content_type, { file_name: image_name })
 
       handle_response(response, status, respond_with_true: true)
     end

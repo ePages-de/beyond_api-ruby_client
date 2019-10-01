@@ -4,7 +4,7 @@
 
 ✅ = Checked
 
-🌞 = On the Ruby API
+🌞 = On the Ruby Api
 
 ## 1. Change Log
 
@@ -1165,7 +1165,7 @@ session.products.disable_purchasability(product_id)
 
 ## 17. Custom Product Attributes
 
-The `attributes` resource is used to manage additional user-defined attributes which have a product attribute definition as key, and a string or number as value. These are the basic attribute types supported by the API.
+The `attributes` resource is used to manage additional user-defined attributes which have a product attribute definition as key, and a string or number as value. These are the basic attribute types supported by the Api.
 
 | Type  | Description  |
 |---|---|
@@ -1939,7 +1939,7 @@ session.newsletter_target.delete
 
 ## 27. Webhooks
 
-This resource is used to manage webhook subscriptions. ePages can send webhook notifications to your application any time an event happens that you’ve subscribed to. Subscriptions are useful for events that are not triggered by a direct API request. The following event types are supported:
+This resource is used to manage webhook subscriptions. ePages can send webhook notifications to your application any time an event happens that you’ve subscribed to. Subscriptions are useful for events that are not triggered by a direct Api request. The following event types are supported:
 
 | Event Type Name  | Description  | Required Scope  |
 |---|---|---|

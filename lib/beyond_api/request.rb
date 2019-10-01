@@ -2,12 +2,12 @@
 
 require "json"
 
-module BeyondAPI
+module BeyondApi
   class Request
     class << self
       [:get, :delete].each do |method|
         define_method(method) do |session, path, params = {}|
-          response = BeyondAPI::Connection.default.send(method) do |request|
+          response = BeyondApi::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
             request.params = params.to_h.camelize_keys
@@ -19,7 +19,7 @@ module BeyondAPI
 
       [:post, :put, :patch].each do |method|
         define_method(method) do |session, path, body = {}, params = {}|
-          response = BeyondAPI::Connection.default.send(method) do |request|
+          response = BeyondApi::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers['Authorization'] = "Bearer #{ session.access_token }"
             request.params = params.to_h.camelize_keys
@@ -32,7 +32,7 @@ module BeyondAPI
     end
 
     def self.upload(session, path, file_binary, content_type, params)
-      response = BeyondAPI::Connection.default.post do |request|
+      response = BeyondApi::Connection.default.post do |request|
         request.url(session.api_url + path)
         request.headers['Authorization'] = "Bearer #{ session.access_token }"
         request.headers['Content-Type'] = content_type
@@ -44,7 +44,7 @@ module BeyondAPI
     end
 
     def self.token(url, params)
-      response = BeyondAPI::Connection.token.post do |request|
+      response = BeyondApi::Connection.token.post do |request|
         request.url(url)
         request.params = params
       end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::Orders do
+RSpec.describe BeyondApi::Orders do
   describe "#active_payment_process" do
     it "returns a Hash on successful request"
   end

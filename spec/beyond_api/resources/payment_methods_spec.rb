@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::PaymentMethods do
+RSpec.describe BeyondApi::PaymentMethods do
   describe "#activate" do
     it "returns a true on successful request"
   end

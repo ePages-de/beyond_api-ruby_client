@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
-module BeyondAPI
+module BeyondApi
   module Utils
     extend self
 
     def handle_response(response, status, respond_with_true: false)
       if status.between?(200, 299)
         return true if respond_with_true
-
         response = sanitize_response(response)
-
-        BeyondAPI.configuration.object_struct_responses ? to_object_struct(response) : response
+        BeyondApi.configuration.object_struct_responses ? to_object_struct(response) : response
       else
-        BeyondAPI::Error.new(response)
+        BeyondApi::Error.new(response)
       end
     end
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::Shop do
+RSpec.describe BeyondApi::Shop do
   describe "#address" do
     it "returns a Hash on successful request" do
       expect(@session.shop.address).to be_a Hash

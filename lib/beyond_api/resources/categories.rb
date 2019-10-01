@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class Categories < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request is used to list all available categories in a paged manner.
@@ -25,7 +25,7 @@ module BeyondAPI
     #   @categories = session.categories.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/categories", params)
+      response, status = BeyondApi::Request.get(@session, "/categories", params)
 
       handle_response(response, status)
     end
@@ -54,7 +54,7 @@ module BeyondAPI
     #   @category = session.categories.create(body)
     #
     def create(body)
-      response, status = BeyondAPI::Request.post(@session, "/categories", body)
+      response, status = BeyondApi::Request.post(@session, "/categories", body)
 
       handle_response(response, status)
     end
@@ -76,7 +76,7 @@ module BeyondAPI
     #   session.categories.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
     #
     def delete(category_id)
-      response, status = BeyondAPI::Request.delete(@session, "/categories/#{category_id}")
+      response, status = BeyondApi::Request.delete(@session, "/categories/#{category_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -99,7 +99,7 @@ module BeyondAPI
     #   @category = session.categories.find(category_id)
     #
     def find(category_id)
-      response, status = BeyondAPI::Request.get(@session, "/categories/#{category_id}")
+      response, status = BeyondApi::Request.get(@session, "/categories/#{category_id}")
 
       handle_response(response, status)
     end
@@ -129,7 +129,7 @@ module BeyondAPI
     #   @category = session.categories.update("49250b7a-79a8-48d0-a71c-fc417965928d", body)
     #
     def patch(category_id, body)
-      response, status = BeyondAPI::Request.patch(@session, "/categories/#{category_id}", body)
+      response, status = BeyondApi::Request.patch(@session, "/categories/#{category_id}", body)
 
       handle_response(response, status)
     end
@@ -160,7 +160,7 @@ module BeyondAPI
     #   @category = session.categories.update(category_id, body)
     #
     def update(category_id, body)
-      response, status = BeyondAPI::Request.put(@session, "/categories/#{category_id}", body)
+      response, status = BeyondApi::Request.put(@session, "/categories/#{category_id}", body)
 
       handle_response(response, status)
     end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::CategoriesView do
+RSpec.describe BeyondApi::CategoriesView do
   describe "#all" do
     it "returns a Hash on successful request"
   end

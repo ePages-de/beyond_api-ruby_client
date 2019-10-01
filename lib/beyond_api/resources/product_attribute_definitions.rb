@@ -2,9 +2,9 @@
 
 require "beyond_api/utils"
 
-module BeyondAPI
+module BeyondApi
   class ProductAttributeDefinitions < Base
-    include BeyondAPI::Utils
+    include BeyondApi::Utils
 
     #
     # A +GET+ request will list the available product attribute definitions.
@@ -23,7 +23,7 @@ module BeyondAPI
     #   @product_attribute_definitions = session.product_attribute_definitions.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondAPI::Request.get(@session, "/product-attribute-definitions", params)
+      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions", params)
 
       handle_response(response, status)
     end
@@ -57,7 +57,7 @@ module BeyondAPI
     #   @product_attribute_definition = session.product_attribute_definitions.create(body)
     #
     def create(product_attribute_name)
-      response, status = BeyondAPI::Request.post(@session, "/product-attribute-definitions")
+      response, status = BeyondApi::Request.post(@session, "/product-attribute-definitions")
 
       handle_response(response, status)
     end
@@ -80,7 +80,7 @@ module BeyondAPI
     #   session.product_attribute_definitions.delete("filling_capacity")
     #
     def delete(product_attribute_name)
-      response, status = BeyondAPI::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
+      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -101,7 +101,7 @@ module BeyondAPI
     #   @product_attribute_definition = session.product_attribute_definitions.find("filling_capacity")
     #
     def find(product_attribute_name)
-      response, status = BeyondAPI::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
+      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
 
       handle_response(response, status)
     end

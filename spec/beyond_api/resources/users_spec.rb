@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe BeyondAPI::Users do
+RSpec.describe BeyondApi::Users do
   before(:all) do
     @password = Faker::Internet.password(min_length: 8, special_characters: true)
     @user = @session.users.create({ email:    Faker::Internet.email,
