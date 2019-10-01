@@ -17,6 +17,7 @@ require "beyond_api/resources/scopes"
 require "beyond_api/resources/script_tags"
 require "beyond_api/resources/shipping_zones"
 require "beyond_api/resources/shop"
+require "beyond_api/resources/signers"
 require "beyond_api/resources/token"
 require "beyond_api/resources/users"
 require "beyond_api/resources/variations"
@@ -95,6 +96,10 @@ module BeyondApi
 
     def shop
       BeyondApi::Shop.new(self)
+    end
+
+    def signers
+      BeyondApi::Signers.new(self)
     end
 
     def token
