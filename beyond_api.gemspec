@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Unai Abrisketa", "German San Emeterio", "Kathia Salazar"]
 
   spec.summary       = %q{Ruby client to access the Beyond Api}
-  # spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = "Ruby client to access the Beyond API"
   spec.homepage      = "https://github.com/ePages-de/beyond_api"
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
