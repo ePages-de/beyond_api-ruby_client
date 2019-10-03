@@ -1,43 +1,53 @@
-# Beyond Api Ruby Client
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/beyond_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# Beyond API
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'beyond_api'
+gem "beyond_api"
 ```
 
-And then execute
+And then execute:
 
 ```bash
-$ bundle
+$ bundle install
 ```
 
-Or install it yourself as:
+Next, you need to run the generator:
+
+```bash
+$ rails generate beyond_api:install
+```
+
+This will generate the configuration file on `config/initializers/beyond_api.rb`. Set the `client_id` and `client_secret` values to get started.
+
+> ⚠️ **Be careful!** Don't expose your `client_id` and `client_secret` or publish them on GitHub or any other service. Use [Rails Credentials](https://guides.rubyonrails.org/security.html#custom-credentials) or a gem like [dotenv](https://github.com/bkeepers/dotenv) to save your environment variables.
+
+To install the gem manually from your shell, run:
 
 ```bash
 $ gem install beyond_api
 ```
 
-## Usage
-
-TODO: Write usage instructions here
+## Documentation
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Check out the repo an run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/beyond_api.
+Please see [CONTRIBUTING](https://github.com/ePages-de/beyond_api/blob/master/CONTRIBUTING.md).
+
+## Changelog
+
+Beyond API's changelog is available [here](https://github.com/ePages-de/beyond_api/blob/master/CHANGELOG.md).
 
 ## License
+
+beyond_api is Copyright © 2019 ePages GmbH. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/ePages-de/beyond_api/blob/master/LICENSE) file.
 
 ## About ePages
