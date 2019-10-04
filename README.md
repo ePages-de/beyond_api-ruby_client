@@ -1,5 +1,10 @@
 # Beyond API Ruby Client
 
+![Gem Version](https://img.shields.io/gem/v/beyond_api?label=gem%20version)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1d173fa0b393e8eaf2a2/maintainability)](https://codeclimate.com/github/ePages-de/beyond_api-ruby_client/maintainability)
+![Downloads](https://img.shields.io/gem/dt/beyond_api)
+![License](https://img.shields.io/github/license/ePages-de/beyond_api-ruby_client)
+
 ## Installation
 
 Add this line to your application's Gemfile:
