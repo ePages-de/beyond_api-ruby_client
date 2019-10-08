@@ -61,7 +61,7 @@ Here you can find a list with all available methods:
   * `session.carts.set_shipping_method_to_default(cart_id)`
   * `session.carts.shipping_method(cart_id)`
   * `session.carts.shipping_methods(cart_id)`
-* Category view
+* Categories View
   * `session.categories_view.all(params = {})`
   * `session.categories_view.find(category_id)`
   * `session.categories_view.products(category_id, params = {})`
@@ -75,15 +75,15 @@ Here you can find a list with all available methods:
   * `session.categories.find(category_id)`
   * `session.categories.patch(category_id, body)`
   * `session.categories.update(category_id, body)`
-* Checkout settings
+* Checkout Settings
   * `session.checkout_settings.all`
   * `session.checkout_settings.update(body)`
-* Newsletter targets
+* Newsletter Target
   * `session.newsletter_target.create(submit_url)`
   * `session.newsletter_target.delete`
   * `session.newsletter_target.find`
   * `session.newsletter_target.update(submit_url)`
-* Order settings
+* Order Settings
   * `session.order_settings.all(params = {})`
   * `session.order_settings.update(order_settings, body)`
 * Orders
@@ -120,21 +120,21 @@ Here you can find a list with all available methods:
   * `session.orders.update_billing_address(order_id, body)`
   * `session.orders.update_order_note(order_id, body)`
   * `session.orders.update_shipping_address(order_id, body)`
-* Payment methods
+* Payment Methods
   * `session.payment_methods.activate(payment_method_id)`
   * `session.payment_methods.all(params = {})`
   * `session.payment_methods.deactivate(payment_method_id)`
   * `session.payment_methods.find(payment_method_id)`
   * `session.payment_methods.sort(payment_method_ids)`
   * `session.payment_methods.update(payment_method_id, body)`
-* Product attribute definitions
+* Product Attribute Definitions
   * `session.product_attribute_definitions.all(params = {})`
   * `session.product_attribute_definitions.create(product_attribute_name)`
   * `session.product_attribute_definitions.delete(product_attribute_name)`
   * `session.product_attribute_definitions.find(product_attribute_name)`
-* Product settings
+* Product Settings
   * `session.product_settings.all`
-* Product view
+* Products View
   * `session.products_view.all(params = {})`
   * `session.products_view.available_tags`
   * `session.products_view.find(product_id)`
@@ -152,7 +152,7 @@ Here you can find a list with all available methods:
   * `session.products.update_variation(product_id, body)`
 * Scopes
   * `session.scopes.all(params = {})`
-* Script tags
+* Script Tags
   * `session.script_tags.all(params = {})`
   * `session.script_tags.create(script_tag_url)`
   * `session.script_tags.delete(script_tag_id)`
@@ -221,7 +221,7 @@ Here you can find a list with all available methods:
   * `session.variations.all(product_id, params = {})`
   * `session.variations.find(product_id, variation_id)`
   * `session.variations.update(product_id, variation_id, body)`
-* Webhook subscriptions
+* Webhook Subscriptions
   * `session.webhook_subscriptions.activate(webhook_subscription_id)`
   * `session.webhook_subscriptions.all(params = {})`
   * `session.webhook_subscriptions.create(body)`
