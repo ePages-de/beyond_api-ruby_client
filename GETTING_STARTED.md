@@ -1,16 +1,19 @@
-# Getting Started
+# Getting started
 
-## Getting your developer Client ID and Client Secret
+## Get your credentials
 
-### Sign up for a test shop
+### Sign up for a developer test shop
 
-First you will need to sign up for a Beyond test shop. Visit [our sign up form](https://signup.beyondshop.cloud), fill the form with your data and click the **Sign up** button.
+First you will need to sign up for a Beyond test shop.
+Visit [our sign up form](https://signup.beyondshop.cloud), fill out the form with your data, and click the **Sign up** button.
 
-### Create a custom App
+### Create a custom app
 
-Once logged into your cockpit, go to **Apps > Custom apps > Add custom app**. Fill the form with the **App name**, **Application Callback URL** and **App scopes**. Save your app.
+Log in to the cockpit of your test shop, navigate to **Apps > Custom apps** and click **Add custom app**.
+Fill out the form with the **App name**, **Application Callback URL** and **App scopes**.
+Save your app.
 
-You will then find your Client ID and Client Secret.
+You will then receive your `client_id` and `client_secret`.
 
 ## Authenticating a shop (the session object)
 
@@ -21,7 +24,8 @@ session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.clo
 session.token.create("your-auth-code")
 ```
 
-> You can get an authentication code by clicking the **Test authorization** button of your custom app's page. clicking the button will redirect you to the **Application Callback URL** you have specified, attaching the code as a query parameter.
+> You can get an authentication code by clicking the **Test authorization** button in your test shop's cockpit on your custom app's page.
+Clicking the button will redirect you to the **Application Callback URL** you have specified, attaching the code as a query parameter.
 
 ### Obtaining a token from a refresh token
 
