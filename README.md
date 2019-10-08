@@ -37,6 +37,8 @@ $ gem install beyond_api
 
 ## Documentation
 
+See [GETTING_STARTED](https://github.com/ePages-de/beyond_api-ruby_client/blob/master/GETTING_STARTED.md) for information on consuming the Beyond API.
+
 ## Development
 
 Check out the repo an run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
