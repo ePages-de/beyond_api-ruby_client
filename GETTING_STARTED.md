@@ -1,16 +1,19 @@
-# Getting Started
+# Getting started
 
-## Getting your developer Client ID and Client Secret
+## Get your credentials
 
-### Sign up for a test shop
+### Sign up for a developer test shop
 
-First you will need to sign up for a Beyond test shop. Visit [our sign up form](https://signup.beyondshop.cloud), fill the form with your data and click the **Sign up** button.
+First you will need to sign up for a Beyond test shop.
+Visit [our sign up form](https://signup.beyondshop.cloud), fill out the form with your data, and click the **Sign up** button.
 
-### Create a custom App
+### Create a custom app
 
-Once logged into your cockpit, go to **Apps > Custom apps > Add custom app**. Fill the form with the **App name**, **Application Callback URL** and **App scopes**. Save your app.
+Log in to the cockpit of your test shop, navigate to **Apps > Custom apps** and click **Add custom app**.
+Fill out the form with the **App name**, **Application Callback URL** and **App scopes**.
+Save your app.
 
-You will then find your Client ID and Client Secret.
+You will then receive your `client_id` and `client_secret`.
 
 ## Authenticating a shop (the session object)
 
@@ -21,7 +24,8 @@ session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.clo
 session.token.create("your-auth-code")
 ```
 
-> You can get an authentication code by clicking the **Test authorization** button of your custom app's page. clicking the button will redirect you to the **Application Callback URL** you have specified, attaching the code as a query parameter.
+> You can get an authentication code by clicking the **Test authorization** button in your test shop's cockpit on your custom app's page.
+Clicking the button will redirect you to the **Application Callback URL** you have specified, attaching the code as a query parameter.
 
 ### Obtaining a token from a refresh token
 
@@ -57,7 +61,7 @@ Here you can find a list with all available methods:
   * `session.carts.set_shipping_method_to_default(cart_id)`
   * `session.carts.shipping_method(cart_id)`
   * `session.carts.shipping_methods(cart_id)`
-* Categories View
+* Category view
   * `session.categories_view.all(params = {})`
   * `session.categories_view.find(category_id)`
   * `session.categories_view.products(category_id, params = {})`
@@ -71,15 +75,15 @@ Here you can find a list with all available methods:
   * `session.categories.find(category_id)`
   * `session.categories.patch(category_id, body)`
   * `session.categories.update(category_id, body)`
-* Checkout Settings
+* Checkout settings
   * `session.checkout_settings.all`
   * `session.checkout_settings.update(body)`
-* Newsletter Target
+* Newsletter targets
   * `session.newsletter_target.create(submit_url)`
   * `session.newsletter_target.delete`
   * `session.newsletter_target.find`
   * `session.newsletter_target.update(submit_url)`
-* Order Settings
+* Order settings
   * `session.order_settings.all(params = {})`
   * `session.order_settings.update(order_settings, body)`
 * Orders
@@ -116,21 +120,21 @@ Here you can find a list with all available methods:
   * `session.orders.update_billing_address(order_id, body)`
   * `session.orders.update_order_note(order_id, body)`
   * `session.orders.update_shipping_address(order_id, body)`
-* Payment Methods
+* Payment methods
   * `session.payment_methods.activate(payment_method_id)`
   * `session.payment_methods.all(params = {})`
   * `session.payment_methods.deactivate(payment_method_id)`
   * `session.payment_methods.find(payment_method_id)`
   * `session.payment_methods.sort(payment_method_ids)`
   * `session.payment_methods.update(payment_method_id, body)`
-* Product Attribute Definitions
+* Product attribute definitions
   * `session.product_attribute_definitions.all(params = {})`
   * `session.product_attribute_definitions.create(product_attribute_name)`
   * `session.product_attribute_definitions.delete(product_attribute_name)`
   * `session.product_attribute_definitions.find(product_attribute_name)`
-* Product Settings
+* Product settings
   * `session.product_settings.all`
-* Products View
+* Product view
   * `session.products_view.all(params = {})`
   * `session.products_view.available_tags`
   * `session.products_view.find(product_id)`
@@ -148,7 +152,7 @@ Here you can find a list with all available methods:
   * `session.products.update_variation(product_id, body)`
 * Scopes
   * `session.scopes.all(params = {})`
-* Script Tags
+* Script tags
   * `session.script_tags.all(params = {})`
   * `session.script_tags.create(script_tag_url)`
   * `session.script_tags.delete(script_tag_id)`
@@ -217,7 +221,7 @@ Here you can find a list with all available methods:
   * `session.variations.all(product_id, params = {})`
   * `session.variations.find(product_id, variation_id)`
   * `session.variations.update(product_id, variation_id, body)`
-* Webhook Subscriptions
+* Webhook subscriptions
   * `session.webhook_subscriptions.activate(webhook_subscription_id)`
   * `session.webhook_subscriptions.all(params = {})`
   * `session.webhook_subscriptions.create(body)`
