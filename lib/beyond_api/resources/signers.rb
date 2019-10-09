@@ -55,7 +55,7 @@ module BeyondApi
     #   session.signers.delete("6bb72afd-340e-439a-9990-eef2e0883e1e")
     #
     def delete(signer_id)
-      response, status = BeyondApi::Request.delete(@session, "/signers#{signer_id}")
+      response, status = BeyondApi::Request.delete(@session, "/signers/#{signer_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
