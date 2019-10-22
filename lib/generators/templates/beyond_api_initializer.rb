@@ -26,4 +26,10 @@ BeyondApi.setup do |config|
   # With OpenStructs => response.embeded.products.first.id
   # Without OpenStructs => response["embeded"]["products"].first["id"]
   # config.object_struct_responses = false
+
+  # Configure if the gem should raise on error requests. Setting it to true is
+  # useful for working with exceptions. Setting it to false  will return a
+  # BeyondApi::Error object with detailed information of the error.
+  # Default is false.
+  # config.raise_error_requests = false
 end
