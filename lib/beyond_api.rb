@@ -10,6 +10,14 @@ require "beyond_api/utils"
 module BeyondApi
   class Error < StandardError; end
 
+  def self.logger
+    @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+  end
+
+  def self.logger=(logger)
+    @@logger = logger
+  end
+
   class << self
     attr_accessor :configuration
   end
@@ -22,7 +30,7 @@ module BeyondApi
 
   class Configuration
     attr_accessor :client_id, :client_secret, :open_timeout, :timeout,  :remove_response_links,
-                  :remove_response_key_underscores, :object_struct_responses
+                  :remove_response_key_underscores, :object_struct_responses, :raise_error_requests
 
     def initialize
       @client_id = nil
@@ -32,6 +40,7 @@ module BeyondApi
       @remove_response_links = false
       @remove_response_key_underscores = false
       @object_struct_responses = false
+      @raise_error_requests = false
     end
   end
 end
