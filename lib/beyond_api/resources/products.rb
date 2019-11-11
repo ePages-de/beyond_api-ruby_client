@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "beyond_api/utils"
+require "beyond_api/resources/products/custom_attributes"
 
 module BeyondApi
   class Products < Base
+    include BeyondApi::ProductCustomAttribute
     include BeyondApi::Utils
 
     #

@@ -56,8 +56,8 @@ module BeyondApi
     #   }
     #   @product_attribute_definition = session.product_attribute_definitions.create(body)
     #
-    def create(product_attribute_name)
-      response, status = BeyondApi::Request.post(@session, "/product-attribute-definitions")
+    def create(body)
+      response, status = BeyondApi::Request.post(@session, "/product-attribute-definitions", body)
 
       handle_response(response, status)
     end
@@ -80,7 +80,7 @@ module BeyondApi
     #   session.product_attribute_definitions.delete("filling_capacity")
     #
     def delete(product_attribute_name)
-      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
+      response, status = BeyondApi::Request.delete(@session, "/product-attribute-definitions/#{product_attribute_name}")
 
       handle_response(response, status, respond_with_true: true)
     end
