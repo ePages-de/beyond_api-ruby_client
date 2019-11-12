@@ -1,3 +1,15 @@
+### v0.4.0.pre
+
+* bug-fixes
+  * Fix product attribute definition `create` method
+  * Fix product attribute definition `delete` method
+  * Fix product custom attribute module name
+  * Include `BeyondApi::ProductCustomAttributes` module into `BeyondApi::Products` class
+  * Include `BeyondApi::ProductImages` module into `BeyondApi::Products` class
+
+* enhancements
+  * Allow to get all product attribute definitions on a single call
+
 ### v0.3.0.pre
 
 * bug-fixes
