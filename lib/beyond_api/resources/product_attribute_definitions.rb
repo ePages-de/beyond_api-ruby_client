@@ -28,7 +28,7 @@ module BeyondApi
         result = all_paginated(page: 0, size: 1000)
 
         (1..result[:page][:total_pages] - 1).each do |page|
-          result[:embedded][:product_attribute_definition].concat all_paginated(page: page, size: 1000)[:embedded][:product_attribute_definitions]
+          result[:embedded][:product_attribute_definition].concat(all_paginated(page: page, size: 1000)[:embedded][:product_attribute_definitions])
         end
 
         result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)

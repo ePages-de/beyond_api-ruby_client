@@ -6,7 +6,7 @@ require "beyond_api/resources/products/images"
 
 module BeyondApi
   class Products < Base
-    include BeyondApi::ProductCustomAttribute
+    include BeyondApi::ProductCustomAttributes
     include BeyondApi::ProductImages
     include BeyondApi::Utils
 
