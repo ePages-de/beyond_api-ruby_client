@@ -14,6 +14,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +prad:r+
     #
+    # @option param [Boolean] :paginated
     # @option param [Integer] :size the page size
     # @option param [Integer] :page the page number
     #
@@ -23,9 +24,18 @@ module BeyondApi
     #   @product_attribute_definitions = session.product_attribute_definitions.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions", params)
+      if params[:paginated] == false
+        result = all_paginated(page: 0)
 
-      handle_response(response, status)
+        (1..result.page.total_pages - 1).each do |page|
+          result.embedded.product_attribute_definitions.concat all_paginated(page: page).embedded.product_attribute_definitions
+        end
+
+        result.delete_field(:page)
+        result
+      else
+        all_paginated(params)
+      end
     end
 
     #
@@ -105,5 +115,12 @@ module BeyondApi
 
       handle_response(response, status)
     end
+
+    private
+
+      def all_paginated(params = {})
+        response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions", params)
+        handle_response(response, status)
+      end
   end
 end
