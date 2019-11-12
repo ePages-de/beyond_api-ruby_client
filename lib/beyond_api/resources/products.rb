@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "beyond_api/utils"
+require "beyond_api/resources/products/images"
 
 module BeyondApi
   class Products < Base
+    include BeyondApi::ProductImages
     include BeyondApi::Utils
 
     #
