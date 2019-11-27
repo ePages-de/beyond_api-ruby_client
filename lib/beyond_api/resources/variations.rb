@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "beyond_api/utils"
+require "beyond_api/resources/variations/availability"
 
 module BeyondApi
   class Variations < Base
+    include BeyondApi::VariationAvailability
     include BeyondApi::Utils
 
     #
