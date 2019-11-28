@@ -6,6 +6,7 @@
   * Include `BeyondApi::ProductAvailability` module into `BeyondApi::Products` class
   * Include `BeyondApi::ProductSearches` module into `BeyondApi::Products` class
   * Include `BeyondApi::ProductVariationProperties` module into `BeyondApi::Products` class
+  * Include `BeyondApi::VariationAvailability` module into `BeyondApi::Variations` class
 
 ### v0.4.0.pre
 
