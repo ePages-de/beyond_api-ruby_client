@@ -1,13 +1,21 @@
 # frozen_string_literal: true
 
 require "beyond_api/utils"
+require "beyond_api/resources/products/attachments"
+require "beyond_api/resources/products/availability"
 require "beyond_api/resources/products/custom_attributes"
 require "beyond_api/resources/products/images"
+require "beyond_api/resources/products/searches"
+require "beyond_api/resources/products/variation_properties"
 
 module BeyondApi
   class Products < Base
+    include BeyondApi::ProductAttachments
+    include BeyondApi::ProductAvailability
     include BeyondApi::ProductCustomAttributes
     include BeyondApi::ProductImages
+    include BeyondApi::ProductSearches
+    include BeyondApi::ProductVariationProperties
     include BeyondApi::Utils
 
     #

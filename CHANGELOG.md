@@ -1,3 +1,13 @@
+### v0.5.0.pre
+
+* bug-fixes
+  * Fix handling of array as request body
+  * Include `BeyondApi::ProductAttachments` module into `BeyondApi::Products` class
+  * Include `BeyondApi::ProductAvailability` module into `BeyondApi::Products` class
+  * Include `BeyondApi::ProductSearches` module into `BeyondApi::Products` class
+  * Include `BeyondApi::ProductVariationProperties` module into `BeyondApi::Products` class
+  * Include `BeyondApi::VariationAvailability` module into `BeyondApi::Variations` class
+
 ### v0.4.0.pre
 
 * bug-fixes
