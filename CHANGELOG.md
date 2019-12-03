@@ -1,3 +1,8 @@
+### v0.5.1.pre
+
+* bug-fixes
+  * Fix `adjust_stock_level` method
+
 ### v0.5.0.pre
 
 * bug-fixes
