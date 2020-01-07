@@ -117,7 +117,6 @@ module BeyondApi
       handle_response(response, status)
     end
 
-
     #
     # A +POST+ request is used to upload an image to the image storage and assign the URL of the image to the variation. The body of the request must contain the content of the image.
     #

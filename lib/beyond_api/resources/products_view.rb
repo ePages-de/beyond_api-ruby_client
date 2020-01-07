@@ -19,7 +19,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.product_view_products.all(page: 0, size: 100)
+    #   @products = session.products_view.all(page: 0, size: 100)
     #
     def all(params = {})
       response, status = BeyondApi::Request.get(@session, "/product-view/products", params)
@@ -37,7 +37,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @tags = session.product_view_products.available_tags
+    #   @tags = session.products_view.available_tags
     #
     def available_tags
       response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-available-tags")
@@ -58,7 +58,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @product = session.product_view_products.find("f75f8fb2-5a48-4d94-aad6-3d3692c06472")
+    #   @product = session.products_view.find("f75f8fb2-5a48-4d94-aad6-3d3692c06472")
     #
     def find(product_id)
       response, status = BeyondApi::Request.get(@session, "/product-view/products/#{product_id}")
@@ -80,7 +80,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.product_view_products.search_by_tag("number0", {page: 0, size: 100})
+    #   @products = session.products_view.search_by_tag("number0", {page: 0, size: 100})
     #
     def search_by_tag(tag, params = {})
       response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-tags", params.merge(tag: tag))
@@ -102,7 +102,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.product_view_products.search_by_term("search snippet", {page: 0, size: 100})
+    #   @products = session.products_view.search_by_term("search snippet", {page: 0, size: 100})
     #
     def search_by_term(term, params = {})
       response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-term", params.merge(query: term))
