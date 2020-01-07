@@ -26,7 +26,7 @@ module BeyondApi
     #   @availability = session.variations.adjust_stock_level(product_id, variation_id, { relativeAmount => -1 })
     #
     def adjust_stock_level(product_id, variation_id, body)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/enable-stock-management", body)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock", body)
 
       handle_response(response, status)
     end
