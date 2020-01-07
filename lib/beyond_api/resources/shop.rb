@@ -9,10 +9,7 @@ module BeyondApi
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/address' -i -X GET \
-    #       -H 'Authorization: Bearer <Access token>'
-    #
-    # @beyond_api.scopes +shad:r+
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/address' -i -X GET
     #
     # @return [OpenStruct]
     #
@@ -141,7 +138,7 @@ module BeyondApi
     #
     # @example
     #   body = {
-    #     "dataUri" => "file.png?hash=212-2323-4343",
+    #     "data_uri" => "file.png?hash=212-2323-4343",
     #     "label" => "logo"
     #   }
     #
@@ -225,7 +222,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.image("2feee7ac-f1cb-4faf-9488-f3ce07394141")
+    #   @image = session.shop.image("2feee7ac-f1cb-4faf-9488-f3ce07394141")
     #
     def image(image_id)
       response, status = BeyondApi::Request.get(@session, "/shop/images/#{image_id}")
@@ -245,7 +242,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.images(size: 5, page: 1)
+    #   @images = session.shop.images(size: 5, page: 1)
     #
     def images(params = {})
       response, status = BeyondApi::Request.get(@session, "/shop/images", params)
@@ -265,10 +262,10 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.legal_content("right-of-withdrawal")
+    #   @legal_content = session.shop.legal_content("right-of-withdrawal")
     #
     def legal_content(legal_content_type)
-      response, status = BeyondApi::Request.get(@session, "/legal-content/right-of-withdrawal")
+      response, status = BeyondApi::Request.get(@session, "/legal-content/#{legal_content_type}")
 
       handle_response(response, status)
     end
@@ -286,10 +283,10 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.legal_contents(size: 5, page: 1)
+    #   @legal_content = session.shop.legal_contents(size: 5, page: 1)
     #
     def legal_contents(params = {})
-      response, status = BeyondApi::Request.get(@session, "/legal-content")
+      response, status = BeyondApi::Request.get(@session, "/legal-content", params)
 
       handle_response(response, status)
     end
@@ -305,7 +302,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.shop.legal_details
+    #   @legal_details = session.shop.legal_details
     #
     def legal_details
       response, status = BeyondApi::Request.get(@session, "/shop/legal")
@@ -361,7 +358,6 @@ module BeyondApi
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
     #     "name" : "anotherName",
-    #     "closedShopMessage" : "This shop is opening soon.",
     #     "primaryHostname" : "cornershop.amazingdiscounts.xyz",
     #     "fallbackHostname" : "cornershop.beyondshop.cloud",
     #     "tax" : {
@@ -384,24 +380,23 @@ module BeyondApi
     # @example
     #   body = {
     #     "name" => "anotherName",
-    #     "closedShopMessage" => "This shop is opening soon.",
-    #     "primaryHostname" => "cornershop.amazingdiscounts.xyz",
-    #     "fallbackHostname" => "cornershop.beyondshop.cloud",
+    #     "primary_hostname" => "cornershop.amazingdiscounts.xyz",
+    #     "fallback_hostname" => "cornershop.beyondshop.cloud",
     #     "tax" => {
     #       "taxModel" => "GROSS",
     #       "vatExempted" => false
     #     },
     #     "currencies" => [ "EUR", "USD", "GBP" ],
-    #     "defaultCurrency" => "USD",
+    #     "default_currency" => "USD",
     #     "locales" => [ "en-GB", "de-DE" ],
-    #     "defaultLocale" => "en-GB",
-    #     "closedByMerchant" => false
+    #     "default_locale" => "en-GB",
+    #     "closed_by_merchant" => false
     #   }
     #
     #   session.shop.update(body)
     #
     def update(body)
-      response, status = BeyondApi::Request.patch(@session, "/shop")
+      response, status = BeyondApi::Request.patch(@session, "/shop",  body)
 
       handle_response(response, status)
     end
@@ -513,7 +508,7 @@ module BeyondApi
     #
     # @example
     #   body = {
-    #     "vatId" => "GB 111111111"
+    #     "vat_id" => "GB 111111111"
     #   }
     #
     #   session.shop.update_legal_details(body)

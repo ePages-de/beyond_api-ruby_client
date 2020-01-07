@@ -73,11 +73,9 @@ module BeyondApi
     end
 
     #
-    # A +DELETE+ request is used to delete a product attachment.
+    # A +DELETE+ request is used to delete a product attribute definition.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/00add006-beaa-46fe-bb73-f8ebae15082d/attachments/9a44e585-571a-4253-9248-54a4c418c7e2' -i -X DELETE \
-    #       -H 'Content-Type: application/hal+json' \
-    #       -H 'Accept: application/hal+json' \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/product-attribute-definitions/color' -i -X DELETE \
     #       -H 'Authorization: Bearer <Access token>'
     #
     # @beyond_api.scopes +prad:d+
@@ -87,7 +85,7 @@ module BeyondApi
     # @return [true]
     #
     # @example
-    #   session.product_attribute_definitions.delete("filling_capacity")
+    #   session.product_attribute_definitions.delete("color")
     #
     def delete(product_attribute_name)
       response, status = BeyondApi::Request.delete(@session, "/product-attribute-definitions/#{product_attribute_name}")

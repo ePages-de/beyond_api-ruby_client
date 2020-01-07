@@ -34,7 +34,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @signers = session.signers.create
+    #   @signer = session.signers.create
     #
     def create
       response, status = BeyondApi::Request.post(@session, "/signers")

@@ -3,19 +3,23 @@
 require "beyond_api/utils"
 require "beyond_api/resources/products/attachments"
 require "beyond_api/resources/products/availability"
+require "beyond_api/resources/products/cross_sells"
 require "beyond_api/resources/products/custom_attributes"
 require "beyond_api/resources/products/images"
 require "beyond_api/resources/products/searches"
 require "beyond_api/resources/products/variation_properties"
+require "beyond_api/resources/products/videos"
 
 module BeyondApi
   class Products < Base
     include BeyondApi::ProductAttachments
     include BeyondApi::ProductAvailability
+    include BeyondApi::ProductCrossSells
     include BeyondApi::ProductCustomAttributes
     include BeyondApi::ProductImages
     include BeyondApi::ProductSearches
     include BeyondApi::ProductVariationProperties
+    include BeyondApi::ProductVideos
     include BeyondApi::Utils
 
     #
@@ -74,7 +78,6 @@ module BeyondApi
     #       "amount" : 99.95,
     #       "currency" : "EUR"
     #     },
-    #     "onSale" : true,
     #     "visible" : true,
     #     "taxClass" : "REGULAR",
     #     "shippingWeight" : 100,
@@ -134,7 +137,6 @@ module BeyondApi
     #      "amount": 99.95,
     #      "currency": "EUR"
     #    },
-    #    "onSale": true,
     #    "visible": true,
     #    "taxClass": "REGULAR",
     #    "shippingWeight": 100,
@@ -183,7 +185,7 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   session.products.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
+    #   session.products.delete("c06c61af-f99a-4698-90fa-8c3199ca732f")
     #
     def delete(product_id)
       response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}")
@@ -206,7 +208,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @product = session.products.find("f461fb56-1984-4ade-bd4e-007c273cc923")
+    #   @product = session.products.find("75ebcb57-aefb-4963-8225-060c528e070d")
     #
     def find(product_id)
       response, status = BeyondApi::Request.get(@session, "/products/#{product_id}")
@@ -224,10 +226,10 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "name" : "patched name",
-    #     "description" : "patched description. <p><br></p><blockquote> <ol><li><strong>\n<h1></h1><h6></h6><em><a href=\"http://example.com\" target=\"_blank\"><u>this is my test html</u></a>\n</em></strong> </li></ol> </blockquote>",
-    #     "productIdentifiers" : null,
-    #     "manufacturer" : "patched manufacturer"
+    #       "name" : "patched name",
+    #       "description" : "patched description. <p><br></p><blockquote> <ol><li><strong>\n<h1></h1><h6></h6><em><a href=\"http://example.com\" target=\"_blank\"><u>this is my test html</u></a>\n</em></strong> </li></ol> </blockquote>",
+    #       "productIdentifiers" : null,
+    #       "manufacturer" : "patched manufacturer"
     #   }'
     #
     # @param product_id [String] the product UUID
@@ -242,7 +244,7 @@ module BeyondApi
     #     "productIdentifiers": null,
     #     "manufacturer": "patched manufacturer"
     #   }
-    #   @product = session.products.update("75ebcb57-aefb-4963-8225-060c528e070d", body)
+    #   @product = session.products.update("b69e3f47-03b8-40d2-843c-ae89a3d9bcdd", body)
     #
     def update(product_id, body)
       response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}", body)

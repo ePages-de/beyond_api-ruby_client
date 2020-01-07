@@ -43,8 +43,8 @@ module BeyondApi
     # @example
     #   @cart = session.carts.create
     #
-    def create(body)
-      response, status = BeyondApi::Request.post(@session, "/carts", body)
+    def create
+      response, status = BeyondApi::Request.post(@session, "/carts")
 
       handle_response(response, status)
     end
@@ -202,7 +202,7 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   session.carts.delete_line_item("2fa7dc36-8305-4628-b961-f2c3f7dda47d")
+    #   session.carts.delete_shipping_address("2fa7dc36-8305-4628-b961-f2c3f7dda47d")
     #
     def delete_shipping_address(cart_id)
       response, status = BeyondApi::Request.delete(@session, "/carts/#{cart_id}/shipping-address")
@@ -290,6 +290,7 @@ module BeyondApi
     #     "_ref" => "f084553c-ea77-4745-b1bd-71c64c8419fd",
     #     "quantity" => 2
     #   }
+    #
     #   @cart = session.carts.replace_line_item("f73629e5-fecf-4474-9b04-6b2fcd4663c4", "2c9c0f38-0b9e-4fa7-bcbe-960098ff63aa", body)
     #
     def replace_line_item(cart_id, line_item_id, body)
@@ -311,8 +312,13 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   body = [{"_type":"PRODUCT","_ref":"0612362d-9856-4b40-94c6-a36abec0cf8c","quantity":1}]
-    #   @cart = session.carts.replace_line_item("c1436110-e283-49b3-a748-0321efec6d35", body)
+    #   body = [ {
+    #     "_type" => "PRODUCT",
+    #     "_ref" => "0612362d-9856-4b40-94c6-a36abec0cf8c",
+    #     "quantity" => 1 
+    #   } ]
+    #
+    #   @cart = session.carts.replace_line_items("c1436110-e283-49b3-a748-0321efec6d35", body)
     #
     def replace_line_items(cart_id, body)
       response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/line-items", body)
@@ -361,6 +367,7 @@ module BeyondApi
     #     "taxNumber" => "123-34-6789",
     #     "birthDate" => "1985-03-20"
     #   }
+    #
     #   @cart = session.carts.set_billing_address("01da6aa7-8aa2-4383-a496-6611a14afbc9", body)
     #
     def set_billing_address(cart_id, body)
@@ -453,6 +460,7 @@ module BeyondApi
     #     "taxNumber" => "123-34-6789",
     #     "birthDate" => "1985-03-20"
     #   }
+    #
     #   @cart = session.carts.set_shipping_address("01da6aa7-8aa2-4383-a496-6611a14afbc9", body)
     #
     def set_shipping_address(cart_id, body)
@@ -489,7 +497,7 @@ module BeyondApi
     # A +PUT+ request is used to set the shipping method to the current default shipping method.
     # The default shipping method is the one with the highest priority of the applicable shipping methods.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/64efe22b-2699-4032-a2c9-c94a2e4fa425/shipping-methods/default' -i -X PUT \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/carts/c31c5d06-4460-4f89-9e09-47f9956dea98/shipping-methods/default' -i -X PUT \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/json'
     #
@@ -498,11 +506,10 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @cart = session.carts.set_shipping_method_to_default("a4e7922a-f895-4a7d-8cb1-6ecf74d7ceba")
+    #   @cart = session.carts.set_shipping_method_to_default("c31c5d06-4460-4f89-9e09-47f9956dea98")
     #
     def set_shipping_method_to_default(cart_id)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/shipping-methods/current",
-                                                "#{session.api_url}/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
+      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/shipping-methods/default")
 
       handle_response(response, status)
     end
@@ -523,6 +530,7 @@ module BeyondApi
     #
     def shipping_method(cart_id)
       response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}")
+
       handle_response(response, status)
     end
 
@@ -541,6 +549,7 @@ module BeyondApi
     #
     def shipping_methods(cart_id)
       response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}")
+
       handle_response(response, status)
     end
   end

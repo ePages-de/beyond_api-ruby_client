@@ -5,12 +5,12 @@ require "beyond_api/resources/carts"
 require "beyond_api/resources/categories_view"
 require "beyond_api/resources/categories"
 require "beyond_api/resources/checkout_settings"
+require "beyond_api/resources/customers"
 require "beyond_api/resources/newsletter_target"
 require "beyond_api/resources/order_settings"
 require "beyond_api/resources/orders"
 require "beyond_api/resources/payment_methods"
 require "beyond_api/resources/product_attribute_definitions"
-require "beyond_api/resources/product_settings"
 require "beyond_api/resources/products_view"
 require "beyond_api/resources/products"
 require "beyond_api/resources/scopes"
@@ -50,6 +50,10 @@ module BeyondApi
       BeyondApi::CheckoutSettings.new(self)
     end
 
+    def customers
+      BeyondApi::Customers.new(self)
+    end
+
     def newsletter_target
       BeyondApi::NewsletterTarget.new(self)
     end
@@ -68,10 +72,6 @@ module BeyondApi
 
     def product_attribute_definitions
       BeyondApi::ProductAttributeDefinitions.new(self)
-    end
-
-    def product_settings
-      BeyondApi::ProductSettings.new(self)
     end
 
     def products_view
