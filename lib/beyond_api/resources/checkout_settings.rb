@@ -32,13 +32,28 @@ module BeyondApi
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
-    #       -d ' {
+    #       -d '{
     #       "minimumOrderValue" : {
     #         "currency" : "EUR",
     #         "amount" : 50
     #       },
     #       "mustAcceptTermsAndConditions" : true
     #   }'
+    #
+    # @beyond_api.scopes +cset:u+
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #       "minimum_order_value" => {
+    #         "currency" => "EUR",
+    #         "amount" => 50
+    #       },
+    #       "must_accept_terms_and_conditions" => true
+    #   }
+    #   @checkout_settiongs = session.checkout_settings.update(body)
+    #
     def update(body)
       response, status = BeyondApi::Request.put(@session, "/checkout-settings", body)
 

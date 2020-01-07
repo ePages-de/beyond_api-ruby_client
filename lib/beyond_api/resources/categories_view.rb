@@ -126,12 +126,23 @@ module BeyondApi
     #     }
     #   }'
     #
-    # @param product_id [String] the product UUID of the category
+    # @param body [Hash] the request body
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @category = session.categories_view.search_by_product_id("ba68427f-603c-4741-9185-3b379f7769b5")
+    #   body = {
+    #     "tags" => [ "books" ],
+    #     "manufacturer" => "The Standard Manufacturer",
+    #     "sales_price" => {
+    #       "amount" => 10.0,
+    #       "currency" => "EUR"
+    #     }
+    #   }
+    #
+    #   @categories = session.categories_view.search_by_product(body, { size: 100, page: 0 })
     #
     def search_by_product(body, params = {})
       response, status = BeyondApi::Request.post(@session, "/product-view/categories/search/find-by-product", body, params)

@@ -14,14 +14,14 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +pypr:r
+    # @beyond_api.scopes +pypr:r+
     #
     # @param order_id [String] the order UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @payment_process = session.orders.active_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @payment_process = session.orders.active_payment_process("208e2c1d-6610-43c7-b2f1-20aad6f029b9")
     #
     def active_payment_process(order_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/active")
@@ -37,14 +37,14 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rfpr:r
+    # @beyond_api.scopes +rfpr:r+
     #
     # @param order_id [String] the order UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @refund_process = session.orders.active_refund_process("268a8629-55cd-9845-3114-454b9b5ea14c")
+    #   @refund_process = session.orders.active_refund_process("8613295f-4d44-4143-bfd0-6b81fc178618")
     #
     def active_refund_process(order_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds/active")
@@ -55,7 +55,7 @@ module BeyondApi
     #
     # A +GET+ request is used to list all orders of the shop in a paged way. Each item in the response represents a summary of the order data.
     #
-    # @beyond_api.scopes +ordr:r
+    # @beyond_api.scopes +ordr:r+
     #
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
@@ -79,10 +79,10 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "comment" : "This needs to be done fast!"
+    #       "comment" : "This needs to be done fast!"
     #   }'
     #
-    # @beyond_api.scopes +clpr:c
+    # @beyond_api.scopes +clpr:c+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -93,7 +93,7 @@ module BeyondApi
     #   body = {
     #     "comment"=> "This needs to be done fast!"
     #   }
-    #   @order = session.orders.cancel("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @order = session.orders.cancel("e3f9264a-395b-407d-9036-00f38f609be6", body)
     #
     def cancel(order_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/cancel", body)
@@ -109,7 +109,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +clpr:r
+    # @beyond_api.scopes +clpr:r+
     #
     # @param order_id [String] the order UUID
     # @param cancelation_id [String] the cancelation UUID
@@ -117,7 +117,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @pcancelation_process = session.orders.cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", "365b4b63-45a8-49f6-94c5-a65e0dee83b5")
+    #   @pcancelation_process = session.orders.cancelation_process("f16cf0db-7449-4029-a886-76f38b4aa464", "365b4b63-45a8-49f6-94c5-a65e0dee83b5")
     #
     def cancelation_process(order_id, cancelation_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations/#{cancelation_id}")
@@ -133,7 +133,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +clpr:r
+    # @beyond_api.scopes +clpr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -142,7 +142,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @pcancelation_processes = session.orders.cancelation_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #   @pcancelation_processes = session.orders.cancelation_processes("b8cb904d-4c82-4c39-a3a4-de7cb181a5d3", {page: 0, size: 20})
     #
     def cancelation_processes(order_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/cancelations", params)
@@ -157,7 +157,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +pypr:u
+    # @beyond_api.scopes +pypr:u+
     #
     # @param order_id [String] the order UUID
     # @param payment_id [String] the payment UUID
@@ -165,10 +165,10 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @payment_process = session.orders.capture_payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #   @payment_process = session.orders.capture_payment_process("ebfd99d6-f025-4c97-96d2-d5adbb45d6c2", "2936deca-fd56-4c0d-88e2-8030c897bf90")
     #
     def capture_payment_process(order_id, payment_id)
-      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture", body)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/capture")
 
       handle_response(response, status)
     end
@@ -188,7 +188,7 @@ module BeyondApi
     #     } ]
     #   }'
     #
-    # @beyond_api.scopes +clpr:c
+    # @beyond_api.scopes +clpr:c+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -203,10 +203,10 @@ module BeyondApi
     #       "productLineItemId"=> "0e1f8ab4-ec78-42a6-9a46-a3384cd17d52"
     #     }]
     #   }
-    #   @pcancelation_process = session.orders.create_cancelation_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @cancelation_process = session.orders.create_cancelation_process("9072c00d-1bc7-4fd8-8836-94ada5084e7a", body)
     #
     def create_cancelation_process(order_id, body)
-      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/cancelations")
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/cancelations", body)
 
       handle_response(response, status)
     end
@@ -220,7 +220,7 @@ module BeyondApi
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{"deliveryDateNote": "Test DeliveryDateNote", "invoiceNote": "Test invoiceNote"}'
     #
-    # @beyond_api.scopes +ordr:u
+    # @beyond_api.scopes +ordr:u+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -232,7 +232,7 @@ module BeyondApi
     #     "deliveryDateNote" => "Test DeliveryDateNote",
     #     "invoiceNote" => "Test invoiceNote"
     #   }
-    #   @order = session.orders.create_invoice("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @order = session.orders.create_invoice("a5d4d6c6-e77d-4180-8dbf-729f38a698b2", body)
     #
     def create_invoice(order_id, body)
       response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/create-invoice", body)
@@ -261,7 +261,7 @@ module BeyondApi
     #     }
     #   }'
     #
-    # @beyond_api.scopes +rtpr:c
+    # @beyond_api.scopes +rtpr:c+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -282,7 +282,7 @@ module BeyondApi
     #       "amount": 19.99
     #     }
     #   }
-    #   @return_process = session.orders.create_return_process("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @return_process = session.orders.create_return_process("29007bb7-739a-46f5-8c70-4e1029b52fa5", body)
     #
     def create_return_process(order_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/returns", body)
@@ -300,7 +300,7 @@ module BeyondApi
     #       -d '{
     #     "comment" : "This needs to be done fast!",
     #     "sendMail" : true,
-    #     "createDeliveryNote" : true,
+    #     "createPackingSlip" : true,
     #     "trackingCode" : "lookAtMyTrackingCodeWow",
     #     "trackingLink" : "http://tracking.is/fun?code=lookAtMyTrackingCodeWow",
     #     "lineItems" : [ {
@@ -309,7 +309,7 @@ module BeyondApi
     #     } ]
     #   }'
     #
-    # @beyond_api.scopes +shpr:c
+    # @beyond_api.scopes +shpr:c+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -320,7 +320,7 @@ module BeyondApi
     #   body = {
     #     "comment" => "This needs to be done fast!",
     #     "send_mail" => true,
-    #     "create_delivery_note" => true,
+    #     "create_packing_slip" => true,
     #     "tracking_code" => "lookAtMyTrackingCodeWow",
     #     "tracking_link" => "http=>//tracking.is/fun?code=lookAtMyTrackingCodeWow",
     #     "line_items" => [ {
@@ -328,7 +328,7 @@ module BeyondApi
     #       "product_line_item_id" => "e96e1b33-d9e9-4508-862a-816235b541f7"
     #     } ]
     #   }
-    #   @shipping_process = session.orders.create_shipping_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #   @shipping_process = session.orders.create_shipping_process("8df2fe3b-5149-492f-932a-073f012305eb", body)
     #
     def create_shipping_process(order_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings", body)
@@ -343,7 +343,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +ordr:r
+    # @beyond_api.scopes +ordr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -352,7 +352,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @events = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @events = session.orders.find("66b6aab5-2ed4-4f36-855e-3adb2ea873ee", { size: 100, page: 0 })
     #
     def events(order_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/events", params)
@@ -368,14 +368,14 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +ordr:r
+    # @beyond_api.scopes +ordr:r+
     #
     # @param order_id [String] the order UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @order = session.orders.find("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @order = session.orders.find("a27f1019-3690-40d1-bd9d-d60dff4c4cf8")
     #
     def find(order_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}")
@@ -400,7 +400,7 @@ module BeyondApi
     #          }
     #        }'
     #
-    # @beyond_api.scopes +pypr:u
+    # @beyond_api.scopes +pypr:u+
     #
     # @param order_id [String] the order UUID
     # @param payment_id [String] the payment UUID
@@ -419,7 +419,7 @@ module BeyondApi
     #     }
     #   }
     #
-    #   @payment_process = session.orders.mark_payment_process_as_paid("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #   @payment_process = session.orders.mark_payment_process_as_paid("9a1a1aaa-e37d-4c71-bc95-cbc228463fec", "cb8c9a16-2d81-4ec1-9a4a-84a4c36124ae", body)
     #
     def mark_payment_process_as_paid(order_id, payment_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-paid", body)
@@ -435,10 +435,10 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "comment" : "comment"
+    #       "comment" : "comment"
     #   }'
     #
-    # @beyond_api.scopes +pypr:u
+    # @beyond_api.scopes +pypr:u+
     #
     # @param order_id [String] the order UUID
     # @param payment_id [String] the payment UUID
@@ -451,7 +451,7 @@ module BeyondApi
     #     "comment" => "comment"
     #   }
     #
-    #   @payment_process = session.orders.mark_payment_process_as_voided("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #   @payment_process = session.orders.mark_payment_process_as_voided("a5558b7f-55f4-47d4-b603-9bf7eb59c05b", "5bcc48e7-2641-42a8-a042-189ae92e9901", body)
     #
     def mark_payment_process_as_voided(order_id, payment_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/payments/#{payment_id}/mark-voided", body)
@@ -467,16 +467,16 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "comment" : "comment",
-    #     "details" : {
-    #       "amount" : {
-    #         "currency" : "EUR",
-    #         "amount" : 19.98
+    #       "comment" : "comment",
+    #       "details" : {
+    #         "amount" : {
+    #           "currency" : "EUR",
+    #           "amount" : 19.98
+    #         }
     #       }
-    #     }
     #   }'
     #
-    # @beyond_api.scopes +rfpr:r
+    # @beyond_api.scopes +rfpr:r+
     #
     # @param order_id [String] the order UUID
     #
@@ -492,7 +492,7 @@ module BeyondApi
     #       }
     #     }
     #   }
-    #   @refund_process = session.orders.mark_refund_process_as_paid("268a8629-55cd-9845-3114-454b9b5ea14c", body)
+    #   @refund_process = session.orders.mark_refund_process_as_paid("60baa84c-9e11-4d55-97a9-1a7b00a0691c", body)
     #
     def mark_refund_process_as_paid(order_id)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/refunds/active/mark-paid")
@@ -511,7 +511,7 @@ module BeyondApi
     #     "comment" : "comment"
     #   }'
     #
-    # @beyond_api.scopes +shpr:u
+    # @beyond_api.scopes +shpr:u+
     #
     # @param order_id [String] the order UUID
     # @param shipping_id [String] the shipping UUID
@@ -524,7 +524,7 @@ module BeyondApi
     #     "comment" => "comment",
     #   }
     #
-    #   @shipping_process = session.orders.mark_shipping_process_as_delivered("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #   @shipping_process = session.orders.mark_shipping_process_as_delivered("b5642d1f-0f7f-444e-96d5-1c1d1642ea5e", "619d06d8-0077-4efd-b341-5103f71bfb2d", body)
     #
     def mark_shipping_process_as_delivered(order_id, shipping_process_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{shipping_process_id}/mark-delivered", body)
@@ -548,7 +548,7 @@ module BeyondApi
     #     }
     #   }'
     #
-    # @beyond_api.scopes +shpr:u
+    # @beyond_api.scopes +shpr:u+
     #
     # @param order_id [String] the order UUID
     # @param shipping_id [String] the shipping UUID
@@ -566,7 +566,7 @@ module BeyondApi
     #     }
     #   }
     #
-    #   @shipping_process = session.orders.mark_shipping_process_as_shipped("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q", body)
+    #   @shipping_process = session.orders.mark_shipping_process_as_shipped("dd6a7e20-16be-4509-bf83-fb8ee072ddad", "a0b0c4a5-0c80-47f4-98c3-0f55f4161176", body)
     #
     def mark_shipping_process_as_shipped(order_id, shipping_id, body)
       response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/processes/shippings/#{shipping_id}/mark-shipped", body)
@@ -582,7 +582,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +pypr:r
+    # @beyond_api.scopes +pypr:r+
     #
     # @param order_id [String] the order UUID
     # @param payment_id [String] the payment UUID
@@ -590,7 +590,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @payment_process = session.orders.payment_process("268a8629-55cd-4890-9013-936b9b5ea14c", "266d8608-55cd-4890-9474-296a9q1ea05q")
+    #   @payment_process = session.orders.payment_process("d44ed295-6a08-47ba-a288-90d4f3ba9fff", "be56bfbd-af95-45b9-8b0e-cb0c184aaf60")
     #
     def payment_process(order_id, payment_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments/#{payment_id}")
@@ -606,7 +606,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +pypr:r
+    # @beyond_api.scopes +pypr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -615,7 +615,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @payment_processes = session.orders.payment_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #   @payment_processes = session.orders.payment_processes("2012b775-a706-41e0-b0f9-5142864ca4a0", {page: 0, size: 20})
     #
     def payment_processes(order_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/payments", params)
@@ -631,14 +631,14 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +ordr:r
+    # @beyond_api.scopes +ordr:r+
     #
     # @param order_id [String] the order UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @orders = session.orders.processes("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @processes = session.orders.processes("934ece52-055c-4896-8d16-560f1461ea56")
     #
     def processes(order_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes")
@@ -654,7 +654,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rfpr:r
+    # @beyond_api.scopes +rfpr:r+
     #
     # @param order_id [String] the order UUID
     # @param refund_id [String] the refund UUID
@@ -662,7 +662,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @refund_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #   @refund_process = session.orders.refund_process("801885c8-0b25-44a2-a1a4-60cbf3f9ecca", "4c02883f-be31-4fb2-ad0d-ccbc3678a9f5")
     #
     def refund_process(order_id, refund_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds/#{refund_id}")
@@ -678,7 +678,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rfpr:r
+    # @beyond_api.scopes +rfpr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -687,7 +687,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @refund_processes = session.orders.refund_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #   @refund_processes = session.orders.refund_processes("6f86e42f-763e-4514-a37d-fb8f88cdc14c", {page: 0, size: 20})
     #
     def refund_processes(order_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/refunds", params)
@@ -703,7 +703,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rtpr:r
+    # @beyond_api.scopes +rtpr:r+
     #
     # @param order_id [String] the order UUID
     # @param return_process_id [String] the return process UUID
@@ -711,7 +711,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @return_process = session.orders.return_process("268a8629-55cd-4890-9013-936b9b5ea14c", "910a3fde-cb23-418f-876a-694ce42245ef")
+    #   @return_process = session.orders.return_process("cb9927e4-60d1-4a90-b40c-f5a8e2b25301", "910a3fde-cb23-418f-876a-694ce42245ef")
     #
     def return_process(order_id, return_process_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/returns/#{return_process_id}")
@@ -727,7 +727,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +rtpr:r
+    # @beyond_api.scopes +rtpr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -736,7 +736,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @return_processes = session.orders.return_processes("268a8629-55cd-4890-9013-936b9b5ea14c", {page: 0, size: 20})
+    #   @return_processes = session.orders.return_processes("9e26232f-aa7a-408b-8041-9439999268c5", {page: 0, size: 20})
     #
     def return_processes(order_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/returns", params)
@@ -747,17 +747,22 @@ module BeyondApi
     #
     # A +GET+ request is used to retrieve the details of an order by cart ID.
     #
-    # @beyond_api.scopes +ordr:r
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/search/find-by-cart-id?cartId=82e859a8-7f70-4c19-83c1-ed03457b2ceb' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r+
     #
     # @param cart_id [String] the cart UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @order = session.orders.search_by_cart_id("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @order = session.orders.search_by_cart_id("82e859a8-7f70-4c19-83c1-ed03457b2ceb")
     #
     def search_by_cart_id(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/orders/search/find-by-cart-id", {"cartId": cart_id})
+      response, status = BeyondApi::Request.get(@session, "/orders/search/find-by-cart-id", { cart_id: cart_id })
 
       handle_response(response, status)
     end
@@ -765,12 +770,19 @@ module BeyondApi
     #
     # A +GET+ request is used to retrieve the +orderNumber+ and +orderId+ of an order by cart Id. If there is no order for the given cart Id, a HTTP 404 - NOT FOUND response is returned.
     #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/search/find-order-number-by-cart-id?cartId=7f1cf6c8-7780-430f-9de0-91cbe31c4bf6' -i -X GET \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @beyond_api.scopes +ordr:r+
+    #
     # @param cart_id [String] the cart UUID
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @order = session.orders.search_by_cart_id("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @order = session.orders.search_order_number_by_cart_id("7f1cf6c8-7780-430f-9de0-91cbe31c4bf6")
     #
     def search_order_number_by_cart_id(cart_id)
       response, status = BeyondApi::Request.get(@session, "/orders/search/find-order-number-by-cart-id", {"cartId": cart_id})
@@ -781,19 +793,26 @@ module BeyondApi
     #
     # A +GET+ request is used to send an invoice for the order.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/73bb3fbb-7146-4088-a0d8-dd24dc030e07/send-invoice' -i -X POST \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/acc1f22f-a992-4534-be92-b378a0319fcd/send-order-document' -i -X POST \
     #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>'
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "orderDocumentUri" : "https://myshop.com/api/pdf-storage/attachments/invoice_10003.pdf?hash=9e5e2631c6f5877d64cb3d40db46ec6eb48a3a92"
+    #   }'
     #
-    # @param order_id [String] the order_id UUID
+    # @beyond_api.scopes +ordr:u+
+    #
+    # @param order_id [String] the order UUID
+    # @param order_document_uri [String] the document url
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @order = session.orders.send_invoice("268a8629-55cd-4890-9013-936b9b5ea14c")
+    #   @order = session.orders.send_order_document("acc1f22f-a992-4534-be92-b378a0319fcd",
+    #                                               "https://myshop.com/api/pdf-storage/attachments/invoice_10003.pdf?hash=9e5e2631c6f5877d64cb3d40db46ec6eb48a3a92")
     #
-    def send_invoice(order_id)
-      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/send-invoice")
+    def send_order_document(order_id, order_document_uri)
+      response, status = BeyondApi::Request.post(@session, "/orders/#{order_id}/send-order-document", { order_document_uri: order_document_uri })
 
       handle_response(response, status)
     end
@@ -806,7 +825,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +shpr:r
+    # @beyond_api.scopes +shpr:r+
     #
     # @param order_id [String] the order UUID
     # @param shipping_process_id [String] the shipping process UUID
@@ -814,7 +833,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @shipping_process = session.orders.refund_process("268a8629-55cd-9845-3114-454b9b5ea14c", "268a8629-55cd-4890-9013-936b9b5ea14a")
+    #   @shipping_process = session.orders.refund_process("af42860f-2813-4130-85d9-2d315a4f802e", "80ebe96b-bcd5-4a34-a428-8a67ed114ce6")
     #
     def shipping_process(order_id, shipping_process_id)
       response, status = BeyondApi::Request.get(@session, "/orders/#{order_id}/processes/shippings/#{shipping_process_id}")
@@ -830,7 +849,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +shpr:r
+    # @beyond_api.scopes +shpr:r+
     #
     # @param order_id [String] the order UUID
     # @option params [Integer] :size the page size
@@ -850,7 +869,41 @@ module BeyondApi
     #
     # A +PUT+ request is used to change the customer’s billing address.
     #
-    # @beyond_api.scopes +ordr:u
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/6c36e5e3-dc4c-4d00-b4e8-3fbf9a4bed14/billing-address' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "address" : {
+    #         "salutation" : "Mrs",
+    #         "gender" : "FEMALE",
+    #         "company" : "Astrid Alster GmbH",
+    #         "title" : null,
+    #         "firstName" : "Astrid",
+    #         "middleName" : "Agnes",
+    #         "lastName" : "Alster",
+    #         "street" : "Alsterwasserstraße",
+    #         "houseNumber" : "3",
+    #         "street2" : "Erdgeschoss",
+    #         "addressExtension" : "Hinterhof",
+    #         "postalCode" : "20999",
+    #         "dependentLocality" : "Seevetal",
+    #         "city" : "Alsterwasser",
+    #         "country" : "DE",
+    #         "state" : "Hamburg",
+    #         "email" : "a.alsterh@example.com",
+    #         "phone" : "(800) 555-0102",
+    #         "mobile" : "(800) 555-0103",
+    #         "vatId" : "DE123456789",
+    #         "taxNumber" : "HRE 987654/32123/864516",
+    #         "birthDate" : "1985-05-11",
+    #         "displayAddressLines" : [ "Astrid Alster GmbH", "Astrid Agnes Alster", "Alsterwasserweg 2", "Erdgeschoss", "Seevetal", "20999 Alsterwasser", "Germany" ],
+    #         "_id" : null
+    #       },
+    #       "comment" : "Updated billing address"
+    #   }'
+    #
+    # @beyond_api.scopes +ordr:u+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -887,7 +940,7 @@ module BeyondApi
     #     },
     #     "comment" => "Updated billing address"
     #   }
-    #   @order = session.orders.update_billing_address("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @order = session.orders.update_billing_address("6c36e5e3-dc4c-4d00-b4e8-3fbf9a4bed14", body)
     #
     def update_billing_address(order_id, body)
       response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/billing-address", body)
@@ -898,29 +951,64 @@ module BeyondApi
     #
     # A +PUT+ request is used to change the order note.
     #
-    # @beyond_api.scopes +ordr:u
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/58545e43-f4ba-48e2-b0bf-e340fd64f7b8/order-note' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "orderNote" : "not paid yet"
+    #   }'
+    #
+    # @beyond_api.scopes +ordr:u+
     #
     # @param order_id [String] the order UUID
-    # @param body [Hash] the request body
+    # @param order_note [String] the order note
     #
     # @return [OpenStruct]
     #
     # @example
-    #   body = {
-    #     "orderNote" => "not paid yet"
-    #   }
-    #   @order = session.orders.update_order_note("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @order = session.orders.update_order_note("58545e43-f4ba-48e2-b0bf-e340fd64f7b8", "not paid yet" )
     #
-    def update_order_note(order_id, body)
-      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/order-note", body)
+    def update_order_note(order_id, order_note)
+      response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/order-note", { order_note: order_note })
 
       handle_response(response, status)
     end
 
     #
-    # A +PUT+ request is used to change the customer’s shipping.
+    # A +PUT+ request is used to change the customer's shipping address.
     #
-    # @beyond_api.scopes +ordr:u
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/orders/30327fed-812f-4b70-8931-43e34d8c8181/shipping-address' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "address" : {
+    #         "salutation" : "Mrs",
+    #         "gender" : "FEMALE",
+    #         "company" : "Astrid Alster GmbH",
+    #         "title" : null,
+    #         "firstName" : "Astrid",
+    #         "middleName" : "Agnes",
+    #         "lastName" : "Alster",
+    #         "street" : "Alsterwasserstraße",
+    #         "houseNumber" : "3",
+    #         "street2" : "Erdgeschoss",
+    #         "addressExtension" : "Hinterhof",
+    #         "postalCode" : "20999",
+    #         "dependentLocality" : "Seevetal",
+    #         "city" : "Alsterwasser",
+    #         "country" : "DE",
+    #         "state" : "Hamburg",
+    #         "email" : "a.alsterh@example.com",
+    #         "phone" : "(800) 555-0102",
+    #         "mobile" : "(800) 555-0103",
+    #         "doorCode" : "456",
+    #         "displayAddressLines" : [ "Astrid Alster GmbH", "Astrid Agnes Alster", "Alsterwasserweg 2", "Erdgeschoss", "Seevetal", "20999 Alsterwasser", "Germany" ],
+    #         "_id" : null
+    #       },
+    #       "comment" : "Updated shipping address"
+    #   }'
+    # @beyond_api.scopes +ordr:u+
     #
     # @param order_id [String] the order UUID
     # @param body [Hash] the request body
@@ -957,7 +1045,7 @@ module BeyondApi
     #     },
     #     "comment" => "Updated shipping address"
     #   }
-    #   @order = session.orders.update_shipping_address("268a8629-55cd-4890-9013-936b9b5ea14c", body)
+    #   @order = session.orders.update_shipping_address("30327fed-812f-4b70-8931-43e34d8c8181", body)
     #
     def update_shipping_address(order_id, body)
       response, status = BeyondApi::Request.put(@session, "/orders/#{order_id}/shipping-address", body)

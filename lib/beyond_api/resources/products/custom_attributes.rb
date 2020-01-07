@@ -12,8 +12,8 @@ module BeyondApi
     #       -H 'Content-Type: application/json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "key" : "colour",
-    #     "value" : "Yellow"
+    #       "key" : "colour",
+    #       "value" : "Yellow"
     #   }'
     #
     # @beyond_api.scopes +prat:c+
@@ -29,7 +29,7 @@ module BeyondApi
     #     "value" => "Yellow"
     #   }
     #
-    #   @custom_attribute = session.products.attachment("fd60a63e-c4c0-496d-af49-c4ed224cca2a", body)
+    #   @custom_attribute = session.products.create_custom_attribute("0c0e1699-d2a4-44d0-bed9-64b2fa1a7713", body)
     #
     def create_custom_attribute(product_id, body)
       response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/attributes", body)
@@ -53,7 +53,7 @@ module BeyondApi
     #
     # @example
     #
-    #   @custom_attribute = session.products.custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key")
+    #   @custom_attribute = session.products.custom_attribute("d389347c-568e-4785-8216-91e4f8850c66", "key")
     #
     def custom_attribute(product_id, attribute_name)
       response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attributes/#{attribute_name}")
@@ -76,7 +76,7 @@ module BeyondApi
     #
     # @example
     #
-    #   @custom_attributes = session.products.custom_attributes("fd60a63e-c4c0-496d-af49-c4ed224cca2a")
+    #   @custom_attributes = session.products.custom_attributes("57f0ef04-9dac-462f-9dd4-606f7551cc7b")
     #
     def custom_attributes(product_id)
       response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/attributes")
@@ -99,7 +99,7 @@ module BeyondApi
     #
     # @example
     #
-    #   session.products.custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key")
+    #   session.products.delete_custom_attribute("fec3b6f3-83d0-467a-abc5-d51019e57b51", "farbe")
     #
     def delete_custom_attribute(product_id, attribute_name)
       response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}/attributes/#{attribute_name}")
@@ -130,7 +130,7 @@ module BeyondApi
     #     "value" : "green"
     #    }
     #
-    #   @custom_attribute = session.products.update_custom_attribute("fd60a63e-c4c0-496d-af49-c4ed224cca2a", "key", body)
+    #   @custom_attribute = session.products.update_custom_attribute("82ed44e9-664d-47c0-8b07-09adecfdbf20", "key", body)
     #
     def update_custom_attribute(product_id, attribute_name, body)
       response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/attributes/#{attribute_name}", body)

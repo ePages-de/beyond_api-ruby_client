@@ -22,7 +22,7 @@ module BeyondApi
     #   @products = session.product_view_products.all(page: 0, size: 100)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/product-view/products")
+      response, status = BeyondApi::Request.get(@session, "/product-view/products", params)
 
       handle_response(response, status)
     end
@@ -58,55 +58,10 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @product = session.product_view_products.find("e3e86c45-de19-4179-87a4-f5f7756a0294")
+    #   @product = session.product_view_products.find("f75f8fb2-5a48-4d94-aad6-3d3692c06472")
     #
     def find(product_id)
       response, status = BeyondApi::Request.get(@session, "/product-view/products/#{product_id}")
-
-      handle_response(response, status)
-    end
-
-    #
-    # A +POST+ request is used to search for products using a query provided as request body.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/products/search/find-by-query' -i -X POST \
-    #       -H 'Content-Type: application/json' \
-    #       -H 'Accept: application/hal+json' \
-    #       -d '{ "query": {"bool":{"filter":[{"term":{"tags":"number0"}},{"range":{"salesPrice.amount":{"lte":8.7}}},{"range":{"createdAt":{"gte":"now-1h"}}}]}}, "sort": "name.keyword"}'
-    #
-    # @param query [String] the hash to search
-    #
-    # @return [OpenStruct]
-    #
-    # @example
-    #   body = {
-    #   	"query"=> {
-    #   		"bool"=> {
-    #   			"filter"=> [{
-    #   				"term"=> {
-    #   					"tags"=> "number0"
-    #   				}
-    #   			}, {
-    #   				"range"=> {
-    #   					"salesPrice.amount"=> {
-    #   						"lte"=> 8.7
-    #   					}
-    #   				}
-    #   			}, {
-    #   				"range"=> {
-    #   					"createdAt"=> {
-    #   						"gte"=> "now-1h"
-    #   					}
-    #   				}
-    #   			}]
-    #   		}
-    #   	},
-    #   	"sort"=> "name.keyword"
-    #   }
-    #   @products = session.product_view_products.search_by_query(body)
-    #
-    def search_by_query(query)
-      response, status = BeyondApi::Request.post(@session, "/product-view/products/search/find-by-query", body)
 
       handle_response(response, status)
     end
@@ -125,7 +80,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.product_view_products.search_by_tag("number0", page: 0, size: 100)
+    #   @products = session.product_view_products.search_by_tag("number0", {page: 0, size: 100})
     #
     def search_by_tag(tag, params = {})
       response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-tags", params.merge(tag: tag))
@@ -147,7 +102,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.product_view_products.search_by_term("search snippet", page: 0, size: 100)
+    #   @products = session.product_view_products.search_by_term("search snippet", {page: 0, size: 100})
     #
     def search_by_term(term, params = {})
       response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-term", params.merge(query: term))

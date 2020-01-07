@@ -5,7 +5,7 @@ require "beyond_api/utils"
 module BeyondApi
   module ProductImages
 
-
+    #
     # A +POST+ request is used to create an image and add it to a product.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/products/7a7d1f18-f760-46a9-b794-dbe5a88c6b44/images' -i -X POST \
@@ -13,8 +13,10 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
-    #     "dataUri" : "photostore-2.JPG?hash=8a627f655c68f56dfbbf217ab7d5563281225998"
-    #   }'
+    #           "dataUri" : "photostore-2.JPG?hash=8a627f655c68f56dfbbf217ab7d5563281225998",
+    #           "width" : 600,
+    #           "height" : 300
+    #       }'
     #
     # @beyond_api.scopes +prod:u+
     #
@@ -24,10 +26,15 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @image = session.products.add_image(product_id, { dataUri: "photostore-2.JPG?hash=8a627f655c68f56dfbbf217ab7d5563281225998" })
+    #   body = {
+    #     "data_uri" => "photostore-2.JPG?hash=8a627f655c68f56dfbbf217ab7d5563281225998",
+    #     "width" => 600,
+    #     "height" => 300
+    #   }
+    #   @image = session.products.add_image("7a7d1f18-f760-46a9-b794-dbe5a88c6b44", body)
     #
-    def add_image(product_id, image_uri)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/images", { dataUri: image_uri})
+    def add_image(product_id, body)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/images", body)
 
       handle_response(response, status)
     end
@@ -73,7 +80,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @products = session.products.images("7f32696a-df56-4380-a91b-fffb97f025b4", { size: 20, page: 0 })
+    #   @images = session.products.images("7f32696a-df56-4380-a91b-fffb97f025b4", { size: 20, page: 0 })
     #
     def images(product_id, params = {})
       response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/images", params)
@@ -124,7 +131,39 @@ module BeyondApi
     #
     def set_image_as_default(product_id, image_id)
       response, status = BeyondApi::Request.put(@session, "/products/#{product_id}",
-                                                "#{@session.api_url}/productsimages/#{image_id}")
+                                                "#{@session.api_url}/images/#{image_id}")
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
+    # A +PUT+ request is used to sort the product images. This is done by passing the self-links of the images to the desired product. The request must contain URIs for all images of the given page.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb/images' -i -X PUT \
+    #       -H 'Content-Type: text/uri-list' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d 'http://localhost/products/3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb/images/c9082802-a0d0-416e-9039-02fa465a027e
+    #           http://localhost/products/3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb/images/78e9993d-8db3-45d8-8f76-6b8f2aea9c45
+    #           http://localhost/products/3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb/images/9233ee97-5dbb-4c00-a7b2-e1512c69a938'
+    #
+    # @beyond_api.scopes +prod:u+
+    #
+    # @param product_id [String] the product UUID
+    # @param images [Array] the image UUIDS
+    #
+    # @return true
+    #
+    # @example
+    #   body = [
+    #     "c9082802-a0d0-416e-9039-02fa465a027e",
+    #     "78e9993d-8db3-45d8-8f76-6b8f2aea9c45",
+    #     "9233ee97-5dbb-4c00-a7b2-e1512c69a938"
+    #   ]
+    #   session.products.sort_images("3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb", body)
+    #
+    def sort_images(product_id, image_ids)
+      body = image_ids.map { |image_id| "#{@session.api_url}/products/#{product_id}/images/#{image_id}" }
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/images", body)
 
       handle_response(response, status, respond_with_true: true)
     end

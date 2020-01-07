@@ -103,7 +103,7 @@ module BeyondApi
     #       "amount" => "19.99"
     #     }
     #   }
-    #   @shipping_zone = session.shipping_zones.create("905e981c-1489-45af-9138-0a7dc1f0b085", body)
+    #   @shipping_zone = session.shipping_zones.create_shipping_method("905e981c-1489-45af-9138-0a7dc1f0b085", body)
     #
     def create_shipping_method(shipping_zone_id, body)
       response, status = BeyondApi::Request.post(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", body)
@@ -240,15 +240,15 @@ module BeyondApi
     end
 
     #
-    # A `PUT` request is used to sort the shipping zones. This is done by passing the self-links of the shipping zones in the desired order.all
+    # A +PUT+ request is used to sort the shipping zones. This is done by passing the self-links of the shipping zones in the desired order.all
     # The request must contain URIs for all shipping zones of the given page.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones' -i -X PUT \
     #       -H 'Content-Type: text/uri-list' \
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d 'https://api-shop.beyondshop.cloud/api/shipping-zones/9fa80513-be11-494f-ac01-61832e0d7808
-    #   https://api-shop.beyondshop.cloud/api/shipping-zones/f0911d4c-1ab0-4bbd-88e3-cb675cbb7da7
-    #   https://api-shop.beyondshop.cloud/api/shipping-zones/ef2e7cb7-820e-4d62-b361-12240f635164'
+    #       https://api-shop.beyondshop.cloud/api/shipping-zones/f0911d4c-1ab0-4bbd-88e3-cb675cbb7da7
+    #       https://api-shop.beyondshop.cloud/api/shipping-zones/ef2e7cb7-820e-4d62-b361-12240f635164'
     #
     # @beyond_api.scopes +shpz:u+
     #
@@ -261,7 +261,7 @@ module BeyondApi
     #   session.shipping_zones.sort(shipping_zone_ids)
     #
     def sort(shipping_zone_ids)
-      body = shipping_zone_ids.map { |shipping_zone_id| "#{session.api_url}/shipping-zones/#{id}" }
+      body = shipping_zone_ids.map { |id| "#{session.api_url}/shipping-zones/#{id}" }
       response, status = BeyondApi::Request.put(@session, "/shipping-zones", body)
 
       handle_response(response, status, respond_with_true: true)
