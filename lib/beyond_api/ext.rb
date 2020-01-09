@@ -41,3 +41,14 @@ class String
     string.gsub(/(?:_|(\/))([a-z\d]*)/) { "#{$1}#{$2.capitalize}" }.gsub("/", "::")
   end
 end
+
+class Array
+  def camelize_keys
+    map do |elem|
+      case elem
+        when Hash, Array; elem.camelize_keys
+        else; elem
+      end
+    end
+  end
+end

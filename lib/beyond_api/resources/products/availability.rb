@@ -17,14 +17,15 @@ module BeyondApi
     # @beyond_api.scopes +prda:u+
     #
     # @param product_id [String] the product UUID
+    # @param relative_amount [Integer] the relative amount
     #
     # @return [OpenStruct]
     #
     # @example
-    #   @availability = session.products.adjust_stock_level(product_id, { relativeAmount => -1 })
+    #   @availability = session.products.adjust_stock_level("685f483e-cdda-40af-8091-d5bc31249409", { relativeAmount => -1 })
     #
-    def adjust_stock_level(product_id, body)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/enable-stock-management", body)
+    def adjust_stock_level(product_id, relative_amount)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/adjust-available-stock", { relative_amount: relative_amount })
 
       handle_response(response, status)
     end
@@ -67,7 +68,7 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   session.products.disable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73")
+    #   session.products.disable_purchasability("6b30255e-650f-475c-b345-e7247f957689")
     #
     def disable_purchasability(product_id)
       response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/disable-purchasability")
@@ -90,7 +91,7 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   session.products.disable_stock_management("e966cb17-4047-4b82-ade4-33e7f0978c89", respond_with_true: true)
+    #   session.products.disable_stock_management("e966cb17-4047-4b82-ade4-33e7f0978c89")
     #
     def disable_stock_management(product_id)
       response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/disable-stock-management")
@@ -139,8 +140,8 @@ module BeyondApi
     #
     # @example
     #   body = {
-    #     "initialAvailableStock" => 100,
-    #     "stockThreshold" => 2
+    #     "initial_available_stock" => 100,
+    #     "stock_threshold" => 2
     #   }
     #   @availability = session.products.enable_stock_management("101fa968-9bb8-4dbe-b166-3add1fc1b35e", body)
     #
@@ -162,14 +163,15 @@ module BeyondApi
     # @beyond_api.scopes +prda:u+
     #
     # @param product_id [String] the product UUID
+    # @param stock_threshold [Integer] the stock threshold
     #
     # @return [OpenStruct]
     #
     # @example
-    #   session.products.update_reserve_stock("f74b5f57-43cc-4176-97aa-c6eb9fdeb37c", { stockThreshold => 5 })
+    #   session.products.update_reserve_stock("f74b5f57-43cc-4176-97aa-c6eb9fdeb37c", { stock_threshold => 5 })
     #
-    def update_reserve_stock(product_id, body)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/update-stock-threshold", body)
+    def update_reserve_stock(product_id, stock_threshold)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/update-stock-threshold", { stock_threshold: stock_threshold })
 
       handle_response(response, status)
     end

@@ -37,6 +37,8 @@ session.token.refresh
 
 ## Consuming the API
 
+Check the [_rubydoc_ documentation](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client) for more information on the Beyond API Ruby Client.
+
 Here you can find a list with all available methods:
 
 * Carts

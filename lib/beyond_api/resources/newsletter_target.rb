@@ -60,7 +60,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.newsletter_target.find
+    #   @newsletter_target = session.newsletter_target.find
     #
     def find
       response, status = BeyondApi::Request.get(@session, "/newsletter-target")

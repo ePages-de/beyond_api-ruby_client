@@ -46,7 +46,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.all(params = {})
+    #   @users = session.users.all(size: 100, page: 0)
     #
     def all(params = {})
       response, status = BeyondApi::Request.get(@session, "/users")
@@ -95,8 +95,6 @@ module BeyondApi
     #     "newUsername" : "new username"
     #   }'
     #
-    # @beyond_api.scopes ++
-    #
     # @param user_id [String] the user UUID
     # @param new_username [String] the new username
     # @param current_password [String] the current password
@@ -132,7 +130,12 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.create(body)
+    #   body = {
+    #     "username" => "user",
+    #     "password" => "GoodPassword01!;)",
+    #     "email" => "baxter@example.org"
+    #   }
+    #   @user = session.users.create(body)
     #
     def create(body)
       response, status = BeyondApi::Request.post(@session, "/users", body)
@@ -197,7 +200,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.find(user_id)
+    #   @user = session.users.find("e4b528ce-bb9e-4cc5-95e1-7dadfa4cf0f3")
     #
     def find(user_id)
       response, status = BeyondApi::Request.get(@session, "/users/#{user_id}")
@@ -218,7 +221,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.roles(user_id)
+    #   @roles = session.users.roles("0d4bd0a5-94dc-498e-b6a6-305c619bb20d")
     #
     def roles(user_id)
       response, status = BeyondApi::Request.get(@session, "/users/#{user_id}/roles")
@@ -240,7 +243,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.users.search_by_username(username)
+    #   @user = session.users.search_by_username(username)
     #
     def search_by_username(username)
       response, status = BeyondApi::Request.get(@session, "/users/search/find-by-username", username: username)
@@ -351,7 +354,7 @@ module BeyondApi
     #
     # A +POST+ request is used to verify a password against the password guidelines.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/verify-password' -i -X POST \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/users/verify-password?userRole=merchant' -i -X POST \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/json' \
     #       -d '{
@@ -367,8 +370,8 @@ module BeyondApi
     # @example
     #   session.users.verify_password(password)
     #
-    def verify_password(password)
-      response, status = BeyondApi::Request.post(@session, "/users/verify-password", password: password)
+    def verify_password(password, user_role)
+      response, status = BeyondApi::Request.post(@session, "/users/verify-password", password: password, user_role: user_role)
 
       handle_response(response, status, respond_with_true: true)
     end

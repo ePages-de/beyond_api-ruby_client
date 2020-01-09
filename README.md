@@ -1,6 +1,7 @@
 # Beyond API Ruby Client
 
 ![Gem Version](https://img.shields.io/gem/v/beyond_api?label=gem%20version)
+[![Docs](https://img.shields.io/badge/docs-rubydoc-blue)](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1d173fa0b393e8eaf2a2/maintainability)](https://codeclimate.com/github/ePages-de/beyond_api-ruby_client/maintainability)
 ![License](https://img.shields.io/github/license/ePages-de/beyond_api-ruby_client)
 

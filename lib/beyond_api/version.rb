@@ -1,3 +1,3 @@
 module BeyondApi
-  VERSION = "0.2.1.pre".freeze
+  VERSION = "0.6.0.pre".freeze
 end
