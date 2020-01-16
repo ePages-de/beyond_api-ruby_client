@@ -13,14 +13,14 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
-    # @beyond_api.scopes +oset:r
+    # @beyond_api.scopes +oset:r+
     #
     # @return [OpenStruct]
     #
     # @example
     #   @order_settings = session.payment_methods.all
     #
-    def all(params = {})
+    def all
       response, status = BeyondApi::Request.get(@session, "/order-settings")
 
       handle_response(response, status)
@@ -33,19 +33,30 @@ module BeyondApi
     #     -H 'Content-Type: application/json' \
     #     -H 'Accept: application/hal+json' \
     #     -H 'Authorization: Bearer <Access token>' \
-    #     -d '{"invoiceCancelationNote": "This is an invoice cancelation note","invoiceCancellationNote": "This is an invoice cancellation note","defaultDeliveryDateNote": "This is the default delivery date note","defaultInvoiceNote": "This is the default invoice note","orderNumberConfiguration": {
-    #     "stringPrefix" : "2017-shop-",
-    #     "nextNumericSuffix" : 1000,
-    #     "numericSuffixLength" : 4
-    #     },
-    #     "invoiceNumberConfiguration": {
-    #       "stringPrefix" : "2017-invoice-",
-    #       "nextNumericSuffix" : 1000,
-    #       "numericSuffixLength" : 4
-    #     }
-    #   }'
+    #     -d '{
+    #         "invoiceCancelationNote" : "This is an invoice cancelation note",
+    #         "defaultDeliveryDateNote" : "This is the default delivery date note",
+    #         "defaultInvoiceNote" : "This is the default invoice note",
+    #         "orderNumberConfiguration" : {
+    #           "stringPrefix" : "2017-shop-",
+    #           "nextNumericSuffix" : 1000,
+    #           "numericSuffixLength" : 4
+    #         },
+    #         "invoiceNumberConfiguration" : {
+    #           "stringPrefix" : "2017-invoice-",
+    #           "nextNumericSuffix" : 1000,
+    #           "numericSuffixLength" : 4
+    #         },
+    #         "customOrderOpenMailText" : " Your <br /> 1",
+    #         "customOrderCanceledMailText" : " Your <br /> 2",
+    #         "customInvoiceCustomerMailText" : " Your <br /> 3",
+    #         "customInvoiceCanceledMailText" : " Your <br /> 4",
+    #         "customOrderShippedMailText" : " Your <br /> 5",
+    #         "customOrderPendingMailText" : " Your <br /> 6",
+    #         "customOrderReturnedMailText" : " Your <br /> 7"
+    #    }'
     #
-    # @beyond_api.scopes +oset:u
+    # @beyond_api.scopes +oset:u+
     #
     # @param body [Hash] the request body
     #
@@ -53,25 +64,31 @@ module BeyondApi
     #
     # @example
     #   body = {
-    #     "invoiceCancelationNote"=> "This is an invoice cancelation note",
-    #     "invoiceCancellationNote"=> "This is an invoice cancellation note",
-    #     "defaultDeliveryDateNote"=> "This is the default delivery date note",
-    #     "defaultInvoiceNote"=> "This is the default invoice note",
-    #     "orderNumberConfiguration"=> {
-    #       "stringPrefix"=> "2017-shop-",
-    #       "nextNumericSuffix"=> 1000,
-    #       "numericSuffixLength"=> 4
+    #     "invoiceCancelationNote" : "This is an invoice cancelation note",
+    #     "defaultDeliveryDateNote" : "This is the default delivery date note",
+    #     "defaultInvoiceNote" : "This is the default invoice note",
+    #     "orderNumberConfiguration" : {
+    #       "stringPrefix" : "2017-shop-",
+    #       "nextNumericSuffix" : 1000,
+    #       "numericSuffixLength" : 4
     #     },
-    #     "invoiceNumberConfiguration"=> {
-    #       "stringPrefix"=> "2017-invoice-",
-    #       "nextNumericSuffix"=> 1000,
-    #       "numericSuffixLength"=> 4
-    #     }
+    #     "invoiceNumberConfiguration" : {
+    #       "stringPrefix" : "2017-invoice-",
+    #       "nextNumericSuffix" : 1000,
+    #       "numericSuffixLength" : 4
+    #     },
+    #     "customOrderOpenMailText" : " Your <br /> 1",
+    #     "customOrderCanceledMailText" : " Your <br /> 2",
+    #     "customInvoiceCustomerMailText" : " Your <br /> 3",
+    #     "customInvoiceCanceledMailText" : " Your <br /> 4",
+    #     "customOrderShippedMailText" : " Your <br /> 5",
+    #     "customOrderPendingMailText" : " Your <br /> 6",
+    #     "customOrderReturnedMailText" : " Your <br /> 7"
     #   }
     #
     #   @order_settings = session.order_settings.update(body)
     #
-    def update(order_settings, body)
+    def update(body)
       response, status = BeyondApi::Request.put(@session, "/order-settings", body)
 
       handle_response(response, status)

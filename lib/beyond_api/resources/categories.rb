@@ -96,7 +96,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @category = session.categories.find(category_id)
+    #   @category = session.categories.find("27a94b71-9b17-4f06-9596-fbbf4d18021f")
     #
     def find(category_id)
       response, status = BeyondApi::Request.get(@session, "/categories/#{category_id}")
@@ -135,7 +135,7 @@ module BeyondApi
     end
 
     #
-    # A PUT request is issued to update all category properties with application/json content type.
+    # A +PUT+ request is issued to update all category properties with application/json content type.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/categories/cb2058dc-871a-4e64-83ac-39a0be9e6f82' -i -X PUT \
     #       -H 'Content-Type: application/json' \

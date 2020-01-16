@@ -110,7 +110,7 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   webhook_subscriptions = session.webhook_subscriptions.delete("c6076a5a-a8ad-443f-b20b-8a1b268b069e")
+    #   session.webhook_subscriptions.delete("c6076a5a-a8ad-443f-b20b-8a1b268b069e")
     #
     def delete(webhook_subscription_id)
       response, status = BeyondApi::Request.delete(@session, "/webhook-subscriptions/#{webhook_subscription_id}")
