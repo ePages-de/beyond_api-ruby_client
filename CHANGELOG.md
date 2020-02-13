@@ -1,3 +1,8 @@
+### v0.7.0.pre
+
+* features
+  * Add `Products#assign_variation_images_differentiator` method
+
 ### v0.6.0.pre
 
 * bug-fixes

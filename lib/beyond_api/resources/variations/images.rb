@@ -139,7 +139,7 @@ module BeyondApi
     #     "source" => "https://vimeo.com/7265982"
     #   }
     #
-    #   session.variation.upload_image("4125b993-49fc-47c8-b9b3-76d8871e4e06", "d7fecf94-2e57-4122-8c94-a0acd840c111", "/home/epages/file.png", "file.png")
+    #   session.variations.upload_image("4125b993-49fc-47c8-b9b3-76d8871e4e06", "d7fecf94-2e57-4122-8c94-a0acd840c111", "/home/epages/file.png", "file.png")
     #
     def upload_image(product_id, variation_id, image_path, image_name)
       content_type = case File.extname(image_path)
