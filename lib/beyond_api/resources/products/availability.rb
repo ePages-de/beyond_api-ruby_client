@@ -22,7 +22,7 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @availability = session.products.adjust_stock_level("685f483e-cdda-40af-8091-d5bc31249409", { relativeAmount => -1 })
+    #   @availability = session.products.adjust_stock_level("685f483e-cdda-40af-8091-d5bc31249409", -1)
     #
     def adjust_stock_level(product_id, relative_amount)
       response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/availability/adjust-available-stock", { relative_amount: relative_amount })
