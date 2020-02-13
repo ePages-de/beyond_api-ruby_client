@@ -252,6 +252,33 @@ module BeyondApi
       handle_response(response, status)
     end
 
+    #
+    # A +PUT+ request is used to assign a variation images differentiator for a variation product. The differentiator can be one of the variation attributes defined by the merchant, e.g. name, size, or color.
+    #
+    # @beyond_api.scopes +prod:u+
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/30839efc-47f7-4d55-aa13-aac7532982b6/variation-images-differentiator' -i -X PUT \
+    #       -H 'Content-Type: application/hal+json' \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "differentiator" : "size"
+    #   }'
+    #
+    # @param product_id [String] the product UUID
+    # @param differentiator [String] the differentiator
+    #
+    # @return [true]
+    #
+    # @example
+    #   session.products.assign_variation_images_differentiator("30839efc-47f7-4d55-aa13-aac7532982b6", "size")
+    #
+    def assign_variation_images_differentiator(product_id, differentiator)
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/variation-images-differentiator", differentiator: differentiator)
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
     alias_method :create_variation, :create
     alias_method :find_variation,   :find
     alias_method :update_variation, :update

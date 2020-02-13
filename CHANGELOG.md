@@ -1,3 +1,11 @@
+### v0.7.0.pre
+
+* features
+  * Add `Products#assign_variation_images_differentiator` method
+
+* deprecations
+  * `Variations#adjust_stock_level` receives parameter `relative_amount` instead of `body`
+
 ### v0.6.0.pre
 
 * bug-fixes
