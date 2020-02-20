@@ -7,6 +7,8 @@ require "beyond_api/session"
 require "beyond_api/ext"
 require "beyond_api/utils"
 
+require "logger"
+
 module BeyondApi
   class Error < StandardError; end
 
