@@ -1,3 +1,9 @@
+### v0.7.1.pre
+
+* bug-fixes
+  * Allow to create a `BeyondApi::Session` without `access_token` and `refresh_token`
+  * Fix no-Rails logger
+
 ### v0.7.0.pre
 
 * features
