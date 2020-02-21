@@ -18,15 +18,15 @@ module BeyondApi
     #
     # @param product_id [String] the product UUID
     # @param variation_id [String] the product variation UUID
-    # @param body [Hash] the request body
+    # @param relative_amount [Integer] the relative amount
     #
     # @return [OpenStruct]
     #
     # @example
     #   @availability = session.variations.adjust_stock_level(product_id, variation_id, { relativeAmount => -1 })
     #
-    def adjust_stock_level(product_id, variation_id, body)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock", body)
+    def adjust_stock_level(product_id, variation_id, relative_amount)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock", relative_amount: relative_amount)
 
       handle_response(response, status)
     end

@@ -1,3 +1,17 @@
+### v0.7.1.pre
+
+* bug-fixes
+  * Allow to create a `BeyondApi::Session` without `access_token` and `refresh_token`
+  * Fix no-Rails logger
+
+### v0.7.0.pre
+
+* features
+  * Add `Products#assign_variation_images_differentiator` method
+
+* deprecations
+  * `Variations#adjust_stock_level` receives parameter `relative_amount` instead of `body`
+
 ### v0.6.0.pre
 
 * bug-fixes
