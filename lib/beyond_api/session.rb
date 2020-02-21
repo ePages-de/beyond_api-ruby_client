@@ -13,7 +13,6 @@ require "beyond_api/resources/payment_methods"
 require "beyond_api/resources/product_attribute_definitions"
 require "beyond_api/resources/products_view"
 require "beyond_api/resources/products"
-require "beyond_api/resources/scopes"
 require "beyond_api/resources/script_tags"
 require "beyond_api/resources/shipping_zones"
 require "beyond_api/resources/shop"
@@ -80,10 +79,6 @@ module BeyondApi
 
     def products
       BeyondApi::Products.new(self)
-    end
-
-    def scopes
-      BeyondApi::Scopes.new(self)
     end
 
     def script_tags

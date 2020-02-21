@@ -8,6 +8,7 @@ module BeyondApi
 
     def initialize(session)
       @session = session
+
       raise InvalidSessionError.new("Invalid session") unless session.is_a? BeyondApi::Session
       raise InvalidSessionError.new("Session api_url cannot be nil") if session.api_url.nil?
     end
@@ -17,12 +18,7 @@ module BeyondApi
                                                   grant_type: "authorization_code",
                                                   code: code)
 
-      if status.between?(200, 299)
-        @session.access_token = response["access_token"]
-        @session.refresh_token = response["refresh_token"]
-      else
-        BeyondApi::Error.new(response)
-      end
+      handle_response(response, status)
     end
 
     def refresh
@@ -30,9 +26,23 @@ module BeyondApi
                                                   grant_type: "refresh_token",
                                                   refresh_token: @session.refresh_token)
 
+      handle_response(response, status)
+    end
+
+    def client_credentials
+      response, status = BeyondApi::Request.token(@session.api_url + "/oauth/token",
+                                                  grant_type: "client_credentials")
+
+      handle_response(response, status)
+    end
+
+    private
+
+    def handle_response(response, status)
       if status.between?(200, 299)
         @session.access_token = response["access_token"]
         @session.refresh_token = response["refresh_token"]
+        @session
       else
         BeyondApi::Error.new(response)
       end

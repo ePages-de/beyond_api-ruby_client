@@ -66,26 +66,6 @@ module BeyondApi
     end
 
     #
-    # A +POST+ request is used to close a shop.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/close' -i -X POST \
-    #       -H 'Content-Type: application/json' \
-    #       -H 'Authorization: Bearer <Access token>'
-    #
-    # @beyond_api.scopes +shcl:c+
-    #
-    # @return true
-    #
-    # @example
-    #   session.shop.close
-    #
-    def close
-      response, status = BeyondApi::Request.post(@session, "/shop/close")
-
-      handle_response(response, status, respond_with_true: true)
-    end
-
-    #
     # A +POST+ request is used to create a shop attribute.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/attributes' -i -X POST \
@@ -308,26 +288,6 @@ module BeyondApi
       response, status = BeyondApi::Request.get(@session, "/shop/legal")
 
       handle_response(response, status)
-    end
-
-    #
-    # A +POST+ request is used to open a shop.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/shop/open' -i -X POST \
-    #       -H 'Content-Type: application/json' \
-    #       -H 'Authorization: Bearer <Access token>'
-    #
-    # @beyond_api.scopes +shcl:c+
-    #
-    # @return true
-    #
-    # @example
-    #   session.shop.open
-    #
-    def open
-      response, status = BeyondApi::Request.post(@session, "/shop/open")
-
-      handle_response(response, status, respond_with_true: true)
     end
 
     #
