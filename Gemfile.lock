@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    beyond_api (0.7.1.pre)
+    beyond_api (0.8.0.pre)
       faraday (~> 0.15)
 
 GEM
@@ -52,4 +52,4 @@ DEPENDENCIES
   yard (~> 0.9)
 
 BUNDLED WITH
-   2.1.0.pre.3
+   2.1.4
