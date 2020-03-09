@@ -3,13 +3,14 @@ require "beyond_api/version"
 require "beyond_api/connection"
 require "beyond_api/request"
 require "beyond_api/session"
+require "beyond_api/error"
 
 require "beyond_api/ext"
 require "beyond_api/utils"
 
-module BeyondApi
-  class Error < StandardError; end
+require "logger"
 
+module BeyondApi
   def self.logger
     @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
   end

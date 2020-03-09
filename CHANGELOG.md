@@ -1,10 +1,30 @@
-### v0.7.0.pre
+### v0.8.0.pre
+
+* deprecations
+  * Remove `BeyondApi::Shop#open`
+  * Remove `BeyondApi::Shop#close`
+  * Remove `BeyondApi::Scopes`
 
 * features
-  * Add `Products#assign_variation_images_differentiator` method
+  * Add `BeyondApi::Token#client_credentials`
+
+* enhancements
+  * Create a custom `BeyondApi::Error` class
+  * Avoid duplicated code on token response handling
+
+### v0.7.1.pre
+
+* bug-fixes
+  * Allow to create a `BeyondApi::Session` without `access_token` and `refresh_token`
+  * Fix no-Rails logger
+
+### v0.7.0.pre
 
 * deprecations
   * `Variations#adjust_stock_level` receives parameter `relative_amount` instead of `body`
+
+* features
+  * Add `Products#assign_variation_images_differentiator` method
 
 ### v0.6.0.pre
 
