@@ -1,3 +1,8 @@
+### v0.8.1.pre
+
+* bug-fixes
+  * Fix exception handling
+
 ### v0.8.0.pre
 
 * deprecations
