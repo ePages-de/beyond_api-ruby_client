@@ -1,20 +1,5 @@
 # Getting started
 
-## Get your credentials
-
-### Sign up for a developer test shop
-
-First you will need to sign up for a Beyond test shop.
-Visit [our sign up form](https://signup.beyondshop.cloud), fill out the form with your data, and click the **Sign up** button.
-
-### Create a custom app
-
-Log in to the cockpit of your test shop, navigate to **Apps > Custom apps** and click **Add custom app**.
-Fill out the form with the **App name**, **Application Callback URL** and **App scopes**.
-Save your app.
-
-You will then receive your `client_id` and `client_secret`.
-
 ## Authenticating a shop (the session object)
 
 ### Obtaining a token from an authentication code
