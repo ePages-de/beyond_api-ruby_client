@@ -14,9 +14,9 @@ module BeyondApi
     #
     # @beyond_api.scopes +prad:r+
     #
-    # @option param [Boolean] :paginated
-    # @option param [Integer] :size the page size
-    # @option param [Integer] :page the page number
+    # @option params [Boolean] :paginated
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
     #
     # @return [OpenStruct]
     #
@@ -32,6 +32,7 @@ module BeyondApi
         end
 
         result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+
         result
       else
         all_paginated(params)
