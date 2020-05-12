@@ -32,6 +32,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +prod:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -41,9 +42,19 @@ module BeyondApi
     #   @products = session.products.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/products", params)
+      if params[:paginated] == false
+        result = all_paginated(page: 0, size: 1000)
 
-      handle_response(response, status)
+        (1..result[:page][:total_pages] - 1).each do |page|
+          result[:embedded][:products].concat(all_paginated(page: page, size: 1000)[:embedded][:products])
+        end
+
+        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+
+        result
+      else
+        all_paginated(params)
+      end
     end
 
     #
@@ -282,5 +293,13 @@ module BeyondApi
     alias_method :create_variation, :create
     alias_method :find_variation,   :find
     alias_method :update_variation, :update
+
+    private
+
+      def all_paginated(params = {})
+        response, status = BeyondApi::Request.get(@session, "/products", params)
+
+        handle_response(response, status)
+      end
   end
 end

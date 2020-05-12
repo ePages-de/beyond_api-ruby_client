@@ -1,3 +1,11 @@
+### v0.9.0.pre
+
+* bug-fixes
+  * Fix typo
+
+* features
+  * Add optional `paginated: false` parameter to `session.products.all(paginated: false)`
+
 ### v0.8.1.pre
 
 * bug-fixes
