@@ -16,6 +16,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +catg:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -25,9 +26,19 @@ module BeyondApi
     #   @categories = session.categories.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/categories", params)
+      if params[:paginated] == false
+        result = all_paginated(page: 0, size: 1000)
 
-      handle_response(response, status)
+        (1..result[:page][:total_pages] - 1).each do |page|
+          result[:embedded][:categories].concat(all_paginated(page: page, size: 1000)[:embedded][:categories])
+        end
+
+        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+
+        result
+      else
+        all_paginated(params)
+      end
     end
 
     #
@@ -164,5 +175,13 @@ module BeyondApi
 
       handle_response(response, status)
     end
+
+    private
+
+      def all_paginated(params = {})
+        response, status = BeyondApi::Request.get(@session, "/categories", params)
+
+        handle_response(response, status)
+      end
   end
 end

@@ -1,3 +1,8 @@
+### v0.10.0.pre
+
+* features
+  * Add optional `paginated: false` parameter to `session.categories.all(paginated: false)`
+
 ### v0.9.0.pre
 
 * bug-fixes
