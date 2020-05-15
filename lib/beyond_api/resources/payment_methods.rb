@@ -48,7 +48,7 @@ module BeyondApi
     #   @payment_methods = session.payment_methods.all(size: 100, page: 0)
     #
     def all(params = {})
-      all_results("/payment-methods", :payment_methods, params)
+      handle_all_request("/payment-methods", :payment_methods, params)
     end
 
     #

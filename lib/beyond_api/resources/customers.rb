@@ -24,7 +24,7 @@ module BeyondApi
     #   @customers = session.customers.all(size: 20, page: 0)
     #
     def all(params = {})
-      all_results("/customers", :customers, params)
+      handle_all_request("/customers", :customers, params)
     end
 
     #

@@ -39,7 +39,7 @@ module BeyondApi
       key.chars.first == "_" ? key[1..-1] : key
     end
 
-    def all_results(url, resource, params = {})
+    def handle_all_request(url, resource, params = {})
       if params[:paginated] == false
         result = all_paginated(url, { page: 0, size: 1000 })
 

@@ -22,7 +22,7 @@ module BeyondApi
     #   @script_tags = session.script_tags.all(size: 20, page: 0)
     #
     def all(params = {})
-      all_results("/script-tags", :script_tags, params)
+      handle_all_request("/script-tags", :script_tags, params)
     end
 
     #

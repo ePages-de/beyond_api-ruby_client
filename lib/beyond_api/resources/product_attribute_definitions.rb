@@ -24,7 +24,7 @@ module BeyondApi
     #   @product_attribute_definitions = session.product_attribute_definitions.all(size: 100, page: 0)
     #
     def all(params = {})
-      all_results("/product-attribute-definitions", :product_attribute_definitions, params)
+      handle_all_request("/product-attribute-definitions", :product_attribute_definitions, params)
     end
 
     #

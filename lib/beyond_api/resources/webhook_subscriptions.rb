@@ -44,7 +44,7 @@ module BeyondApi
     #   @webhook_subscriptions = session.webhook_subscriptions.all(size: 100, page: 0)
     #
     def all(params = {})
-      all_results("/webhook-subscriptions", :webhook_subscriptions, params)
+      handle_all_request("/webhook-subscriptions", :webhook_subscriptions, params)
     end
 
     #

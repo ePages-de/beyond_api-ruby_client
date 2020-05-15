@@ -24,7 +24,7 @@ module BeyondApi
     #   @shipping_zones = session.shipping_zones.all(size: 20, page: 0)
     #
     def all(params = {})
-      all_results("/shipping-zones", :shipping_zones, params)
+      handle_all_request("/shipping-zones", :shipping_zones, params)
     end
 
     #

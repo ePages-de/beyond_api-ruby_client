@@ -24,7 +24,7 @@ module BeyondApi
     #   @categories = session.categories_view.all(size: 100, page: 0)
     #
     def all(params = {})
-      all_results("/product-view/categories", :categories, params)
+      handle_all_request("/product-view/categories", :categories, params)
     end
 
     #

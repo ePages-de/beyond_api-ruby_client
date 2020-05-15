@@ -50,7 +50,7 @@ module BeyondApi
     #   @users = session.users.all(size: 100, page: 0)
     #
     def all(params = {})
-      all_results("/users", :users, params)
+      handle_all_request("/users", :users, params)
     end
 
     #

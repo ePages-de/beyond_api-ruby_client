@@ -23,7 +23,7 @@ module BeyondApi
     #   @products = session.products_view.all(page: 0, size: 100)
     #
     def all(params = {})
-      all_results("/product-view/products", :products, params)
+      handle_all_request("/product-view/products", :products, params)
     end
 
     #
