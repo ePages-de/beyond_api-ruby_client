@@ -39,6 +39,22 @@ module BeyondApi
       key.chars.first == "_" ? key[1..-1] : key
     end
 
+    def all_results(url, resource, params = {})
+      if params[:paginated] == false
+        result = all_paginated(url, { page: 0, size: 1000 })
+
+        (1..result[:page][:total_pages] - 1).each do |page|
+          result[:embedded][resource].concat(all_paginated(url, { page: page, size: 1000 })[:embedded][resource])
+        end
+
+        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+
+        result
+      else
+        all_paginated(url, params)
+      end
+    end
+
     private
 
       def transform(thing)
@@ -47,6 +63,12 @@ module BeyondApi
         when Array; thing.map { |v| transform(v) }
         else; thing
         end
+      end
+
+      def all_paginated(url, params = {})
+        response, status = BeyondApi::Request.get(@session, url, params)
+
+        handle_response(response, status)
       end
   end
 end

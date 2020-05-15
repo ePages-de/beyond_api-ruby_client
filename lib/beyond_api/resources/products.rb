@@ -42,19 +42,7 @@ module BeyondApi
     #   @products = session.products.all(size: 100, page: 0)
     #
     def all(params = {})
-      if params[:paginated] == false
-        result = all_paginated(page: 0, size: 1000)
-
-        (1..result[:page][:total_pages] - 1).each do |page|
-          result[:embedded][:products].concat(all_paginated(page: page, size: 1000)[:embedded][:products])
-        end
-
-        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
-
-        result
-      else
-        all_paginated(params)
-      end
+      all_results("/products", :products, params)
     end
 
     #
@@ -293,13 +281,5 @@ module BeyondApi
     alias_method :create_variation, :create
     alias_method :find_variation,   :find
     alias_method :update_variation, :update
-
-    private
-
-      def all_paginated(params = {})
-        response, status = BeyondApi::Request.get(@session, "/products", params)
-
-        handle_response(response, status)
-      end
   end
 end

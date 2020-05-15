@@ -1,3 +1,17 @@
+### v0.10.0.pre
+
+* features
+  * Add optional `paginated: false` parameter to `session.categories_view.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.categories.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.customers.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.orders.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.payment_methods.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.products_view.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.script_tags.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.shipping_zones.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.users.all(paginated: false)`
+  * Add optional `paginated: false` parameter to `session.webhook_subscriptions.all(paginated: false)`
+
 ### v0.9.0.pre
 
 * bug-fixes

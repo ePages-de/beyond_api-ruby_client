@@ -40,6 +40,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +user:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -49,9 +50,7 @@ module BeyondApi
     #   @users = session.users.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/users")
-
-      handle_response(response, status)
+      all_results("/users", :users, params)
     end
 
     #

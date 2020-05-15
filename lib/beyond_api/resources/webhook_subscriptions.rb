@@ -34,6 +34,7 @@ module BeyondApi
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>'
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -43,9 +44,7 @@ module BeyondApi
     #   @webhook_subscriptions = session.webhook_subscriptions.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/webhook-subscriptions", params)
-
-      handle_response(response, status)
+      all_results("/webhook-subscriptions", :webhook_subscriptions, params)
     end
 
     #
