@@ -38,6 +38,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +pymt:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -47,9 +48,7 @@ module BeyondApi
     #   @payment_methods = session.payment_methods.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/payment-methods", params)
-
-      handle_response(response, status)
+      handle_all_request("/payment-methods", :payment_methods, params)
     end
 
     #

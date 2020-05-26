@@ -14,6 +14,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +cust:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -23,9 +24,7 @@ module BeyondApi
     #   @customers = session.customers.all(size: 20, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/customers", params)
-
-      handle_response(response, status)
+      handle_all_request("/customers", :customers, params)
     end
 
     #
