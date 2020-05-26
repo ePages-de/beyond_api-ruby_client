@@ -1,3 +1,9 @@
+### v0.11.0.pre
+
+* enhancements
+  * Improve error handling class
+  * Improve `BeyondApi::Error` class
+
 ### v0.10.0.pre
 
 * features

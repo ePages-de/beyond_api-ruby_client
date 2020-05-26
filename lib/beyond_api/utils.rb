@@ -10,9 +10,14 @@ module BeyondApi
         response = sanitize_response(response)
         BeyondApi.configuration.object_struct_responses ? to_object_struct(response) : response
       else
-        BeyondApi.logger.error "[Beyond API] #{response}"
-        BeyondApi.configuration.raise_error_requests ? raise(response.to_s) : BeyondApi::Error.new(response)
+        handle_error(response, status)
       end
+    end
+
+    def handle_error(response, status)
+      BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
+      error = BeyondApi::Error.new(response, status)
+      BeyondApi.configuration.raise_error_requests ? raise(error) : error
     end
 
     def to_object_struct(data)
