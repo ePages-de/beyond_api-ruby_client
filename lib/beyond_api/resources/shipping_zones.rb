@@ -14,6 +14,7 @@ module BeyondApi
     #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones' -i -X GET \
     #       -H 'Authorization: Bearer <Access token>'
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -23,9 +24,7 @@ module BeyondApi
     #   @shipping_zones = session.shipping_zones.all(size: 20, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/shipping-zones", params)
-
-      handle_response(response, status)
+      handle_all_request("/shipping-zones", :shipping_zones, params)
     end
 
     #

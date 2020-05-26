@@ -13,6 +13,7 @@ module BeyondApi
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json'
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -22,9 +23,7 @@ module BeyondApi
     #   @products = session.products_view.all(page: 0, size: 100)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/product-view/products", params)
-
-      handle_response(response, status)
+      handle_all_request("/product-view/products", :products, params)
     end
 
     #
