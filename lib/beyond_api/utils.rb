@@ -16,7 +16,8 @@ module BeyondApi
 
     def handle_error(response, status)
       BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
-      error = BeyondApi::Error.new(response, status)
+      error_class = response['error'].to_s.blank? ? BeyondApi::Error : BeyondApi::AuthError
+      error = error_class.new(response, status)
       BeyondApi.configuration.raise_error_requests ? raise(error) : error
     end
 
