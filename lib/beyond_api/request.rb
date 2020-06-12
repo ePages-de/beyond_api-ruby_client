@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
+require 'faraday'
 
 module BeyondApi
   class Request
@@ -47,6 +48,19 @@ module BeyondApi
       response = BeyondApi::Connection.token.post do |request|
         request.url(url)
         request.params = params
+      end
+
+      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+    end
+
+    def self.upload_by_form(session, path, files, params)
+      response = BeyondApi::Connection.multipart.post do |request|
+        request.url(session.api_url + path)
+        request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
+        request.options[:params_encoder] = Faraday::FlatParamsEncoder
+        request.params = params.to_h.camelize_keys
+        upload_files = files.map{ |file| Faraday::FilePart.new(file, 'image/png') }
+        request.body = { image: upload_files }
       end
 
       [response.body.blank? ? nil : JSON.parse(response.body), response.status]

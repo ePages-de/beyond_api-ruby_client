@@ -200,5 +200,34 @@ module BeyondApi
 
       handle_response(response, status, respond_with_true: true)
     end
+
+    # A +POST+ request is used to upload up to 10 images and add them to a product. The body of the request must contain the content of the images.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/4125b993-49fc-47c8-b9b3-76d8871e4e06/images?fileName=file.png&fileName=file2.png' -i -X POST \
+    #       -H 'Content-Type: multipart/form-data' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -F 'image=@/home/epages/file.png' \
+    #       -F 'image=@/home/epages/file2.png'
+    #
+    # @beyond_api.scopes +prod:u+
+    #
+    # @param product_id [String] the product UUID
+    # @param images_path [Array] the images path
+    # @param images_name [Array] the images name
+    #
+    # @return true
+    #
+    # @example
+    #   session.products.upload_multiple_images("4125b993-49fc-47c8-b9b3-76d8871e4e06",
+    #                                           ["/home/epages/file.png", "/home/epages/file2.png"], ["file.png", "file2.png"])
+    #
+    def upload_multiple_images(product_id, images_path, images_name)
+      response, status = BeyondApi::Request.upload_by_form(@session,
+                                                           "/products/#{product_id}/images",
+                                                           images_path,
+                                                           file_name: images_name)
+
+      handle_response(response, status)
+    end
   end
 end

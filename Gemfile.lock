@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     beyond_api (0.9.0.pre)
-      faraday (~> 0.15)
+      faraday (~> 1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -13,7 +13,7 @@ GEM
     dotenv (2.7.5)
     faker (2.4.0)
       i18n (~> 1.6.0)
-    faraday (0.17.3)
+    faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)

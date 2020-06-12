@@ -26,5 +26,15 @@ module BeyondApi
                            BeyondApi.configuration.client_secret)
       end
     end
+
+    def self.multipart
+      Faraday.new(ssl: { verify: true }, request: { params_encoder: Faraday::FlatParamsEncoder }) do |faraday|
+        faraday.options[:open_timeout] = BeyondApi.configuration.open_timeout.to_i
+        faraday.options[:timeout] = BeyondApi.configuration.timeout.to_i
+        faraday.request :multipart
+        faraday.response :logger, ::Logger.new(STDOUT), bodies: true
+        faraday.adapter Faraday.default_adapter
+      end
+    end
   end
 end
