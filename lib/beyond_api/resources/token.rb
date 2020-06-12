@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require "beyond_api/utils"
+
 module BeyondApi
   class Token
     class InvalidSessionError < StandardError; end
+
+    include BeyondApi::Utils
 
     attr_reader :session
 
@@ -44,7 +48,7 @@ module BeyondApi
         @session.refresh_token = response["refresh_token"]
         @session
       else
-        BeyondApi::Error.new(response)
+        handle_error(response, status)
       end
     end
   end
