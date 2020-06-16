@@ -1,3 +1,8 @@
+### v0.11.1.pre
+
+* bug-fixes
+  * Use `BeyondApi::Error` for authentication errors
+
 ### v0.11.0.pre
 
 * enhancements
