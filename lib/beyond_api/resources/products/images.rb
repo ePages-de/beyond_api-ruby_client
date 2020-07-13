@@ -186,14 +186,7 @@ module BeyondApi
     #   session.products.upload_image("4125b993-49fc-47c8-b9b3-76d8871e4e06", "/home/epages/file.png", "file.png")
     #
     def upload_image(product_id, image_path, image_name)
-      content_type = case File.extname(image_path)
-        when ".png"
-          "image/png"
-        when ".jpg", ".jpeg"
-          "image/jpeg"
-        when ".gif"
-          "image/gif"
-        end
+      content_type = file_content_type(image_path)
       image_binary = File.binread(image_path)
 
       response, status = BeyondApi::Request.upload(@session, "/products/#{product_id}/images", image_binary, content_type, { file_name: image_name })

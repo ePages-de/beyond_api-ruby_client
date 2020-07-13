@@ -39,6 +39,17 @@ module BeyondApi
       key.chars.first == "_" ? key[1..-1] : key
     end
 
+    def file_content_type(file_path)
+      case File.extname(file_path)
+      when ".png"
+        "image/png"
+      when ".jpg", ".jpeg"
+        "image/jpeg"
+      when ".gif"
+        "image/gif"
+      end
+    end
+
     private
 
       def transform(thing)
