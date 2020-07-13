@@ -9,9 +9,8 @@ GIT
 PATH
   remote: .
   specs:
-    beyond_api (0.9.0.pre)
+    beyond_api (0.11.1.pre)
       faraday (~> 1.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:

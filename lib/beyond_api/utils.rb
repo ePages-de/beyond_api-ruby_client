@@ -10,9 +10,14 @@ module BeyondApi
         response = sanitize_response(response)
         BeyondApi.configuration.object_struct_responses ? to_object_struct(response) : response
       else
-        BeyondApi.logger.error "[Beyond API] #{response}"
-        BeyondApi.configuration.raise_error_requests ? raise(response.to_s) : BeyondApi::Error.new(response)
+        handle_error(response, status)
       end
+    end
+
+    def handle_error(response, status)
+      BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
+      error = BeyondApi::Error.new(response, status)
+      BeyondApi.configuration.raise_error_requests ? raise(error) : error
     end
 
     def to_object_struct(data)
@@ -50,6 +55,22 @@ module BeyondApi
       end
     end
 
+    def handle_all_request(url, resource, params = {})
+      if params[:paginated] == false
+        result = all_paginated(url, { page: 0, size: 1000 })
+
+        (1..result[:page][:total_pages] - 1).each do |page|
+          result[:embedded][resource].concat(all_paginated(url, { page: page, size: 1000 })[:embedded][resource])
+        end
+
+        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+
+        result
+      else
+        all_paginated(url, params)
+      end
+    end
+
     private
 
       def transform(thing)
@@ -58,6 +79,12 @@ module BeyondApi
         when Array; thing.map { |v| transform(v) }
         else; thing
         end
+      end
+
+      def all_paginated(url, params = {})
+        response, status = BeyondApi::Request.get(@session, url, params)
+
+        handle_response(response, status)
       end
   end
 end

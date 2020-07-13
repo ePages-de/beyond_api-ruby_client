@@ -16,6 +16,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +catg:r+
     #
+    # @option params [Boolean] :paginated
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -25,9 +26,7 @@ module BeyondApi
     #   @categories = session.categories.all(size: 100, page: 0)
     #
     def all(params = {})
-      response, status = BeyondApi::Request.get(@session, "/categories", params)
-
-      handle_response(response, status)
+      handle_all_request("/categories", :categories, params)
     end
 
     #
