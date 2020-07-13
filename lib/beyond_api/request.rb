@@ -2,6 +2,7 @@
 
 require "json"
 require 'faraday'
+require "beyond_api/utils"
 
 module BeyondApi
   class Request
@@ -59,7 +60,7 @@ module BeyondApi
         request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
         request.options[:params_encoder] = Faraday::FlatParamsEncoder
         request.params = params.to_h.camelize_keys
-        upload_files = files.map{ |file| Faraday::FilePart.new(file, 'image/png') }
+        upload_files = files.map{ |file| Faraday::UploadIO.new(file, BeyondApi::Utils.file_content_type(file)) }
         request.body = { image: upload_files }
       end
 
