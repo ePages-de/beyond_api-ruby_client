@@ -60,6 +60,7 @@ module BeyondApi
         request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
         request.options[:params_encoder] = Faraday::FlatParamsEncoder
         request.params = params.to_h.camelize_keys
+        files = files.split unless files.is_a? Array
         upload_files = files.map{ |file| Faraday::UploadIO.new(file, BeyondApi::Utils.file_content_type(file)) }
         request.body = { image: upload_files }
       end
