@@ -1,3 +1,14 @@
+### v0.12.0.pre
+
+* features
+  * Add locations methods
+    * `Locations#all`
+    * `Locations#create`
+    * `Locations#delete`
+    * `Locations#find`
+    * `Locations#update`
+  * Improve performance
+
 ### v0.11.1.pre
 
 * bug-fixes
