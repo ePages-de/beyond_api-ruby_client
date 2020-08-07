@@ -107,8 +107,8 @@ module BeyondApi
     #       } ]
     #     },
     #     "latLng" : {
-    #       "latitude" : 53.5847424,
-    #       "longitude" : 9.968901
+    #       "latitude" => 53.5847424,
+    #       "longitude" => 9.968901
     #     }
     #   }
     #   @location = session.locations.create(body)
@@ -238,11 +238,11 @@ module BeyondApi
     #       } ]
     #     },
     #     "latLng" : {
-    #       "latitude" : 53.5847424,
-    #       "longitude" : 9.968901
+    #       "latitude" => 53.5847424,
+    #       "longitude" => 9.968901
     #     }
     #   }
-    #   @location = session.locations.update(body)
+    #   @location = session.locations.update("27a94b71-9b17-4f06-9596-fbbf4d18021f", body)
     #
     def update(location_id, body)
       response, status = BeyondApi::Request.put(@session, "/shop/locations/#{location_id}", body)
