@@ -25,7 +25,7 @@ module BeyondApi
     #   @locations = session.locations.all(size: 100, page: 0)
     #
     def all(params = {})
-      handle_all_request("/locations", :locations, params)
+      handle_all_request("/shop/locations", :locations, params)
     end
 
     #
@@ -114,7 +114,7 @@ module BeyondApi
     #   @location = session.locations.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/locations", body)
+      response, status = BeyondApi::Request.post(@session, "/shop/locations", body)
 
       handle_response(response, status)
     end
@@ -136,7 +136,7 @@ module BeyondApi
     #   session.locations.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
     #
     def delete(location_id)
-      response, status = BeyondApi::Request.delete(@session, "/locations/#{location_id}")
+      response, status = BeyondApi::Request.delete(@session, "/shop/locations/#{location_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -158,7 +158,7 @@ module BeyondApi
     #   @location = session.locations.find("27a94b71-9b17-4f06-9596-fbbf4d18021f")
     #
     def find(location_id)
-      response, status = BeyondApi::Request.get(@session, "/locations/#{location_id}")
+      response, status = BeyondApi::Request.get(@session, "/shop/locations/#{location_id}")
 
       handle_response(response, status)
     end
@@ -245,7 +245,7 @@ module BeyondApi
     #   @location = session.locations.update(body)
     #
     def update(location_id, body)
-      response, status = BeyondApi::Request.put(@session, "/locations/#{location_id}", body)
+      response, status = BeyondApi::Request.put(@session, "/shop/locations/#{location_id}", body)
 
       handle_response(response, status)
     end
