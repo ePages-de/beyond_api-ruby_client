@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    beyond_api (0.11.1.pre)
+    beyond_api (0.12.0.pre)
       faraday (~> 0.15)
 
 GEM
