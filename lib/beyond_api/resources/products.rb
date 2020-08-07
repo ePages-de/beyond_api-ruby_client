@@ -3,14 +3,14 @@
 require "beyond_api/utils"
 
 module BeyondApi
-  autoload  :ProductAttachments,         "beyond_api/resources/products/attachments"
-  autoload  :ProductAvailability,        "beyond_api/resources/products/availability"
-  autoload  :ProductCrossSells,          "beyond_api/resources/products/cross_sells"
-  autoload  :ProductCustomAttributes,    "beyond_api/resources/products/custom_attributes"
-  autoload  :ProductImages,              "beyond_api/resources/products/images"
-  autoload  :ProductSearches,            "beyond_api/resources/products/searches"
-  autoload  :ProductVariationProperties, "beyond_api/resources/products/variation_properties"
-  autoload  :ProductVideos,              "beyond_api/resources/products/videos"
+  autoload :ProductAttachments,         "beyond_api/resources/products/attachments"
+  autoload :ProductAvailability,        "beyond_api/resources/products/availability"
+  autoload :ProductCrossSells,          "beyond_api/resources/products/cross_sells"
+  autoload :ProductCustomAttributes,    "beyond_api/resources/products/custom_attributes"
+  autoload :ProductImages,              "beyond_api/resources/products/images"
+  autoload :ProductSearches,            "beyond_api/resources/products/searches"
+  autoload :ProductVariationProperties, "beyond_api/resources/products/variation_properties"
+  autoload :ProductVideos,              "beyond_api/resources/products/videos"
 
   class Products < Base
     include BeyondApi::ProductAttachments

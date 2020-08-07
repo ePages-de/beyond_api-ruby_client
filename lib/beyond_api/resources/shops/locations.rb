@@ -3,8 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondApi
-  class Locations < Base
-    include BeyondApi::Utils
+  module ShopLocations
 
     #
     # A +GET+ request is used to retrieve a list of all locations for the current shop.
@@ -22,9 +21,9 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @locations = session.locations.all(size: 100, page: 0)
+    #   @locations = session.shop.all_locations(size: 100, page: 0)
     #
-    def all(params = {})
+    def all_locations(params = {})
       handle_all_request("/shop/locations", :locations, params)
     end
 
@@ -111,9 +110,9 @@ module BeyondApi
     #       "longitude" => 9.968901
     #     }
     #   }
-    #   @location = session.locations.create(body)
+    #   @location = session.shop.create_location(body)
     #
-    def create(body)
+    def create_location(body)
       response, status = BeyondApi::Request.post(@session, "/shop/locations", body)
 
       handle_response(response, status)
@@ -133,9 +132,9 @@ module BeyondApi
     # @return true
     #
     # @example
-    #   session.locations.delete("f461fb56-1984-4ade-bd4e-007c273cc923")
+    #   session.shop.delete_location("f461fb56-1984-4ade-bd4e-007c273cc923")
     #
-    def delete(location_id)
+    def delete_location(location_id)
       response, status = BeyondApi::Request.delete(@session, "/shop/locations/#{location_id}")
 
       handle_response(response, status, respond_with_true: true)
@@ -155,9 +154,9 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @location = session.locations.find("27a94b71-9b17-4f06-9596-fbbf4d18021f")
+    #   @location = session.shop.find_location("27a94b71-9b17-4f06-9596-fbbf4d18021f")
     #
-    def find(location_id)
+    def find_location(location_id)
       response, status = BeyondApi::Request.get(@session, "/shop/locations/#{location_id}")
 
       handle_response(response, status)
@@ -242,9 +241,9 @@ module BeyondApi
     #       "longitude" => 9.968901
     #     }
     #   }
-    #   @location = session.locations.update("27a94b71-9b17-4f06-9596-fbbf4d18021f", body)
+    #   @location = session.shop.update_location("27a94b71-9b17-4f06-9596-fbbf4d18021f", body)
     #
-    def update(location_id, body)
+    def update_location(location_id, body)
       response, status = BeyondApi::Request.put(@session, "/shop/locations/#{location_id}", body)
 
       handle_response(response, status)
