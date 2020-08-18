@@ -21,9 +21,9 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @locations = session.shop.all_locations(size: 100, page: 0)
+    #   @locations = session.shop.locations(size: 100, page: 0)
     #
-    def all_locations(params = {})
+    def locations(params = {})
       handle_all_request("/shop/locations", :locations, params)
     end
 
@@ -154,9 +154,9 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   @location = session.shop.find_location("27a94b71-9b17-4f06-9596-fbbf4d18021f")
+    #   @location = session.shop.location("27a94b71-9b17-4f06-9596-fbbf4d18021f")
     #
-    def find_location(location_id)
+    def location(location_id)
       response, status = BeyondApi::Request.get(@session, "/shop/locations/#{location_id}")
 
       handle_response(response, status)
