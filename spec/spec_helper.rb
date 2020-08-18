@@ -20,6 +20,6 @@ unless ENV["CLIENT_ID"].nil? and ENV["CLIENT_SECRET"].nil?
     config.client_secret = ENV["CLIENT_SECRET"]
     config.remove_response_links = true
     config.remove_response_key_underscores = true
-    config.object_struct_responses = false
+    config.object_struct_responses = true
   end
 end
