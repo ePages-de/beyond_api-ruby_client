@@ -7,7 +7,9 @@
     * `Locations#delete`
     * `Locations#find`
     * `Locations#update`
-  * Improve performance
+
+* enhancements
+  * Use `autoload` instead of `require` 
 
 ### v0.11.1.pre
 
