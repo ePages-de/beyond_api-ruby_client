@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "dotenv/load"
 require "beyond_api"
 
 RSpec.configure do |config|
@@ -10,5 +11,15 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+end
+
+unless ENV["CLIENT_ID"].nil? and ENV["CLIENT_SECRET"].nil?
+  BeyondApi.setup do |config|
+    config.client_id = ENV["CLIENT_ID"]
+    config.client_secret = ENV["CLIENT_SECRET"]
+    config.remove_response_links = true
+    config.remove_response_key_underscores = true
+    config.object_struct_responses = true
   end
 end
