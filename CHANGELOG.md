@@ -1,3 +1,8 @@
+### v0.12.1.pre
+
+* bug-fixes
+  * Fix camelize function for hashes containing arrays
+
 ### v0.12.0.pre
 
 * features
