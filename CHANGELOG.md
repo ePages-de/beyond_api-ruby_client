@@ -1,3 +1,26 @@
+### v0.12.1.pre
+
+* bug-fixes
+  * Fix camelize function for hashes containing arrays
+
+### v0.12.0.pre
+
+* features
+  * Add locations methods
+    * `Locations#all`
+    * `Locations#create`
+    * `Locations#delete`
+    * `Locations#find`
+    * `Locations#update`
+
+* enhancements
+  * Use `autoload` instead of `require` 
+
+### v0.11.1.pre
+
+* bug-fixes
+  * Use `BeyondApi::Error` for authentication errors
+
 ### v0.11.0.pre
 
 * enhancements
