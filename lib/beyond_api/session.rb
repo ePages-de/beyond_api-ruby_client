@@ -10,6 +10,7 @@ module BeyondApi
   autoload :NewsletterTarget,            "beyond_api/resources/newsletter_target"
   autoload :OrderSettings,               "beyond_api/resources/order_settings"
   autoload :Orders,                      "beyond_api/resources/orders"
+  autoload :PaymentMethodDefinitions,    "beyond_api/resources/payment_method_definitions"
   autoload :PaymentMethods,              "beyond_api/resources/payment_methods"
   autoload :ProductAttributeDefinitions, "beyond_api/resources/product_attribute_definitions"
   autoload :ProductsView,                "beyond_api/resources/products_view"
@@ -63,6 +64,10 @@ module BeyondApi
 
     def orders
       BeyondApi::Orders.new(self)
+    end
+
+    def payment_method_definitions
+      BeyondApi::PaymentMethodDefinitions.new(self)
     end
 
     def payment_methods
