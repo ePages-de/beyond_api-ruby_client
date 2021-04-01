@@ -3,8 +3,8 @@
 require "beyond_api/utils"
 
 module BeyondApi
-  autoload :Images,       "beyond_api/resources/variations/images"
-  autoload :Availability, "beyond_api/resources/variations/availability"
+  autoload :VariationImages,       "beyond_api/resources/variations/images"
+  autoload :VariationAvailability, "beyond_api/resources/variations/availability"
 
   class Variations < Base
     include BeyondApi::VariationImages
