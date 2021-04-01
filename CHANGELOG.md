@@ -1,3 +1,11 @@
+### v0.14.0.pre
+
+* deprecations
+  * Remove `Products#assign_variation_images_differentiator`
+
+* features
+  * Add `Products#assign_variation_attribute_as_differentiator`
+  
 ### v0.13.0.pre
 
 * features
