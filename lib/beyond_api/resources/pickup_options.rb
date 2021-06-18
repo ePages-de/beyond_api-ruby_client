@@ -7,6 +7,26 @@ module BeyondApi
     include BeyondApi::Utils
 
     #
+    # A +GET+ request is used to list all pickup options of the shop in a paged way.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/pickup-options' -i -X GET \
+    #       -H 'Accept: application/hal+json' \
+    #       -H 'Authorization: Bearer <Access token>'
+    #
+    # @option params [Boolean] :paginated
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   @pickup_options = session.pickup_options.all(size: 100, page: 0)
+    #
+    def all(params = {})
+      handle_all_request("/pickup-options", :pickup_options, params)
+    end
+
+    #
     # A +POST+ request is used to create a pickup option.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/pickup-options' -i -X POST \
@@ -59,27 +79,6 @@ module BeyondApi
       response, status = BeyondApi::Request.post(@session, "/pickup-options", body)
 
       handle_response(response, status)
-    end
-
-
-    #
-    # A +GET+ request is used to list all pickup options of the shop in a paged way.
-    #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/pickup-options' -i -X GET \
-    #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>'
-    #
-    # @option params [Boolean] :paginated
-    # @option params [Integer] :size the page size
-    # @option params [Integer] :page the page number
-    #
-    # @return [OpenStruct]
-    #
-    # @example
-    #   @pickup_options = session.pickup_options.all(size: 100, page: 0)
-    #
-    def all(params = {})
-      handle_all_request("/pickup-options", :pickup_options, params)
     end
   end
 end
