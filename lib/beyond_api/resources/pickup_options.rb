@@ -68,9 +68,9 @@ module BeyondApi
     #       tax_model: "GROSS",
     #       currency: "EUR",
     #       amount: 1
-    #      },
-    #      phone_number_required: true,
-    #      location_id: "cb554eb6-2768-4491-afd2-6bcd0aec0937"
+    #     },
+    #     phone_number_required: true,
+    #     location_id: "cb554eb6-2768-4491-afd2-6bcd0aec0937"
     #   }
     #
     #   @pickup_option = session.pickup_options.create(body)
@@ -195,12 +195,12 @@ module BeyondApi
     #     free_pickup_value: {
     #       currency: "EUR",
     #       amount: 50
-    #     ,
+    #     },
     #     fixed_price: {
     #       tax_model: "GROSS",
     #       currency: "EUR",
     #       amount: 1
-    #     ,
+    #     },
     #     phone_number_required: true,
     #     location_id: "c9179393-abcc-450a-8cf4-875b39647ab6"
     #   }
