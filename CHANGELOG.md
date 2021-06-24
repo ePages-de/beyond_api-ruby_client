@@ -1,3 +1,12 @@
+### v0.16.0.pre
+
+* features
+  * Add pickup options methods
+    * `PickupOptions#delete`
+    * `PickupOptions#find`
+    * `PickupOptions#sort`
+    * `PickupOptions#update`
+
 ### v0.15.0.pre
 
 * features
