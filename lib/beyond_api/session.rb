@@ -11,6 +11,7 @@ module BeyondApi
   autoload :OrderSettings,               "beyond_api/resources/order_settings"
   autoload :Orders,                      "beyond_api/resources/orders"
   autoload :PaymentMethodDefinitions,    "beyond_api/resources/payment_method_definitions"
+  autoload :PickupOptions,               "beyond_api/resources/pickup_options"
   autoload :PaymentMethods,              "beyond_api/resources/payment_methods"
   autoload :ProductAttributeDefinitions, "beyond_api/resources/product_attribute_definitions"
   autoload :ProductsView,                "beyond_api/resources/products_view"
@@ -72,6 +73,10 @@ module BeyondApi
 
     def payment_methods
       BeyondApi::PaymentMethods.new(self)
+    end
+
+    def pickup_options
+      BeyondApi::PickupOptions.new(self)
     end
 
     def product_attribute_definitions
