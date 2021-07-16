@@ -1,3 +1,8 @@
+### v0.16.1.pre
+
+* bug-fixes
+  * Fix method to retrieve resources without pagination
+
 ### v0.16.0.pre
 
 * features
