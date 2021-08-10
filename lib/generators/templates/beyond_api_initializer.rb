@@ -5,6 +5,8 @@ BeyondApi.setup do |config|
   config.client_id = nil
   config.client_secret = nil
 
+  config.pagination_size = 200
+
   # ==> Api configuration
   # Configure the open connection timeout in seconds. Default is 2 seconds.
   # config.open_timeout = 2.seconds
