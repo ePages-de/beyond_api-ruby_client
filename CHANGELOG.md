@@ -1,3 +1,8 @@
+### v0.17.0.pre
+
+* enhancements
+  * Add customizable pagination size when sending `paginated: false` parameter to `#all` requests.
+
 ### v0.16.1.pre
 
 * bug-fixes
@@ -26,7 +31,7 @@
 
 * features
   * Add `Products#assign_variation_attribute_as_differentiator`
-  
+
 ### v0.13.0.pre
 
 * features
