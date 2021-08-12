@@ -1,3 +1,48 @@
+### v0.17.0.pre
+
+* enhancements
+  * Add customizable pagination size when sending `paginated: false` parameter to `#all` requests.
+
+### v0.16.1.pre
+
+* bug-fixes
+  * Fix method to retrieve resources without pagination
+
+### v0.16.0.pre
+
+* features
+  * Add pickup options methods
+    * `PickupOptions#delete`
+    * `PickupOptions#find`
+    * `PickupOptions#sort`
+    * `PickupOptions#update`
+
+### v0.15.0.pre
+
+* features
+  * Add pickup options methods
+    * `PickupOptions#all`
+    * `PickupOptions#create`
+
+### v0.14.0.pre
+
+* deprecations
+  * Remove `Products#assign_variation_images_differentiator`
+
+* features
+  * Add `Products#assign_variation_attribute_as_differentiator`
+
+### v0.13.0.pre
+
+* features
+  * Add payment method definitions methods
+    * `PaymentMethodDefinitions#all`
+    * `PaymentMethodDefinitions#create`
+    * `PaymentMethodDefinitions#delete`
+    * `PaymentMethodDefinitions#find`
+    * `PaymentMethodDefinitions#update`
+  * Add possibility to log request `headers` and `bodies`
+
 ### v0.12.1.pre
 
 * bug-fixes
@@ -14,7 +59,7 @@
     * `Locations#update`
 
 * enhancements
-  * Use `autoload` instead of `require` 
+  * Use `autoload` instead of `require`
 
 ### v0.11.1.pre
 
