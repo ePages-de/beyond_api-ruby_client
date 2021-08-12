@@ -12,8 +12,8 @@ BeyondApi.setup do |config|
   # Configure the request timeout in seconds. Default is 5 seconds.
   # config.timeout = 5.seconds
 
-  # Configure the pagination size when paginated: false is sent on .all() requests. Value must be betweeen 1 and 1000.
-  # config.all_pagination_size
+  # Configure the pagination size when `paginated: false` is sent on `.all()` requests. Value must be between 1 and 1000.
+  # config.all_pagination_size = 200
 
   # ==> Log configuration
 
