@@ -5,14 +5,15 @@ BeyondApi.setup do |config|
   config.client_id = nil
   config.client_secret = nil
 
-  config.all_pagination_size
-
   # ==> Api configuration
   # Configure the open connection timeout in seconds. Default is 2 seconds.
   # config.open_timeout = 2.seconds
 
   # Configure the request timeout in seconds. Default is 5 seconds.
   # config.timeout = 5.seconds
+
+  # Configure the pagination size when paginated: false is sent on .all() requests. Value must be betweeen 1 and 1000.
+  # config.all_pagination_size
 
   # ==> Log configuration
 

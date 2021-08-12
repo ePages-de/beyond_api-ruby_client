@@ -43,7 +43,7 @@ module BeyondApi
       @log_headers = false
       @log_bodies = false
 
-      @all_pagination_size
+      @all_pagination_size = 200
     end
   end
 end
