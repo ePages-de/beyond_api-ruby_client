@@ -46,6 +46,7 @@ module BeyondApi
 
     def handle_all_request(url, resource, params = {})
       paginated_size = BeyondApi.configuration.all_pagination_size
+
       if params[:paginated] == false
         result = all_paginated(url, params.merge(page: 0, size: paginated_size))
 
