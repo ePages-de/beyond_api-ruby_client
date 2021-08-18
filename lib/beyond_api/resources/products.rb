@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'beyond_api/utils'
+require "beyond_api/utils"
 
 module BeyondApi
-  autoload :ProductAttachments,         'beyond_api/resources/products/attachments'
-  autoload :ProductAvailability,        'beyond_api/resources/products/availability'
-  autoload :ProductCrossSells,          'beyond_api/resources/products/cross_sells'
-  autoload :ProductCustomAttributes,    'beyond_api/resources/products/custom_attributes'
-  autoload :ProductImages,              'beyond_api/resources/products/images'
-  autoload :ProductSearches,            'beyond_api/resources/products/searches'
-  autoload :ProductVariationProperties, 'beyond_api/resources/products/variation_properties'
-  autoload :ProductVideos,              'beyond_api/resources/products/videos'
+  autoload :ProductAttachments,         "beyond_api/resources/products/attachments"
+  autoload :ProductAvailability,        "beyond_api/resources/products/availability"
+  autoload :ProductCrossSells,          "beyond_api/resources/products/cross_sells"
+  autoload :ProductCustomAttributes,    "beyond_api/resources/products/custom_attributes"
+  autoload :ProductImages,              "beyond_api/resources/products/images"
+  autoload :ProductSearches,            "beyond_api/resources/products/searches"
+  autoload :ProductVariationProperties, "beyond_api/resources/products/variation_properties"
+  autoload :ProductVideos,              "beyond_api/resources/products/videos"
 
   class Products < Base
     include BeyondApi::ProductAttachments
@@ -43,7 +43,7 @@ module BeyondApi
     #   @products = session.products.all(size: 100, page: 0)
     #
     def all(params = {})
-      handle_all_request('/products', :products, params)
+      handle_all_request("/products", :products, params)
     end
 
     #
@@ -166,7 +166,7 @@ module BeyondApi
     #   @product = session.products.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, '/products', body)
+      response, status = BeyondApi::Request.post(@session, "/products", body)
 
       handle_response(response, status)
     end
@@ -271,14 +271,13 @@ module BeyondApi
     #   session.products.assign_variation_images_differentiator("f205294b-17dc-4f75-8b5e-5df72abb96df", "491fedf4-37a9-4bcf-98b8-cff2f82879b7")
     #
     def assign_variation_attribute_as_differentiator(product_id, variation_attribute_id)
-      response, status = BeyondApi::Request.post(@session,
-                                                 "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
 
       handle_response(response, status, respond_with_true: true)
     end
 
-    alias create_variation create
-    alias find_variation find
-    alias update_variation update
+    alias_method :create_variation, :create
+    alias_method :find_variation,   :find
+    alias_method :update_variation, :update
   end
 end
