@@ -98,8 +98,8 @@ module BeyondApi
     #       }
     #     },
     #     "shippingPeriod" : {
-    #       "minDays" : 2,
-    #       "maxDays" : 4,
+    #       "min" : 2,
+    #       "max" : 4,
     #       "displayUnit" : "WEEKS"
     #     }
     #   }'
@@ -157,8 +157,8 @@ module BeyondApi
     #      }
     #    },
     #    "shippingPeriod": {
-    #      "minDays": 2,
-    #      "maxDays": 4,
+    #      "min": 2,
+    #      "max": 4,
     #      "displayUnit": "WEEKS"
     #    }
     #   }
