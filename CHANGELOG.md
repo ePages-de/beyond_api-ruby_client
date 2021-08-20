@@ -1,3 +1,14 @@
+### v0.18.0.pre
+
+* features
+  * Add new token retrieval/refresh methods
+    * `Token#authorization_code`
+    * `Token#refresh_token`
+    * `Token#client_credentials`
+  * Add alias methods for avoiding deprecation
+    * `refresh` -> `refresh_token`
+    * `create`  -> `authorization_code`
+
 ### v0.17.0.pre
 
 * enhancements
