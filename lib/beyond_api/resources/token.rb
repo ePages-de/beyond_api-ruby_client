@@ -13,8 +13,8 @@ module BeyondApi
     def initialize(session)
       @session = session
 
-      raise InvalidSessionError.new("Invalid session") unless session.is_a? BeyondApi::Session
-      raise InvalidSessionError.new("Session api_url cannot be nil") if session.api_url.nil?
+      raise InvalidSessionError, "Invalid session" unless session.is_a? BeyondApi::Session
+      raise InvalidSessionError, "Session api_url cannot be nil" if session.api_url.nil?
     end
 
     def authorization_code(code)
