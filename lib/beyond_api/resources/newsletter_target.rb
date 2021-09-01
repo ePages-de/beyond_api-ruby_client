@@ -28,7 +28,9 @@ module BeyondApi
     #   session.newsletter_target.create({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
     def create(submit_url)
-      response, status = BeyondApi::Request.post(@session, "/newsletter-target", { submit_url: submit_url})
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/newsletter-target",
+                                                 { submit_url: submit_url })
 
       handle_response(response, status)
     end
@@ -47,7 +49,8 @@ module BeyondApi
     #   session.newsletter_target.delete
     #
     def delete
-      response, status = BeyondApi::Request.delete(@session, "/newsletter-target")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/newsletter-target")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -63,7 +66,8 @@ module BeyondApi
     #   @newsletter_target = session.newsletter_target.find
     #
     def find
-      response, status = BeyondApi::Request.get(@session, "/newsletter-target")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/newsletter-target")
 
       handle_response(response, status)
     end
@@ -89,7 +93,9 @@ module BeyondApi
     #   session.newsletter_target.update({ submit_url: "https://example.org/cgi-bin/subscribe.php" })
     #
     def update(submit_url)
-      response, status = BeyondApi::Request.put(@session, "/newsletter-target", { submit_url: submit_url })
+      response, status = BeyondApi::Request.put(@session,
+                                                "/newsletter-target",
+                                                { submit_url: submit_url })
 
       handle_response(response, status)
     end

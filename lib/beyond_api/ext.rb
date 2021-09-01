@@ -53,8 +53,8 @@ class Array
   def camelize_keys
     map do |elem|
       case elem
-        when Hash, Array; elem.camelize_keys
-        else; elem
+      when Hash, Array then elem.camelize_keys
+      else; elem
       end
     end
   end

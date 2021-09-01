@@ -7,6 +7,7 @@ module BeyondApi
     def handle_response(response, status, respond_with_true: false)
       if status.between?(200, 299)
         return true if respond_with_true
+
         response = sanitize_response(response)
         BeyondApi.configuration.object_struct_responses ? to_object_struct(response) : response
       else
@@ -34,6 +35,7 @@ module BeyondApi
       {}.tap do |h|
         hash.each do |key, value|
           next if key == "_links" && BeyondApi.configuration.remove_response_links
+
           key = sanitize_key(key) if BeyondApi.configuration.remove_response_key_underscores
           h[key.underscore.to_sym] = transform(value)
         end
@@ -66,18 +68,18 @@ module BeyondApi
 
     private
 
-      def transform(thing)
-        case thing
-        when Hash; sanitize_response(thing)
-        when Array; thing.map { |v| transform(v) }
-        else; thing
-        end
+    def transform(thing)
+      case thing
+      when Hash; sanitize_response(thing)
+      when Array; thing.map { |v| transform(v) }
+      else; thing
       end
+    end
 
-      def all_paginated(url, params = {})
-        response, status = BeyondApi::Request.get(@session, url, params)
+    def all_paginated(url, params = {})
+      response, status = BeyondApi::Request.get(@session, url, params)
 
-        handle_response(response, status)
-      end
+      handle_response(response, status)
+    end
   end
 end
