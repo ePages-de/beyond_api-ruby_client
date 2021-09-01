@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductVideos
-
     #
     # A +POST+ request is used to create a video and add it to a product.
     #

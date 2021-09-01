@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductImages
-
     #
     # A +POST+ request is used to create an image and add it to a product.
     #

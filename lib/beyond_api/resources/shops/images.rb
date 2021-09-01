@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopImages
-
     #
     # A +POST+ request is used to create a shop image.
     #

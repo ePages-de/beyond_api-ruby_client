@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductAvailability
-
     #
     # A +POST+ request is used to adjust the available stock of a product.
     #

@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductCrossSells
-
     #
     # A +POST+ request is used to create a cross-sell for a product.
     #

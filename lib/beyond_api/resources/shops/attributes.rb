@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopAttributes
-
     #
     # A +GET+ request is used to retrieve a particular shop attribute by its name.
     #

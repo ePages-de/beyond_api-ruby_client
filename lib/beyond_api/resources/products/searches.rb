@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductSearches
-
     #
     # A +GET+ request is used to search for a product by SKU.
     #
