@@ -25,8 +25,10 @@ module BeyondApi
     #   session.users.add_roles(user_id, body)
     #
     def add_roles(user_id, body)
+      path = "/users/#{user_id}/roles"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/#{user_id}/roles",
+                                                 path,
                                                  body)
 
       handle_response(response, status, respond_with_true: true)
@@ -52,7 +54,9 @@ module BeyondApi
     #   @users = session.users.all(size: 100, page: 0)
     #
     def all(params = {})
-      handle_all_request("/users", :users, params)
+      path = "/users"
+
+      handle_all_request(path, :users, params)
     end
 
     #
@@ -79,8 +83,10 @@ module BeyondApi
     #   session.users.change_password(user_id, current_password, new_password)
     #
     def change_password(user_id, current_password, new_password)
+      path = "/users/#{user_id}/change-password"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/#{user_id}/change-password",
+                                                 path,
                                                  current_password: current_password,
                                                  new_password: new_password)
 
@@ -109,8 +115,10 @@ module BeyondApi
     #   session.users.change_username(user_id, new_username, current_password)
     #
     def change_username(user_id, new_username, current_password)
+      path = "/users/#{user_id}/change-username"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/#{user_id}/change-username",
+                                                 path,
                                                  new_username: new_username,
                                                  current_password: current_password)
 
@@ -145,8 +153,10 @@ module BeyondApi
     #   @user = session.users.create(body)
     #
     def create(body)
+      path = "/users"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users",
+                                                 path,
                                                  body)
 
       handle_response(response, status)
@@ -168,8 +178,10 @@ module BeyondApi
     #   session.users.enable_support_access
     #
     def enable_support_access
+      path = "/users/support"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/support")
+                                                 path)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -190,8 +202,10 @@ module BeyondApi
     #   session.users.disable_support_access
     #
     def disable_support_access
+      path = "/users/support"
+
       response, status = BeyondApi::Request.delete(@session,
-                                                   "/users/support")
+                                                   path)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -214,8 +228,10 @@ module BeyondApi
     #   @user = session.users.find("e4b528ce-bb9e-4cc5-95e1-7dadfa4cf0f3")
     #
     def find(user_id)
+      path = "/users/#{user_id}"
+
       response, status = BeyondApi::Request.get(@session,
-                                                "/users/#{user_id}")
+                                                path)
 
       handle_response(response, status)
     end
@@ -236,8 +252,10 @@ module BeyondApi
     #   @roles = session.users.roles("0d4bd0a5-94dc-498e-b6a6-305c619bb20d")
     #
     def roles(user_id)
+      path = "/users/#{user_id}/roles"
+
       response, status = BeyondApi::Request.get(@session,
-                                                "/users/#{user_id}/roles")
+                                                path)
 
       handle_response(response, status)
     end
@@ -259,8 +277,10 @@ module BeyondApi
     #   @user = session.users.search_by_username(username)
     #
     def search_by_username(username)
+      path = "/users/search/find-by-username"
+
       response, status = BeyondApi::Request.get(@session,
-                                                "/users/search/find-by-username",
+                                                path,
                                                 username: username)
 
       handle_response(response, status)
@@ -291,8 +311,10 @@ module BeyondApi
     #   session.users.send_email_address_change(user_id, new_email, current_password, locale)
     #
     def send_email_address_change(user_id, new_email, current_password, locale)
+      path = "/users/#{user_id}/change-email-request"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/#{user_id}/change-email-request",
+                                                 path,
                                                  { new_email: new_email, current_password: current_password },
                                                  { locale: locale })
 
@@ -320,8 +342,10 @@ module BeyondApi
     #   session.users.send_reset_password_email(email, locale)
     #
     def send_reset_password_email(email, locale)
+      path = "/users/reset-password-request"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/reset-password-request",
+                                                 path,
                                                  { email: email },
                                                  { locale: locale })
 
@@ -347,8 +371,10 @@ module BeyondApi
     #   session.users.set_roles(user_id, body)
     #
     def set_roles(user_id, body)
+      path = "/users/#{user_id}/roles"
+
       response, status = BeyondApi::Request.put(@session,
-                                                "/users/#{user_id}/roles",
+                                                path,
                                                 body)
 
       handle_response(response, status, respond_with_true: true)
@@ -369,8 +395,10 @@ module BeyondApi
     #   session.users.support_access
     #
     def support_access
+      path = "/users/support"
+
       response, status = BeyondApi::Request.get(@session,
-                                                "/users/support")
+                                                path)
 
       handle_response(response, status)
     end
@@ -395,8 +423,10 @@ module BeyondApi
     #   session.users.verify_password(password)
     #
     def verify_password(password, user_role)
+      path = "/users/verify-password"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/users/verify-password",
+                                                 path,
                                                  password: password,
                                                  user_role: user_role)
 

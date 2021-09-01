@@ -24,7 +24,9 @@ module BeyondApi
     #   @product_attribute_definitions = session.product_attribute_definitions.all(size: 100, page: 0)
     #
     def all(params = {})
-      handle_all_request("/product-attribute-definitions", :product_attribute_definitions, params)
+      path = "/product-attribute-definitions"
+
+      handle_all_request(path, :product_attribute_definitions, params)
     end
 
     #
@@ -56,7 +58,11 @@ module BeyondApi
     #   @product_attribute_definition = session.product_attribute_definitions.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/product-attribute-definitions", body)
+      path = "/product-attribute-definitions"
+
+      response, status = BeyondApi::Request.post(@session,
+                                                 path,
+                                                 body)
 
       handle_response(response, status)
     end
@@ -77,7 +83,10 @@ module BeyondApi
     #   session.product_attribute_definitions.delete("color")
     #
     def delete(product_attribute_name)
-      response, status = BeyondApi::Request.delete(@session, "/product-attribute-definitions/#{product_attribute_name}")
+      path = "/product-attribute-definitions/#{product_attribute_name}"
+
+      response, status = BeyondApi::Request.delete(@session,
+                                                   path)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -98,7 +107,10 @@ module BeyondApi
     #   @product_attribute_definition = session.product_attribute_definitions.find("filling_capacity")
     #
     def find(product_attribute_name)
-      response, status = BeyondApi::Request.get(@session, "/product-attribute-definitions/#{product_attribute_name}")
+      path = "/product-attribute-definitions/#{product_attribute_name}"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end

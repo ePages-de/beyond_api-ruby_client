@@ -19,7 +19,10 @@ module BeyondApi
     #   @signers = session.signers.all
     #
     def all
-      response, status = BeyondApi::Request.get(@session, "/signers")
+      path = "/signers"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -37,7 +40,10 @@ module BeyondApi
     #   @signer = session.signers.create
     #
     def create
-      response, status = BeyondApi::Request.post(@session, "/signers")
+      path = "/signers"
+
+      response, status = BeyondApi::Request.post(@session,
+                                                 path)
 
       handle_response(response, status)
     end
@@ -55,7 +61,10 @@ module BeyondApi
     #   session.signers.delete("6bb72afd-340e-439a-9990-eef2e0883e1e")
     #
     def delete(signer_id)
-      response, status = BeyondApi::Request.delete(@session, "/signers/#{signer_id}")
+      path = "/signers/#{signer_id}"
+
+      response, status = BeyondApi::Request.delete(@session,
+                                                   path)
 
       handle_response(response, status, respond_with_true: true)
     end

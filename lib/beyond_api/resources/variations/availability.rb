@@ -25,8 +25,10 @@ module BeyondApi
     #   @availability = session.variations.adjust_stock_level(product_id, variation_id, { relativeAmount => -1 })
     #
     def adjust_stock_level(product_id, variation_id, relative_amount)
+      path = "/products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock",
+                                                 path,
                                                  relative_amount: relative_amount)
 
       handle_response(response, status)
@@ -51,8 +53,10 @@ module BeyondApi
     #   @availability = session.variations.availability("fb22d408-00dc-47e3-ae58-e35769bdb428", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
     def availability(product_id, variation_id)
+      path = "/products/#{product_id}/variations/#{variation_id}/availability"
+
       response, status = BeyondApi::Request.get(@session,
-                                                "/products/#{product_id}/variations/#{variation_id}/availability")
+                                                path)
 
       handle_response(response, status)
     end
@@ -76,8 +80,10 @@ module BeyondApi
     #   @availability = session.variations.enable_purchaability("1e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
     def enable_purchasability(product_id, variation_id)
+      path = "/products/#{product_id}/variations/#{variation_id}/availability/enable-purchasability"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/products/#{product_id}/variations/#{variation_id}/availability/enable-purchasability")
+                                                 path)
 
       handle_response(response, status)
     end
@@ -100,8 +106,10 @@ module BeyondApi
     #   @availability = session.variations.disable_purchasability("17e3a92b-6f3b-4415-bd8f-c9c8921a5a73", "13b28149-975a-4f47-ad54-bdc4ca4a07ec")
     #
     def disable_purchasability(product_id, variation_id)
+      path = "/products/#{product_id}/variations/#{variation_id}/availability/disable-purchasability"
+
       response, status = BeyondApi::Request.post(@session,
-                                                 "/products/#{product_id}/variations/#{variation_id}/availability/disable-purchasability")
+                                                 path)
 
       handle_response(response, status)
     end
