@@ -52,7 +52,9 @@ module BeyondApi
     #   @shipping_zone = session.shipping_zones.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/shipping-zones", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/shipping-zones",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -105,7 +107,9 @@ module BeyondApi
     #   @shipping_zone = session.shipping_zones.create_shipping_method("905e981c-1489-45af-9138-0a7dc1f0b085", body)
     #
     def create_shipping_method(shipping_zone_id, body)
-      response, status = BeyondApi::Request.post(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/shipping-zones/#{shipping_zone_id}/shipping-methods",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -126,7 +130,8 @@ module BeyondApi
     #   session.shipping_zones.delete("c871b402-b6d9-4c6d-b76c-440f61175805")
     #
     def delete(shipping_zone_id)
-      response, status = BeyondApi::Request.delete(@session, "/shipping-zones/#{shipping_zone_id}")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/shipping-zones/#{shipping_zone_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -148,7 +153,8 @@ module BeyondApi
     #   session.shipping_zones.delete_shipping_method("61c14c3c-ce26-4524-9713-f2ede7ff22fa", "d2eee203-a1c6-4035-8e7a-74bb77cfde47")
     #
     def delete_shipping_method(shipping_zone_id, shipping_method_id)
-      response, status = BeyondApi::Request.delete(@session, "/shipping-zones/#{shipping_zone_id}/shipping_methods/#{shipping_method_id}")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/shipping-zones/#{shipping_zone_id}/shipping_methods/#{shipping_method_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -170,7 +176,8 @@ module BeyondApi
     #   @shipping_zone = session.shipping_zones.find("27914098-c1f6-46aa-9e78-c7ac873e25b3")
     #
     def find(shipping_zone_id)
-      response, status = BeyondApi::Request.get(@session, "/shipping-zones/#{shipping_zone_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shipping-zones/#{shipping_zone_id}")
 
       handle_response(response, status)
     end
@@ -187,7 +194,8 @@ module BeyondApi
     #   @serviceable_countries = session.shipping_zones.find_serviceable_countries
     #
     def find_serviceable_countries
-      response, status = BeyondApi::Request.get(@session, "/shipping-zones/search/find-all-serviceable-countries")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shipping-zones/search/find-all-serviceable-countries")
 
       handle_response(response, status)
     end
@@ -209,7 +217,8 @@ module BeyondApi
     #   @shipping_method = session.shipping_zones.shipping_method("61780dd6-0150-4fcf-953c-d10c52bab4ab", "13bd1fc9-706c-4774-923a-484a41aaab89")
     #
     def shipping_method(shipping_zone_id, shipping_method_id)
-      response, status = BeyondApi::Request.get(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
 
       handle_response(response, status)
     end
@@ -233,7 +242,9 @@ module BeyondApi
     #   @shipping_methods = session.shipping_zones.shipping_methods("8cc24465-3573-4eca-8323-b076bb724080", { size: 20, page: 0 })
     #
     def shipping_methods(shipping_zone_id, params = {})
-      response, status = BeyondApi::Request.get(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods", params)
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shipping-zones/#{shipping_zone_id}/shipping-methods",
+                                                params)
 
       handle_response(response, status)
     end
@@ -261,7 +272,10 @@ module BeyondApi
     #
     def sort(shipping_zone_ids)
       body = shipping_zone_ids.map { |id| "#{session.api_url}/shipping-zones/#{id}" }
-      response, status = BeyondApi::Request.put(@session, "/shipping-zones", body)
+
+      response, status = BeyondApi::Request.put(@session,
+                                                "/shipping-zones",
+                                                body)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -284,7 +298,8 @@ module BeyondApi
     #   session.shipping_zones.sort_shipping_methods(shipping_zone_id)
     #
     def sort_shipping_methods(shipping_zone_id)
-      response, status = BeyondApi::Request.put(@session, "/shipping-zones/#{shipping_zone_id}/shipping-methods")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/shipping-zones/#{shipping_zone_id}/shipping-methods")
 
       handle_response(response, status)
     end
@@ -315,7 +330,9 @@ module BeyondApi
     #   @shipping_zone = session.shipping_zones.update("727b3cbf-01b1-442a-bd5c-94c51901f090", body)
     #
     def update(shipping_zone_id, body)
-      response, status = BeyondApi::Request.put(@session, "/shipping-zones/#{shipping_zone_id}", body)
+      response, status = BeyondApi::Request.put(@session,
+                                                "/shipping-zones/#{shipping_zone_id}",
+                                                body)
 
       handle_response(response, status)
     end

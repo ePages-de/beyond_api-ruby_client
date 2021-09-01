@@ -136,8 +136,10 @@ module BeyondApi
     # @example
     #   @videos = session.products.videos("04c6ad65-465d-405e-a428-f73349104b65", size: 100, page: 0)
     #
-    def videos(product_id, params =  {})
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/videos", params)
+    def videos(product_id, params = {})
+      response, status = BeyondApi::Request.get(@session,
+                                                "/products/#{product_id}/videos",
+                                                params)
 
       handle_response(response, status)
     end

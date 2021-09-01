@@ -166,7 +166,9 @@ module BeyondApi
     #   @product = session.products.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/products", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/products",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -188,7 +190,8 @@ module BeyondApi
     #   session.products.delete("c06c61af-f99a-4698-90fa-8c3199ca732f")
     #
     def delete(product_id)
-      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/products/#{product_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -211,7 +214,8 @@ module BeyondApi
     #   @product = session.products.find("75ebcb57-aefb-4963-8225-060c528e070d")
     #
     def find(product_id)
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/products/#{product_id}")
 
       handle_response(response, status)
     end
@@ -271,7 +275,8 @@ module BeyondApi
     #   session.products.assign_variation_images_differentiator("f205294b-17dc-4f75-8b5e-5df72abb96df", "491fedf4-37a9-4bcf-98b8-cff2f82879b7")
     #
     def assign_variation_attribute_as_differentiator(product_id, variation_attribute_id)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
 
       handle_response(response, status, respond_with_true: true)
     end

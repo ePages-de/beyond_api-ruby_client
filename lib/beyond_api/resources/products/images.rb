@@ -195,7 +195,11 @@ module BeyondApi
                      end
       image_binary = File.binread(image_path)
 
-      response, status = BeyondApi::Request.upload(@session, "/products/#{product_id}/images", image_binary, content_type, { file_name: image_name })
+      response, status = BeyondApi::Request.upload(@session,
+                                                   "/products/#{product_id}/images",
+                                                   image_binary,
+                                                   content_type,
+                                                   { file_name: image_name })
 
       handle_response(response, status, respond_with_true: true)
     end

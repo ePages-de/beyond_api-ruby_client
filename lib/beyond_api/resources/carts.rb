@@ -27,7 +27,9 @@ module BeyondApi
     #   @cart = session.carts.add_line_item("6d529573-b39e-4cd4-99fe-856432ea97f3", body)
     #
     def add_line_item(cart_id, body)
-      response, status = BeyondApi::Request.post(@session, "/carts/#{cart_id}/line-items", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/carts/#{cart_id}/line-items",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -44,7 +46,8 @@ module BeyondApi
     #   @cart = session.carts.create
     #
     def create
-      response, status = BeyondApi::Request.post(@session, "/carts")
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/carts")
 
       handle_response(response, status)
     end
@@ -73,7 +76,9 @@ module BeyondApi
     #   @payment = session.carts.create_payment("158bdcee-178a-4b5f-88ff-1953f5ea8e09/", body)
     #
     def create_payment(cart_id, body)
-      response, status = BeyondApi::Request.post(@session, "/carts/#{cart_id}/create-payment", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/carts/#{cart_id}/create-payment",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -114,7 +119,9 @@ module BeyondApi
     #   @payment = session.carts.create_payment_and_order("f6c6615b-a9f6-420e-be1d-46339ddc5fda", body)
     #
     def create_payment_and_order(cart_id, body)
-      response, status = BeyondApi::Request.post(@session, "/carts/#{cart_id}/create-payment-and-order", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/carts/#{cart_id}/create-payment-and-order",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -149,7 +156,9 @@ module BeyondApi
     #   @order = session.carts.create_order("986247da-b78f-422c-a273-917804896974", body)
     #
     def create_order(cart_id, body)
-      response, status = BeyondApi::Request.post(@session, "/carts/#{cart_id}/order", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/carts/#{cart_id}/order",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -167,7 +176,8 @@ module BeyondApi
     #   session.carts.delete("1a58f22f-481a-4993-9947-62c1c2857f87")
     #
     def delete(cart_id)
-      response, status = BeyondApi::Request.delete(@session, "/carts/#{cart_id}")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/carts/#{cart_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -186,7 +196,8 @@ module BeyondApi
     #   @cart = session.carts.delete_line_item("3fb55475-f6d2-471a-90ac-ccee7896b9f7", "51c86195-d2b9-4073-9a14-7ddd5a76b6a7")
     #
     def delete_line_item(cart_id, line_item_id)
-      response, status = BeyondApi::Request.delete(@session, "/carts/#{cart_id}/line-items/#{line_item_id}")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/carts/#{cart_id}/line-items/#{line_item_id}")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -205,7 +216,8 @@ module BeyondApi
     #   session.carts.delete_shipping_address("2fa7dc36-8305-4628-b961-f2c3f7dda47d")
     #
     def delete_shipping_address(cart_id)
-      response, status = BeyondApi::Request.delete(@session, "/carts/#{cart_id}/shipping-address")
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/carts/#{cart_id}/shipping-address")
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -225,7 +237,8 @@ module BeyondApi
     #   @cart = session.carts.find("26857145-aeab-4210-9191-3906573a14ae")
     #
     def find(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/carts/#{cart_id}")
 
       handle_response(response, status)
     end
@@ -244,7 +257,8 @@ module BeyondApi
     #   @payment_method = session.carts.payment_method("26857145-aeab-4210-9191-3906573a14ae")
     #
     def payment_method(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}/payment-methods/current")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/carts/#{cart_id}/payment-methods/current")
 
       handle_response(response, status)
     end
@@ -266,7 +280,8 @@ module BeyondApi
     #   @payment_methods = session.carts.payment_methods("45f9009d-4d2f-43b1-9cd2-ea29ff0d46d6")
     #
     def payment_methods(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}/payment-methods")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/carts/#{cart_id}/payment-methods")
 
       handle_response(response, status)
     end
@@ -294,7 +309,9 @@ module BeyondApi
     #   @cart = session.carts.replace_line_item("f73629e5-fecf-4474-9b04-6b2fcd4663c4", "2c9c0f38-0b9e-4fa7-bcbe-960098ff63aa", body)
     #
     def replace_line_item(cart_id, line_item_id, body)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/line-items/#{line_item_id}", body)
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/line-items/#{line_item_id}",
+                                                body)
 
       handle_response(response, status)
     end
@@ -321,7 +338,9 @@ module BeyondApi
     #   @cart = session.carts.replace_line_items("c1436110-e283-49b3-a748-0321efec6d35", body)
     #
     def replace_line_items(cart_id, body)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/line-items", body)
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/line-items",
+                                                body)
 
       handle_response(response, status)
     end
@@ -371,7 +390,9 @@ module BeyondApi
     #   @cart = session.carts.set_billing_address("01da6aa7-8aa2-4383-a496-6611a14afbc9", body)
     #
     def set_billing_address(cart_id, body)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/billing-address", body)
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/billing-address",
+                                                body)
 
       handle_response(response, status)
     end
@@ -393,8 +414,9 @@ module BeyondApi
     #   @cart = session.carts.set_payment_method("750c8a68-ef58-4955-b05f-29e35fa19687", "6498f339-7fe6-43d4-8e2a-6da68d7cdfe3")
     #
     def set_payment_method(cart_id, payment_method_id)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/payment-methods/current",
-                                          "#{@session.api_url}/payment-methods/#{payment_method_id}")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/payment-methods/current",
+                                                "#{@session.api_url}/payment-methods/#{payment_method_id}")
 
       handle_response(response, status)
     end
@@ -414,7 +436,8 @@ module BeyondApi
     #   @cart = session.carts.set_payment_method_to_default("d1efcb74-ab96-43c5-b404-9c1f927dc3d2")
     #
     def set_payment_method_to_default(cart_id)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/payment-methods/default")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/payment-methods/default")
 
       handle_response(response, status)
     end
@@ -464,7 +487,9 @@ module BeyondApi
     #   @cart = session.carts.set_shipping_address("01da6aa7-8aa2-4383-a496-6611a14afbc9", body)
     #
     def set_shipping_address(cart_id, body)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/shipping-address", body)
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/shipping-address",
+                                                body)
 
       handle_response(response, status)
     end
@@ -487,7 +512,8 @@ module BeyondApi
     #   @cart = session.carts.set_shipping_method("a4e7922a-f895-4a7d-8cb1-6ecf74d7ceba", "59e26c99-ef1d-4ee8-a79f-d078cd6dfe24", "f3d3ce8d-eeab-44b6-81bb-67a4f1d7a57f")
     #
     def set_shipping_method(cart_id, shipping_zone_id, shipping_method_id)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/shipping-methods/current",
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/shipping-methods/current",
                                                 "#{session.api_url}/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}")
 
       handle_response(response, status)
@@ -509,7 +535,8 @@ module BeyondApi
     #   @cart = session.carts.set_shipping_method_to_default("c31c5d06-4460-4f89-9e09-47f9956dea98")
     #
     def set_shipping_method_to_default(cart_id)
-      response, status = BeyondApi::Request.put(@session, "/carts/#{cart_id}/shipping-methods/default")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/carts/#{cart_id}/shipping-methods/default")
 
       handle_response(response, status)
     end
@@ -529,7 +556,8 @@ module BeyondApi
     #   @shipping_method = session.carts.shipping_method("9093a339-66fd-4cc1-9dcf-d23003c38b41")
     #
     def shipping_method(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/carts/#{cart_id}")
 
       handle_response(response, status)
     end
@@ -548,7 +576,8 @@ module BeyondApi
     #   @cart = session.carts.shipping_methods("05a547a0-80dc-4a8c-b9b6-aa028b6ef7d8")
     #
     def shipping_methods(cart_id)
-      response, status = BeyondApi::Request.get(@session, "/carts/#{cart_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/carts/#{cart_id}")
 
       handle_response(response, status)
     end

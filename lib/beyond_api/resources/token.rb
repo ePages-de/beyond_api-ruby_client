@@ -37,7 +37,7 @@ module BeyondApi
     def handle_token_call(grant_type, params = {})
       params.merge!(grant_type: grant_type)
 
-      response, status = BeyondApi::Request.token(@session.api_url + "/oauth/token",
+      response, status = BeyondApi::Request.token("#{@session.api_url}/oauth/token",
                                                   params)
 
       handle_response(response, status)

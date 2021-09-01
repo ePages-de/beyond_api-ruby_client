@@ -5,13 +5,13 @@ class Hash
     result = {}
     each do |key, value|
       result[yield(key)] = case value
-      when Hash
-        value.deep_transform_keys(&block)
-      when Array
-        value.camelize_keys
-      else
-        value
-      end
+                           when Hash
+                             value.deep_transform_keys(&block)
+                           when Array
+                             value.camelize_keys
+                           else
+                             value
+                           end
     end
     result
   end
@@ -31,11 +31,11 @@ class String
   end
 
   def underscore
-    self.gsub(/::/, '/').
-    gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-    gsub(/([a-z\d])([A-Z])/,'\1_\2').
-    tr("-", "_").
-    downcase
+    gsub(/::/, "/")
+      .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
+      .gsub(/([a-z\d])([A-Z])/, '\1_\2')
+      .tr("-", "_")
+      .downcase
   end
 
   def camelize(uppercase_first_letter = true)

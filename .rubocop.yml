@@ -28,3 +28,6 @@ Layout/LineLength:
 
 Style/AsciiComments:
   Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

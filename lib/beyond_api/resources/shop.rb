@@ -29,7 +29,8 @@ module BeyondApi
     #   session.shop.current
     #
     def current
-      response, status = BeyondApi::Request.get(@session, "/shop")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shop")
 
       handle_response(response, status)
     end
@@ -81,7 +82,9 @@ module BeyondApi
     #   session.shop.update(body)
     #
     def update(body)
-      response, status = BeyondApi::Request.patch(@session, "/shop",  body)
+      response, status = BeyondApi::Request.patch(@session,
+                                                  "/shop",
+                                                  body)
 
       handle_response(response, status)
     end
