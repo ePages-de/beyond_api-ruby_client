@@ -3,7 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondApi
-  class WebhookSubscriptions < Base # :category: Resources
+  class WebhookSubscriptions < Base
     include BeyondApi::Utils
 
     #

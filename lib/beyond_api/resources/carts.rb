@@ -315,7 +315,7 @@ module BeyondApi
     #   body = [ {
     #     "_type" => "PRODUCT",
     #     "_ref" => "0612362d-9856-4b40-94c6-a36abec0cf8c",
-    #     "quantity" => 1 
+    #     "quantity" => 1
     #   } ]
     #
     #   @cart = session.carts.replace_line_items("c1436110-e283-49b3-a748-0321efec6d35", body)

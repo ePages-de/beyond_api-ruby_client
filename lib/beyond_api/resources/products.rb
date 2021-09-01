@@ -276,8 +276,8 @@ module BeyondApi
       handle_response(response, status, respond_with_true: true)
     end
 
-    alias_method :create_variation, :create
-    alias_method :find_variation,   :find
-    alias_method :update_variation, :update
+    alias create_variation create
+    alias find_variation find
+    alias update_variation update
   end
 end

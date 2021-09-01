@@ -29,8 +29,8 @@ module BeyondApi
       handle_token_call("client_credentials")
     end
 
-    alias_method :refresh, :refresh_token
-    alias_method :create, :authorization_code
+    alias refresh refresh_token
+    alias create authorization_code
 
     private
 
