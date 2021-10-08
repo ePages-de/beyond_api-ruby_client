@@ -1,3 +1,8 @@
+### v0.18.1.pre
+
+* bug-fixes
+  * Prevent logging `code` and `refresh_token` on `/api/token` calls
+
 ### v0.18.0.pre
 
 * features
