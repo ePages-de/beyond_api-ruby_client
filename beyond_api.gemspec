@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "faker",   "~> 2.2"
   spec.add_development_dependency "dotenv",  "~> 2.7"
 
-  spec.add_dependency "faraday", "~> 1.0.1"
+  spec.add_dependency "faraday", "~> 1.8.0"
 end

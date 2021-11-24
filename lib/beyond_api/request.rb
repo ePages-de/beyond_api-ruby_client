@@ -61,7 +61,8 @@ module BeyondApi
         request.options[:params_encoder] = Faraday::FlatParamsEncoder
         request.params = params.to_h.camelize_keys
         files = files.split unless files.is_a? Array
-        upload_files = files.map{ |file| Faraday::UploadIO.new(file, BeyondApi::Utils.file_content_type(file)) }
+        upload_files = files.map{ |file| Faraday::FilePart.new(File.open(file),
+                                                               BeyondApi::Utils.file_content_type(file)) }
         request.body = { image: upload_files }
       end
 

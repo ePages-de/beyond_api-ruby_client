@@ -1,8 +1,7 @@
-RSpec.describe BeyondApi::Products do
+RSpec.describe BeyondApi do
   before do
     @session = BeyondApi::Session.new(api_url: ENV['SHOP_URL'])
     @session.token.client_credentials
-    puts @session.token
   end
 
   it 'Find a product sending an ID' do
@@ -11,12 +10,21 @@ RSpec.describe BeyondApi::Products do
   end
 
   it "Upload multiple images" do
+    files = [ENV['PRODUCT_IMAGE1_PATH'], ENV['PRODUCT_IMAGE2_PATH']]
+
     images = @session.products.upload_multiple_images(ENV['PRODUCT_ID'],
-                                                      ['/home/gsanemeterio/Pictures/dummyImage600x400.png',
-                                                       '/home/gsanemeterio/Pictures/dummyImage400x400.png'],
+                                                      files,
                                                       ['file1.png', 'file2.png'])
     expect(images).not_to be nil
-    expect(images.embedded.images.is_a?).to eq true
+    expect(images.embedded.images.is_a?(Array)).to eq true
+  end
+
+  it "Upload a single image" do
+    file = ENV['PRODUCT_IMAGE1_PATH']
+
+    image = @session.products.upload_image(ENV['PRODUCT_ID'], file, 'file_single.png')
+    expect(image).not_to be nil
+    expect(image).to eq true
   end
 
 end
