@@ -1,3 +1,8 @@
+### v0.19.0.pre
+
+* features
+  * Allow upload multiple images
+
 ### v0.18.1.pre
 
 * bug-fixes
