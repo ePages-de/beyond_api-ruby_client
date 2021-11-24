@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 require "beyond_api/utils"
-require "beyond_api/resources/products/attachments"
-require "beyond_api/resources/products/availability"
-require "beyond_api/resources/products/cross_sells"
-require "beyond_api/resources/products/custom_attributes"
-require "beyond_api/resources/products/images"
-require "beyond_api/resources/products/searches"
-require "beyond_api/resources/products/variation_properties"
-require "beyond_api/resources/products/videos"
 
 module BeyondApi
+  autoload :ProductAttachments,         "beyond_api/resources/products/attachments"
+  autoload :ProductAvailability,        "beyond_api/resources/products/availability"
+  autoload :ProductCrossSells,          "beyond_api/resources/products/cross_sells"
+  autoload :ProductCustomAttributes,    "beyond_api/resources/products/custom_attributes"
+  autoload :ProductImages,              "beyond_api/resources/products/images"
+  autoload :ProductSearches,            "beyond_api/resources/products/searches"
+  autoload :ProductVariationProperties, "beyond_api/resources/products/variation_properties"
+  autoload :ProductVideos,              "beyond_api/resources/products/videos"
+
   class Products < Base
     include BeyondApi::ProductAttachments
     include BeyondApi::ProductAvailability
@@ -97,8 +98,8 @@ module BeyondApi
     #       }
     #     },
     #     "shippingPeriod" : {
-    #       "minDays" : 2,
-    #       "maxDays" : 4,
+    #       "min" : 2,
+    #       "max" : 4,
     #       "displayUnit" : "WEEKS"
     #     }
     #   }'
@@ -156,8 +157,8 @@ module BeyondApi
     #      }
     #    },
     #    "shippingPeriod": {
-    #      "minDays": 2,
-    #      "maxDays": 4,
+    #      "min": 2,
+    #      "max": 4,
     #      "displayUnit": "WEEKS"
     #    }
     #   }
@@ -252,28 +253,25 @@ module BeyondApi
     end
 
     #
-    # A +PUT+ request is used to assign a variation images differentiator for a variation product. The differentiator can be one of the variation attributes defined by the merchant, e.g. name, size, or color.
+    # A +POST+ request is used to assign a variation attribute as the variation images differentiator for a variation product.
     #
     # @beyond_api.scopes +prod:u+
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/30839efc-47f7-4d55-aa13-aac7532982b6/variation-images-differentiator' -i -X PUT \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/f205294b-17dc-4f75-8b5e-5df72abb96df/variation-attributes/491fedf4-37a9-4bcf-98b8-cff2f82879b7/make-differentiator' -i -X POST \
     #       -H 'Content-Type: application/hal+json' \
     #       -H 'Accept: application/hal+json' \
-    #       -H 'Authorization: Bearer <Access token>' \
-    #       -d '{
-    #       "differentiator" : "size"
-    #   }'
+    #       -H 'Authorization: Bearer <Access token>'
     #
     # @param product_id [String] the product UUID
-    # @param differentiator [String] the differentiator
+    # @param variation_attribute_id [String] the variation attribute UUID
     #
     # @return [true]
     #
     # @example
-    #   session.products.assign_variation_images_differentiator("30839efc-47f7-4d55-aa13-aac7532982b6", "size")
+    #   session.products.assign_variation_images_differentiator("f205294b-17dc-4f75-8b5e-5df72abb96df", "491fedf4-37a9-4bcf-98b8-cff2f82879b7")
     #
-    def assign_variation_images_differentiator(product_id, differentiator)
-      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/variation-images-differentiator", differentiator: differentiator)
+    def assign_variation_attribute_as_differentiator(product_id, variation_attribute_id)
+      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
 
       handle_response(response, status, respond_with_true: true)
     end

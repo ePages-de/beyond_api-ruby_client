@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "dotenv/load"
 require "beyond_api"
 require "dotenv/load"
 

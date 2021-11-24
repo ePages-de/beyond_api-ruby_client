@@ -4,7 +4,14 @@ class Hash
   def deep_transform_keys(&block)
     result = {}
     each do |key, value|
-      result[yield(key)] = value.is_a?(Hash) ? value.deep_transform_keys(&block) : value
+      result[yield(key)] = case value
+      when Hash
+        value.deep_transform_keys(&block)
+      when Array
+        value.camelize_keys
+      else
+        value
+      end
     end
     result
   end

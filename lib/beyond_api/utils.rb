@@ -56,14 +56,18 @@ module BeyondApi
     end
 
     def handle_all_request(url, resource, params = {})
+      paginated_size = BeyondApi.configuration.all_pagination_size
+
       if params[:paginated] == false
-        result = all_paginated(url, { page: 0, size: 1000 })
+        result = all_paginated(url, params.merge(page: 0, size: paginated_size))
 
         (1..result[:page][:total_pages] - 1).each do |page|
-          result[:embedded][resource].concat(all_paginated(url, { page: page, size: 1000 })[:embedded][resource])
+          result[:embedded][resource].concat(all_paginated(url, params.merge(page: page, size: paginated_size))[:embedded][resource])
         end
 
-        result.is_a?(Hash) ? result.delete(:page) : result.delete_field(:page)
+        result[:page][:size] = result[:page][:total_elements]
+        result[:page][:total_pages] = 1
+        result[:page][:number] = 0
 
         result
       else

@@ -12,6 +12,24 @@ BeyondApi.setup do |config|
   # Configure the request timeout in seconds. Default is 5 seconds.
   # config.timeout = 5.seconds
 
+  # Configure the pagination size when `paginated: false` is sent on `.all()` requests. Value must be between 1 and 1000.
+  # config.all_pagination_size = 200
+
+  # ==> Log configuration
+
+  # Configure the log level. Must be one of :debug, :info, :warn, :error,
+  # :fatal or :unknown. Default is :info.
+  #
+  # config.log_level = :info
+
+  # Configure is response headers should be logged. Default is false.
+  #
+  # config.log_headers = false
+
+  # Configure is response bodies should be logged. Default is false.
+  #
+  # config.log_bodies = false
+
   # ==> Response configuration
   # Configure if :_links should be removed from response. Default is false and
   # :_links are gonna be part of the response.

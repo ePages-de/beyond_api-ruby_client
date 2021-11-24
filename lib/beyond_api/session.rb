@@ -1,28 +1,30 @@
 # frozen_string_literal: true
 
-require "beyond_api/resources/base"
-require "beyond_api/resources/carts"
-require "beyond_api/resources/categories_view"
-require "beyond_api/resources/categories"
-require "beyond_api/resources/checkout_settings"
-require "beyond_api/resources/customers"
-require "beyond_api/resources/newsletter_target"
-require "beyond_api/resources/order_settings"
-require "beyond_api/resources/orders"
-require "beyond_api/resources/payment_methods"
-require "beyond_api/resources/product_attribute_definitions"
-require "beyond_api/resources/products_view"
-require "beyond_api/resources/products"
-require "beyond_api/resources/script_tags"
-require "beyond_api/resources/shipping_zones"
-require "beyond_api/resources/shop"
-require "beyond_api/resources/signers"
-require "beyond_api/resources/token"
-require "beyond_api/resources/users"
-require "beyond_api/resources/variations"
-require "beyond_api/resources/webhook_subscriptions"
-
 module BeyondApi
+  autoload :Base,                        "beyond_api/resources/base"
+  autoload :Carts,                       "beyond_api/resources/carts"
+  autoload :CategoriesView,              "beyond_api/resources/categories_view"
+  autoload :Categories,                  "beyond_api/resources/categories"
+  autoload :CheckoutSettings,            "beyond_api/resources/checkout_settings"
+  autoload :Customers,                   "beyond_api/resources/customers"
+  autoload :NewsletterTarget,            "beyond_api/resources/newsletter_target"
+  autoload :OrderSettings,               "beyond_api/resources/order_settings"
+  autoload :Orders,                      "beyond_api/resources/orders"
+  autoload :PaymentMethodDefinitions,    "beyond_api/resources/payment_method_definitions"
+  autoload :PickupOptions,               "beyond_api/resources/pickup_options"
+  autoload :PaymentMethods,              "beyond_api/resources/payment_methods"
+  autoload :ProductAttributeDefinitions, "beyond_api/resources/product_attribute_definitions"
+  autoload :ProductsView,                "beyond_api/resources/products_view"
+  autoload :Products,                    "beyond_api/resources/products"
+  autoload :ScriptTags,                  "beyond_api/resources/script_tags"
+  autoload :ShippingZones,               "beyond_api/resources/shipping_zones"
+  autoload :Shop,                        "beyond_api/resources/shop"
+  autoload :Signers,                     "beyond_api/resources/signers"
+  autoload :Token,                       "beyond_api/resources/token"
+  autoload :Users,                       "beyond_api/resources/users"
+  autoload :Variations,                  "beyond_api/resources/variations"
+  autoload :WebhookSubscriptions,        "beyond_api/resources/webhook_subscriptions"
+
   class Session
     attr_reader :api_url
     attr_accessor :access_token, :refresh_token
@@ -65,8 +67,16 @@ module BeyondApi
       BeyondApi::Orders.new(self)
     end
 
+    def payment_method_definitions
+      BeyondApi::PaymentMethodDefinitions.new(self)
+    end
+
     def payment_methods
       BeyondApi::PaymentMethods.new(self)
+    end
+
+    def pickup_options
+      BeyondApi::PickupOptions.new(self)
     end
 
     def product_attribute_definitions

@@ -6,7 +6,7 @@ require "beyond_api/version"
 Gem::Specification.new do |spec|
   spec.name          = "beyond_api"
   spec.version       = BeyondApi::VERSION
-  spec.authors       = ["Unai Abrisketa", "Kathia Salazar", "German San Emeterio"]
+  spec.authors       = ["Unai Abrisketa", "Kathia Salazar", "German San Emeterio", "Kenneth Gallego"]
 
   spec.summary       = "Ruby client to access the Beyond API"
   spec.homepage      = "https://github.com/ePages-de/beyond_api-ruby_client"
