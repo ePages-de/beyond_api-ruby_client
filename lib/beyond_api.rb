@@ -27,7 +27,7 @@ module BeyondApi
   class Configuration
     attr_accessor :client_id, :client_secret, :open_timeout, :timeout,  :remove_response_links,
                   :remove_response_key_underscores, :object_struct_responses, :raise_error_requests,
-                  :log_headers, :log_bodies, :log_level
+                  :log_headers, :log_bodies, :log_level, :all_pagination_size
 
     def initialize
       @client_id = nil
@@ -42,6 +42,8 @@ module BeyondApi
       @log_level = :info
       @log_headers = false
       @log_bodies = false
+
+      @all_pagination_size = 200
     end
   end
 end
