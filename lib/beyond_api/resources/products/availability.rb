@@ -159,9 +159,9 @@ module BeyondApi
     end
 
     #
-    # A +POST+ request is used to update the reserve stock by changing the +stockThreshold+ value of a product or variation product (incl. all of its variations). Reserve stock refers to an inventory level that indicates that a product needs to be reordered.
+    # A +PUT+ request is used to update the reserve stock by changing the +stockThreshold+ value of a product or variation product (incl. all of its variations). Reserve stock refers to an inventory level that indicates that a product needs to be reordered.
     #
-    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/f74b5f57-43cc-4176-97aa-c6eb9fdeb37c/availability/update-stock-threshold' -i -X POST \
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/f74b5f57-43cc-4176-97aa-c6eb9fdeb37c/availability/update-stock-threshold' -i -X PUT \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
     #       -H 'Authorization: Bearer <Access token>' \
@@ -175,12 +175,12 @@ module BeyondApi
     # @return [OpenStruct]
     #
     # @example
-    #   session.products.update_reserve_stock("f74b5f57-43cc-4176-97aa-c6eb9fdeb37c", { stock_threshold => 5 })
+    #   session.products.update_reserve_stock("f74b5f57-43cc-4176-97aa-c6eb9fdeb37c", 5)
     #
     def update_reserve_stock(product_id, stock_threshold)
-      response, status = BeyondApi::Request.post(@session,
-                                                 "/products/#{product_id}/availability/update-stock-threshold",
-                                                 { stock_threshold: stock_threshold })
+      response, status = BeyondApi::Request.put(@session,
+                                                "/products/#{product_id}/availability/update-stock-threshold",
+                                                { stock_threshold: stock_threshold })
 
       handle_response(response, status)
     end
