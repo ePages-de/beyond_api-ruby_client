@@ -1,7 +1,12 @@
+### v0.18.2.pre
+
+* bug-fixes
+  * Move `#products.update_reserve_stock` from `POST` to `PUT`.
+
 ### v0.18.1.pre
 
 * bug-fixes
-  * Prevent logging `code` and `refresh_token` on `/api/token` calls
+  * Prevent logging `code` and `refresh_token` on `/api/token` calls.
 
 ### v0.18.0.pre
 
