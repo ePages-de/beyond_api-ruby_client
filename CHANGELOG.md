@@ -3,6 +3,12 @@
 * bug-fixes
   * Move `#products.update_reserve_stock` from `POST` to `PUT`.
 
+* enhancements
+  * Update how `api_url` is set on `BeyondApi::Session`.
+
+* features
+  * Install, configure and fix most of the Rubocop issues.
+
 ### v0.18.1.pre
 
 * bug-fixes
