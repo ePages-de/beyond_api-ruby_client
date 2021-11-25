@@ -1,0 +1,33 @@
+require:
+  - rubocop-ordered_methods
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Layout/LineLength:
+  IgnoredPatterns: ['(\A|\s)#']
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

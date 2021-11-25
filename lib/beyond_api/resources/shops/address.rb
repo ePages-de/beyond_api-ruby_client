@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopAddress
-
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
     #
