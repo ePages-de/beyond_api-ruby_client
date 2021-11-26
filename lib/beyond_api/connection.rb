@@ -32,8 +32,7 @@ module BeyondApi
         end
         faraday.headers['Accept'] = 'application/json'
         faraday.adapter(:net_http)
-        faraday.basic_auth(BeyondApi.configuration.client_id,
-                           BeyondApi.configuration.client_secret)
+        faraday.request :basic_auth, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
       end
     end
 
