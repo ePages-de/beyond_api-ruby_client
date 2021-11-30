@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'faker'
+require "faker"
 
 FactoryBot.define do
   factory :product, class: Hash do
@@ -8,7 +8,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph }
     manufacturer { Faker::Company.name }
     essential_features { Faker::Lorem.paragraph }
-    tags { Faker::Lorem.words(number: 3).push('beyond_api-ruby_client') }
+    tags { Faker::Lorem.words(number: 3).push("beyond_api-ruby_client") }
 
     default = {
       sales_price: {
@@ -16,7 +16,7 @@ FactoryBot.define do
         amount: 8.7,
         currency: "GBP"
       },
-      list_price:{
+      list_price: {
         tax_model: "GROSS",
         amount: 10.95,
         currency: "GBP"
@@ -62,8 +62,8 @@ FactoryBot.define do
     trait :with_variations do
       variation_attributes do
         [
-          { display_name: 'size', values: %w[s m] },
-          { display_name: 'color', values: %w[red green blue] }
+          { display_name: "size", values: %w[s m] },
+          { display_name: "color", values: %w[red green blue] }
         ]
       end
     end

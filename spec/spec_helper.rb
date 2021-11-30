@@ -23,7 +23,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    session = BeyondApi::Session.new(api_url: ENV['SHOP_URL'])
+    session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
     session.token.client_credentials
 
     products = session.products.all

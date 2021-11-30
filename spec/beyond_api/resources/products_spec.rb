@@ -1,8 +1,8 @@
-require 'faker'
+require "faker"
 
 RSpec.describe BeyondApi do
   let!(:session) do
-    session = BeyondApi::Session.new(api_url: ENV['SHOP_URL'])
+    session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
     session.token.client_credentials
   end
 
@@ -11,15 +11,8 @@ RSpec.describe BeyondApi do
   let!(:app_root) { File.expand_path(File.dirname("ext.rb")) }
   let!(:file_path) { "#{app_root}/spec/files/"}
 
-  after(:all) do
-    # session = BeyondApi::Session.new(api_url: ENV['SHOP_URL'])
-    # session.token.client_credentials
-
-    # product = session.products.all
-  end
-
-  describe 'non existing product' do
-    it 'create a new regular product and ' do
+  describe "non existing product" do
+    it "create a new regular product and " do
       product = session.products.create(FactoryBot.build(:product))
 
       expect(product).not_to be nil
@@ -28,8 +21,8 @@ RSpec.describe BeyondApi do
   end
 
 
-  describe 'product exist' do
-    it 'find a product sending an ID' do
+  describe "product exist" do
+    it "find a product sending an ID" do
       response = session.products.find(product.id)
       expect(response).not_to be nil
       expect(response.id).to eq(product.id)
@@ -43,8 +36,8 @@ RSpec.describe BeyondApi do
       ]
 
       images = session.products.upload_multiple_images(product.id,
-                                                        files,
-                                                        ['image1.png', 'image2.png'])
+                                                       files,
+                                                       ["image1.png", "image2.png"])
       expect(images).not_to be nil
       expect(images.embedded.images.is_a?(Array)).to eq true
     end
@@ -52,7 +45,7 @@ RSpec.describe BeyondApi do
     it "upload a single image" do
       file = "#{file_path}image1.png"
 
-      image = session.products.upload_image(product.id, file, 'image3.png')
+      image = session.products.upload_image(product.id, file, "image3.png")
       expect(image).not_to be nil
       expect(image).to eq true
     end

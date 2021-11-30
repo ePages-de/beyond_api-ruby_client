@@ -7,10 +7,10 @@ RSpec.describe BeyondApi do
     expect(BeyondApi::VERSION).not_to be nil
   end
 
-  it 'return image content type' do
+  it "return image content type" do
     file = "#{app_root}/spec/files/image1.png"
 
-    expect(BeyondApi::Utils.file_content_type(file)).to eq 'image/png'
+    expect(BeyondApi::Utils.file_content_type(file)).to eq "image/png"
   end
 
   it "parse snakecase to camelcase" do
