@@ -56,28 +56,5 @@ RSpec.describe BeyondApi do
       expect(image).not_to be nil
       expect(image).to eq true
     end
-
-    it "upload more than 10 images with single call" do
-      files = ["#{file_path}image1.png"] * 20
-      image_names = Array.new(20) { |index| "image#{index+1}.png" }
-      images = session.products.upload_all_multiple_images(product.id,
-                                                           files,
-                                                           image_names)
-      expect(images).not_to be nil
-      expect(images.embedded.images.is_a?(Array)).to eq true
-      expect(images.embedded.images.size).to eq 20
-    end
-
-    xit "return an error when upload more than 50 images" do
-      files = ["#{file_path}image1.png"] * 51
-      image_names = Array.new(51) { |index| "image#{index+1}.png" }
-      images = session.products.upload_all_multiple_images(product.id,
-                                                           files,
-                                                           image_names)
-      expect(images).not_to be nil
-      puts images
-      expect(images.embedded.images.is_a?(Array)).to eq true
-      expect(images.embedded.images.size).to eq 20
-    end
   end
 end
