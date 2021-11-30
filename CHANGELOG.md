@@ -2,7 +2,7 @@
 
 * features
   * Allow upload multiple images
-  
+
 ### v0.18.2.pre
 
 * bug-fixes
