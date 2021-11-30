@@ -7,10 +7,18 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     faraday (1.8.0)
@@ -35,6 +43,7 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
+    minitest (5.14.4)
     multipart-post (2.1.1)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -54,7 +63,10 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
     ruby2_keywords (0.0.5)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     yard (0.9.26)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby
@@ -63,6 +75,7 @@ DEPENDENCIES
   beyond_api!
   bundler (~> 2.0)
   dotenv (~> 2.7)
+  factory_bot
   faker (~> 2.2)
   pry
   rake (~> 10.0)
