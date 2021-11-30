@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductSearches
-
     #
     # A +GET+ request is used to search for a product by SKU.
     #
@@ -44,7 +43,8 @@ module BeyondApi
     #   @tags = session.product.search_tags_starting_by("aw")
     #
     def search_tags_starting_by(starts_with, params = {})
-      response, status = BeyondApi::Request.get(@session, "/products/search/tags", params.merge(starts_with: starts_with))
+      response, status = BeyondApi::Request.get(@session, "/products/search/tags",
+                                                params.merge(starts_with: starts_with))
 
       handle_response(response, status)
     end

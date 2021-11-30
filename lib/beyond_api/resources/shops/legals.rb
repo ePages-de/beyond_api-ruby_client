@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopLegals
-
     #
     # A +GET+ request is used to retrieve a specific part of the legal content information.
     #
@@ -20,7 +19,8 @@ module BeyondApi
     #   @legal_content = session.shop.legal_content("right-of-withdrawal")
     #
     def legal_content(legal_content_type)
-      response, status = BeyondApi::Request.get(@session, "/legal-content/#{legal_content_type}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/legal-content/#{legal_content_type}")
 
       handle_response(response, status)
     end
@@ -41,7 +41,9 @@ module BeyondApi
     #   @legal_content = session.shop.legal_contents(size: 5, page: 1)
     #
     def legal_contents(params = {})
-      response, status = BeyondApi::Request.get(@session, "/legal-content", params)
+      response, status = BeyondApi::Request.get(@session,
+                                                "/legal-content",
+                                                params)
 
       handle_response(response, status)
     end
@@ -60,12 +62,13 @@ module BeyondApi
     #   @legal_details = session.shop.legal_details
     #
     def legal_details
-      response, status = BeyondApi::Request.get(@session, "/shop/legal")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/shop/legal")
 
       handle_response(response, status)
     end
 
-#
+    #
     # A +PUT+ request is used to update the content of a specific part of the legal content information. Changes on the properties type and mandatory will be ignored.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/legal-content/legal-notice' -i -X PUT \
@@ -86,7 +89,9 @@ module BeyondApi
     #   session.shop.update_legal_content(body)
     #
     def update_legal_content(body)
-      response, status = BeyondApi::Request.put(@session, "/legal-content/legal-notice")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/legal-content/legal-notice",
+                                                body)
 
       handle_response(response, status)
     end
@@ -116,7 +121,9 @@ module BeyondApi
     #   session.shop.update_legal_details(body)
     #
     def update_legal_details(body)
-      response, status = BeyondApi::Request.patch(@session, "/shop/legal")
+      response, status = BeyondApi::Request.patch(@session,
+                                                  "/shop/legal",
+                                                  body)
 
       handle_response(response, status)
     end

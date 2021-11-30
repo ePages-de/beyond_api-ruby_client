@@ -23,7 +23,9 @@ module BeyondApi
     #   @products = session.products_view.all(page: 0, size: 100)
     #
     def all(params = {})
-      handle_all_request("/product-view/products", :products, params)
+      path = "/product-view/products"
+
+      handle_all_request(path, :products, params)
     end
 
     #
@@ -39,7 +41,10 @@ module BeyondApi
     #   @tags = session.products_view.available_tags
     #
     def available_tags
-      response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-available-tags")
+      path = "/product-view/products/search/find-available-tags"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -60,7 +65,10 @@ module BeyondApi
     #   @product = session.products_view.find("f75f8fb2-5a48-4d94-aad6-3d3692c06472")
     #
     def find(product_id)
-      response, status = BeyondApi::Request.get(@session, "/product-view/products/#{product_id}")
+      path = "/product-view/products/#{product_id}"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -82,7 +90,11 @@ module BeyondApi
     #   @products = session.products_view.search_by_tag("number0", {page: 0, size: 100})
     #
     def search_by_tag(tag, params = {})
-      response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-tags", params.merge(tag: tag))
+      path = "/product-view/products/search/find-by-tags"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path,
+                                                params.merge(tag: tag))
 
       handle_response(response, status)
     end
@@ -104,7 +116,11 @@ module BeyondApi
     #   @products = session.products_view.search_by_term("search snippet", {page: 0, size: 100})
     #
     def search_by_term(term, params = {})
-      response, status = BeyondApi::Request.get(@session, "/product-view/products/search/find-by-term", params.merge(query: term))
+      path = "/product-view/products/search/find-by-term"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path,
+                                                params.merge(query: term))
 
       handle_response(response, status)
     end

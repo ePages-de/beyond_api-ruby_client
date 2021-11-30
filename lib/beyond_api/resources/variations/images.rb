@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module VariationImages
-
     #
     # A +POST+ request is used to create an image and add it to a variation. The URL of the image will be assigned to the variation. The image URL has to be provided in body of the request.
     #
@@ -35,11 +34,14 @@ module BeyondApi
     #   @image = session.variations.add_image("a08ca814-52e9-4e00-82a2-3e9b012e5f9d", "4b58cdb7-4d3d-419a-ae27-8469f8b04276", body)
     #
     def add_image(product_id, variation_id, body)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variations/#{variation_id}/images", body)
+      path = "/products/#{product_id}/variations/#{variation_id}/images"
+
+      response, status = BeyondApi::Request.post(@session,
+                                                 path,
+                                                 body)
 
       handle_response(response, status)
     end
-
 
     #
     # A +DELETE+ request is used to delete a variation image
@@ -61,7 +63,10 @@ module BeyondApi
     #   session.variations.delete_image("8f5736f8-0a5f-4c08-bbac-3c524e2a6294", "86f3047c-ff29-4906-83c1-93e24ef88f3e", "193d2ba4-3cf0-4326-a655-ef46e8a97c6a")
     #
     def delete_image(product_id, variation_id, image_id)
-      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}/variations/#{variation_id}/images/#{image_id}")
+      path = "/products/#{product_id}/variations/#{variation_id}/images/#{image_id}"
+
+      response, status = BeyondApi::Request.delete(@session,
+                                                   path)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -86,7 +91,10 @@ module BeyondApi
     #   @image = session.variations.image("8665fc36-003e-4120-8a74-a9d6449644ae", "a9163db42-92e7-418c-a3d8-651e7aaca569", "86fc2691-5dfb-47e1-aae7-4bc2f658a80b")
     #
     def image(product_id, image_id)
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}/images/#{image_id}")
+      path = "/products/#{product_id}/variations/#{variation_id}/images/#{image_id}"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -112,7 +120,11 @@ module BeyondApi
     #   @images = session.variations.images("b4948e53-05af-4e0b-8877-28bc8811f73e", "50c5bf45-5dd6-4bae-babf-813c7cdca488", size: 100, page: 0)
     #
     def images(product_id, variation_id, params = {})
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}/images", params)
+      path = "/products/#{product_id}/variations/#{variation_id}/images"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path,
+                                                params)
 
       handle_response(response, status)
     end
@@ -143,9 +155,15 @@ module BeyondApi
     #
     def upload_image(product_id, variation_id, image_path, image_name)
       content_type = file_content_type(image_path)
+      path = "/products/#{product_id}/variations/#{variation_id}/images"
+
       image_binary = File.binread(image_path)
 
-      response, status = BeyondApi::Request.upload(@session, "/products/#{product_id}/variations/#{variation_id}/images", image_binary, content_type, { file_name: image_name })
+      response, status = BeyondApi::Request.upload(@session,
+                                                   path,
+                                                   image_binary,
+                                                   content_type,
+                                                   { file_name: image_name })
 
       handle_response(response, status, respond_with_true: true)
     end

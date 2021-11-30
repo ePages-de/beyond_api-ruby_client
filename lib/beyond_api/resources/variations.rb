@@ -29,7 +29,11 @@ module BeyondApi
     #   @variations = session.variations.all("dc1b5caf-51ea-4fcd-b1ba-0c5128e91d17", { size: 100, page: 0 })
     #
     def all(product_id, params = {})
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations", params)
+      path = "/products/#{product_id}/variations"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path,
+                                                params)
 
       handle_response(response, status)
     end
@@ -53,7 +57,10 @@ module BeyondApi
     #   @variation = session.variations.find("5f6e426e-c8d9-48ba-9b37-9a8eb6381373", "f6e5bb16-af2e-440f-acd3-a883ad3c1922")
     #
     def find(product_id, variation_id)
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}/variations/#{variation_id}")
+      path = "/products/#{product_id}/variations/#{variation_id}"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -143,7 +150,11 @@ module BeyondApi
     #   @variation = session.variations.update("7cf4b5b1-b141-4869-96d1-4eaee8bf7563", "9f93fdd0-2d21-4ea9-b9d7-e9a53edb091b", body)
     #
     def update(product_id, variation_id, body)
-      response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}/variations/#{variation_id}", body)
+      path = "/products/#{product_id}/variations/#{variation_id}"
+
+      response, status = BeyondApi::Request.patch(@session,
+                                                  path,
+                                                  body)
 
       handle_response(response, status)
     end

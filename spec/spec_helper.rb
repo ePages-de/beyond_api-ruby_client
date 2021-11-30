@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bundler/setup"
 require "dotenv/load"
 require "beyond_api"
@@ -35,7 +37,7 @@ RSpec.configure do |config|
   load "#{AppRoot}/lib/beyond_api/ext.rb"
 end
 
-unless ENV["CLIENT_ID"].nil? and ENV["CLIENT_SECRET"].nil?
+unless ENV["CLIENT_ID"].nil? && ENV["CLIENT_SECRET"].nil?
   BeyondApi.setup do |config|
     config.client_id = ENV["CLIENT_ID"]
     config.client_secret = ENV["CLIENT_SECRET"]

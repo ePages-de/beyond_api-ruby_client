@@ -11,7 +11,7 @@ module BeyondApi
         define_method(method) do |session, path, params = {}|
           response = BeyondApi::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
-            request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
+            request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
           end
 
@@ -23,7 +23,7 @@ module BeyondApi
         define_method(method) do |session, path, body = {}, params = {}|
           response = BeyondApi::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
-            request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
+            request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
             request.body = body.camelize_keys.to_json
           end
@@ -36,8 +36,8 @@ module BeyondApi
     def self.upload(session, path, file_binary, content_type, params)
       response = BeyondApi::Connection.default.post do |request|
         request.url(session.api_url + path)
-        request.headers['Authorization'] = "Bearer #{ session.access_token }" unless session.access_token.nil?
-        request.headers['Content-Type'] = content_type
+        request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
+        request.headers["Content-Type"] = content_type
         request.params = params.to_h.camelize_keys
         request.body = file_binary
       end

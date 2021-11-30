@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe BeyondApi do
   let!(:app_root) { File.expand_path(File.dirname("ext.rb")) }
 
