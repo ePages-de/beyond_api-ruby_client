@@ -6,8 +6,6 @@ RSpec.describe BeyondApi do
 
   let(:product) { @product = session.products.create(FactoryBot.build(:product)) }
 
-  let!(:app_root) { File.expand_path(File.dirname("ext.rb")) }
-
   it "list products with specific tag" do
     response = session.products_view.search_by_tag("beyond_api-ruby_client")
     expect(response).not_to be nil

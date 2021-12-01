@@ -1,7 +1,7 @@
 ### v0.19.0.pre
 
 * features
-  * Allow upload multiple images
+  * Upload multiple images for products and variations
 
 ### v0.18.2.pre
 

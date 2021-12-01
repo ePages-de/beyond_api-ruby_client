@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
 RSpec.describe BeyondApi do
+  let!(:file_path) do
+    app_root = File.expand_path(File.dirname("ext.rb"))
+    "#{app_root}/spec/files/"
+  end
 
   let!(:session) do
     session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
@@ -17,8 +23,6 @@ RSpec.describe BeyondApi do
     session.products.update_variation_properties(product.id,  body)
   end
 
-  let!(:app_root) { File.expand_path(File.dirname("ext.rb")) }
-
   context "Create variation" do
     it "Update image variation property" do
       body = [{
@@ -36,8 +40,8 @@ RSpec.describe BeyondApi do
 
     it "Upload multiple images" do
       files = [
-        "#{app_root}/spec/files/image1.png",
-        "#{app_root}/spec/files/image2.png"
+        "#{file_path}image1.png",
+        "#{file_path}image2.png"
       ]
 
       default_image_property
@@ -50,7 +54,7 @@ RSpec.describe BeyondApi do
     end
 
     it "Upload a single image" do
-      file = "#{app_root}/spec/files/image1.png"
+      file = "#{file_path}image1.png"
 
       default_image_property
       response = session.variations.upload_multiple_images(product.id,

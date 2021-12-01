@@ -1,4 +1,4 @@
-require "faker"
+# frozen_string_literal: true
 
 RSpec.describe BeyondApi do
   let!(:session) do
@@ -8,8 +8,10 @@ RSpec.describe BeyondApi do
 
   let(:product) { @product = session.products.create(FactoryBot.build(:product)) }
 
-  let!(:app_root) { File.expand_path(File.dirname("ext.rb")) }
-  let!(:file_path) { "#{app_root}/spec/files/"}
+  let!(:file_path) do
+    app_root = File.expand_path(File.dirname("ext.rb"))
+    "#{app_root}/spec/files/"
+  end
 
   describe "non existing product" do
     it "create a new regular product and " do
