@@ -1,4 +1,4 @@
-RSpec.describe BeyondApi do
+RSpec.describe 'BeyondApi::ProductsView' do
   let!(:session) do
     session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
     session.token.client_credentials

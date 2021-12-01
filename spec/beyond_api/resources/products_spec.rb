@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BeyondApi do
+RSpec.describe 'BeyondApi::Products' do
   let!(:session) do
     session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
     session.token.client_credentials

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BeyondApi do
+RSpec.describe 'BeyondApi::Variations' do
   let!(:file_path) do
     app_root = File.expand_path(File.dirname("ext.rb"))
     "#{app_root}/spec/files/"
