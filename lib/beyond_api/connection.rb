@@ -32,8 +32,16 @@ module BeyondApi
         end
         faraday.headers['Accept'] = 'application/json'
         faraday.adapter(:net_http)
-        faraday.basic_auth(BeyondApi.configuration.client_id,
-                           BeyondApi.configuration.client_secret)
+        faraday.request :basic_auth, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
+      end
+    end
+
+    def self.multipart
+      Faraday.new(ssl: { verify: true }) do |faraday|
+        faraday.options[:open_timeout] = BeyondApi.configuration.open_timeout.to_i
+        faraday.options[:timeout] = BeyondApi.configuration.timeout.to_i
+        faraday.request :multipart, { flat_encode: true }
+        faraday.adapter Faraday.default_adapter
       end
     end
   end
