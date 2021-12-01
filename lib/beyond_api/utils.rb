@@ -4,6 +4,17 @@ module BeyondApi
   module Utils
     extend self
 
+    def file_content_type(file_path)
+      case File.extname(file_path)
+      when ".png"
+        "image/png"
+      when ".jpg", ".jpeg"
+        "image/jpeg"
+      when ".gif"
+        "image/gif"
+      end
+    end
+
     def handle_all_request(url, resource, params = {})
       paginated_size = BeyondApi.configuration.all_pagination_size
 
@@ -58,11 +69,11 @@ module BeyondApi
 
     def to_object_struct(data)
       if data.is_a? Hash
-        return OpenStruct.new(data.map { |key, val| [key, to_object_struct(val)] }.to_h)
+        OpenStruct.new(data.map { |key, val| [key, to_object_struct(val)] }.to_h)
       elsif data.is_a? Array
-        return data.map { |o| to_object_struct(o) }
+        data.map { |o| to_object_struct(o) }
       else
-        return data
+        data
       end
     end
 
@@ -76,8 +87,8 @@ module BeyondApi
 
     def transform(thing)
       case thing
-      when Hash; sanitize_response(thing)
-      when Array; thing.map { |v| transform(v) }
+      when Hash then sanitize_response(thing)
+      when Array then thing.map { |v| transform(v) }
       else; thing
       end
     end

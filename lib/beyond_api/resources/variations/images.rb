@@ -140,8 +140,8 @@ module BeyondApi
     #
     # @param product_id [String] the product UUID
     # @param variation_id [String] the variation UUID
-    # @param image_path [String] the image path
-    # @param image_name [String] the image name
+    # @param images_path [Array] the images path
+    # @param images_name [Array] the images name
     #
     # @return [OpenStruct]
     #
@@ -154,15 +154,9 @@ module BeyondApi
     #   session.variations.upload_image("4125b993-49fc-47c8-b9b3-76d8871e4e06", "d7fecf94-2e57-4122-8c94-a0acd840c111", "/home/epages/file.png", "file.png")
     #
     def upload_image(product_id, variation_id, image_path, image_name)
+      content_type = file_content_type(image_path)
       path = "/products/#{product_id}/variations/#{variation_id}/images"
-      content_type = case File.extname(image_path)
-                     when ".png"
-                       "image/png"
-                     when ".jpg", ".jpeg"
-                       "image/jpeg"
-                     when ".gif"
-                       "image/gif"
-                     end
+
       image_binary = File.binread(image_path)
 
       response, status = BeyondApi::Request.upload(@session,
@@ -172,6 +166,37 @@ module BeyondApi
                                                    { file_name: image_name })
 
       handle_response(response, status, respond_with_true: true)
+    end
+
+    #
+    # A +POST+ request is used to upload up to 10 images to the image storage and assign the URL of the images to up to 30 variations. The body of the request must contain the content of the images.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/4125b993-49fc-47c8-b9b3-76d8871e4e06/variations/images?fileName=file.png&fileName=file2.png&variation=ca53ae26-e7c6-44a4-8070-9fca08cc87ed&variation=ab63fa3a-c2ac-4074-aaa3-b547217b042d' -i -X POST \
+    #       -H 'Content-Type: multipart/form-data' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -F 'image=@/home/epages/file.png' \
+    #       -F 'image=@/home/epages/file2.png'
+    #
+    # @beyond_api.scopes +prod:u+
+    #
+    # @param product_id [String] the product UUID
+    # @param variation_id [String] the variation UUID
+    # @param images_path [String] the image path
+    # @param images_name [String] the image name
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   session.variations.upload_multiple_images("4125b993-49fc-47c8-b9b3-76d8871e4e06", "d7fecf94-2e57-4122-8c94-a0acd840c111",
+    #                                             ["/home/epages/file.png", "/home/epages/file2.png"], ["file.png", "file2.png"])
+    #
+    def upload_multiple_images(product_id, variation_id, images_path, images_name)
+      response, status = BeyondApi::Request.upload_by_form(@session,
+                                                           "/products/#{product_id}/variations/#{variation_id}/images",
+                                                           images_path,
+                                                           file_name: images_name)
+
+      handle_response(response, status)
     end
   end
 end

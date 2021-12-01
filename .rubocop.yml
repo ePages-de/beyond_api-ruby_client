@@ -3,6 +3,8 @@ require:
   - rubocop-rspec
 
 AllCops:
+  Exclude:
+    - spec/**/*.rb
   NewCops: enable
 
 Style/StringLiterals:

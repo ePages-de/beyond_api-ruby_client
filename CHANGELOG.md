@@ -1,3 +1,8 @@
+### v0.19.0.pre
+
+* features
+  * Upload multiple images for products and variations
+
 ### v0.18.2.pre
 
 * bug-fixes
