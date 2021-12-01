@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopLocations
-
     #
     # A +GET+ request is used to retrieve a list of all locations for the current shop.
     #

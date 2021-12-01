@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductAttachments
-
     #
     # A +POST+ request is used to create an attachment and add it to a product.
     #
@@ -113,6 +112,5 @@ module BeyondApi
 
       handle_response(response, status, respond_with_true: true)
     end
-
   end
 end

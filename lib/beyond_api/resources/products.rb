@@ -43,7 +43,9 @@ module BeyondApi
     #   @products = session.products.all(size: 100, page: 0)
     #
     def all(params = {})
-      handle_all_request("/products", :products, params)
+      path = "/products"
+
+      handle_all_request(path, :products, params)
     end
 
     #
@@ -166,7 +168,11 @@ module BeyondApi
     #   @product = session.products.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/products", body)
+      path = "/products"
+
+      response, status = BeyondApi::Request.post(@session,
+                                                 path,
+                                                 body)
 
       handle_response(response, status)
     end
@@ -188,7 +194,10 @@ module BeyondApi
     #   session.products.delete("c06c61af-f99a-4698-90fa-8c3199ca732f")
     #
     def delete(product_id)
-      response, status = BeyondApi::Request.delete(@session, "/products/#{product_id}")
+      path = "/products/#{product_id}"
+
+      response, status = BeyondApi::Request.delete(@session,
+                                                   path)
 
       handle_response(response, status, respond_with_true: true)
     end
@@ -211,7 +220,10 @@ module BeyondApi
     #   @product = session.products.find("75ebcb57-aefb-4963-8225-060c528e070d")
     #
     def find(product_id)
-      response, status = BeyondApi::Request.get(@session, "/products/#{product_id}")
+      path = "/products/#{product_id}"
+
+      response, status = BeyondApi::Request.get(@session,
+                                                path)
 
       handle_response(response, status)
     end
@@ -247,7 +259,11 @@ module BeyondApi
     #   @product = session.products.update("b69e3f47-03b8-40d2-843c-ae89a3d9bcdd", body)
     #
     def update(product_id, body)
-      response, status = BeyondApi::Request.patch(@session, "/products/#{product_id}", body)
+      path = "/products/#{product_id}"
+
+      response, status = BeyondApi::Request.patch(@session,
+                                                  path,
+                                                  body)
 
       handle_response(response, status)
     end
@@ -271,13 +287,16 @@ module BeyondApi
     #   session.products.assign_variation_images_differentiator("f205294b-17dc-4f75-8b5e-5df72abb96df", "491fedf4-37a9-4bcf-98b8-cff2f82879b7")
     #
     def assign_variation_attribute_as_differentiator(product_id, variation_attribute_id)
-      response, status = BeyondApi::Request.post(@session, "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
+      path = "/products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator"
+
+      response, status = BeyondApi::Request.post(@session,
+                                                 path)
 
       handle_response(response, status, respond_with_true: true)
     end
 
-    alias_method :create_variation, :create
-    alias_method :find_variation,   :find
-    alias_method :update_variation, :update
+    alias create_variation create
+    alias find_variation find
+    alias update_variation update
   end
 end

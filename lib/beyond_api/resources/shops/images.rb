@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ShopImages
-
     #
     # A +POST+ request is used to create a shop image.
     #
@@ -138,16 +137,20 @@ module BeyondApi
     #
     def upload_image(image_path, image_name, label)
       content_type = case File.extname(image_path)
-        when ".png"
-          "image/png"
-        when ".jpg", ".jpeg"
-          "image/jpeg"
-        when ".gif"
-          "image/gif"
-        end
+                     when ".png"
+                       "image/png"
+                     when ".jpg", ".jpeg"
+                       "image/jpeg"
+                     when ".gif"
+                       "image/gif"
+                     end
       image_binary = File.binread(image_path)
 
-      response, status = BeyondApi::Request.upload(@session, "/shop/images", image_binary, content_type, { file_name: image_name, label: label })
+      response, status = BeyondApi::Request.upload(@session,
+                                                   "/shop/images",
+                                                   image_binary,
+                                                   content_type,
+                                                   { file_name: image_name, label: label })
 
       handle_response(response, status, respond_with_true: true)
     end

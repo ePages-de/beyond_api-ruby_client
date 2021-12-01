@@ -4,7 +4,6 @@ require "beyond_api/utils"
 
 module BeyondApi
   module ProductVariationProperties
-
     #
     # A +PATCH+ request is used to update the variation properties of a variation product.
     #

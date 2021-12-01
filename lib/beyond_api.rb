@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "beyond_api/version"
 
 require "logger"
@@ -25,7 +27,7 @@ module BeyondApi
   end
 
   class Configuration
-    attr_accessor :client_id, :client_secret, :open_timeout, :timeout,  :remove_response_links,
+    attr_accessor :client_id, :client_secret, :open_timeout, :timeout, :remove_response_links,
                   :remove_response_key_underscores, :object_struct_responses, :raise_error_requests,
                   :log_headers, :log_bodies, :log_level, :all_pagination_size
 

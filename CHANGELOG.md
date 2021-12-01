@@ -1,7 +1,23 @@
+### v0.19.0.pre
+
+* features
+  * Upload multiple images for products and variations
+
+### v0.18.2.pre
+
+* bug-fixes
+  * Move `#products.update_reserve_stock` from `POST` to `PUT`.
+
+* enhancements
+  * Update how `api_url` is set on `BeyondApi::Session`.
+
+* features
+  * Install, configure and fix most of the Rubocop issues.
+
 ### v0.18.1.pre
 
 * bug-fixes
-  * Prevent logging `code` and `refresh_token` on `/api/token` calls
+  * Prevent logging `code` and `refresh_token` on `/api/token` calls.
 
 ### v0.18.0.pre
 

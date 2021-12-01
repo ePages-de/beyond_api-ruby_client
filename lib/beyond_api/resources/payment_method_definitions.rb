@@ -53,7 +53,9 @@ module BeyondApi
     #   @payment_method_definitions = session.payment_method_definitions.create(body)
     #
     def create(body)
-      response, status = BeyondApi::Request.post(@session, "/payment-method-definitions", body)
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/payment-method-definitions",
+                                                 body)
 
       handle_response(response, status)
     end
@@ -97,7 +99,8 @@ module BeyondApi
     #   @payment_method_definition = session.payment_methods.find("credit-card")
     #
     def find(payment_method_definition_id)
-      response, status = BeyondApi::Request.get(@session, "/payment-method-definitions/#{payment_method_definition_id}")
+      response, status = BeyondApi::Request.get(@session,
+                                                "/payment-method-definitions/#{payment_method_definition_id}")
 
       handle_response(response, status)
     end
@@ -149,7 +152,9 @@ module BeyondApi
     #   @payment_method_definition = session.payment_method_definitions.update("credit_card", body)
     #
     def update(payment_method_definition_id, body)
-      response, status = BeyondApi::Request.put(@session, "/payment-method-definitions/#{payment_method_definition_id}")
+      response, status = BeyondApi::Request.put(@session,
+                                                "/payment-method-definitions/#{payment_method_definition_id}",
+                                                body)
 
       handle_response(response, status)
     end
@@ -167,7 +172,9 @@ module BeyondApi
     #   session.payment_method_definitions.delete("credit-card")
     #
     def delete(payment_method_definition_id)
-      response, status = BeyondApi::Request.delete(@session, "/payment-method-definitions/#{payment_method_definition_id}", body)
+      response, status = BeyondApi::Request.delete(@session,
+                                                   "/payment-method-definitions/#{payment_method_definition_id}",
+                                                   body)
 
       handle_response(response, status, respond_with_true: true)
     end
