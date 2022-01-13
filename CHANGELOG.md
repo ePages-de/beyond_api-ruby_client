@@ -1,3 +1,9 @@
+### v0.20.0.pre
+
+* features
+  * Add product search method
+    * `Products#search`
+
 ### v0.19.0.pre
 
 * features
