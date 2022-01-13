@@ -27,7 +27,7 @@ module BeyondApi
             request.headers["Content-Type"] = content_type
             request.params = params.to_h.camelize_keys
 
-            request.body = body.is_a?(String) ? body : body.camelize_keys.to_json
+            request.body = body.respond_to?(:camelize_keys) ? body.camelize_keys.to_json : body
           end
 
           [response.body.blank? ? nil : JSON.parse(response.body), response.status]
