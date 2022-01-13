@@ -129,6 +129,39 @@ module BeyondApi
       handle_response(response, status)
     end
 
+    # A +PUT+ request is used to sort the variation images. This is done by passing the self-links of the images to the desired variation. The request must contain URIs for all images of the given page.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/products/8a8a7002-f864-4011-9991-d6ffb1bd1085/variations/60c2c2a5-ece0-4d04-b90d-f38ee710961c/images' -i -X PUT \
+    #     -H 'Content-Type: text/uri-list' \
+    #     -H 'Authorization: Bearer <Access token>' \
+    #     -d 'https://api-shop.beyondshop.cloud/api/products/8a8a7002-f864-4011-9991-d6ffb1bd1085/variations/60c2c2a5-ece0-4d04-b90d-f38ee710961c/images/a12cae49-3efb-4874-989e-37df6981a4db
+    #         https://api-shop.beyondshop.cloud/api/products/8a8a7002-f864-4011-9991-d6ffb1bd1085/variations/60c2c2a5-ece0-4d04-b90d-f38ee710961c/images/4f562165-968c-42fd-a245-1dcc045f8151
+    #         https://api-shop.beyondshop.cloud/api/products/8a8a7002-f864-4011-9991-d6ffb1bd1085/variations/60c2c2a5-ece0-4d04-b90d-f38ee710961c/images/93cd0802-15db-4772-b524-e1c4c6c27b77'
+    #
+    # @beyond_api.scopes +prod:u+
+    #
+    # @param product_id [String] the product UUID
+    # @param variation_id [String] the variation UUID
+    # @param images [Array] the image UUIDS
+    #
+    # @return true
+    #
+    # @example
+    #   body = [
+    #     "c9082802-a0d0-416e-9039-02fa465a027e",
+    #     "78e9993d-8db3-45d8-8f76-6b8f2aea9c45",
+    #     "9233ee97-5dbb-4c00-a7b2-e1512c69a938"
+    #   ]
+    #   session.variations.sort_images("3f4b2b56-c22d-4d80-b4ed-d5b33ed161eb", body)
+    #
+    def sort_images(product_id, variation_id, image_ids)
+      body = image_ids.map { |image_id| "#{@session.api_url}/products/#{product_id}/variations/#{variation_id}/images/#{image_id}" }
+      body = body.join("\n")
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/variations/#{variation_id}/images", body, {}, 'text/uri-list')
+
+      handle_response(response, status, respond_with_true: true)
+    end
+
     #
     # A +POST+ request is used to upload an image to the image storage and assign the URL of the image to the variation. The body of the request must contain the content of the image.
     #

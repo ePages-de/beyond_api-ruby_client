@@ -20,12 +20,14 @@ module BeyondApi
       end
 
       [:post, :put, :patch].each do |method|
-        define_method(method) do |session, path, body = {}, params = {}|
+        define_method(method) do |session, path, body = {}, params = {}, content_type = 'application/json'|
           response = BeyondApi::Connection.default.send(method) do |request|
             request.url(session.api_url + path)
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
+            request.headers["Content-Type"] = content_type
             request.params = params.to_h.camelize_keys
-            request.body = body.camelize_keys.to_json
+
+            request.body = body.is_a?(String) ? body : body.camelize_keys.to_json
           end
 
           [response.body.blank? ? nil : JSON.parse(response.body), response.status]
