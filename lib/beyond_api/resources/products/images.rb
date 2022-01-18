@@ -162,7 +162,7 @@ module BeyondApi
     #
     def sort_images(product_id, image_ids)
       body = image_ids.map { |image_id| "#{@session.api_url}/products/#{product_id}/images/#{image_id}" }
-      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/images", body)
+      response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/images", body.join("\n"), {}, 'text/uri-list')
 
       handle_response(response, status, respond_with_true: true)
     end
