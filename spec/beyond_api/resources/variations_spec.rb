@@ -64,5 +64,30 @@ RSpec.describe 'BeyondApi::Variations' do
 
       expect(response).not_to be nil
     end
+
+    it "sort variation images" do
+      files = [
+        "#{file_path}image1.png",
+        "#{file_path}image2.png"
+      ]
+
+      default_image_property
+      response = session.variations.upload_multiple_images(product.id,
+                                                           variation.id,
+                                                           files,
+                                                           ["image1.png", "image2.png"])
+
+      images = session.variations.images(product.id, variation.id)
+
+      images_sorted = images.embedded.images.sort_by(&:position).reverse.map(&:id)
+
+      sorted = session.variations.sort_images(product.id, variation.id, images_sorted)
+
+      images = session.variations.images(product.id, variation.id)
+
+      expect(sorted).not_to be nil
+      expect(sorted).to eq true
+      expect(images.embedded.images.map(&:id)).to eq images_sorted
+    end
   end
 end
