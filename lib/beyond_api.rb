@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "beyond_api/version"
+require "zeitwerk"
 
-require "logger"
+loader = Zeitwerk::Loader.for_gem
 
 require "beyond_api/ext"
 require "beyond_api/utils"
@@ -49,3 +49,5 @@ module BeyondApi
     end
   end
 end
+
+loader.eager_load
