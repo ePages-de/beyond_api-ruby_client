@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  autoload :VariationImages,       "beyond_api/resources/variations/images"
-  autoload :VariationAvailability, "beyond_api/resources/variations/availability"
-
   class Variations < Base
-    include BeyondApi::VariationImages
-    include BeyondApi::VariationAvailability
+    include BeyondApi::Variations::Images
+    include BeyondApi::Variations::Availability
     include BeyondApi::Utils
 
     #

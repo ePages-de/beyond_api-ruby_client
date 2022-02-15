@@ -2,7 +2,6 @@
 
 require "json"
 require "faraday"
-require "beyond_api/utils"
 
 module BeyondApi
   class Request

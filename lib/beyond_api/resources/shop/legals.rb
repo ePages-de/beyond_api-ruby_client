@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ShopLegals
+  module Shop::Legals
     #
     # A +GET+ request is used to retrieve a specific part of the legal content information.
     #

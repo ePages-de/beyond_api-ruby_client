@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require "faraday"
+require "logger"
 
 module BeyondApi
   class Connection
     LOGGER = ::BeyondApi.logger
-    LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
+    LOGGER.level = ::Kernel.const_get("Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
     def self.default
       Faraday.new(ssl: { verify: true }) do |faraday|
@@ -30,7 +31,7 @@ module BeyondApi
           logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
           logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
         end
-        faraday.headers['Accept'] = 'application/json'
+        faraday.headers["Accept"] = "application/json"
         faraday.adapter(:net_http)
         faraday.request :basic_auth, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
       end

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ShopImages
+  module Shop::Images
     #
     # A +POST+ request is used to create a shop image.
     #

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module VariationAvailability
+  module Variations::Availability
     #
     # A +POST+ request is used to adjust the available stock of a variation.
     #

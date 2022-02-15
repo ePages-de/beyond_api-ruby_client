@@ -1,20 +1,12 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  autoload :ShopAddress,    "beyond_api/resources/shops/address"
-  autoload :ShopAttributes, "beyond_api/resources/shops/attributes"
-  autoload :ShopImages,     "beyond_api/resources/shops/images"
-  autoload :ShopLegals,     "beyond_api/resources/shops/legals"
-  autoload :ShopLocations,  "beyond_api/resources/shops/locations"
-
   class Shop < Base
-    include BeyondApi::ShopAddress
-    include BeyondApi::ShopAttributes
-    include BeyondApi::ShopImages
-    include BeyondApi::ShopLegals
-    include BeyondApi::ShopLocations
+    include BeyondApi::Shop::Address
+    include BeyondApi::Shop::Attributes
+    include BeyondApi::Shop::Images
+    include BeyondApi::Shop::Legals
+    include BeyondApi::Shop::Locations
     include BeyondApi::Utils
 
     #

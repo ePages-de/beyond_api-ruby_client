@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module VariationImages
+  module Variations::Images
     #
     # A +POST+ request is used to create an image and add it to a variation. The URL of the image will be assigned to the variation. The image URL has to be provided in body of the request.
     #

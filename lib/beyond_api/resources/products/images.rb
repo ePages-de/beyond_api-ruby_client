@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductImages
+  module Products::Images
     #
     # A +POST+ request is used to create an image and add it to a product.
     #

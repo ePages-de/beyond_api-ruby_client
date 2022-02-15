@@ -3,17 +3,14 @@
 require "zeitwerk"
 
 loader = Zeitwerk::Loader.for_gem
+loader.collapse("#{__dir__}/beyond_api/resources")
+loader.ignore("#{__dir__}/ext")
+loader.ignore("#{__dir__}/generators")
+loader.setup
 
-require "beyond_api/ext"
-require "beyond_api/utils"
+Dir["#{__dir__}/ext*.rb"].each { |file| require file }
 
 module BeyondApi
-  autoload :Connection, "beyond_api/connection"
-  autoload :Error,      "beyond_api/error"
-  autoload :Logger,     "beyond_api/logger"
-  autoload :Request,    "beyond_api/request"
-  autoload :Session,    "beyond_api/session"
-
   extend BeyondApi::Logger
 
   class << self

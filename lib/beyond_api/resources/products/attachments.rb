@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductAttachments
+  module Products::Attachments
     #
     # A +POST+ request is used to create an attachment and add it to a product.
     #

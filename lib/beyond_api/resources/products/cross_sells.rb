@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductCrossSells
+  module Products::CrossSells
     #
     # A +POST+ request is used to create a cross-sell for a product.
     #

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ShopLocations
+  module Shop::Locations
     #
     # A +GET+ request is used to retrieve a list of all locations for the current shop.
     #

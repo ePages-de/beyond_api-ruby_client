@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductSearches
+  module Products::Searches
     #
     # A +POST+ request is used to search for products by a search term. Optionally, you can also filter the search results.
     #
