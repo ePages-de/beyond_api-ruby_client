@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "yard",                    "~> 0.9"
 
   spec.add_dependency "faraday",  "~> 1.8"
+  spec.add_dependency "zeitwerk", "~> 2.5"
 end
