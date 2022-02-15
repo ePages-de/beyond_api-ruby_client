@@ -1,3 +1,16 @@
+### v0.21.0.pre
+
+* bug-fixes
+  * Fix  `Products#sort_images` method
+
+* features
+  * Add  `Variations#sort_images` method
+### v0.20.0.pre
+
+* features
+  * Add product search method
+    * `Products#search`
+
 ### v0.19.0.pre
 
 * features

@@ -41,7 +41,7 @@ unless ENV["CLIENT_ID"].nil? && ENV["CLIENT_SECRET"].nil?
   BeyondApi.setup do |config|
     config.client_id = ENV["CLIENT_ID"]
     config.client_secret = ENV["CLIENT_SECRET"]
-    config.remove_response_links = true
+    config.remove_response_links = false
     config.remove_response_key_underscores = true
     config.object_struct_responses = true
   end

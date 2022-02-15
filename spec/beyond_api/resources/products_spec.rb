@@ -51,5 +51,28 @@ RSpec.describe 'BeyondApi::Products' do
       expect(image).not_to be nil
       expect(image).to eq true
     end
+
+    it "sort product images" do
+      files = [
+        "#{file_path}image1.png",
+        "#{file_path}image2.png"
+      ]
+
+      session.products.upload_multiple_images(product.id,
+                                                       files,
+                                                       ["image1.png", "image2.png"])
+
+      images = session.products.images(product.id)
+
+      images_sorted = images.embedded.images.sort_by(&:position).reverse.map(&:id)
+
+      sorted = session.products.sort_images(product.id, images_sorted)
+
+      images = session.products.images(product.id)
+
+      expect(sorted).not_to be nil
+      expect(sorted).to eq true
+      expect(images.embedded.images.map(&:id)).to eq images_sorted
+    end
   end
 end
