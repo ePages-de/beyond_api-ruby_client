@@ -147,7 +147,7 @@ module BeyondApi
     #
     #   @cross_sell = session.products.update_cross_sell("4ed7a15a-9ef8-415f-8161-87498b1ecd4f", "b18d96f4-dfdf-47f3-b2dc-ce1653829674", body)
     #
-    def update_cross_sell(product_id, attribute_name, body)
+    def update_cross_sell(product_id, cross_sell_id, body)
       response, status = BeyondApi::Request.put(@session, "/products/#{product_id}/cross-sells/#{cross_sell_id}", body)
 
       handle_response(response, status)

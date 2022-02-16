@@ -567,7 +567,7 @@ module BeyondApi
     # @beyond_api.scopes +shpr:u+
     #
     # @param order_id [String] the order UUID
-    # @param shipping_id [String] the shipping UUID
+    # @param shipping_process_id [String] the shipping UUID
     # @param body [Hash] the request body
     #
     # @return [OpenStruct]

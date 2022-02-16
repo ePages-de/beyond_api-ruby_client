@@ -88,7 +88,7 @@ module BeyondApi
     # @example
     #   @image = session.variations.image("8665fc36-003e-4120-8a74-a9d6449644ae", "a9163db42-92e7-418c-a3d8-651e7aaca569", "86fc2691-5dfb-47e1-aae7-4bc2f658a80b")
     #
-    def image(product_id, image_id)
+    def image(product_id, variation_id, image_id)
       path = "/products/#{product_id}/variations/#{variation_id}/images/#{image_id}"
 
       response, status = BeyondApi::Request.get(@session,
@@ -140,7 +140,7 @@ module BeyondApi
     #
     # @param product_id [String] the product UUID
     # @param variation_id [String] the variation UUID
-    # @param images [Array] the image UUIDS
+    # @param image_ids [Array] the image UUIDS
     #
     # @return true
     #
@@ -170,8 +170,8 @@ module BeyondApi
     #
     # @param product_id [String] the product UUID
     # @param variation_id [String] the variation UUID
-    # @param images_path [Array] the images path
-    # @param images_name [Array] the images name
+    # @param image_path [Array] the images path
+    # @param image_name [Array] the images name
     #
     # @return [OpenStruct]
     #

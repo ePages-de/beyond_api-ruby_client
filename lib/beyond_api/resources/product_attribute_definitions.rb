@@ -42,7 +42,7 @@ module BeyondApi
     #
     # @beyond_api.scopes +prad:c+
     #
-    # @param product_attribute_name [String] the product attribute key
+    # @param body [String] the product attribute body
     #
     # @return [OpenStruct]
     #
