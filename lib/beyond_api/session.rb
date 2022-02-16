@@ -21,12 +21,12 @@ module BeyondApi
       BeyondApi::Carts.new(self)
     end
 
-    def categories_view
-      BeyondApi::CategoriesView.new(self)
-    end
-
     def categories
       BeyondApi::Categories.new(self)
+    end
+
+    def categories_view
+      BeyondApi::CategoriesView.new(self)
     end
 
     def checkout_settings
@@ -65,12 +65,12 @@ module BeyondApi
       BeyondApi::ProductAttributeDefinitions.new(self)
     end
 
-    def products_view
-      BeyondApi::ProductsView.new(self)
-    end
-
     def products
       BeyondApi::Products.new(self)
+    end
+
+    def products_view
+      BeyondApi::ProductsView.new(self)
     end
 
     def script_tags
