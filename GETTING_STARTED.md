@@ -6,7 +6,7 @@
 
 ```ruby
 session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.cloud/api")
-session.token.create("your-auth-code")
+session.token.authorization_code("your-auth-code")
 ```
 
 > You can get an authentication code by clicking the **Test authorization** button in your test shop's cockpit on your custom app's page.
