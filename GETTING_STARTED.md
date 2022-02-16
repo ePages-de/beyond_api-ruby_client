@@ -15,10 +15,11 @@ Clicking the button will redirect you to the **Application Callback URL** you ha
 ### Obtaining a token from a refresh token
 
 ```ruby
-session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.cloud/api",
-                                 refresh_token: "your-refresh-token")
-session.token.refresh
+session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.cloud/api")
+session.token.refresh_token
 ```
+
+> Requires valid `refresh_token` to exist on the `BeyondApi::Session` object.
 
 ## Consuming the API
 
