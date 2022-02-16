@@ -21,6 +21,13 @@ session.token.refresh_token
 
 > Requires valid `refresh_token` to exist on the `BeyondApi::Session` object.
 
+### Obtaining a token from client credentials
+
+```ruby
+session = BeyondApi::Session.new(api_url: "https://your-shop-name.beyondshop.cloud/api")
+session.token.client_credentials
+```
+
 ## Consuming the API
 
 Check the [_rubydoc_ documentation](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client) for more information on the Beyond API Ruby Client.
