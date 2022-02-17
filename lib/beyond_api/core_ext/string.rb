@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class String
+String.class_eval do
   def blank?
     respond_to?(:empty?) ? !!empty? : !self
   end

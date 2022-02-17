@@ -4,11 +4,9 @@ require "zeitwerk"
 
 loader = Zeitwerk::Loader.for_gem
 loader.collapse("#{__dir__}/beyond_api/resources")
-loader.ignore("#{__dir__}/ext")
-loader.ignore("#{__dir__}/generators")
 loader.setup
 
-Dir["#{__dir__}/ext/*.rb"].each { |file| require file }
+Dir["#{__dir__}/beyond_api/core_ext/*.rb"].each { |file| require file }
 
 module BeyondApi
   extend BeyondApi::Logger
@@ -23,5 +21,3 @@ module BeyondApi
     end
   end
 end
-
-loader.eager_load

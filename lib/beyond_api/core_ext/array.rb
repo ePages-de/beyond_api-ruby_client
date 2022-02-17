@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Array
+Array.class_eval do
   def camelize_keys
     map do |elem|
       case elem

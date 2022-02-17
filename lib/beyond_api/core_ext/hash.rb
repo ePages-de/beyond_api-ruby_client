@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Hash
+Hash.class_eval do
   def deep_transform_keys(&block)
     result = {}
     each do |key, value|
