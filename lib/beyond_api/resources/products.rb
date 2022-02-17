@@ -220,8 +220,6 @@ module BeyondApi
     #
     # A +PATCH+ request is used to update a product partially with json content type.
     #
-    # @beyond_api.scopes +prod:u+
-    #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/products/b69e3f47-03b8-40d2-843c-ae89a3d9bcdd' -i -X PATCH \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
@@ -232,6 +230,8 @@ module BeyondApi
     #       "productIdentifiers" : null,
     #       "manufacturer" : "patched manufacturer"
     #   }'
+    #
+    # @beyond_api.scopes +prod:u+
     #
     # @param product_id [String] the product UUID
     # @param body [Hash] the request body
