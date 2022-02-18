@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = ">= 2.5.1"
+  spec.required_ruby_version = ">= 2.7.1"
 
   spec.add_development_dependency "bundler",                 "~> 2.0"
   spec.add_development_dependency "dotenv",                  "~> 2.7"
@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-rspec",           "~> 2.4"
   spec.add_development_dependency "yard",                    "~> 0.9"
 
-  spec.add_dependency "faraday", "~> 1.8.0"
+  spec.add_dependency "faraday",  "~> 1.8"
+  spec.add_dependency "zeitwerk", "~> 2.5"
 end

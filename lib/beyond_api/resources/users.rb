@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
   class Users < Base
     include BeyondApi::Utils

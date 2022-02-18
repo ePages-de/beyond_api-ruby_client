@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ShopAddress
+  module Shop::Address
     #
     # A +GET+ request is used to retrieve the details of a shop’s address.
     #

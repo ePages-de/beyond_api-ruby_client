@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ShopAttributes
+  module Shop::Attributes
     #
     # A +GET+ request is used to retrieve a particular shop attribute by its name.
     #

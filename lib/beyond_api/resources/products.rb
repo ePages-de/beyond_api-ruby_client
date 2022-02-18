@@ -1,26 +1,15 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  autoload :ProductAttachments,         "beyond_api/resources/products/attachments"
-  autoload :ProductAvailability,        "beyond_api/resources/products/availability"
-  autoload :ProductCrossSells,          "beyond_api/resources/products/cross_sells"
-  autoload :ProductCustomAttributes,    "beyond_api/resources/products/custom_attributes"
-  autoload :ProductImages,              "beyond_api/resources/products/images"
-  autoload :ProductSearches,            "beyond_api/resources/products/searches"
-  autoload :ProductVariationProperties, "beyond_api/resources/products/variation_properties"
-  autoload :ProductVideos,              "beyond_api/resources/products/videos"
-
   class Products < Base
-    include BeyondApi::ProductAttachments
-    include BeyondApi::ProductAvailability
-    include BeyondApi::ProductCrossSells
-    include BeyondApi::ProductCustomAttributes
-    include BeyondApi::ProductImages
-    include BeyondApi::ProductSearches
-    include BeyondApi::ProductVariationProperties
-    include BeyondApi::ProductVideos
+    include BeyondApi::Products::Attachments
+    include BeyondApi::Products::Availability
+    include BeyondApi::Products::CrossSells
+    include BeyondApi::Products::CustomAttributes
+    include BeyondApi::Products::Images
+    include BeyondApi::Products::Searches
+    include BeyondApi::Products::VariationProperties
+    include BeyondApi::Products::Videos
     include BeyondApi::Utils
 
     #
@@ -231,8 +220,6 @@ module BeyondApi
     #
     # A +PATCH+ request is used to update a product partially with json content type.
     #
-    # @beyond_api.scopes +prod:u+
-    #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/products/b69e3f47-03b8-40d2-843c-ae89a3d9bcdd' -i -X PATCH \
     #       -H 'Content-Type: application/json' \
     #       -H 'Accept: application/hal+json' \
@@ -243,6 +230,8 @@ module BeyondApi
     #       "productIdentifiers" : null,
     #       "manufacturer" : "patched manufacturer"
     #   }'
+    #
+    # @beyond_api.scopes +prod:u+
     #
     # @param product_id [String] the product UUID
     # @param body [Hash] the request body

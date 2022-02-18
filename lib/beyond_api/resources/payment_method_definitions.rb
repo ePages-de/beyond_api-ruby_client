@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
   class PaymentMethodDefinitions < Base
     include BeyondApi::Utils

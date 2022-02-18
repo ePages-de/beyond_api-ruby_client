@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductVariationProperties
+  module Products::VariationProperties
     #
     # A +PATCH+ request is used to update the variation properties of a variation product.
     #

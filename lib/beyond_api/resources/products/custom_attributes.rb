@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require "beyond_api/utils"
-
 module BeyondApi
-  module ProductCustomAttributes
+  module Products::CustomAttributes
     #
     # A +POST+ request is used to create a product attribute, which defines the value of a certain {product attribute definition}[http://docs.beyondshop.cloud/#resources-product-attribute-definitions] for a specific {product}[http://docs.beyondshop.cloud/#resources-products].
     #

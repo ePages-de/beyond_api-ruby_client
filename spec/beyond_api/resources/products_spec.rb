@@ -2,7 +2,7 @@
 
 RSpec.describe 'BeyondApi::Products' do
   let!(:session) do
-    session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
+    session = BeyondApi::Session.new(api_url: ENV["API_URL"])
     session.token.client_credentials
   end
 

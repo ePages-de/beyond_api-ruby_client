@@ -56,9 +56,11 @@ See [GETTING_STARTED](https://github.com/ePages-de/beyond_api-ruby_client/blob/m
 
 ## Development
 
-Check out the repo an run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Check out the repo and run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
+
+To serve the documentation locally, run `yard server --reload` and access it via http://localhost:8808.
 
 ## Contributing
 
