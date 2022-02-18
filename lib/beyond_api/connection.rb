@@ -6,7 +6,7 @@ require "logger"
 module BeyondApi
   class Connection
     LOGGER = ::BeyondApi.logger
-    LOGGER.level = ::Kernel.const_get("Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
+    LOGGER.level = ::Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
     def self.default
       Faraday.new(ssl: { verify: true }) do |faraday|
