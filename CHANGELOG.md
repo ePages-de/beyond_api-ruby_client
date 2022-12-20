@@ -1,3 +1,8 @@
+### v0.22.0.pre
+
+* features
+  * `ScriptTags#all` will receive only the app script tags.
+
 ### v0.21.0.pre
 
 * bug-fixes
