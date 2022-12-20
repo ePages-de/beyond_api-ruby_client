@@ -13,6 +13,7 @@ module BeyondApi
     #       -H 'Authorization: Bearer <Access token>'
     #
     # @option params [Boolean] :paginated
+    # @option params [Boolean] :only_own
     # @option params [Integer] :size the page size
     # @option params [Integer] :page the page number
     #
@@ -24,7 +25,9 @@ module BeyondApi
     def all(params = {})
       path = "/script-tags"
 
-      handle_all_request(path, :script_tags, params.merge(client_id: BeyondApi.configuration.client_id))
+      params.merge!(client_id: BeyondApi.configuration.client_id) if params[:only_own]
+
+      handle_all_request(path, :script_tags, params)
     end
 
     #
