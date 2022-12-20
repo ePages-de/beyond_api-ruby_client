@@ -24,7 +24,7 @@ module BeyondApi
     def all(params = {})
       path = "/script-tags"
 
-      handle_all_request(path, :script_tags, params)
+      handle_all_request(path, :script_tags, params.merge(client_id: BeyondApi.configuration.client_id))
     end
 
     #
