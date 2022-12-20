@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    beyond_api (0.21.0.pre)
+    beyond_api (0.22.0.pre)
       faraday (~> 1.8.0)
 
 GEM
@@ -45,7 +45,7 @@ GEM
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
     minitest (5.14.4)
-    multipart-post (2.1.1)
+    multipart-post (2.2.3)
     parallel (1.21.0)
     parser (3.0.3.1)
       ast (~> 2.4.1)
