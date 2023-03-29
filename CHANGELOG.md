@@ -1,3 +1,8 @@
+### v0.22.1.pre
+
+* enhancements
+  * Update `faraday` gem to avoid warning messages.
+
 ### v0.22.0.pre
 
 * features
