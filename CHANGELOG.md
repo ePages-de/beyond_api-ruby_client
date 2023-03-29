@@ -1,3 +1,8 @@
+### v0.22.0.pre
+
+* features
+  * Add at `ScriptTags#all` an optional parameter to retrieve only owner scripts
+
 ### v0.21.0.pre
 
 * bug-fixes
