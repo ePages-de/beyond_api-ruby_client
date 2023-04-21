@@ -15,5 +15,17 @@ module BeyondApi
 
       super(data["message"] || data["error_description"])
     end
+
+    def to_json
+      {
+        error_id: @error_id,
+        message: @message,
+        details: @details,
+        error: @error,
+        error_description: @error_description,
+        trace_id: @trace_id,
+        status_code: @status_code
+      }
+    end
   end
 end
