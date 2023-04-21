@@ -139,7 +139,7 @@ module BeyondApi
     #       -H 'Authorization: Bearer <Access token>' \
     #       -d '{
     #           "name" : "Another name",
-    #           "description" : "Pay by Converge.",
+    #           "description" : "Pay by ACME.",
     #           "taxClass" : "REGULAR",
     #           "discountOrFee" : {
     #             "type" : "ABSOLUTE",
@@ -166,7 +166,7 @@ module BeyondApi
     # @example
     #   body = {
     #     "name" => "Another name",
-    #     "description" => "Pay by Converge.",
+    #     "description" => "Pay by ACME.",
     #     "tax_class" => "REGULAR",
     #     "discount_or_fee" => {
     #       "type" => "ABSOLUTE",
