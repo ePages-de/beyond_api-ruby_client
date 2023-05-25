@@ -63,7 +63,7 @@ module BeyondApi
     #
     # @example
     #   @products = session.categories_view.products("681beef2-cd3e-4ce3-8034-4d07c1184447", { size: 100, page: 0 })
-    #   @products = session.categories_view.products("681beef2-cd3e-4ce3-8034-4d07c1184447", paginated: false)
+    #
     def products(category_id, params = {})
       path = "/product-view/categories/#{category_id}/products"
 
