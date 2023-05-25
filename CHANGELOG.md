@@ -1,3 +1,8 @@
+### v0.23.0.pre
+
+* feature
+  * Add optional `paginated: false` parameter to `session.categories_view.products(paginated: false)`
+
 ### v0.22.1.pre
 
 * enhancements
