@@ -1,8 +1,23 @@
+### v0.24.0.pre
+
+* features
+  * Add category preview method
+    * `CategoriesView#preview`
+
+### v0.23.0.pre
+
+* feature
+  * Add optional `paginated: false` parameter to `session.categories_view.products(paginated: false)`
+
+### v0.22.1.pre
+
+* enhancements
+  * Update `faraday` gem to avoid warning messages.
+
 ### v0.22.0.pre
 
 * features
-  * Add category preview
-    * `CategoriesView#preview`
+  * Add at `ScriptTags#all` an optional parameter to retrieve only owner scripts
 
 ### v0.21.0.pre
 
