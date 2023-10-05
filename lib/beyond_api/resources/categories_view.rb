@@ -49,7 +49,7 @@ module BeyondApi
     end
 
     #
-    # A +POST+  request is read-only and cannot create data. It is used to find products that match the filter criteria.
+    # A +POST+ request is read-only and cannot create data. It is used to find products that match the filter criteria.
     # Thus, it can be used to preview all products that are included in a category that shares the respective filter criteria.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/categories/preview?page=0&size=10&sortBy=NEWEST_FIRST' -i -X POST \
