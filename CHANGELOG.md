@@ -1,3 +1,9 @@
+### v0.22.0.pre
+
+* features
+  * Add category preview
+    * `CategoriesView#preview`
+
 ### v0.21.0.pre
 
 * bug-fixes
@@ -5,6 +11,7 @@
 
 * features
   * Add  `Variations#sort_images` method
+
 ### v0.20.0.pre
 
 * features

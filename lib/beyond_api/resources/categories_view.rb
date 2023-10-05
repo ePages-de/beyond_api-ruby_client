@@ -49,6 +49,64 @@ module BeyondApi
     end
 
     #
+    # A +POST+  request is read-only and cannot create data. It is used to find products that match the filter criteria.
+    # Thus, it can be used to preview all products that are included in a category that shares the respective filter criteria.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/categories/preview?page=0&size=10&sortBy=NEWEST_FIRST' -i -X POST \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Content-Type: application/json' \
+    #       -d '{
+    #     "filters" : [ {
+    #       "key" : "manufacturer",
+    #       "values" : [ "Grape Vineyard" ]
+    #     }, {
+    #       "key" : "all_tags",
+    #       "values" : [ "Power Bar", "Bestseller", "High Protein" ]
+    #     }, {
+    #       "key" : "price_range",
+    #       "min" : 3.7,
+    #       "max" : 13.7
+    #     } ]
+    #   }'
+    #
+    # @param body [Hash] the request body
+    # @option params [Integer] :size the page size
+    # @option params [Integer] :page the page number
+    # @option params [String] :sort_by the sorting applied to the list of products
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     filters => [ 
+    #       {
+    #         key => "manufacturer",
+    #         values => [ "Grape Vineyard" ]
+    #       },
+    #       {
+    #         key => "all_tags",
+    #         values => [ "Power Bar", "Bestseller", "High Protein" ]
+    #       },
+    #       {
+    #         key => "price_range",
+    #         min => 3.7,
+    #         max => 13.7
+    #       } 
+    #     ]
+    #   }
+    #
+    #   @products = session.categories_view.preview(body, { size: 100, page: 0, sort_by: "NEWEST_FIRST" })
+    #
+    def preview(body, params = {})
+      response, status = BeyondApi::Request.post(@session,
+                                                 "/product-view/categories/preview",
+                                                 body,
+                                                 params)
+
+      handle_response(response, status)
+    end
+
+    #
     # A +GET+ request is used to list all products of a category.
     #
     #   $ curl 'https://api-shop.beyondshop.cloud/api/product-view/categories/681beef2-cd3e-4ce3-8034-4d07c1184447/products' -i -X GET \
