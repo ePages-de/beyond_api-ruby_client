@@ -221,7 +221,7 @@ module BeyondApi
       response, status = BeyondApi::Request.upload_by_form(@session,
                                                            "/products/#{product_id}/images",
                                                            images_path,
-                                                           file_name: images_name)
+                                                           file_name: images_name.map { |e| URI.encode_www_form([e]) })
 
       handle_response(response, status)
     end
