@@ -1,3 +1,8 @@
+### v0.24.1.pre
+
+* bug-fixes
+  * Fix image upload
+
 ### v0.24.0.pre
 
 * features
