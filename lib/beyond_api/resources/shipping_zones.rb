@@ -385,6 +385,7 @@ module BeyondApi
     # @beyond_api.scopes +shpz:u+
     #
     # @param shipping_zone_id [String] the shipping zone UUID
+    # @param shipping_method_id [String] the shipping method UUID
     # @param body [String] the request body
     #
     # @return [OpenStruct]
@@ -406,8 +407,8 @@ module BeyondApi
     #   }
     #   @shipping_method = session.shipping_zones.update_shipping_method("c4137d8b-3dd1-4b73-91f0-32f1433c8195", "25df7018-a7a2-4903-85fa-6a3a73ae40b2", body)
     #
-    def update_shipping_method(shipping_zone_id, shipping_method, body)
-      path = "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method}"
+    def update_shipping_method(shipping_zone_id, shipping_method_id, body)
+      path = "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}"
 
       response, status = BeyondApi::Request.put(@session,
                                                 path,
