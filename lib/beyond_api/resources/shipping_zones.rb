@@ -108,7 +108,7 @@ module BeyondApi
     #       "amount" => "19.99"
     #     }
     #   }
-    #   @shipping_zone = session.shipping_zones.create_shipping_method("905e981c-1489-45af-9138-0a7dc1f0b085", body)
+    #   @shipping_method = session.shipping_zones.create_shipping_method("905e981c-1489-45af-9138-0a7dc1f0b085", body)
     #
     def create_shipping_method(shipping_zone_id, body)
       path = "/shipping-zones/#{shipping_zone_id}/shipping-methods"
@@ -353,6 +353,62 @@ module BeyondApi
     #
     def update(shipping_zone_id, body)
       path = "/shipping-zones/#{shipping_zone_id}"
+
+      response, status = BeyondApi::Request.put(@session,
+                                                path,
+                                                body)
+
+      handle_response(response, status)
+    end
+
+    #
+    # A +PUT+ request is used to update a shipping method in a shipping zone.
+    #
+    #   $ curl 'https://api-shop.beyondshop.cloud/api/shipping-zones/c4137d8b-3dd1-4b73-91f0-32f1433c8195/shipping-methods/25df7018-a7a2-4903-85fa-6a3a73ae40b2' -i -X PUT \
+    #       -H 'Content-Type: application/json' \
+    #       -H 'Authorization: Bearer <Access token>' \
+    #       -d '{
+    #       "name" : "Express",
+    #       "description" : "Shipping overnight. Delivery on the next day.",
+    #       "taxClass" : "REGULAR",
+    #       "freeShippingValue" : {
+    #         "currency" : "EUR",
+    #         "amount" : 200
+    #       },
+    #       "fixedPrice" : {
+    #         "taxModel" : "GROSS",
+    #         "currency" : "EUR",
+    #         "amount" : 25
+    #       }
+    #     }'
+    #
+    # @beyond_api.scopes +shpz:u+
+    #
+    # @param shipping_zone_id [String] the shipping zone UUID
+    # @param shipping_method_id [String] the shipping method UUID
+    # @param body [String] the request body
+    #
+    # @return [OpenStruct]
+    #
+    # @example
+    #   body = {
+    #     "name" : "Express",
+    #     "description" : "Shipping overnight. Delivery on the next day.",
+    #     "taxClass" : "REGULAR",
+    #     "freeShippingValue" : {
+    #       "currency" : "EUR",
+    #       "amount" : 200
+    #     },
+    #     "fixedPrice" : {
+    #       "taxModel" : "GROSS",
+    #       "currency" : "EUR",
+    #       "amount" : 25
+    #     }
+    #   }
+    #   @shipping_method = session.shipping_zones.update_shipping_method("c4137d8b-3dd1-4b73-91f0-32f1433c8195", "25df7018-a7a2-4903-85fa-6a3a73ae40b2", body)
+    #
+    def update_shipping_method(shipping_zone_id, shipping_method_id, body)
+      path = "/shipping-zones/#{shipping_zone_id}/shipping-methods/#{shipping_method_id}"
 
       response, status = BeyondApi::Request.put(@session,
                                                 path,

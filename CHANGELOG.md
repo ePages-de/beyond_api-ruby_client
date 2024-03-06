@@ -1,3 +1,8 @@
+### v0.24.2.pre
+
+* features
+  * Add `ShippingZones#update_shipping_method`
+
 ### v0.24.1.pre
 
 * bug-fixes
