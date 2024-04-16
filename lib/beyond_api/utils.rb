@@ -24,7 +24,11 @@ module BeyondApi
         result = all_paginated(url, params.merge(page: 0, size: paginated_size))
 
         (1..result[:page][:total_pages] - 1).each do |page|
-          result[:embedded][resource].concat(all_paginated(url, params.merge(page: page, size: paginated_size))[:embedded][resource])
+          result[:embedded][resource].concat(
+            all_paginated(url,
+                          params.merge(page: page,
+                                       size: paginated_size))[:embedded][resource]
+          )
         end
 
         result[:page][:size] = result[:page][:total_elements]
