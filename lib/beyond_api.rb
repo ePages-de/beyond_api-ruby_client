@@ -29,7 +29,7 @@ module BeyondApi
   class Configuration
     attr_accessor :client_id, :client_secret, :open_timeout, :timeout, :remove_response_links,
                   :remove_response_key_underscores, :object_struct_responses, :raise_error_requests,
-                  :log_headers, :log_bodies, :log_level, :all_pagination_size
+                  :log_headers, :log_bodies, :log_level, :all_pagination_size, :retry_options
 
     def initialize
       @client_id = nil
@@ -46,6 +46,15 @@ module BeyondApi
       @log_bodies = false
 
       @all_pagination_size = 200
+
+      @retry_options = {
+        max: 5,
+        interval: 0.05,
+        interval_randomness: 0.5,
+        backoff_factor: 2,
+        retry_statuses: [409],
+        exceptions: [Faraday::TimeoutError, Faraday::ConnectionFailed]
+      }
     end
   end
 end

@@ -9,15 +9,16 @@ module BeyondApi
 
     def self.default
       Faraday.new(ssl: { verify: true }) do |faraday|
+        faraday.adapter(:net_http)
         faraday.options[:open_timeout] = BeyondApi.configuration.open_timeout.to_i
         faraday.options[:timeout] = BeyondApi.configuration.timeout.to_i
-        faraday.response :logger, LOGGER, { headers: BeyondApi.configuration.log_headers,
-                                            bodies: BeyondApi.configuration.log_bodies }
         faraday.headers["Accept"] = "application/json"
         faraday.headers["Content-Type"] = "application/json"
         faraday.request(:multipart)
         faraday.request(:url_encoded)
-        faraday.adapter(:net_http)
+        faraday.request(:retry, BeyondApi.configuration.retry_options)
+        faraday.response :logger, LOGGER, { headers: BeyondApi.configuration.log_headers,
+                                            bodies: BeyondApi.configuration.log_bodies }
       end
     end
 
