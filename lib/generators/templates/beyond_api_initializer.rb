@@ -50,4 +50,18 @@ BeyondApi.setup do |config|
   # BeyondApi::Error object with detailed information of the error.
   # Default is false.
   # config.raise_error_requests = false
+
+  # ==> Retry configuration
+  # Configure the retry options for requests. Default is:
+  # config.retry_options = {
+  #   max: 5,
+  #   interval: 0.05,
+  #   interval_randomness: 0.5,
+  #   backoff_factor: 2,
+  #   retry_statuses: [409],
+  #   exceptions: [Faraday::TimeoutError, Faraday::ConnectionFailed]
+  # }
+  # Or you can set single retry options like this:
+  # config.retry_options[:max] = 5
+  # config.retry_options[:interval] = 1
 end
