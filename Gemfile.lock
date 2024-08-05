@@ -3,7 +3,7 @@ PATH
   specs:
     beyond_api (0.24.2.pre)
       faraday (~> 1.9.0)
-      faraday_middleware
+      faraday_middleware (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -110,7 +110,6 @@ DEPENDENCIES
   dotenv (~> 2.7)
   factory_bot
   faker (~> 2.2)
-  faraday_middleware
   pry
   rake (~> 10.0)
   rspec (~> 3.0)

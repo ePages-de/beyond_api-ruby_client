@@ -6,13 +6,6 @@ require "beyond_api/utils"
 require "forwardable"
 
 module BeyondApi
-  class Response
-    extend Forwardable
-    def initialize(response)
-      @response = response
-    end
-  end
-
   class Request
     class << self
       [:get, :delete].each do |method|
@@ -22,8 +15,7 @@ module BeyondApi
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
           end
-          response
-          # [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+          Response.new(response)
         end
       end
 
@@ -38,7 +30,7 @@ module BeyondApi
             request.body = body.respond_to?(:camelize_keys) ? body.camelize_keys.to_json : body
           end
 
-          [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+          Response.new(response)
         end
       end
     end
@@ -52,7 +44,7 @@ module BeyondApi
         request.body = file_binary
       end
 
-      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+      Response.new(response)
     end
 
     def self.token(url, params)
@@ -61,7 +53,7 @@ module BeyondApi
         request.params = params
       end
 
-      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+      Response.new(response)
     end
 
     def self.upload_by_form(session, path, files, params)
@@ -76,7 +68,7 @@ module BeyondApi
         request.body = { image: upload_files }
       end
 
-      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+      Response.new(response)
     end
   end
 end

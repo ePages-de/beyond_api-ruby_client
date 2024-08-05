@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "faraday"
+require "faraday_middleware"
 
 module BeyondApi
   class Connection
@@ -14,10 +15,11 @@ module BeyondApi
         faraday.options[:timeout] = BeyondApi.configuration.timeout.to_i
         faraday.headers["Accept"] = "application/json"
         faraday.headers["Content-Type"] = "application/json"
+        faraday.request(:json)
         faraday.request(:multipart)
         faraday.request(:url_encoded)
         faraday.request(:retry, BeyondApi.configuration.retry_options)
-        faraday.response(:json, content_type: /\bjson$/)
+        faraday.response(:json, content_type: "application/json")
         faraday.response :logger, LOGGER, { headers: BeyondApi.configuration.log_headers,
                                             bodies: BeyondApi.configuration.log_bodies }
       end
