@@ -3,6 +3,7 @@ PATH
   specs:
     beyond_api (0.24.2.pre)
       faraday (~> 1.9.0)
+      faraday_middleware
 
 GEM
   remote: https://rubygems.org/
@@ -45,11 +46,13 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    faraday_middleware (1.2.0)
+      faraday (~> 1.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
     minitest (5.14.4)
-    multipart-post (2.3.0)
+    multipart-post (2.4.1)
     parallel (1.21.0)
     parser (3.0.3.1)
       ast (~> 2.4.1)
@@ -99,7 +102,7 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-22
 
 DEPENDENCIES
   beyond_api!
@@ -107,6 +110,7 @@ DEPENDENCIES
   dotenv (~> 2.7)
   factory_bot
   faker (~> 2.2)
+  faraday_middleware
   pry
   rake (~> 10.0)
   rspec (~> 3.0)

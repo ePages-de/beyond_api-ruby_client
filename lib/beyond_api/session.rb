@@ -25,6 +25,11 @@ module BeyondApi
   autoload :Variations,                  "beyond_api/resources/variations"
   autoload :WebhookSubscriptions,        "beyond_api/resources/webhook_subscriptions"
 
+  autoload :BaseService,                        "beyond_api/services/base_service"
+  # autoload "ProductView::Category",                 "beyond_api/services/product_view/category"
+  # autoload "ProductView::Category",                 "beyond_api/services/product_view/category"
+
+
   class Session
     class InvalidUriProtocolError < StandardError; end
 

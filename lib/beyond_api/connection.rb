@@ -17,6 +17,7 @@ module BeyondApi
         faraday.request(:multipart)
         faraday.request(:url_encoded)
         faraday.request(:retry, BeyondApi.configuration.retry_options)
+        faraday.response(:json, content_type: /\bjson$/)
         faraday.response :logger, LOGGER, { headers: BeyondApi.configuration.log_headers,
                                             bodies: BeyondApi.configuration.log_bodies }
       end

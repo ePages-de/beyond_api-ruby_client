@@ -3,8 +3,16 @@
 require "json"
 require "faraday"
 require "beyond_api/utils"
+require "forwardable"
 
 module BeyondApi
+  class Response
+    extend Forwardable
+    def initialize(response)
+      @response = response
+    end
+  end
+
   class Request
     class << self
       [:get, :delete].each do |method|
@@ -14,8 +22,8 @@ module BeyondApi
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
           end
-
-          [response.body.blank? ? nil : JSON.parse(response.body), response.status]
+          response
+          # [response.body.blank? ? nil : JSON.parse(response.body), response.status]
         end
       end
 
