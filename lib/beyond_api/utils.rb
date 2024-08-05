@@ -41,10 +41,11 @@ module BeyondApi
       end
     end
 
-    def handle_error(response, status)
-      BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
-      error = BeyondApi::Error.new(response, status)
-      BeyondApi.configuration.raise_error_requests ? raise(error) : error
+    def handle_error(response)
+      raise BeyondApi::Error.new({}, 500)
+      # BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
+      # error = BeyondApi::Error.new(response, status)
+      # BeyondApi.configuration.raise_error_requests ? raise(error) : error
     end
 
     def handle_response(response, status, respond_with_true: false)

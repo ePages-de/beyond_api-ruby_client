@@ -15,7 +15,10 @@ module BeyondApi
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
           end
-          Response.new(response)
+          # binding.b
+          Response.new(response).handle
+        rescue Faraday::Error => e
+          raise(Error.new(e))
         end
       end
 
@@ -53,7 +56,7 @@ module BeyondApi
         request.params = params
       end
 
-      Response.new(response)
+      [response.body.blank? ? nil : JSON.parse(response.body), response.status]
     end
 
     def self.upload_by_form(session, path, files, params)
