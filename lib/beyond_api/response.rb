@@ -47,8 +47,6 @@ module BeyondApi
     end
 
     def handle_error
-      puts "BODY IS #{body}"
-      puts "STATUS IS #{status}"
       raise BeyondApi::Error.new(body, status)
     end
   end
