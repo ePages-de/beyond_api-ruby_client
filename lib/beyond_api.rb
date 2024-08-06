@@ -9,6 +9,9 @@ require "beyond_api/utils"
 require "beyond_api/services/base_service"
 require "beyond_api/services/product_view/category"
 require "beyond_api/services/storefront/script_tag"
+require "beyond_api/services/checkout/shipping_zone"
+require "beyond_api/services/shop/address"
+require "beyond_api/services/shop/shop"
 
 module BeyondApi
   autoload :Connection, "beyond_api/connection"
