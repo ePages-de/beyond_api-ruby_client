@@ -16,5 +16,9 @@ module BeyondApi
         "image/gif"
       end
     end
+
+    def camelize_keys(hash)
+      hash.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+    end
   end
 end
