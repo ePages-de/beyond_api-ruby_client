@@ -1,5 +1,5 @@
 module BeyondApi
-  module Shop
+  module Checkout
     class ShippingZone < BaseService
       def all
         # TODO: iterate over all pages

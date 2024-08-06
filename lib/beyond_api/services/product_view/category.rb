@@ -9,8 +9,11 @@ module BeyondApi
         BeyondApi::Request.get(@session, "/product-view/categories/#{id}")
       end
 
-      def preview(filters)
-        BeyondApi::Request.post(@session, "/product-view/categories/preview", filters:)
+      def preview(body, params = {})
+        BeyondApi::Request.post(@session,
+                                "/product-view/categories/preview",
+                                body,
+                                params)
       end
     end
   end
