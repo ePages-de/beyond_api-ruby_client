@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'zeitwerk'
 require 'faraday'
 require 'faraday_middleware'
 require 'json'
-require 'forwardeable'
+require 'forwardable'
 
 module BeyondApi
   loader = Zeitwerk::Loader.for_gem

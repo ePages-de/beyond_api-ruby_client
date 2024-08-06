@@ -4,9 +4,7 @@ require "ostruct"
 
 module BeyondApi
   module Utils
-    extend self
-
-    def file_content_type(file_path)
+    def self.file_content_type(file_path)
       case File.extname(file_path)
       when ".png"
         "image/png"
@@ -17,7 +15,7 @@ module BeyondApi
       end
     end
 
-    def camelize_keys(hash)
+    def self.camelize_keys(hash)
       hash.deep_transform_keys { |key| key.to_s.camelize(:lower) }
     end
   end
