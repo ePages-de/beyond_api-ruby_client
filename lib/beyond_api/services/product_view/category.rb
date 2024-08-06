@@ -1,11 +1,12 @@
 module BeyondApi
   module ProductView
     class Category < BaseService
-      def find(id)
-        response = BeyondApi::Request.get(@session,
-                                          "/product-view/categories/#{id}")
+      def all(params = {})
+        BeyondApi::Request.get(@session, "/product-view/categories", params)
+      end
 
-        response
+      def find(id)
+        BeyondApi::Request.get(@session, "/product-view/categories/#{id}")
       end
     end
   end

@@ -8,13 +8,14 @@ require "beyond_api/ext"
 require "beyond_api/utils"
 require "beyond_api/services/base_service"
 require "beyond_api/services/product_view/category"
+require "beyond_api/services/storefront/script_tag"
 
 module BeyondApi
   autoload :Connection, "beyond_api/connection"
   autoload :Error,      "beyond_api/error"
   autoload :Logger,     "beyond_api/logger"
   autoload :Request,    "beyond_api/request"
-  autoload :Response,    "beyond_api/response"
+  autoload :Response,   "beyond_api/response"
   autoload :Session,    "beyond_api/session"
 
   extend BeyondApi::Logger

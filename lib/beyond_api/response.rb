@@ -26,6 +26,8 @@ module BeyondApi
     end
 
     def sanitize_response(hash)
+      return {} if hash.blank?
+
       {}.tap do |h|
         hash.each do |key, value|
           next if key == "_links" && BeyondApi.configuration.remove_response_links
@@ -45,10 +47,9 @@ module BeyondApi
     end
 
     def handle_error
+      puts "BODY IS #{body}"
+      puts "STATUS IS #{status}"
       raise BeyondApi::Error.new(body, status)
-      # BeyondApi.logger.error "[Beyond API] #{status}: #{response}"
-      # error = BeyondApi::Error.new(response, status)
-      # BeyondApi.configuration.raise_error_requests ? raise(error) : error
     end
   end
 end

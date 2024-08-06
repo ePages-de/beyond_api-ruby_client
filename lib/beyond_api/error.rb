@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 module BeyondApi
+  class FaradayError < StandardError
+    def initialize(data, code)
+      @data = data
+      @code = code
+
+      super "faraday err"
+    end
+
+    def to_json
+      {
+        data:,
+        code:
+      }
+    end
+  end
+
   class Error < StandardError
     attr_reader :error_id, :details, :trace_id, :full_message, :status_code, :error, :error_description
 

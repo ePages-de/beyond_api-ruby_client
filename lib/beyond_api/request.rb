@@ -11,14 +11,14 @@ module BeyondApi
       [:get, :delete].each do |method|
         define_method(method) do |session, path, params = {}|
           response = BeyondApi::Connection.default.send(method) do |request|
+            # request.url("https://8a14-80-24-215-151.ngrok-free.app/countries/5/locales")
             request.url(session.api_url + path)
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.params = params.to_h.camelize_keys
           end
-          # binding.b
           Response.new(response).handle
-        rescue Faraday::Error => e
-          raise(Error.new(e))
+        rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
+          raise(FaradayError.new(e, 599))
         end
       end
 
@@ -33,7 +33,7 @@ module BeyondApi
             request.body = body.respond_to?(:camelize_keys) ? body.camelize_keys.to_json : body
           end
 
-          Response.new(response)
+          Response.new(response).handle
         end
       end
     end
