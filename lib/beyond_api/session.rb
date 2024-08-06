@@ -18,91 +18,91 @@ module BeyondApi
     end
 
     def carts
-      BeyondApi::Carts.new(self)
+      Carts.new(self)
     end
 
     def categories_view
-      BeyondApi::CategoriesView.new(self)
+      CategoriesView.new(self)
     end
 
     def categories
-      BeyondApi::Categories.new(self)
+      Categories.new(self)
     end
 
     def checkout_settings
-      BeyondApi::CheckoutSettings.new(self)
+      CheckoutSettings.new(self)
     end
 
     def customers
-      BeyondApi::Customers.new(self)
+      Customers.new(self)
     end
 
     def newsletter_target
-      BeyondApi::NewsletterTarget.new(self)
+      NewsletterTarget.new(self)
     end
 
     def order_settings
-      BeyondApi::OrderSettings.new(self)
+      OrderSettings.new(self)
     end
 
     def orders
-      BeyondApi::Orders.new(self)
+      Orders.new(self)
     end
 
     def payment_method_definitions
-      BeyondApi::PaymentMethodDefinitions.new(self)
+      PaymentMethodDefinitions.new(self)
     end
 
     def payment_methods
-      BeyondApi::PaymentMethods.new(self)
+      PaymentMethods.new(self)
     end
 
     def pickup_options
-      BeyondApi::PickupOptions.new(self)
+      PickupOptions.new(self)
     end
 
     def product_attribute_definitions
-      BeyondApi::ProductAttributeDefinitions.new(self)
+      ProductAttributeDefinitions.new(self)
     end
 
     def products_view
-      BeyondApi::ProductsView.new(self)
+      ProductsView.new(self)
     end
 
     def products
-      BeyondApi::Products.new(self)
+      Products.new(self)
     end
 
     def script_tags
-      BeyondApi::ScriptTags.new(self)
+      ScriptTags.new(self)
     end
 
     def shipping_zones
-      BeyondApi::ShippingZones.new(self)
+      ShippingZones.new(self)
     end
 
     def shop
-      BeyondApi::Shop.new(self)
+      Shop.new(self)
     end
 
     def signers
-      BeyondApi::Signers.new(self)
+      Signers.new(self)
     end
 
     def token
-      BeyondApi::Token.new(self)
+      Token.new(self)
     end
 
     def users
-      BeyondApi::Users.new(self)
+      Users.new(self)
     end
 
     def variations
-      BeyondApi::Variations.new(self)
+      Variations.new(self)
     end
 
     def webhook_subscriptions
-      BeyondApi::WebhookSubscriptions.new(self)
+      WebhookSubscriptions.new(self)
     end
   end
 end

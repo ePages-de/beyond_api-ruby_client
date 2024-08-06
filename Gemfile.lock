@@ -4,6 +4,7 @@ PATH
     beyond_api (0.24.2.pre)
       faraday (~> 1.9.0)
       faraday_middleware (~> 1.1)
+      zeitwerk
 
 GEM
   remote: https://rubygems.org/

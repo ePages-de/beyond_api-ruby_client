@@ -6,8 +6,6 @@ module BeyondApi
   class Token
     class InvalidSessionError < StandardError; end
 
-    include BeyondApi::Utils
-
     attr_reader :session
 
     def initialize(session)

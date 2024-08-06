@@ -36,12 +36,12 @@ module BeyondApi
       body.deep_symbolize_keys!
     end
 
-    def remove_initial_underscore!
+    def remove_initial_underscore(key)
       key.starts_with?('_') ? key[1..-1] : key
     end
 
     def raise_error
-      raise BeyondApi::Error.new(body, status)
+      raise Error.new(body, status)
     end
   end
 end
