@@ -30,27 +30,6 @@ BeyondApi.setup do |config|
   #
   # config.log_bodies = false
 
-  # ==> Response configuration
-  # Configure if :_links should be removed from response. Default is false and
-  # :_links are gonna be part of the response.
-  # config.remove_response_links = false
-
-  # Configure if first character underescores should be removed on response hash
-  # keys. For example, if set to true, :_id will become :id. Default is false.
-  # config.remove_response_key_underscores = false
-
-  # Configure if responses should be transformed to ObjectStructs. If set to
-  # true, it gives you the posibility to access response data on a doted way.
-  # With OpenStructs => response.embeded.products.first.id
-  # Without OpenStructs => response["embeded"]["products"].first["id"]
-  # config.object_struct_responses = false
-
-  # Configure if the gem should raise on error requests. Setting it to true is
-  # useful for working with exceptions. Setting it to false  will return a
-  # BeyondApi::Error object with detailed information of the error.
-  # Default is false.
-  # config.raise_error_requests = false
-
   # ==> Retry configuration
   # Configure the retry options for requests. Default is:
   # config.retry_options = {

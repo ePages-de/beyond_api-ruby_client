@@ -21,28 +21,35 @@ module BeyondApi
 
     private
 
-    def sanitize_key(key)
-      key.chars.first == "_" ? key[1..-1] : key
-    end
-
     def sanitize_response(hash)
       return {} if hash.blank?
 
-      {}.tap do |h|
+      {}.tap do |response_hash|
         hash.each do |key, value|
-          next if key == "_links" && BeyondApi.configuration.remove_response_links
+          key = remove_initial_underscore(key)
+          key = symbolize_key(key)
 
-          key = sanitize_key(key) if BeyondApi.configuration.remove_response_key_underscores
-          h[key.underscore.to_sym] = transform(value)
+          response_hash[key] = sanitize_value(value)
         end
       end
     end
 
-    def transform(thing)
-      case thing
-      when Hash then sanitize_response(thing)
-      when Array then thing.map { |v| transform(v) }
-      else; thing
+    def remove_initial_underscore(key)
+      key.chars.first == "_" ? key[1..-1] : key
+    end
+
+    def symbolize_key(key)
+      key.underscore.to_sym
+    end
+
+    def sanitize_value(value)
+      case value
+      when Hash
+        sanitize_response(value)
+      when Array
+        value.map { |v| sanitize_value(v) }
+      else
+        value
       end
     end
 
