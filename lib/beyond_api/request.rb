@@ -1,21 +1,16 @@
 # frozen_string_literal: true
 
-require "json"
-require "faraday"
-require "beyond_api/utils"
-require "forwardable"
-
 module BeyondApi
   class Request
     class << self
       [:get, :delete].each do |method|
         define_method(method) do |session, path, params = {}|
           response = BeyondApi::Connection.default.send(method) do |request|
-            # request.url("https://8a14-80-24-215-151.ngrok-free.app/countries/5/locales")
             request.url(session.api_url + path)
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
-            request.params = params.to_h.camelize_keys
+            request.params = camelize_keys(params)
           end
+
           Response.new(response).handle
         rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
           raise(FaradayError.new(e, 599))
@@ -28,9 +23,9 @@ module BeyondApi
             request.url(session.api_url + path)
             request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
             request.headers["Content-Type"] = content_type
-            request.params = params.to_h.camelize_keys
+            request.params = camelize_keys(params)
 
-            request.body = body.respond_to?(:camelize_keys) ? body.camelize_keys.to_json : body
+            request.body = camelize_keys(body).to_json
           end
 
           Response.new(response).handle
@@ -43,7 +38,8 @@ module BeyondApi
         request.url(session.api_url + path)
         request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
         request.headers["Content-Type"] = content_type
-        request.params = params.to_h.camelize_keys
+        request.params = camelize_keys(params)
+
         request.body = file_binary
       end
 
@@ -64,7 +60,9 @@ module BeyondApi
         request.url(session.api_url + path)
         request.headers["Authorization"] = "Bearer #{session.access_token}" unless session.access_token.nil?
         request.options[:params_encoder] = Faraday::FlatParamsEncoder
-        request.params = params.to_h.camelize_keys
+
+        request.params = camelize_keys(params)
+        
         files = files.split unless files.is_a? Array
         upload_files = files.map{ |file| Faraday::FilePart.new(File.open(file),
                                                                BeyondApi::Utils.file_content_type(file)) }

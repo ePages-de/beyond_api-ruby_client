@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "faraday"
-require "beyond_api/utils"
-require "forwardable"
-
 module BeyondApi
   class Response
     extend Forwardable
@@ -16,44 +11,36 @@ module BeyondApi
     end
 
     def handle
-      success? ? sanitize_response(body) : handle_error
+      success? ? parsed_response : raise_error
     end
 
     private
 
-    def sanitize_response(hash)
-      return {} if hash.blank?
+    def parsed_response
+      return {} if body.blank?
 
-      {}.tap do |response_hash|
-        hash.each do |key, value|
-          key = remove_initial_underscore(key)
-          key = symbolize_key(key)
-
-          response_hash[key] = sanitize_value(value)
-        end
-      end
+      remove_initial_underscore_keys!
+      snake_case_keys!
+      deep_symbolize_keys!
     end
 
-    def remove_initial_underscore(key)
-      key.chars.first == "_" ? key[1..-1] : key
+    def remove_initial_underscore_keys!
+      body.deep_transform_keys!{ |key| remove_initial_underscore(key) }
     end
 
-    def symbolize_key(key)
-      key.underscore.to_sym
+    def snake_case_keys!
+      body.deep_transform_keys!{ |key| key.to_s.underscore }
     end
 
-    def sanitize_value(value)
-      case value
-      when Hash
-        sanitize_response(value)
-      when Array
-        value.map { |v| sanitize_value(v) }
-      else
-        value
-      end
+    def deep_symbolize_keys!
+      body.deep_symbolize_keys!
     end
 
-    def handle_error
+    def remove_initial_underscore!
+      key.starts_with?('_') ? key[1..-1] : key
+    end
+
+    def raise_error
       raise BeyondApi::Error.new(body, status)
     end
   end

@@ -2,7 +2,7 @@ module BeyondApi
   module ProductView
     class Category < BaseService
       def all(params = {})
-        BeyondApi::Request.get(@session, "/product-view/categories", params)
+        fetch_all_pages("/product-view/categories", :categories, params)
       end
 
       def find(id)

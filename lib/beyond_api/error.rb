@@ -5,8 +5,6 @@ module BeyondApi
     def initialize(data, code)
       @data = data
       @code = code
-
-      super "faraday err"
     end
 
     def to_json

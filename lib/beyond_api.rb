@@ -1,41 +1,27 @@
 # frozen_string_literal: true
 
-require "beyond_api/version"
-
-require "logger"
-
-require "beyond_api/ext"
-require "beyond_api/utils"
-require "beyond_api/services/base_service"
-require "beyond_api/services/product_management/category"
-require "beyond_api/services/product_management/image"
-require "beyond_api/services/product_management/product"
-require "beyond_api/services/product_management/variation"
-require "beyond_api/services/product_management/variation_image"
-require "beyond_api/services/product_view/category"
-require "beyond_api/services/storefront/script_tag"
-require "beyond_api/services/checkout/shipping_zone"
-require "beyond_api/services/shop/address"
-require "beyond_api/services/shop/shop"
+require 'zeitwerk'
+require 'faraday'
+require 'faraday_middleware'
+require 'json'
+require 'forwardeable'
 
 module BeyondApi
-  autoload :Connection, "beyond_api/connection"
-  autoload :Error,      "beyond_api/error"
-  autoload :Logger,     "beyond_api/logger"
-  autoload :Request,    "beyond_api/request"
-  autoload :Response,   "beyond_api/response"
-  autoload :Session,    "beyond_api/session"
+  loader = Zeitwerk::Loader.for_gem
+  loader.push_dir("#{__dir__}/beyond_api/services", namespace: BeyondApi)
+  loader.ignore("#{__dir__}/generators")
+  loader.setup
 
-  extend BeyondApi::Logger
+  extend Logger
 
   class << self
     attr_accessor :configuration
-  end
-
-  def self.setup
-    self.configuration ||= Configuration.new
-
-    yield configuration
+    
+    def setup
+      self.configuration ||= Configuration.new
+  
+      yield configuration
+    end
   end
 
   class Configuration
