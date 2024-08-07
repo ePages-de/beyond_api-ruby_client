@@ -2,7 +2,7 @@
 
 require 'zeitwerk'
 require 'faraday'
-require 'faraday_middleware'
+require 'faraday/retry'
 require 'json'
 require 'forwardable'
 
