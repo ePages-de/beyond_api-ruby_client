@@ -16,6 +16,8 @@ module BeyondApi
       parsed_response(response)
     end
 
+    private
+
     def parsed_response(response)
       Response.new(response).handle
     end
@@ -25,22 +27,19 @@ module BeyondApi
         # Timeouts
         faraday.options.timeout      = BeyondApi.configuration.timeout.to_i
         faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
-
         # Authorization
-        if @oauth.blank? # @session && @session.access_token.present?
-          faraday.request :authorization, "Bearer", @session.access_token
-        else
+        case @authorization
+        when :basic
           faraday.request :authorization, :basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
+        else
+          faraday.request :authorization, "Bearer", @session.access_token
         end
-
         # Headers
         faraday.headers["Accept"] = "application/json" # Set default accept header
         faraday.headers["Content-Type"] = "application/json" # Set default content type
-
         # Request options
         faraday.request :json # Encode request bodies as JSON
         faraday.request :retry, BeyondApi.configuration.retry_options
-
         # Response options
         faraday.response :json, content_type: "application/json"
         faraday.response :logger, *logger_config { |logger| apply_filters(logger) }

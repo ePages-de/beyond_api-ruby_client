@@ -2,10 +2,11 @@ module BeyondApi
   class BaseService
     attr_reader :session
 
-    include Connection # @session
+    include Connection # @session, @authorization
 
     def initialize(session = nil)
       @session = session
+      @authorization = :bearer
     end
 
     def fetch_all_pages(url, resource, params = {})
