@@ -36,14 +36,13 @@ module BeyondApi
     private
 
     def handle_token_call(grant_type, params = {})
-      path = "/oauth/token?"
+      path = "oauth/token?"
 
       params.merge!(grant_type: grant_type)
 
-      response = agent.post(path, {}) do |request|
+      response = agent.post(path) do |request|
         request.params = params
       end
-      binding.b
 
       handle_response(response)
     end

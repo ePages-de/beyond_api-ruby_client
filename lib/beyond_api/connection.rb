@@ -5,9 +5,9 @@ module BeyondApi
     LOGGER       = BeyondApi.logger
     LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
-    # def get(path, params = {})
-    #   @agent.get(path, params)
-    # end
+    def get(path, params = {})
+      agent.get(path, params)
+    end
 
     def agent
       @agent ||= Faraday.new(url: @session.api_url, ssl: { verify: true }) do |faraday|
