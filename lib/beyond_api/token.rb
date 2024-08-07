@@ -5,6 +5,8 @@ require "beyond_api/utils"
 module BeyondApi
 
   class Token
+    include Connection
+
     class InvalidSessionError < StandardError; end
 
     attr_reader :session
@@ -34,22 +36,25 @@ module BeyondApi
     private
 
     def handle_token_call(grant_type, params = {})
-      path = "#{@session.api_url}/oauth/token"
+      path = "/oauth/token?"
+
       params.merge!(grant_type: grant_type)
 
-      response, status = BeyondApi::Request.token(path,
-                                                  params)
+      response = agent.post(path, {}) do |request|
+        request.params = params
+      end
+      binding.b
 
-      handle_response(response, status)
+      handle_response(response)
     end
 
-    def handle_response(response, status)
-      if status.between?(200, 299)
-        @session.access_token = response["access_token"]
-        @session.refresh_token = response["refresh_token"]
+    def handle_response(response)
+      if response.status.between?(200, 299)
+        @session.access_token = response.body["access_token"]
+        @session.refresh_token = response.body["refresh_token"]
         @session
       else
-        handle_error(response, status)
+        raise Error.new(response.body, response.status)
       end
     end
   end

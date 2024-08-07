@@ -5,11 +5,12 @@ module BeyondApi
     LOGGER       = BeyondApi.logger
     LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
-    def agent
-      @agent ||= Faraday.new(ssl: { verify: true }) do |faraday|
-        # Base URL
-        faraday.url_prefix @session.api_url
+    # def get(path, params = {})
+    #   @agent.get(path, params)
+    # end
 
+    def agent
+      @agent ||= Faraday.new(url: @session.api_url, ssl: { verify: true }) do |faraday|
         # Timeouts
         faraday.options.timeout      = BeyondApi.configuration.timeout.to_i
         faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
@@ -18,8 +19,7 @@ module BeyondApi
         if @session && @session.access_token.present?
           faraday.request :authorization, "Bearer", @session.access_token
         else
-          faraday.request :authorization, :basic, BeyondApi.configuration.client_id,
-                          BeyondApi.configuration.client_secret
+          faraday.request :authorization, :basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
         end
 
         # Headers
@@ -39,10 +39,6 @@ module BeyondApi
     def apply_filters(logger)
       logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
       logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
-    end
-
-    def get(path, params = {})
-      @agent.get(path, params)
     end
 
     # def multipart
