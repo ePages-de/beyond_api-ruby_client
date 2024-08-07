@@ -37,6 +37,7 @@ module BeyondApi
 
     def handle_token_call(grant_type, params = {})
       path = "oauth/token?"
+      @oauth = true
 
       params.merge!(grant_type: grant_type)
 
