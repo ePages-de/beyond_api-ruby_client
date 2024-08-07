@@ -2,7 +2,7 @@ module BeyondApi
   module Shop
     class Shop < BaseService
       def details
-        Request.get(@session, "/shop")
+        Request.new(@session).get("/shop")
       end
     end
   end

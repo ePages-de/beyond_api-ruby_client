@@ -6,14 +6,14 @@ module BeyondApi
       end
 
       def find(id)
-        Request.get(@session, "/product-view/categories/#{id}")
+       get("/product-view/categories/#{id}")
       end
 
       def preview(body, params = {})
-        Request.post(@session,
-                                "/product-view/categories/preview",
-                                body,
-                                params)
+        post(
+            "/product-view/categories/preview",
+            body,
+            params)
       end
     end
   end

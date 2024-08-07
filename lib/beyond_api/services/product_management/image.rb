@@ -2,7 +2,7 @@ module BeyondApi
   module ProductManagement
     class Image < BaseService
       def all(id)
-        Request.get(@session, "/products/#{id}/images")
+        Request.new(@session).get("/products/#{id}/images")
       end
     end
   end

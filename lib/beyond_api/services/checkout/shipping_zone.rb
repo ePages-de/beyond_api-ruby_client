@@ -3,7 +3,7 @@ module BeyondApi
     class ShippingZone < BaseService
       def all
         # TODO: iterate over all pages
-        Request.get(@session, "/shipping-zones")
+        Request.new(@session).get("/shipping-zones")
       end
     end
   end

@@ -2,6 +2,8 @@ module BeyondApi
   class BaseService
     attr_reader :session
 
+    include Connection # @session
+
     def initialize(session)
       @session = session
 
@@ -30,7 +32,7 @@ module BeyondApi
     # FIXME: find another way
     def fetch_page(url, page, params = {})
       params.merge!(page:, size: BeyondApi.configuration.all_pagination_size)
-      BeyondApi::Request.get(@session, url, params)
+      BeyondApi::Request.new(@session).get(url, params)
     end
 
     def fetch_pages(url, resource, params)

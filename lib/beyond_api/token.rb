@@ -3,6 +3,7 @@
 require "beyond_api/utils"
 
 module BeyondApi
+
   class Token
     class InvalidSessionError < StandardError; end
 

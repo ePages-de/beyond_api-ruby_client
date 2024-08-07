@@ -16,5 +16,9 @@ module BeyondApi
       @access_token = access_token
       @refresh_token = refresh_token
     end
+
+    def token
+      Token.new(self)
+    end
   end
 end

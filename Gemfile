@@ -7,6 +7,10 @@ gemspec
 
 gem "pry"
 
+group :development do
+  gem 'ruby-lsp'
+end
+
 group :test do
   gem "factory_bot"
 end
