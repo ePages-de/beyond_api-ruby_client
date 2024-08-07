@@ -11,11 +11,11 @@ module BeyondApi
 
     def fetch_all_pages(url, resource, params = {})
       if params[:paginated] == false
-        result = fetch_pages(url, resource, params, BeyondApi.configuration.all_pagination_size)
+        result = fetch_pages(url, resource, params)
         adjust_response(result)
         result
       else
-        fetch_page(url, params)
+        fetch_page(url, 0, params)
       end
     end
 
@@ -27,16 +27,18 @@ module BeyondApi
       result[:page][:number] = 0
     end
 
-    def fetch_page(url, params = {})
-      Request.get(@session, url, params)
+    # FIXME: find another way
+    def fetch_page(url, page, params = {})
+      params.merge!(page:, size: BeyondApi.configuration.all_pagination_size)
+      BeyondApi::Request.get(@session, url, params)
     end
 
-    def fetch_pages(url, resource, params, size)
-      result = fetch_page(url, params.merge(page: 0, size:))
+    def fetch_pages(url, resource, params)
+      result = fetch_page(url, 0, params)
 
       (1..result[:page][:total_pages] - 1).each do |page|
         result[:embedded][resource].concat(
-          fetch_page(url, params.merge(page:, size:))[:embedded][resource]
+          fetch_page(url, page, params)[:embedded][resource]
         )
       end
 
