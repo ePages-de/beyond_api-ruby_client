@@ -5,9 +5,20 @@ module BeyondApi
     LOGGER       = BeyondApi.logger
     LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
-    # def get(path, params = {})
-    #   @agent.get(path, params)
-    # end
+    def get(path, params = {})
+      parsed_response agent.get(path, params)
+    end
+
+    def post(path, body = {}, params = {})
+      response = agent.post(path, body) do |request|
+        request.params = params
+      end
+      parsed_response(response)
+    end
+
+    def parsed_response(response)
+      Response.new(response).handle
+    end
 
     def agent
       @agent ||= Faraday.new(url: @session.api_url, ssl: { verify: true }) do |faraday|
@@ -16,7 +27,7 @@ module BeyondApi
         faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
 
         # Authorization
-        if @session && @session.access_token.present?
+        if @oauth.blank? # @session && @session.access_token.present?
           faraday.request :authorization, "Bearer", @session.access_token
         else
           faraday.request :authorization, :basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
