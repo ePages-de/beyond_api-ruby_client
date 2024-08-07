@@ -1,17 +1,17 @@
 module BeyondApi
   module Authentication
     class Token < BaseService
-      def all(params = {})
-        # fetch_all_pages("product-view/categories", :categories, params)
-        get("product-view/categories", params)
+      def refresh(refresh_token)
+        handle_token_call("refresh_token", refresh_token:)
       end
 
-      def find(id)
-        get("product-view/categories/#{id}")
-      end
+      def handle_token_call(grant_type, params = {})
+        path = "oauth/token"
+        @oauth = true
 
-      def preview(body, params = {})
-        post("product-view/categories/preview", body, params)
+        params.merge!(grant_type:)
+
+        post(path, {}, params)
       end
     end
   end

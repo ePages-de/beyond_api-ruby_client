@@ -4,8 +4,8 @@ module BeyondApi
 
     include Connection # @session
 
-    def initialize(session)
-      @session = Session.new **session
+    def initialize(session = nil)
+      @session = session
     end
 
     def fetch_all_pages(url, resource, params = {})
