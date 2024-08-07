@@ -5,10 +5,7 @@ module BeyondApi
     include Connection # @session
 
     def initialize(session)
-      @session = session
-
-      # raise InvalidSessionError, "Invalid session" unless session.is_a? Session
-      # raise InvalidSessionError, "Session api_url cannot be nil" if session.api_url.nil?
+      @session = Session.new **session
     end
 
     def fetch_all_pages(url, resource, params = {})
