@@ -1,7 +1,7 @@
 module BeyondApi
   module Authentication
     class Token
-      include Connection # @session, @authorization
+      include Concerns::Connection # @session, @authorization
 
       def initialize(session = nil)
         @session = session

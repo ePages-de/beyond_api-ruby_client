@@ -2,8 +2,7 @@ module BeyondApi
   module ProductView
     class Category < BaseService
       def all(params = {})
-        # fetch_all_pages("product-view/categories", :categories, params)
-        get("product-view/categories", params)
+        fetch_all_pages("product-view/categories", params)
       end
 
       def find(id)
