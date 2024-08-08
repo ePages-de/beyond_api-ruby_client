@@ -1,5 +1,4 @@
 require:
-  - rubocop-ordered_methods
   - rubocop-rspec
 
 AllCops:
