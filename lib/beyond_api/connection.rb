@@ -8,18 +8,26 @@ module BeyondApi
     def get(path, params = {})
       parsed_response agent.get(path, params)
     end
-
+    
     def post(path, body = {}, params = {})
-      response = agent.post(path, body) do |request|
-        request.params = params
-      end
-      parsed_response(response)
+    response = agent.post(path, body) do |request|
+      request.params = params
     end
+    parsed_response(response)
+  end
+
+  def delete(path, params = {})
+    parsed_response agent.delete(path, params)
+  end
 
     private
 
     def parsed_response(response)
       Response.new(response).handle
+    end
+    
+    def parsed_body(body)
+      Utils.camelize_keys(body)
     end
 
     def agent
@@ -31,7 +39,7 @@ module BeyondApi
         case @authorization
         when :basic
           faraday.request :authorization, :basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
-        else
+        when :bearer
           faraday.request :authorization, "Bearer", @session.access_token
         end
         # Headers
