@@ -17,9 +17,9 @@ module BeyondApi
       parsed_response(response)
     end
 
-  def delete(path, params = {})
-    parsed_response agent.delete(path, params)
-  end
+    def delete(path, params = {})
+      parsed_response agent.delete(path, params)
+    end
 
     private
 
