@@ -8,24 +8,25 @@ module BeyondApi
     def get(path, params = {})
       parsed_response agent.get(path, params)
     end
-    
-    def post(path, body = {}, params = {})
-    response = agent.post(path, body) do |request|
-      request.params = params
-    end
-    parsed_response(response)
-  end
 
-  def delete(path, params = {})
-    parsed_response agent.delete(path, params)
-  end
+    def post(path, body = {}, params = {})
+      response = agent.post(path, body) do |request|
+        request.params = params
+        request.body = parsed_body(body)
+      end
+      parsed_response(response)
+    end
+
+    def delete(path, params = {})
+      parsed_response agent.delete(path, params)
+    end
 
     private
 
     def parsed_response(response)
       Response.new(response).handle
     end
-    
+
     def parsed_body(body)
       Utils.camelize_keys(body)
     end
