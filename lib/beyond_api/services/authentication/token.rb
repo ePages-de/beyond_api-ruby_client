@@ -1,17 +1,23 @@
 module BeyondApi
   module Authentication
-    class Token < BaseService
-      def refresh(refresh_token)
-        handle_token_call("refresh_token", refresh_token:)
+    class Token
+      include Connection # @session, @authorization
+
+      def initialize(session = nil)
+        @session = session
+        @authorization = :basic
       end
 
-      def handle_token_call(grant_type, params = {})
-        path = "oauth/token"
-        @oauth = true
+      def refresh(refresh_token)
+        post("oauth/token", {}, { grant_type: "refresh_token", refresh_token: })
+      end
 
-        params.merge!(grant_type:)
+      def get(code)
+        post("oauth/token", {}, { grant_type: "authorization_code" , code: })
+      end
 
-        post(path, {}, params)
+      def client_credentials
+        post("oauth/token", {}, { grant_type: "client_credentials" })
       end
     end
   end

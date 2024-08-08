@@ -8,16 +8,26 @@ module BeyondApi
     def get(path, params = {})
       parsed_response agent.get(path, params)
     end
-
+    
     def post(path, body = {}, params = {})
-      response = agent.post(path, body) do |request|
-        request.params = params
-      end
-      parsed_response(response)
+    response = agent.post(path, body) do |request|
+      request.params = params
     end
+    parsed_response(response)
+  end
+
+  def delete(path, params = {})
+    parsed_response agent.delete(path, params)
+  end
+
+    private
 
     def parsed_response(response)
       Response.new(response).handle
+    end
+    
+    def parsed_body(body)
+      Utils.camelize_keys(body)
     end
 
     def agent
@@ -25,22 +35,19 @@ module BeyondApi
         # Timeouts
         faraday.options.timeout      = BeyondApi.configuration.timeout.to_i
         faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
-
         # Authorization
-        if @oauth.blank? # @session && @session.access_token.present?
-          faraday.request :authorization, "Bearer", @session.access_token
-        else
+        case @authorization
+        when :basic
           faraday.request :authorization, :basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret
+        when :bearer
+          faraday.request :authorization, "Bearer", @session.access_token
         end
-
         # Headers
         faraday.headers["Accept"] = "application/json" # Set default accept header
         faraday.headers["Content-Type"] = "application/json" # Set default content type
-
         # Request options
         faraday.request :json # Encode request bodies as JSON
         faraday.request :retry, BeyondApi.configuration.retry_options
-
         # Response options
         faraday.response :json, content_type: "application/json"
         faraday.response :logger, *logger_config { |logger| apply_filters(logger) }

@@ -11,7 +11,7 @@ module BeyondApi
         post("script-tags", script_url:)
       end
 
-      def delete(id)
+      def destroy(id)
         delete("script-tags/#{id}")
       end
     end

@@ -1,11 +1,12 @@
 module BeyondApi
   class BaseService
-    attr_reader :session
+    include Connection # @session, @authorization
 
-    include Connection # @session
+    ServiceSession = Struct.new(:api_url, :access_token, :refresh_token)
 
-    def initialize(session = nil)
-      @session = session
+    def initialize(**params)
+      @session = initialize_session(params)
+      @authorization = :bearer
     end
 
     def fetch_all_pages(url, resource, params = {})
@@ -19,6 +20,14 @@ module BeyondApi
     end
 
     private
+
+    def initialize_session(session)
+      ServiceSession.new(
+        session[:api_url],
+        session[:access_token],
+        session[:refresh_token]
+      )
+    end
 
     def adjust_response(result)
       result[:page][:size] = result[:page][:total_elements]

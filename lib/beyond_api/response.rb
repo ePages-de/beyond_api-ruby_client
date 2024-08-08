@@ -16,6 +16,7 @@ module BeyondApi
 
     private
 
+    # TODO: benchmark this !
     def parsed_response
       return {} if body.blank?
 
