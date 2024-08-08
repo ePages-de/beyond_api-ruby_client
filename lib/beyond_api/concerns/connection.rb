@@ -7,19 +7,19 @@ module BeyondApi
       LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
       def get(path, params = {})
-        parsed_response agent.get(path, params)
+        parsed_response agent.get(path, parsed_request(params))
       end
 
       def post(path, body = {}, params = {})
         response = agent.post(path, body) do |request|
-          request.params = params
-          request.body = parsed_body(body)
+          request.params = parsed_request(params)
+          request.body = parsed_request(body)
         end
         parsed_response(response)
       end
 
       def delete(path, params = {})
-        parsed_response agent.delete(path, params)
+        parsed_response agent.delete(path, parsed_request(params))
       end
 
       private
@@ -28,8 +28,8 @@ module BeyondApi
         Response.new(response).handle
       end
 
-      def parsed_body(body)
-        Utils.camelize_keys(body)
+      def parsed_request(hash)
+        Utils.camelize_keys(hash)
       end
 
       def agent
