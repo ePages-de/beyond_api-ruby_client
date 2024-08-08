@@ -13,9 +13,10 @@ module BeyondApi
       def post(path, body = {}, params = {})
         response = agent.post(path, body) do |request|
           request.params = parsed_request(params)
-          request.body = parsed_request(body)
+          request.body   = parsed_request(body)
         end
-        parsed_response(response)
+
+        parsed_response response
       end
 
       def delete(path, params = {})
@@ -29,6 +30,8 @@ module BeyondApi
       end
 
       def parsed_request(hash)
+        return hash unless @camelize_keys
+
         Utils.camelize_keys(hash)
       end
 

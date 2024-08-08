@@ -8,6 +8,7 @@ module BeyondApi
     def initialize(**params)
       @session = initialize_session(params)
       @authorization = :bearer
+      @camelize_keys = true
     end
 
     private
