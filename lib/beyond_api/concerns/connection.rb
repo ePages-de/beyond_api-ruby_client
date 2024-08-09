@@ -3,7 +3,7 @@
 module BeyondApi
   module Concerns
     module Connection
-      LOGGER       = BeyondApi.logger
+      LOGGER = BeyondApi.logger
       LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
       def get(path, params = {})

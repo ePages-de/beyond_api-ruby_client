@@ -8,9 +8,10 @@ gemspec
 gem "pry"
 
 group :development do
-  gem 'ruby-lsp'
+  gem "rubocop"
 end
 
 group :test do
   gem "factory_bot"
+  gem "webmock"
 end

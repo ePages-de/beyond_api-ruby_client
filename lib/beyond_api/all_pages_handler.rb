@@ -35,7 +35,7 @@ module BeyondApi
       get(@url, @params.merge(page:, size: BeyondApi.configuration.all_pagination_size))
     end
 
-    def process_page(page)  
+    def process_page(page)
       page_data = fetch_page(page)
 
       @response[:embedded][@resource_key].concat(
@@ -48,5 +48,5 @@ module BeyondApi
       @response[:page][:total_pages] = 1
       @response[:page][:number] = 0
     end
-  end        
-end        
+  end
+end

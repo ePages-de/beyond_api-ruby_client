@@ -7,8 +7,7 @@ require "beyond_api/version"
 Gem::Specification.new do |spec|
   spec.name          = "beyond_api"
   spec.version       = BeyondApi::VERSION
-  spec.authors       = ["Unai Abrisketa", "Kathia Salazar", "German San Emeterio", "Kenneth Gallego"]
-
+  spec.authors       = ["Unai Abrisketa", "Kathia Salazar", "German San Emeterio", "Kenneth Gallego", "Andrés Bernardi"]
   spec.summary       = "Ruby client to access the Beyond API"
   spec.homepage      = "https://github.com/ePages-de/beyond_api-ruby_client"
 
@@ -19,19 +18,21 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = ">= 2.5.1"
+  spec.required_ruby_version = ">= 3.0"
 
-  spec.add_development_dependency "bundler",                 "~> 2.0"
-  spec.add_development_dependency "dotenv",                  "~> 2.7"
-  spec.add_development_dependency "faker",                   "~> 2.2"
-  spec.add_development_dependency "rake",                    "~> 10.0"
-  spec.add_development_dependency "rspec",                   "~> 3.0"
-  spec.add_development_dependency "rubocop",                 "~> 1.20"
-  spec.add_development_dependency "rubocop-ordered_methods", "~> 0.9"
-  spec.add_development_dependency "rubocop-rspec",           "~> 2.4"
-  spec.add_development_dependency "yard",                    "~> 0.9"
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "dotenv", "~> 2.7"
+  spec.add_development_dependency "faker",  "~> 2.2"
+  spec.add_development_dependency "rake",   "~> 10.0"
+  spec.add_development_dependency "rspec",  "~> 3.0"
+  spec.add_development_dependency "rubocop", "~> 1.20"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.4"
+  spec.add_development_dependency "yard", "~> 0.9"
 
-  spec.add_dependency "zeitwerk"
+  spec.add_dependency "activesupport", "~> 7.0.0"
   spec.add_dependency "faraday", "~> 2.10.0"
   spec.add_dependency "faraday-retry"
+  spec.add_dependency "zeitwerk"
+
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

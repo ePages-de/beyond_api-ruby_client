@@ -31,18 +31,10 @@ RSpec.configure do |config|
       session.products.delete(product.id)
     end
   end
-
-  AppRoot = File.expand_path(File.dirname("ext.rb"))
-
-  load "#{AppRoot}/lib/beyond_api/ext.rb"
 end
 
-unless ENV["CLIENT_ID"].nil? && ENV["CLIENT_SECRET"].nil?
-  BeyondApi.setup do |config|
-    config.client_id = ENV["CLIENT_ID"]
-    config.client_secret = ENV["CLIENT_SECRET"]
-    config.remove_response_links = false
-    config.remove_response_key_underscores = true
-    config.object_struct_responses = true
-  end
+BeyondApi.setup do |config|
+  config.client_id = ENV["CLIENT_ID"]
+  config.client_secret = ENV["CLIENT_SECRET"]
 end
+
