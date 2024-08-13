@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     beyond_api (0.24.2.pre)
+      activesupport (~> 7.0)
       faraday (~> 2.10.0)
       faraday-retry
       zeitwerk
@@ -124,7 +125,6 @@ PLATFORMS
   x86_64-darwin-22
 
 DEPENDENCIES
-  activesupport
   beyond_api!
   bundler (~> 2.0)
   dotenv (~> 2.7)
