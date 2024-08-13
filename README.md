@@ -82,8 +82,7 @@ client = client.get('1nBfq_')
 ```ruby
 client = client.refresh_token('<YOUR_REFRESH_TOKEN>')
 
-# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=>
-  "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
+# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=> "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
 ```
 
 ## Making requests
@@ -95,6 +94,7 @@ client = BeyondApi::ProductManagement::Category.new(api_url: ENV["API_URL"], acc
 
 # Retrieve all categories
 client.all
+
 # =>  {:embedded=>{:categories=>[{:id=>"539c1671-1540-4254-adaf-8b22b188d6d2", :name=>"New Category", :type=>"SMART", :default_sort=>"HIGHEST_PRICE_FIRST", :filters=>[], :links=>  {:self=>{:href=>"https://team42.beyondshop.cloud/api/categories/539c1671-1540-4254-adaf-8b22b188d6d2"}, :category=>{:href=>"https://team42.beyondshop.cloud/api/categories/539c1671-1540-4254-adaf-8b22b188d6d2"}}}]}, :links=>{:self=>{:href=>"https://team42.beyondshop.cloud/api/categories?page=0&size=20"}}, :page=>{:size=>20, :total_elements=>9, :total_pages=>1, :number=>0}}
 ```
 
