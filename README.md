@@ -89,7 +89,7 @@ client = client.refresh_token('<YOUR_REFRESH_TOKEN>')
 
 After generating your token following the instructions above, you can start using this gem to access various resources available, including categories, products, orders, webhooks, and more.
 
-```
+```ruby
 client = BeyondApi::ProductManagement::Category.new(api_url: ENV["API_URL"], access_token: '<YOUR_ACCESS_TOKEN>')
 
 # Retrieve all categories
