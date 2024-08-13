@@ -1,5 +1,7 @@
 # Beyond API Ruby Client
 
+Ruby toolkit for the [ePages API](https://developer.epages.com/beyond-docs/#introduction)
+
 ![Gem Version](https://img.shields.io/gem/v/beyond_api?label=gem%20version)
 [![Docs](https://img.shields.io/badge/docs-rubydoc-blue)](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1d173fa0b393e8eaf2a2/maintainability)](https://codeclimate.com/github/ePages-de/beyond_api-ruby_client/maintainability)
@@ -18,7 +20,7 @@ Log in to the cockpit of your test shop, navigate to **Apps > Custom apps** and 
 Fill out the form with the **App name**, **Application Callback URL** and **App scopes**.
 Save your app.
 
-You will then receive your `client_id` and `client_secret`.
+You will then receive your `client_id` and `client_secret` that you will use in the next step.
 
 ## Installation
 
@@ -48,6 +50,52 @@ To install the gem manually from your shell, run:
 
 ```bash
 $ gem install beyond_api
+```
+
+## Generating tokens
+
+API methods can be accessed through the client instance methods. This gem supports the various authentication methods supported by the ePages API.
+
+```ruby
+# Initializing the client
+client = BeyondApi::Token.new(api_url: 'https://team42.beyondshop.cloud/api', client_id: '<YOUR_CLIENT_ID>', client_secret: '<YOUR_CLIENT_SECRET>')
+```
+## Generate a token from [client credentials](https://developer.epages.com/beyond-docs/#create_a_jsonwebtoken_from_client_credentials)
+
+```ruby
+client = client.client_credentials
+
+# => {:access_token=> "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :expires_in=>3599, :scope=> "orde:r prat:dcur pypr:cur prod:urdc", :tenant_id=>1147, :iat=>1723477546,  :jti=>"mqXCnX/q/vStoJO69q68x1gw61c="}
+```
+
+## Generate a token from [authorization code](https://developer.epages.com/beyond-docs/#create_a_jsonwebtoken_from_authorization_code)
+
+```ruby
+client = client.get('1nBfq_')
+
+# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=>
+  "orde:r prat:dcur pypr:cur prod:urdc", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
+```
+
+## Generate a token from [refresh token](https://developer.epages.com/beyond-docs/#create_a_jsonwebtoken_from_refresh_token)
+
+```ruby
+client = client.refresh_token('<YOUR_REFRESH_TOKEN>')
+
+# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=>
+  "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
+```
+
+## Making requests
+
+After generating your token following the instructions above, you can start using this gem to access various resources available, including categories, products, orders, webhooks, and more.
+
+```
+client = BeyondApi::ProductManagement::Category.new(api_url: ENV["API_URL"], access_token: '<YOUR_ACCESS_TOKEN>')
+
+# Retrieve all categories
+client.all
+# =>  {:embedded=>{:categories=>[{:id=>"539c1671-1540-4254-adaf-8b22b188d6d2", :name=>"New Category", :type=>"SMART", :default_sort=>"HIGHEST_PRICE_FIRST", :filters=>[], :links=>  {:self=>{:href=>"https://team42.beyondshop.cloud/api/categories/539c1671-1540-4254-adaf-8b22b188d6d2"}, :category=>{:href=>"https://team42.beyondshop.cloud/api/categories/539c1671-1540-4254-adaf-8b22b188d6d2"}}}]}, :links=>{:self=>{:href=>"https://team42.beyondshop.cloud/api/categories?page=0&size=20"}}, :page=>{:size=>20, :total_elements=>9, :total_pages=>1, :number=>0}}
 ```
 
 ## Documentation
