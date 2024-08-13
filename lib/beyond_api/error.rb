@@ -1,45 +1,15 @@
 # frozen_string_literal: true
 
 module BeyondApi
-  class FaradayError < StandardError
-    def initialize(data, code)
-      @data = data
-      @code = code
-    end
-
-    def to_json
-      {
-        data:,
-        code:
-      }
-    end
-  end
-
   class Error < StandardError
-    attr_reader :error_id, :details, :trace_id, :full_message, :status_code, :error, :error_description
+    attr_reader :response
 
-    def initialize(data, status_code = nil)
-      @error_id          = data["errorId"]
-      @details           = data["details"]
-      @trace_id          = data["traceId"]
-      @error             = data["error"]
-      @error_description = data["error_description"]
-      @full_message      = data
-      @status_code       = status_code
+    def initialize(response)
+      @response = response
 
-      super(data["message"] || data["error_description"])
-    end
-
-    def to_json
-      {
-        error_id: @error_id,
-        message: @message,
-        details: @details,
-        error: @error,
-        error_description: @error_description,
-        trace_id: @trace_id,
-        status_code: @status_code
-      }
+      super
     end
   end
+
+  class FaradayError < Error; end
 end

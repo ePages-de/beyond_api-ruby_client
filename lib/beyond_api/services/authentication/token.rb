@@ -1,11 +1,13 @@
 module BeyondApi
   module Authentication
-    class Token
+    class Token < BaseService
       include Concerns::Connection # @session, @authorization
 
-      def initialize(session = nil)
-        @session = session
+      def initialize(**params)
+        super
+
         @authorization = :basic
+        @camelize_keys = false
       end
 
       def refresh(refresh_token)
@@ -13,7 +15,7 @@ module BeyondApi
       end
 
       def get(code)
-        post("oauth/token", {}, { grant_type: "authorization_code" , code: })
+        post("oauth/token", {}, { grant_type: "authorization_code", code: })
       end
 
       def client_credentials

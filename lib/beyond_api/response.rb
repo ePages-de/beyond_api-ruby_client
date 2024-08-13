@@ -10,39 +10,32 @@ module BeyondApi
       @response = response
     end
 
-    def handle
+    def parse
       success? ? parsed_response : raise_error
     end
 
     private
 
-    # TODO: benchmark this !
     def parsed_response
       return {} if body.blank?
 
-      remove_initial_underscore_keys!
-      snake_case_keys!
-      deep_symbolize_keys!
-    end
-
-    def remove_initial_underscore_keys!
-      body.deep_transform_keys!{ |key| remove_initial_underscore(key) }
-    end
-
-    def snake_case_keys!
-      body.deep_transform_keys!{ |key| key.to_s.underscore }
-    end
-
-    def deep_symbolize_keys!
-      body.deep_symbolize_keys!
+      body.deep_transform_keys! do |key|
+        key = remove_initial_underscore(key)
+        key = snake_case_key(key)
+        key.to_sym
+      end
     end
 
     def remove_initial_underscore(key)
-      key.starts_with?('_') ? key[1..-1] : key
+      key.to_s.starts_with?("_") ? key[1..] : key
+    end
+
+    def snake_case_key(key)
+      key.to_s.underscore
     end
 
     def raise_error
-      raise Error.new(body, status)
+      raise Error, parsed_response
     end
   end
 end

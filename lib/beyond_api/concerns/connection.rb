@@ -7,32 +7,34 @@ module BeyondApi
       LOGGER.level = Kernel.const_get("::Logger::#{BeyondApi.configuration.log_level.to_s.upcase}")
 
       def get(path, params = {})
-        parsed_response agent.get(path, parsed_request(params))
+        handle_request { agent.get(path, parse_request(params)) }
       end
 
       def post(path, body = {}, params = {})
-        response = agent.post(path, body) do |request|
-          request.params = parsed_request(params)
-          request.body   = parsed_request(body)
+        handle_request do
+          agent.post(path, body) do |request|
+            request.params = parse_request(params)
+            request.body   = parse_request(body)
+          end
         end
-
-        parsed_response response
       end
 
       def delete(path, params = {})
-        parsed_response agent.delete(path, parsed_request(params))
+        handle_request { agent.delete(path, parse_request(params)) }
       end
 
       private
 
-      def parsed_response(response)
-        Response.new(response).handle
-      end
-
-      def parsed_request(hash)
+      def parse_request(hash)
         return hash unless @camelize_keys
 
         Utils.camelize_keys(hash)
+      end
+
+      def handle_request
+        Response.new(yield).parse
+      rescue Faraday::TimeoutError, Faraday::ConnectionFailed => e
+        raise FaradayError, e
       end
 
       def agent
@@ -41,13 +43,7 @@ module BeyondApi
           faraday.options.timeout      = BeyondApi.configuration.timeout.to_i
           faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
           # Authorization
-          case @authorization
-          when :basic
-            faraday.request :authorization, :basic, BeyondApi.configuration.client_id,
-                            BeyondApi.configuration.client_secret
-          when :bearer
-            faraday.request :authorization, "Bearer", @session.access_token
-          end
+          faraday.request :authorization, *authorization_config
           # Headers
           faraday.headers["Accept"] = "application/json" # Set default accept header
           faraday.headers["Content-Type"] = "application/json" # Set default content type
@@ -60,24 +56,22 @@ module BeyondApi
         end
       end
 
+      def authorization_config
+        case @authorization
+        when :basic
+          [:basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret]
+        when :bearer
+          ["Bearer", @session.access_token]
+        end
+      end
+
+      def logger_config
+        [LOGGER, { bodies: BeyondApi.configuration.log_bodies, headers: BeyondApi.configuration.log_headers }]
+      end
+
       def apply_filters(logger)
         logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
         logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
-      end
-
-      # def multipart
-      #   create_connection do |faraday|
-      #     faraday.adapter Faraday.default_adapter
-      #     faraday.request :multipart, flat_encode: true
-      #   end
-      # end
-
-      def logger_config
-        [
-          LOGGER,
-          { bodies: BeyondApi.configuration.log_bodies,
-            headers: BeyondApi.configuration.log_headers }
-        ]
       end
     end
   end
