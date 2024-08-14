@@ -73,8 +73,7 @@ client = client.client_credentials
 ```ruby
 client = client.get('1nBfq_')
 
-# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=>
-  "orde:r prat:dcur pypr:cur prod:urdc", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
+# => {:access_token=>  "<YOUR_ACCESS_TOKEN>", :token_type=>"bearer", :refresh_token=> "<YOUR_REFRESH_TOKEN>", :expires_in=>3599, :scope=> "orde:r prat:dcur pypr:cur prod:urdc", :tenant_id=>1147, :iat=>1723453179, :jti=>"C0N0VYQUgzchp2GGo8WaINhpM8s="}
 ```
 
 ## Generate a token from [refresh token](https://developer.epages.com/beyond-docs/#create_a_jsonwebtoken_from_refresh_token)
