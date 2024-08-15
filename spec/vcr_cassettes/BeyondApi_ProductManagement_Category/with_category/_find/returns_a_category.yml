@@ -1,0 +1,256 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:20 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.081'
+      X-B3-Traceid:
+      - 3507e56fa0bd34971c418c20b3d4f1d7
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1723701020,
+          "jti" : "WwBYg3bre0BOmDWi5RJZOHafF74="
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/categories
+    body:
+      encoding: UTF-8
+      string: '{"name":"Team42 Category","type":"SMART","defaultSort":"HIGHEST_PRICE_FIRST"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.034'
+      X-B3-Traceid:
+      - 5affc1e741a9298b0538e310d224698f
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "db518b84-206e-43d6-9622-2c7c766210ef",
+          "name" : "Team42 Category",
+          "type" : "SMART",
+          "defaultSort" : "HIGHEST_PRICE_FIRST",
+          "filters" : [ ],
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef"
+            },
+            "category" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef"
+            }
+          }
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.018'
+      X-B3-Traceid:
+      - b17e54f0095a440dc56ece5e54375993
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "db518b84-206e-43d6-9622-2c7c766210ef",
+          "name" : "Team42 Category",
+          "type" : "SMART",
+          "defaultSort" : "HIGHEST_PRICE_FIRST",
+          "filters" : [ ],
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef"
+            },
+            "category" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef"
+            }
+          }
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/categories/db518b84-206e-43d6-9622-2c7c766210ef
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:21 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.037'
+      X-B3-Traceid:
+      - bb2005104a0dac4e67a81c958f0bd58e
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 15 Aug 2024 05:50:21 GMT
+recorded_with: VCR 6.2.0

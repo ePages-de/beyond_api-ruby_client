@@ -10,6 +10,15 @@ module BeyondApi
         handle_request { agent.get(path, parse_request(params)) }
       end
 
+      def put(path, body = {}, params = {})
+        handle_request do
+          agent.put(path, body) do |request|
+            request.params = parse_request(params)
+            request.body   = parse_request(body)
+          end
+        end
+      end
+
       def post(path, body = {}, params = {})
         handle_request do
           agent.post(path, body) do |request|

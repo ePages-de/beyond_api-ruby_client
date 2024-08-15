@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?code=abcde&grant_type=authorization_code
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.044'
+      X-B3-Traceid:
+      - 7b2e726e3d43a71295be89159def3075
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error" : "invalid_grant",
+          "error_description" : "Invalid authorization code: abcde"
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+recorded_with: VCR 6.2.0

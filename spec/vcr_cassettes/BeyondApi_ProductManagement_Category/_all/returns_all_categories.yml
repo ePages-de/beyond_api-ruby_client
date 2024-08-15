@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:20 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.082'
+      X-B3-Traceid:
+      - 7ff3e2bf420f231962f1e03701b7fb4c
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1723701020,
+          "jti" : "AzUxPPnMSDVwQzlYwq21RqK7Hhc="
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/categories
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Aug 2024 05:50:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.033'
+      X-B3-Traceid:
+      - ab0c4f8b027b155f7625393937bc7f5b
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "categories" : [ {
+              "_id" : "8a4a8f6a-e3d9-4616-9e89-12c42c084534",
+              "name" : "DO-NOT-DELETE Category",
+              "type" : "SMART",
+              "defaultSort" : "HIGHEST_PRICE_FIRST",
+              "filters" : [ ],
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/8a4a8f6a-e3d9-4616-9e89-12c42c084534"
+                },
+                "category" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories/8a4a8f6a-e3d9-4616-9e89-12c42c084534"
+                }
+              }
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/categories?page=0&size=20"
+            }
+          },
+          "page" : {
+            "size" : 20,
+            "totalElements" : 1,
+            "totalPages" : 1,
+            "number" : 0
+          }
+        }
+  recorded_at: Thu, 15 Aug 2024 05:50:20 GMT
+recorded_with: VCR 6.2.0
