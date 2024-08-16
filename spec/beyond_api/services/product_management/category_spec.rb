@@ -1,6 +1,6 @@
 RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
-  before do
-    @client = BeyondApi::ProductManagement::Category.new(
+  let(:client) do
+    BeyondApi::ProductManagement::Category.new(
       api_url: ENV["API_URL"],
       access_token: auth_client.client_credentials[:access_token]
     )
@@ -8,7 +8,7 @@ RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
 
   describe ".all" do
     it "returns all categories" do
-      response = @client.all
+      response = client.all
 
       expect(response).not_to be nil
       expect(response.dig(:embedded, :categories)).to be_kind_of(Array)
@@ -18,7 +18,7 @@ RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
 
   context "with category" do
     before(:each) do
-      @category = @client.create(
+      @category = client.create(
         name: "Team42 Category",
         type: "SMART",
         default_sort: "HIGHEST_PRICE_FIRST"
@@ -27,7 +27,7 @@ RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
 
     describe ".find" do
       it "returns a category" do
-        response = @client.find(@category[:id])
+        response = client.find(@category[:id])
         expect(response[:name]).to eq("Team42 Category")
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
           default_sort: "LOWEST_PRICE_FIRST"
         }
 
-        updated_category = @client.update(@category[:id], updated_category_data)
+        updated_category = client.update(@category[:id], updated_category_data)
         expect(updated_category).not_to be nil
         expect(updated_category[:name]).to eq("Updated Test Category")
         expect(updated_category[:default_sort]).to eq("LOWEST_PRICE_FIRST")
@@ -58,13 +58,13 @@ RSpec.describe 'BeyondApi::ProductManagement::Category', vcr: true do
 
     describe ".destroy" do
       it "deletes a category" do
-        response = @client.destroy(@category[:id])
+        response = client.destroy(@category[:id])
         expect(response).to be {}
       end
     end
 
     after(:each) do
-      @client.destroy(@category[:id])
+      client.destroy(@category[:id])
     rescue BeyondApi::Error
     end
   end

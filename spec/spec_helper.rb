@@ -33,5 +33,9 @@ BeyondApi.setup do |config|
 end
 
 def auth_client
-  BeyondApi::Authentication::Token.new(api_url: ENV["API_URL"])
+  BeyondApi::Authentication::Token.new(
+    api_url: ENV["API_URL"],
+    client_id: ENV["CLIENT_ID"],
+    client_secret: ENV["CLIENT_SECRET"]
+  )
 end
