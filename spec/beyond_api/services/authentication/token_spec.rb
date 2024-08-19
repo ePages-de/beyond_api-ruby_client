@@ -1,4 +1,4 @@
-RSpec.describe 'BeyondApi::Authentication::Token', vcr: true do
+RSpec.describe BeyondApi::Authentication::Token, vcr: true do
   it "retrieves token via client credentials" do
     response = auth_client.client_credentials
     expect(response).not_to be nil
