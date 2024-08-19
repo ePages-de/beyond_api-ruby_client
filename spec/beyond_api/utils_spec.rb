@@ -13,6 +13,6 @@ RSpec.describe 'BeyondApi::Utils' do
   end
 
   it "parse snakecase to camelcase" do
-    expect("sales_price".camelize(false)).to eq "salesPrice"
+    expect("sales_price".camelize(:lower)).to eq "salesPrice"
   end
 end
