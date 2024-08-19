@@ -39,3 +39,7 @@ def auth_client
     client_secret: ENV["CLIENT_SECRET"]
   )
 end
+
+def beyond_access_token
+  auth_client.client_credentials[:access_token]
+end

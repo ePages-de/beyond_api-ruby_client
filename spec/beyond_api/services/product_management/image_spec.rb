@@ -1,5 +1,5 @@
 RSpec.describe BeyondApi::ProductManagement::Image, vcr: true do
-  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: auth_client.client_credentials[:access_token]) }
+  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: beyond_access_token) }
 
   describe ".all" do
     it "returns all images" do

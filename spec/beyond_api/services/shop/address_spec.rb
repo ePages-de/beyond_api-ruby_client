@@ -1,5 +1,5 @@
 RSpec.describe BeyondApi::Shop::Address, vcr: true do
-  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: auth_client.client_credentials[:access_token]) }
+  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: beyond_access_token) }
 
   describe ".get" do
     it "returns the shop address" do
