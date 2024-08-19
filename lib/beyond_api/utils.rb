@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require "ostruct"
+require 'ostruct'
 
 module BeyondApi
   module Utils
     def self.file_content_type(file_path)
       case File.extname(file_path)
-      when ".png"
-        "image/png"
-      when ".jpg", ".jpeg"
-        "image/jpeg"
-      when ".gif"
-        "image/gif"
+      when '.png'
+        'image/png'
+      when '.jpg', '.jpeg'
+        'image/jpeg'
+      when '.gif'
+        'image/gif'
       end
     end
 

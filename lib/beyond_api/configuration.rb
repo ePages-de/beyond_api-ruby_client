@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BeyondApi
   class Configuration
     attr_accessor :client_id, :client_secret,

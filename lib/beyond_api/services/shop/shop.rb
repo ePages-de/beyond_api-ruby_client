@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module Shop
     class Shop < BaseService
       def show
-        get("shop")
+        get('shop')
       end
     end
   end

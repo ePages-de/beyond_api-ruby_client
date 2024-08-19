@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module Authentication
     class Signer < BaseService
       def all(params = {})
-        get("signers", params)
+        get('signers', params)
       end
 
       def create
-        post("signers")
+        post('signers')
       end
 
-      def destroy(id)
-        delete("signers/#{id}")
+      def delete(id)
+        super("signers/#{id}") # Concerns::Connection delete method
       end
     end
   end

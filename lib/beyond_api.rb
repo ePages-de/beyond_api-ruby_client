@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require "active_support/all"
-require "faraday"
-require "faraday/retry"
-require "forwardable"
-require "json"
-require "zeitwerk"
+require 'active_support/all'
+require 'faraday'
+require 'faraday/retry'
+require 'forwardable'
+require 'json'
+require 'zeitwerk'
 
 module BeyondApi
   loader = Zeitwerk::Loader.for_gem

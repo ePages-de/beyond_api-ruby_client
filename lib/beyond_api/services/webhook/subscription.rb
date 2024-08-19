@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module Webhook
     class Subscription < BaseService
       def all(params = {})
-        get("webhook-subscriptions", params)
+        get('webhook-subscriptions', params)
       end
 
       def create(body)
-        post("webhook-subscriptions", body)
+        post('webhook-subscriptions', body)
       end
 
       def delete_all
         all.dig(:embedded, :subscriptions).each do |subscription|
-          destroy(subscription[:id])
+          delete(subscription[:id])
         end
       end
 
-      def destroy(id)
-        delete("webhook-subscriptions/#{id}")
+      def delete(id)
+        super("webhook-subscriptions/#{id}") # Concerns::Connection delete method
       end
 
       def find(id)

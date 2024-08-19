@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module ProductView
     class Category < BaseService
       def all(params = {})
-        fetch_all_pages("product-view/categories", params)
+        fetch_all_pages('product-view/categories', params)
       end
 
       def find(id)
@@ -10,7 +12,7 @@ module BeyondApi
       end
 
       def preview(body, params = {})
-        post("product-view/categories/preview", body, params)
+        post('product-view/categories/preview', body, params)
       end
     end
   end

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "bundler/setup"
-require "dotenv/load"
-require "beyond_api"
-require "factory_bot"
+require 'bundler/setup'
+require 'dotenv/load'
+require 'beyond_api'
+require 'factory_bot'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
@@ -22,19 +22,24 @@ RSpec.configure do |config|
     FactoryBot.find_definitions
   end
 
-  config.after(:suite) do
-    session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
-    session.token.client_credentials
+  app_root = File.expand_path(File.dirname('vcr.rb'))
 
-    products = session.products.all
-    products.embedded.products.each do |product|
-      session.products.delete(product.id)
-    end
-  end
+  load "#{app_root}/spec/support/vcr.rb"
 end
 
 BeyondApi.setup do |config|
-  config.client_id = ENV["CLIENT_ID"]
-  config.client_secret = ENV["CLIENT_SECRET"]
+  config.client_id = ENV.fetch('CLIENT_ID', nil)
+  config.client_secret = ENV.fetch('CLIENT_SECRET', nil)
 end
 
+def auth_client
+  BeyondApi::Authentication::Token.new(
+    api_url: ENV.fetch('API_URL', nil),
+    client_id: ENV.fetch('CLIENT_ID', nil),
+    client_secret: ENV.fetch('CLIENT_SECRET', nil)
+  )
+end
+
+def beyond_access_token
+  auth_client.client_credentials[:access_token]
+end
