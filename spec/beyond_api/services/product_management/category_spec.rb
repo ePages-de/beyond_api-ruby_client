@@ -43,15 +43,15 @@ RSpec.describe BeyondApi::ProductManagement::Category, vcr: true do
       end
     end
 
-    describe ".destroy" do
+    describe ".delete" do
       it "deletes a category" do
-        response = client.destroy(@category[:id])
+        response = client.delete(@category[:id])
         expect(response).to be {}
       end
     end
 
     after(:each) do
-      client.destroy(@category[:id])
+      client.delete(@category[:id])
     rescue BeyondApi::Error
     end
   end

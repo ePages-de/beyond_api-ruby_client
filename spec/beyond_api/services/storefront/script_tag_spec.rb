@@ -23,15 +23,15 @@ RSpec.describe BeyondApi::Storefront::ScriptTag, vcr: true do
       end
     end
 
-    describe ".destroy" do
+    describe ".delete" do
       it "deletes a script tag" do
-        response = client.destroy(@script_tag[:id])
+        response = client.delete(@script_tag[:id])
         expect(response).to be {}
       end
     end
 
     after(:each) do
-      client.destroy(@script_tag[:id])
+      client.delete(@script_tag[:id])
     rescue BeyondApi::Error
     end
   end
