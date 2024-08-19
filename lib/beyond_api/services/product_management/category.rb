@@ -17,8 +17,8 @@ module BeyondApi
         put("categories/#{id}", body)
       end
 
-      def destroy(id)
-        delete("categories/#{id}")
+      def delete(id)
+        super("categories/#{id}") # Concerns::Connection delete method
       end
     end
   end

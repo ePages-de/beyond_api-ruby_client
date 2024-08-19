@@ -11,8 +11,8 @@ module BeyondApi
         post("script-tags", script_url:)
       end
 
-      def destroy(id)
-        delete("script-tags/#{id}")
+      def delete(id)
+        super("script-tags/#{id}") # Concerns::Connection delete method
       end
     end
   end

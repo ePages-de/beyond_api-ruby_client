@@ -20,9 +20,9 @@ RSpec.describe BeyondApi::Authentication::Signer, vcr: true do
       end
     end
 
-    describe '#destroy' do
+    describe '#delete' do
       it 'deletes a signer' do
-        response = client.destroy(@signer[:id])
+        response = client.delete(@signer[:id])
         expect(response).to be {}
       end
     end

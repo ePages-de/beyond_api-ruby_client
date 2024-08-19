@@ -31,15 +31,15 @@ RSpec.describe BeyondApi::Webhook::Subscription, vcr: true do
       end
     end
 
-    describe ".destroy" do
+    describe ".delete" do
       it "deletes a webhook subscription" do
-        response = client.destroy(@webhook_subscription[:id])
+        response = client.delete(@webhook_subscription[:id])
         expect(response).to be {}
       end
     end
 
     after(:each) do
-      client.destroy(@webhook_subscription[:id])
+      client.delete(@webhook_subscription[:id])
     rescue BeyondApi::Error
     end
   end
