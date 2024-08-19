@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module Webhook
     class Subscription < BaseService
       def all(params = {})
-        get("webhook-subscriptions", params)
+        get('webhook-subscriptions', params)
       end
 
       def create(body)
-        post("webhook-subscriptions", body)
+        post('webhook-subscriptions', body)
       end
 
       def delete_all

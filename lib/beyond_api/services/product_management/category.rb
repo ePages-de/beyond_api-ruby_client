@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module ProductManagement
     class Category < BaseService
@@ -6,11 +8,11 @@ module BeyondApi
       end
 
       def all(params = {})
-        fetch_all_pages("categories", params)
+        fetch_all_pages('categories', params)
       end
 
       def create(body)
-        post("categories", body)
+        post('categories', body)
       end
 
       def update(id, body)

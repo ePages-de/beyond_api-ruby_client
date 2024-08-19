@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 RSpec.describe BeyondApi::Authentication::Signer, vcr: true do
-  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: beyond_access_token) }
+  let(:client) { described_class.new(api_url: ENV.fetch('API_URL', nil), access_token: beyond_access_token) }
 
   describe '#all' do
     it 'returns all signers' do
@@ -9,7 +11,7 @@ RSpec.describe BeyondApi::Authentication::Signer, vcr: true do
     end
   end
 
-  context "with signer" do
+  context 'with signer' do
     before(:each) do
       @signer = client.create
     end
@@ -23,7 +25,7 @@ RSpec.describe BeyondApi::Authentication::Signer, vcr: true do
     describe '#delete' do
       it 'deletes a signer' do
         response = client.delete(@signer[:id])
-        expect(response).to be {}
+        expect(response).to eq({})
       end
     end
   end

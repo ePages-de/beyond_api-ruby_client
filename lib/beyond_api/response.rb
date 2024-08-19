@@ -27,7 +27,7 @@ module BeyondApi
     end
 
     def remove_initial_underscore(key)
-      key.to_s.starts_with?("_") ? key[1..] : key
+      key.to_s.starts_with?('_') ? key[1..] : key
     end
 
     def snake_case_key(key)

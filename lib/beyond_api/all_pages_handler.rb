@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BeyondApi
   class AllPagesHandler
     include Concerns::Connection

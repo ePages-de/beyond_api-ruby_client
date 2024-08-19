@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BeyondApi
   module ProductManagement
     class Variation < BaseService

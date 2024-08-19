@@ -54,13 +54,13 @@ module BeyondApi
           # Authorization
           faraday.request :authorization, *authorization_config
           # Headers
-          faraday.headers["Accept"] = "application/json" # Set default accept header
-          faraday.headers["Content-Type"] = "application/json" # Set default content type
+          faraday.headers['Accept'] = 'application/json' # Set default accept header
+          faraday.headers['Content-Type'] = 'application/json' # Set default content type
           # Request options
           faraday.request :json # Encode request bodies as JSON
           faraday.request :retry, BeyondApi.configuration.retry_options
           # Response options
-          faraday.response :json, content_type: "application/json"
+          faraday.response :json, content_type: 'application/json'
           faraday.response :logger, *logger_config { |logger| apply_filters(logger) }
         end
       end
@@ -70,7 +70,7 @@ module BeyondApi
         when :basic
           [:basic, BeyondApi.configuration.client_id, BeyondApi.configuration.client_secret]
         when :bearer
-          ["Bearer", @session.access_token]
+          ['Bearer', @session.access_token]
         end
       end
 

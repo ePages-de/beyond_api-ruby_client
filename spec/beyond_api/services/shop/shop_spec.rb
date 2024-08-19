@@ -1,8 +1,10 @@
-RSpec.describe BeyondApi::Shop::Shop, vcr: true do
-  let(:client) { described_class.new(api_url: ENV["API_URL"], access_token: beyond_access_token) }
+# frozen_string_literal: true
 
-  describe ".get" do
-    it "returns the shop details" do
+RSpec.describe BeyondApi::Shop::Shop, vcr: true do
+  let(:client) { described_class.new(api_url: ENV.fetch('API_URL', nil), access_token: beyond_access_token) }
+
+  describe '.get' do
+    it 'returns the shop details' do
       response = client.show
       expect(response).not_to be nil
       expect(response.keys).to include(:name, :reseller_name, :primary_hostname, :default_locale)
