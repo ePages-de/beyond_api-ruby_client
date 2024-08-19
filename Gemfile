@@ -13,5 +13,7 @@ end
 
 group :test do
   gem "factory_bot"
+  gem "jwt"
+  gem "vcr"
   gem "webmock"
 end
