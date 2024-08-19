@@ -2,11 +2,7 @@ module BeyondApi
   module ProductManagement
     class Product < BaseService
       def all(params = {})
-        fetch_all_pages("products", params)
-      end
-
-      def create(body)
-        post("products", body)
+        fetch_all_pages("/products", params)
       end
 
       def find(id)

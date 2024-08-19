@@ -11,12 +11,12 @@ module BeyondApi
 
       def delete_all
         all.dig(:embedded, :subscriptions).each do |subscription|
-          delete(subscription[:id])
+          destroy(subscription[:id])
         end
       end
 
-      def delete(id)
-        super("webhook-subscriptions/#{id}") # Concerns::Connection delete method
+      def destroy(id)
+        delete("webhook-subscriptions/#{id}")
       end
 
       def find(id)

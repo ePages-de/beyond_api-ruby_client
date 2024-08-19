@@ -22,9 +22,15 @@ RSpec.configure do |config|
     FactoryBot.find_definitions
   end
 
-  AppRoot = File.expand_path(File.dirname("vcr.rb"))
+  config.after(:suite) do
+    session = BeyondApi::Session.new(api_url: ENV["SHOP_URL"])
+    session.token.client_credentials
 
-  load "#{AppRoot}/spec/support/vcr.rb"
+    products = session.products.all
+    products.embedded.products.each do |product|
+      session.products.delete(product.id)
+    end
+  end
 end
 
 BeyondApi.setup do |config|
@@ -32,14 +38,3 @@ BeyondApi.setup do |config|
   config.client_secret = ENV["CLIENT_SECRET"]
 end
 
-def auth_client
-  BeyondApi::Authentication::Token.new(
-    api_url: ENV["API_URL"],
-    client_id: ENV["CLIENT_ID"],
-    client_secret: ENV["CLIENT_SECRET"]
-  )
-end
-
-def beyond_access_token
-  auth_client.client_credentials[:access_token]
-end
