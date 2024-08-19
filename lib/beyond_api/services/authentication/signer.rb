@@ -9,8 +9,8 @@ module BeyondApi
         post("signers")
       end
 
-      def delete(id)
-        Connection.delete("signers/#{id}")
+      def destroy(id)
+        delete("signers/#{id}")
       end
     end
   end

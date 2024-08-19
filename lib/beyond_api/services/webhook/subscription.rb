@@ -15,8 +15,8 @@ module BeyondApi
         end
       end
 
-      def delete(id)
-        Connection.delete("webhook-subscriptions/#{id}")
+      def destroy(id)
+        delete("webhook-subscriptions/#{id}")
       end
 
       def find(id)

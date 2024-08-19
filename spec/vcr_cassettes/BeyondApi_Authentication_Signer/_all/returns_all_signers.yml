@@ -1,0 +1,159 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 19 Aug 2024 06:40:41 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.097'
+      X-B3-Traceid:
+      - '0636875c3bbcbab7867bda535fe5e243'
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1724049641,
+          "jti" : "8JwEzj6jy1EWDAYb40//fdukLso="
+        }
+  recorded_at: Mon, 19 Aug 2024 06:40:41 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/signers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 19 Aug 2024 06:40:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.025'
+      X-B3-Traceid:
+      - 50d800fb4b92bedd1b243cbfadba6fb4
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "signers" : [ {
+              "_id" : "3c910dd7-65d8-4ee5-af7d-dd82de834d4b",
+              "createdAt" : "2024-08-19T06:37:59.951",
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/signers/3c910dd7-65d8-4ee5-af7d-dd82de834d4b"
+                }
+              }
+            }, {
+              "_id" : "7add803f-df8a-46a4-9e75-5afd75b01adc",
+              "createdAt" : "2024-08-19T06:36:40.976",
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/signers/7add803f-df8a-46a4-9e75-5afd75b01adc"
+                }
+              }
+            }, {
+              "_id" : "82920cfb-e1ab-4b3c-8e33-5702d86f6876",
+              "createdAt" : "2024-08-19T06:37:28.279",
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/signers/82920cfb-e1ab-4b3c-8e33-5702d86f6876"
+                }
+              }
+            }, {
+              "_id" : "b3de5fef-8385-4df4-a9a5-74a5aacb1277",
+              "createdAt" : "2024-08-19T06:35:38.891",
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/signers/b3de5fef-8385-4df4-a9a5-74a5aacb1277"
+                }
+              }
+            } ]
+          }
+        }
+  recorded_at: Mon, 19 Aug 2024 06:40:41 GMT
+recorded_with: VCR 6.2.0

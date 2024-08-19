@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 19 Aug 2024 06:13:43 GMT
+      - Mon, 19 Aug 2024 06:40:46 GMT
       Content-Type:
       - application/json;charset=utf-8
       Transfer-Encoding:
@@ -45,9 +45,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.098'
+      - '0.146'
       X-B3-Traceid:
-      - d5f36a0ed8968b897ca10114fb554be2
+      - 0ec04a3cce6cafd10f5ab15b6102e7b8
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
@@ -59,10 +59,10 @@ http_interactions:
           "expires_in" : 3599,
           "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
           "tenantId" : 8542,
-          "iat" : 1724048023,
-          "jti" : "wbmjEm3sklF053GJQPRcuTGUOeM="
+          "iat" : 1724049646,
+          "jti" : "mu0JswmAtn8TgH3JWCQ9j902J4I="
         }
-  recorded_at: Mon, 19 Aug 2024 06:13:42 GMT
+  recorded_at: Mon, 19 Aug 2024 06:40:46 GMT
 - request:
     method: get
     uri: https://team42-beyond-api.beyondshop.cloud/api/products
@@ -86,7 +86,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 19 Aug 2024 06:13:43 GMT
+      - Mon, 19 Aug 2024 06:40:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -108,9 +108,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.059'
+      - '0.227'
       X-B3-Traceid:
-      - 1bb4216510732544b0381d5e21097911
+      - af2a97f1e8074796ca4f5bd8c27aeb0e
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
@@ -538,11 +538,2400 @@ http_interactions:
                   "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6c1fba11-2983-4cff-bdd1-8d485fd4e836/additional-descriptions"
                 }
               }
+            }, {
+              "_id" : "622de456-b829-4840-ae51-908c3c4c6e72",
+              "lastModifiedAt" : "2024-08-19T06:13:43.612",
+              "sku" : "1008",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "78c2e576-a3a2-4180-badc-02e9a5dbec1c",
+              "lastModifiedAt" : "2024-08-19T06:13:44.056",
+              "sku" : "1009",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/78c2e576-a3a2-4180-badc-02e9a5dbec1c/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "d0a33d33-f629-46a5-a7d6-dbdb22dbae39",
+              "lastModifiedAt" : "2024-08-19T06:29:52.033",
+              "sku" : "1010",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d0a33d33-f629-46a5-a7d6-dbdb22dbae39/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "4d16857a-a353-4e88-9cc7-ba0b9cf05c2b",
+              "lastModifiedAt" : "2024-08-19T06:29:52.458",
+              "sku" : "1011",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4d16857a-a353-4e88-9cc7-ba0b9cf05c2b/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "2d9923be-cc36-41f7-8585-795883ceecdc",
+              "lastModifiedAt" : "2024-08-19T06:30:37.637",
+              "sku" : "1012",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/2d9923be-cc36-41f7-8585-795883ceecdc/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "935f97ed-c875-4f24-9f6b-cdb6f09cbddd",
+              "lastModifiedAt" : "2024-08-19T06:30:38.101",
+              "sku" : "1013",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/935f97ed-c875-4f24-9f6b-cdb6f09cbddd/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "7b16492b-8a5b-4597-8e9d-cd9fcd52af0c",
+              "lastModifiedAt" : "2024-08-19T06:31:58.649",
+              "sku" : "1014",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/7b16492b-8a5b-4597-8e9d-cd9fcd52af0c/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "575da236-82ff-4e5c-84f9-a5514ef05b23",
+              "lastModifiedAt" : "2024-08-19T06:31:59.05",
+              "sku" : "1015",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/575da236-82ff-4e5c-84f9-a5514ef05b23/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "26221231-953b-4a1c-9025-7c72e610facd",
+              "lastModifiedAt" : "2024-08-19T06:35:23.365",
+              "sku" : "1016",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/26221231-953b-4a1c-9025-7c72e610facd/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "0b47984d-5322-4d11-9022-41137bd9ddc2",
+              "lastModifiedAt" : "2024-08-19T06:35:23.857",
+              "sku" : "1017",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0b47984d-5322-4d11-9022-41137bd9ddc2/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "d4aa7727-aaa5-43d4-80f4-0f51bc8a688e",
+              "lastModifiedAt" : "2024-08-19T06:35:43.277",
+              "sku" : "1018",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/d4aa7727-aaa5-43d4-80f4-0f51bc8a688e/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "b9bf2184-ae5b-4b06-be1a-f4d1140496e3",
+              "lastModifiedAt" : "2024-08-19T06:35:43.694",
+              "sku" : "1019",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/b9bf2184-ae5b-4b06-be1a-f4d1140496e3/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a",
+              "lastModifiedAt" : "2024-08-19T06:36:45.318",
+              "sku" : "1020",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/bf9665f8-0f16-449f-a6b3-4e6c4e44eb8a/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "21cb741d-eb0c-4722-8622-a8b555d1fd03",
+              "lastModifiedAt" : "2024-08-19T06:36:45.749",
+              "sku" : "1021",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/21cb741d-eb0c-4722-8622-a8b555d1fd03/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "687ac2a5-91a9-4d7e-917d-614fabcbc023",
+              "lastModifiedAt" : "2024-08-19T06:37:32.536",
+              "sku" : "1022",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/687ac2a5-91a9-4d7e-917d-614fabcbc023/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "4312d633-0d56-4157-8b33-b587550cca1f",
+              "lastModifiedAt" : "2024-08-19T06:37:32.972",
+              "sku" : "1023",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4312d633-0d56-4157-8b33-b587550cca1f/additional-descriptions"
+                }
+              }
+            }, {
+              "_id" : "88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d",
+              "lastModifiedAt" : "2024-08-19T06:38:04.141",
+              "sku" : "1024",
+              "salesPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 8.7,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 7.25,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 10.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.125,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.95,
+                "derivedPrice" : {
+                  "taxModel" : "NET",
+                  "currency" : "GBP",
+                  "amount" : 9.95833,
+                  "taxRate" : 0.2
+                }
+              },
+              "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+              "productIdentifiers" : [ {
+                "type" : "EAN",
+                "value" : "9780134308135"
+              } ],
+              "visible" : true,
+              "taxClass" : "REGULAR",
+              "shippingWeight" : {
+                "value" : 1175.0,
+                "displayUnit" : "GRAMS"
+              },
+              "maxOrderQuantity" : 6,
+              "shippingDimension" : {
+                "length" : 1500,
+                "width" : 1000,
+                "height" : 2000
+              },
+              "refPrice" : {
+                "refQuantity" : 1,
+                "unit" : "LITER",
+                "quantity" : 0.75,
+                "price" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 11.6,
+                  "derivedPrice" : {
+                    "taxModel" : "NET",
+                    "currency" : "GBP",
+                    "amount" : 9.6667,
+                    "taxRate" : 0.2
+                  }
+                }
+              },
+              "shippingPeriod" : {
+                "min" : 2,
+                "max" : 4,
+                "displayUnit" : "WEEKS"
+              },
+              "pickupPeriod" : {
+                "min" : 1,
+                "max" : 2,
+                "displayUnit" : "WEEKS"
+              },
+              "name" : "Team42 Product",
+              "description" : "Spain\nRioja Tempranillo",
+              "manufacturer" : "Grape Vineyard",
+              "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+              "variationAttributes" : [ ],
+              "customText" : null,
+              "productLabels" : [ {
+                "type" : "NEW",
+                "activeFrom" : "2024-08-13T11:31:30.211",
+                "activeUntil" : "2024-09-10T11:31:30.211"
+              } ],
+              "isVariationProduct" : false,
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d"
+                },
+                "availability" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/availability"
+                },
+                "attributes" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/attributes"
+                },
+                "attachments" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/attachments"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/images"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/default-image"
+                },
+                "videos" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/videos"
+                },
+                "cross-sells" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/cross-sells"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/multiple-images"
+                },
+                "external-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/external-images"
+                },
+                "additional-descriptions" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/88fd3c94-bdfe-48a1-bfe7-801ff40d9e0d/additional-descriptions"
+                }
+              }
             } ]
           },
           "_links" : {
+            "first" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products?page=0&size=20"
+            },
             "self" : {
               "href" : "https://team42-beyond-api.beyondshop.cloud/api/products?page=0&size=20"
+            },
+            "next" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products?page=1&size=20"
+            },
+            "last" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products?page=1&size=20"
             },
             "search" : {
               "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/search"
@@ -550,10 +2939,10 @@ http_interactions:
           },
           "page" : {
             "size" : 20,
-            "totalElements" : 3,
-            "totalPages" : 1,
+            "totalElements" : 21,
+            "totalPages" : 2,
             "number" : 0
           }
         }
-  recorded_at: Mon, 19 Aug 2024 06:13:43 GMT
+  recorded_at: Mon, 19 Aug 2024 06:40:46 GMT
 recorded_with: VCR 6.2.0

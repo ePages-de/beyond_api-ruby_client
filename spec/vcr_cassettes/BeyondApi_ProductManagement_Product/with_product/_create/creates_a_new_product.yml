@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 19 Aug 2024 06:13:43 GMT
+      - Mon, 19 Aug 2024 06:40:46 GMT
       Content-Type:
       - application/json;charset=utf-8
       Transfer-Encoding:
@@ -45,9 +45,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.085'
+      - '0.156'
       X-B3-Traceid:
-      - 106773ef766c850d4abdd663005975d6
+      - 226eb06e8a88b8ba020d84ad6821fed5
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
@@ -59,10 +59,10 @@ http_interactions:
           "expires_in" : 3599,
           "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
           "tenantId" : 8542,
-          "iat" : 1724048023,
-          "jti" : "no4BNV9le4jdYPwVubX5/joQQKI="
+          "iat" : 1724049646,
+          "jti" : "ToaY1QbhYVnXdKVtbo9/zHGP1pY="
         }
-  recorded_at: Mon, 19 Aug 2024 06:13:43 GMT
+  recorded_at: Mon, 19 Aug 2024 06:40:46 GMT
 - request:
     method: post
     uri: https://team42-beyond-api.beyondshop.cloud/api/products
@@ -88,7 +88,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 19 Aug 2024 06:13:43 GMT
+      - Mon, 19 Aug 2024 06:40:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -96,7 +96,7 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72
+      - https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93
       X-Content-Type-Options:
       - nosniff
       X-Xss-Protection:
@@ -112,18 +112,18 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.167'
+      - '0.145'
       X-B3-Traceid:
-      - 53cf7e966ae413885a6038246feccac7
+      - 29b58716c856411ff91c828f90cfecd2
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
       encoding: UTF-8
       string: |-
         {
-          "_id" : "622de456-b829-4840-ae51-908c3c4c6e72",
-          "lastModifiedAt" : "2024-08-19T06:13:43.611930663",
-          "sku" : "1008",
+          "_id" : "0c3d27de-5b4d-4432-bf7b-caf7ff289d93",
+          "lastModifiedAt" : "2024-08-19T06:40:47.012323725",
+          "sku" : "1026",
           "salesPrice" : {
             "taxModel" : "GROSS",
             "currency" : "GBP",
@@ -220,46 +220,46 @@ http_interactions:
               "purchasable" : true,
               "_links" : {
                 "self" : {
-                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/availability"
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/availability"
                 }
               }
             }
           },
           "_links" : {
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93"
             },
             "availability" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/availability"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/availability"
             },
             "attributes" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/attributes"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/attributes"
             },
             "attachments" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/attachments"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/attachments"
             },
             "images" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/images"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/images"
             },
             "default-image" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/default-image"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/default-image"
             },
             "videos" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/videos"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/videos"
             },
             "cross-sells" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/cross-sells"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/cross-sells"
             },
             "multiple-images" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/multiple-images"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/multiple-images"
             },
             "external-images" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/external-images"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/external-images"
             },
             "additional-descriptions" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/622de456-b829-4840-ae51-908c3c4c6e72/additional-descriptions"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/0c3d27de-5b4d-4432-bf7b-caf7ff289d93/additional-descriptions"
             }
           }
         }
-  recorded_at: Mon, 19 Aug 2024 06:13:43 GMT
+  recorded_at: Mon, 19 Aug 2024 06:40:46 GMT
 recorded_with: VCR 6.2.0
