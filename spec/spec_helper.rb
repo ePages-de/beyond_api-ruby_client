@@ -33,11 +33,7 @@ BeyondApi.setup do |config|
 end
 
 def auth_client
-  BeyondApi::Authentication::Token.new(
-    api_url: ENV.fetch('API_URL', nil),
-    client_id: ENV.fetch('CLIENT_ID', nil),
-    client_secret: ENV.fetch('CLIENT_SECRET', nil)
-  )
+  BeyondApi::Authentication::Token.new(api_url: ENV.fetch('API_URL', nil))
 end
 
 def beyond_access_token
