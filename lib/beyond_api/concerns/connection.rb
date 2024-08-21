@@ -32,6 +32,28 @@ module BeyondApi
         handle_request { agent.delete(path, parse_request(params)) }
       end
 
+      def upload_image(path, image_path, params = {})
+        handle_request do
+          agent.post(path) do |request|
+            request.headers['Content-Type'] = Utils.file_content_type(image_path)
+            request.params = parse_request(params)
+            request.body = File.binread(image_path)
+          end
+        end
+      end
+
+      # FIXME: Use multipart flat_encode: true
+      def upload_images(path, files, params = {})
+        handle_request do
+          agent.post(path) do |request|
+            request.headers['Content-Type'] = 'multipart/form-data'
+            request.options[:params_encoder] = Faraday::FlatParamsEncoder
+            request.params = parse_request(params)
+            request.body   = { image: files_to_upload(files) }
+          end
+        end
+      end
+
       private
 
       def parse_request(hash)
@@ -81,6 +103,10 @@ module BeyondApi
       def apply_filters(logger)
         logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
         logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
+      end
+
+      def files_to_upload(files)
+        files.map { |file| Faraday::Multipart::FilePart.new(File.open(file), Utils.file_content_type(file)) }
       end
     end
   end
