@@ -2,6 +2,8 @@
 
 module BeyondApi
   module Storefront
+    # @example How to instantiate a client
+    #   @client = BeyondApi::Storefront::ScriptTag.new(api_url: 'https://example.com/api', access_token: 'your_token')
     class ScriptTag < BaseService
       def all(params = {})
         params.merge!(client_id: BeyondApi.configuration.client_id) if params[:only_own]
