@@ -10,6 +10,4 @@ module BeyondApi
       super
     end
   end
-
-  class FaradayError < Error; end
 end

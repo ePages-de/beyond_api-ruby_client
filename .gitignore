@@ -11,7 +11,8 @@
 .rspec_status
 
 # Environment variables
-.env
+.env*
+!.env.*.template
 
 # Apple file system
 .DS_Store

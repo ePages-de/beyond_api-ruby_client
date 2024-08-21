@@ -43,7 +43,7 @@ module BeyondApi
       def handle_request
         Response.new(yield).parse
       rescue Faraday::TimeoutError, Faraday::ConnectionFailed => e
-        raise FaradayError, e
+        raise BeyondApi::FaradayError, e
       end
 
       def agent
