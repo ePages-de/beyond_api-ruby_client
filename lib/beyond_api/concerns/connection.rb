@@ -32,6 +32,27 @@ module BeyondApi
         handle_request { agent.delete(path, parse_request(params)) }
       end
 
+      def upload_file(path, file_path, params = {})
+        handle_request do
+          agent.post(path) do |request|
+            request.headers['Content-Type'] = Utils.file_content_type(file_path)
+            request.params = parse_request(params)
+            request.body = File.binread(image_path)
+          end
+        end
+      end
+
+      def upload_files(path, body, params = {})
+        handle_request do
+          agent.post(path) do |request|
+            request.headers['Content-Type'] = 'multipart/form-data'
+            request.options[:params_encoder] = Faraday::FlatParamsEncoder
+            request.params = parse_request(params)
+            request.body   = body
+          end
+        end
+      end
+
       private
 
       def parse_request(hash)
@@ -59,6 +80,7 @@ module BeyondApi
           # Request options
           faraday.request :json # Encode request bodies as JSON
           faraday.request :retry, BeyondApi.configuration.retry_options
+          faraday.request :multipart, { flat_encode: true }
           # Response options
           faraday.response :json, content_type: 'application/json'
           faraday.response :logger, *logger_config { |logger| apply_filters(logger) }
@@ -81,6 +103,10 @@ module BeyondApi
       def apply_filters(logger)
         logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
         logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
+      end
+
+      def files_to_upload(files)
+        files.map { |file| Faraday::FilePart.new(File.open(file), Utils.file_content_type(file)) }
       end
     end
   end

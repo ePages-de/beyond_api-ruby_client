@@ -3,6 +3,7 @@
 require 'active_support/all'
 require 'faraday'
 require 'faraday/retry'
+require 'faraday/multipart'
 require 'forwardable'
 require 'json'
 require 'zeitwerk'
