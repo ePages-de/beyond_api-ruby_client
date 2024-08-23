@@ -37,7 +37,7 @@ module BeyondApi
           agent.post(path) do |request|
             request.headers['Content-Type'] = Utils.file_content_type(file_path)
             request.params = parse_request(params)
-            request.body = File.binread(image_path)
+            request.body = File.binread(file_path)
           end
         end
       end
