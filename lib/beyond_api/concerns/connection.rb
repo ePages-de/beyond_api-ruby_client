@@ -104,10 +104,6 @@ module BeyondApi
         logger.filter(/(code=)([a-zA-Z0-9]+)/, '\1[FILTERED]')
         logger.filter(/(refresh_token=)([a-zA-Z0-9.\-\_]+)/, '\1[FILTERED]')
       end
-
-      def files_to_upload(files)
-        files.map { |file| Faraday::FilePart.new(File.open(file), Utils.file_content_type(file)) }
-      end
     end
   end
 end
