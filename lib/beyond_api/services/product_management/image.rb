@@ -54,16 +54,8 @@ module BeyondApi
       #   client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', image_paths, image_names)
       def upload_multiple(product_id, image_paths, image_names)
         upload_files("products/#{product_id}/images",
-                     { image: prepared_files_for_upload(image_paths) }, # body
-                     { file_name: image_names.map { |e| URI.encode_www_form([e]) } }) # params
-      end
-
-      private
-
-      def prepared_files_for_upload(file_paths)
-        file_paths.map do |file_path|
-          Faraday::FilePart.new(File.open(file_path), Utils.file_content_type(file_path))
-        end
+                     { image: Utils.prepared_files_for_upload(image_paths) }, # body
+                     { file_name: Utils.filenames_for_upload(image_names) }) # params
       end
     end
   end
