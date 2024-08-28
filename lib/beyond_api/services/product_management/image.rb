@@ -54,8 +54,8 @@ module BeyondApi
       #   client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', image_paths, image_names)
       def upload_multiple(product_id, image_paths, image_names)
         upload_files("products/#{product_id}/images",
-                     { image: Utils.prepared_files_for_upload(image_paths) }, # body
-                     { file_name: Utils.filenames_for_upload(image_names) }) # params
+                     { image: Utils.faraday_file_parts(image_paths) }, # body
+                     { file_name: Utils.encode_filenames(image_names) }) # params
       end
     end
   end
