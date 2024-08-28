@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activesupport', '~> 7.0'
   spec.add_dependency 'faraday', '~> 2.10.0'
+  spec.add_dependency 'faraday-multipart'
   spec.add_dependency 'faraday-retry'
   spec.add_dependency 'zeitwerk'
 
