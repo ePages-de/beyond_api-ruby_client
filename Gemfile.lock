@@ -141,7 +141,7 @@ PLATFORMS
 DEPENDENCIES
   beyond_api!
   bundler (~> 2.0)
-  dotenv (~> 2.7)
+  dotenv
   factory_bot
   faker (~> 2.2)
   jwt

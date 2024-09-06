@@ -10,7 +10,7 @@ module BeyondApi
       # @see https://developer.epages.com/beyond-docs/#list_signers
       #
       # @return [Hash]
-      #      #
+      #
       # @example
       #   @client.all
       def all
