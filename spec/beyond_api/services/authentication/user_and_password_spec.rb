@@ -11,21 +11,19 @@ RSpec.describe BeyondApi::Authentication::UserAndPassword, vcr: true do
   describe '#verify_password' do
     let(:new_password) { 'ValidPassword123' }
 
-    it 'sends a post request with the correct parameters' do
-      # client.verify_password('merchant', new_password)
-    end
+    # client.verify_password('merchant', new_password)
+    it 'sends a post request with the correct parameters'
   end
 
   describe '#change_password' do
     let(:new_password) { 'ValidPassword123' }
 
-    it 'sends a post request with the correct parameters' do
-      # client.change_password(
-      #   user_id,
-      #   user_password,
-      #   new_password
-      # )
-    end
+    # client.change_password(
+    #   user_id,
+    #   user_password,
+    #   new_password
+    # )
+    it 'sends a post request with the correct parameters'
 
     after do
       # # Rollback the password change
@@ -38,21 +36,19 @@ RSpec.describe BeyondApi::Authentication::UserAndPassword, vcr: true do
   end
 
   describe '#password_reset_email' do
-    it 'sends a post request with the correct parameters' do
-      # client.password_reset_email(user_email)
-    end
+    # client.password_reset_email(user_email)
+    it 'sends a post request with the correct parameters'
   end
 
   describe '#change_username' do
     let(:new_name) { 'test-user' }
 
-    it 'sends a post request with the correct parameters' do
-      # client.change_username(
-      #   user_id,
-      #   user_password,
-      #   new_name
-      # )
-    end
+    # client.change_username(
+    #   user_id,
+    #   user_password,
+    #   new_name
+    # )
+    it 'sends a post request with the correct parameters'
 
     after do
       # # Rollback the username change

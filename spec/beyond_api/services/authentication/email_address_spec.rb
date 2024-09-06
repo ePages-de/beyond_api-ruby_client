@@ -10,9 +10,8 @@ RSpec.describe BeyondApi::Authentication::EmailAddress, vcr: true do
   let(:new_email) { 'team42-new@epages.com' }
 
   describe '#trigger_change' do
-    it 'change email address' do
-      # client.trigger_change(user_id, 'en-US', user_password, new_email)
-    end
+    # client.trigger_change(user_id, 'en-US', user_password, new_email)
+    it 'change email address'
 
     after do
       # # Rollback email address change
