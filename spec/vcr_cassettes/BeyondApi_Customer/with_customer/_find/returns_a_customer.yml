@@ -1,0 +1,401 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Sep 2024 07:34:46 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.086'
+      X-B3-Traceid:
+      - 5a26da8fcc9624a47a9a57868740fab7
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1725608086,
+          "jti" : "ehrm8T60HaqIVDmHOTJqnIcxJjI="
+        }
+  recorded_at: Fri, 06 Sep 2024 07:34:46 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customers
+    body:
+      encoding: UTF-8
+      string: '{"email":"chayanne@example.com","customerComment":"A reliable customer","billingAddress":{"company":"ePages
+        GmbH","firstName":"Chayanne","lastName":"Team42","street":"Pilatuspool","houseNumber":"2","postalCode":"20999","city":"Alsterwasser","country":"DE","state":"Hamburg","email":"chayanne@example.com","phone":"(800)
+        555-0102"},"shippingAddress":{"gender":"FEMALE","company":"Astrid Alster GmbH","firstName":"Astrid","lastName":"Alster","street":"Alsterwasserweg","houseNumber":"2","postalCode":"20999","city":"Alsterwasser","country":"DE","state":"Hamburg","email":"alsterh@example.com","phone":"(800)
+        555-0102"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 06 Sep 2024 07:34:46 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.082'
+      X-B3-Traceid:
+      - 449c5bdc4ef74a1acc5382fb22f940dc
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "orderSummary" : {
+              "total" : 0,
+              "openOrders" : 0,
+              "grandTotal" : null,
+              "average" : null,
+              "lastOrderDate" : null,
+              "lastOrder" : null
+            },
+            "recentOrders" : [ ],
+            "customerGroups" : [ ]
+          },
+          "email" : "chayanne@example.com",
+          "customerNumber" : "1009",
+          "customerOrigin" : "COCKPIT",
+          "defaultShippingAddress" : {
+            "salutation" : null,
+            "gender" : "FEMALE",
+            "company" : "Astrid Alster GmbH",
+            "title" : null,
+            "firstName" : "Astrid",
+            "middleName" : null,
+            "lastName" : "Alster",
+            "street" : "Alsterwasserweg",
+            "houseNumber" : "2",
+            "street2" : null,
+            "addressExtension" : null,
+            "postalCode" : "20999",
+            "dependentLocality" : null,
+            "city" : "Alsterwasser",
+            "country" : "DE",
+            "state" : "Hamburg",
+            "email" : "alsterh@example.com",
+            "phone" : "(800) 555-0102",
+            "mobile" : null,
+            "displayAddressLines" : [ "Astrid Alster GmbH", "Astrid Alster", "Alsterwasserweg 2", "20999 Alsterwasser", "GERMANY" ],
+            "doorCode" : null
+          },
+          "defaultBillingAddress" : {
+            "salutation" : null,
+            "gender" : null,
+            "company" : "ePages GmbH",
+            "title" : null,
+            "firstName" : "Chayanne",
+            "middleName" : null,
+            "lastName" : "Team42",
+            "street" : "Pilatuspool",
+            "houseNumber" : "2",
+            "street2" : null,
+            "addressExtension" : null,
+            "postalCode" : "20999",
+            "dependentLocality" : null,
+            "city" : "Alsterwasser",
+            "country" : "DE",
+            "state" : "Hamburg",
+            "email" : "chayanne@example.com",
+            "phone" : "(800) 555-0102",
+            "mobile" : null,
+            "displayAddressLines" : [ "ePages GmbH", "Chayanne Team42", "Pilatuspool 2", "20999 Alsterwasser", "GERMANY" ],
+            "vatId" : null,
+            "taxNumber" : null,
+            "birthDate" : null
+          },
+          "defaultShippingMethodId" : null,
+          "defaultPaymentMethodId" : null,
+          "defaultPickupOptionId" : null,
+          "creationDate" : "2024-09-06T07:34:46.820923909",
+          "testCustomer" : false,
+          "customerComment" : "A reliable customer",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+            },
+            "customer" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+            },
+            "events" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6/events"
+            },
+            "customer-groups" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6/customer-groups"
+            }
+          },
+          "_id" : "f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+        }
+  recorded_at: Fri, 06 Sep 2024 07:34:46 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Sep 2024 07:34:46 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.037'
+      X-B3-Traceid:
+      - e2305f5a6f5cd0d68f001c651eec32d9
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "orderSummary" : {
+              "total" : 0,
+              "openOrders" : 0,
+              "grandTotal" : null,
+              "average" : null,
+              "lastOrderDate" : null,
+              "lastOrder" : null
+            },
+            "recentOrders" : [ ],
+            "customerGroups" : [ ]
+          },
+          "email" : "chayanne@example.com",
+          "customerNumber" : "1009",
+          "customerOrigin" : "COCKPIT",
+          "defaultShippingAddress" : {
+            "salutation" : null,
+            "gender" : "FEMALE",
+            "company" : "Astrid Alster GmbH",
+            "title" : null,
+            "firstName" : "Astrid",
+            "middleName" : null,
+            "lastName" : "Alster",
+            "street" : "Alsterwasserweg",
+            "houseNumber" : "2",
+            "street2" : null,
+            "addressExtension" : null,
+            "postalCode" : "20999",
+            "dependentLocality" : null,
+            "city" : "Alsterwasser",
+            "country" : "DE",
+            "state" : "Hamburg",
+            "email" : "alsterh@example.com",
+            "phone" : "(800) 555-0102",
+            "mobile" : null,
+            "displayAddressLines" : [ "Astrid Alster GmbH", "Astrid Alster", "Alsterwasserweg 2", "20999 Alsterwasser", "GERMANY" ],
+            "doorCode" : null
+          },
+          "defaultBillingAddress" : {
+            "salutation" : null,
+            "gender" : null,
+            "company" : "ePages GmbH",
+            "title" : null,
+            "firstName" : "Chayanne",
+            "middleName" : null,
+            "lastName" : "Team42",
+            "street" : "Pilatuspool",
+            "houseNumber" : "2",
+            "street2" : null,
+            "addressExtension" : null,
+            "postalCode" : "20999",
+            "dependentLocality" : null,
+            "city" : "Alsterwasser",
+            "country" : "DE",
+            "state" : "Hamburg",
+            "email" : "chayanne@example.com",
+            "phone" : "(800) 555-0102",
+            "mobile" : null,
+            "displayAddressLines" : [ "ePages GmbH", "Chayanne Team42", "Pilatuspool 2", "20999 Alsterwasser", "GERMANY" ],
+            "vatId" : null,
+            "taxNumber" : null,
+            "birthDate" : null
+          },
+          "defaultShippingMethodId" : null,
+          "defaultPaymentMethodId" : null,
+          "defaultPickupOptionId" : null,
+          "creationDate" : "2024-09-06T07:34:46.821",
+          "testCustomer" : false,
+          "customerComment" : "A reliable customer",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+            },
+            "customer" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+            },
+            "events" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6/events"
+            },
+            "customer-groups" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6/customer-groups"
+            }
+          },
+          "_id" : "f9122ba1-91b9-448e-b28e-f027ce4ea5d6"
+        }
+  recorded_at: Fri, 06 Sep 2024 07:34:46 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customers/f9122ba1-91b9-448e-b28e-f027ce4ea5d6
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 06 Sep 2024 07:34:47 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.077'
+      X-B3-Traceid:
+      - cd16a546b3bbea02d2b3c938bb0cf041
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 06 Sep 2024 07:34:47 GMT
+recorded_with: VCR 6.2.0
