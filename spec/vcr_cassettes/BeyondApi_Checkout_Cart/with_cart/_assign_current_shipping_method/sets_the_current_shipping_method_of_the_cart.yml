@@ -1,0 +1,356 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 01 Oct 2024 20:06:49 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.079'
+      X-B3-Traceid:
+      - 05f724f0f7b499f6b68d7a232c545943
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1727813209,
+          "jti" : "3bFpbL5cwdCZm66kdEfShzvztPw="
+        }
+  recorded_at: Tue, 01 Oct 2024 20:06:49 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/carts
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 01 Oct 2024 20:06:49 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.087'
+      X-B3-Traceid:
+      - 764b1db0c32fb170524e2762be7a71e3
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "a1f7f04a-92e5-4b73-b54f-6fd840132c8d",
+          "lineItems" : [ ],
+          "shippingLineItem" : null,
+          "pickupLineItem" : null,
+          "paymentLineItem" : {
+            "lineItemPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 0
+            },
+            "lineItemTaxes" : [ ],
+            "_embedded" : {
+              "payment-method" : {
+                "_id" : "c5cdf11e-6947-471e-a76a-1534a6ff5809",
+                "name" : "Invoice",
+                "description" : null,
+                "officialName" : "Invoice",
+                "officialDescription" : "You issue an invoice. After receipt of the goods, the customer transfers the payment.",
+                "defaultPaymentNote" : null,
+                "taxClass" : "REGULAR",
+                "discountOrFee" : {
+                  "type" : "ABSOLUTE",
+                  "absoluteValue" : {
+                    "taxModel" : "GROSS",
+                    "currency" : "GBP",
+                    "amount" : 0
+                  },
+                  "percentageValue" : null
+                },
+                "position" : 1,
+                "minimumOrderValue" : null,
+                "activated" : true,
+                "activeLogoSet" : null,
+                "onlinePayment" : false,
+                "workflow" : null,
+                "_links" : {
+                  "self" : {
+                    "href" : "https://team42-beyond-api.beyondshop.cloud/api/payment-methods/c5cdf11e-6947-471e-a76a-1534a6ff5809"
+                  },
+                  "payment-method" : {
+                    "href" : "https://team42-beyond-api.beyondshop.cloud/api/payment-methods/c5cdf11e-6947-471e-a76a-1534a6ff5809"
+                  },
+                  "deactivate-payment-method" : {
+                    "href" : "https://team42-beyond-api.beyondshop.cloud/api/payment-methods/c5cdf11e-6947-471e-a76a-1534a6ff5809/deactivate"
+                  }
+                }
+              }
+            }
+          },
+          "couponLineItem" : null,
+          "billingAddress" : null,
+          "shippingAddress" : null,
+          "subtotal" : {
+            "currency" : "GBP",
+            "amount" : 0
+          },
+          "grandTotal" : {
+            "currency" : "GBP",
+            "amount" : 0
+          },
+          "netTotal" : {
+            "currency" : "GBP",
+            "amount" : 0
+          },
+          "taxTotal" : {
+            "currency" : "GBP",
+            "amount" : 0
+          },
+          "taxes" : [ ],
+          "taxable" : true,
+          "minimumOrderValue" : {
+            "currency" : "GBP",
+            "amount" : 0
+          },
+          "mustAcceptTermsAndConditions" : false,
+          "mustEnterPhoneNumber" : false,
+          "weight" : 0,
+          "checkoutState" : {
+            "shippingMethodValid" : false,
+            "shippingMethodSelectable" : false,
+            "pickupOptionValid" : false,
+            "paymentMethodValid" : true,
+            "paymentMethodSelectable" : true,
+            "billingAddressSet" : false,
+            "priceValidToOrder" : true,
+            "paymentTransactionStatus" : "NO_APPROVAL_NEEDED",
+            "readyToOrder" : false
+          },
+          "customerEmail" : null,
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d"
+            },
+            "line-items" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d/line-items"
+            },
+            "payment-method-available" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d/payment-methods"
+            },
+            "payment-method-default" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d/payment-methods/default"
+            },
+            "payment-method-current" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d/payment-methods/current"
+            },
+            "billing-address" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d/billing-address"
+            },
+            "shipping-address" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/carts"
+            }
+          }
+        }
+  recorded_at: Tue, 01 Oct 2024 20:06:49 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shipping-zones/search/find-all-serviceable-countries
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 01 Oct 2024 20:06:49 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.037'
+      X-B3-Traceid:
+      - a2ecd77d3ff7851e2b8469c76d81fc09
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "countryCodes" : [ ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shipping-zones/search/find-all-serviceable-countries?page=0&size=20"
+            }
+          },
+          "page" : {
+            "size" : 20,
+            "totalElements" : 0,
+            "totalPages" : 0,
+            "number" : 0
+          }
+        }
+  recorded_at: Tue, 01 Oct 2024 20:06:49 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/carts/a1f7f04a-92e5-4b73-b54f-6fd840132c8d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Tue, 01 Oct 2024 20:06:49 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.044'
+      X-B3-Traceid:
+      - 6320d2b73176dfa028469c45d0a2e888
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 01 Oct 2024 20:06:49 GMT
+recorded_with: VCR 6.2.0
