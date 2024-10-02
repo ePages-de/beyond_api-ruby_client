@@ -25,30 +25,7 @@ RSpec.describe BeyondApi::Checkout::Cart, vcr: true do
 
     describe '.billing_address' do
       it 'sets the billing address of the cart' do
-        body = {
-          salutation: 'Mrs',
-          gender: 'FEMALE',
-          title: 'Dr',
-          first_name: 'Astrid',
-          middle_name: 'Agnes',
-          last_name: 'Alster',
-          street: 'Alsterwasserweg',
-          house_number: '2',
-          street2: 'Erdgeschoss',
-          door_code: '0185',
-          address_extension: 'Hinterhof',
-          postal_code: '20999',
-          dependent_locality: 'Seevetal',
-          city: 'Alsterwasser',
-          country: 'DE',
-          state: 'Hamburg',
-          email: 'a.alsterh@example.com',
-          phone: '(800) 555-0102',
-          mobile: '(800) 555-0103',
-          vat_id: '123456789',
-          tax_number: '123-34-6789',
-          birth_date: '1985-03-20'
-        }
+        body = build(:address_data)
         billing_address = client.billing_address(@cart[:id], body)
         expect(billing_address).not_to be nil
         expect(billing_address[:billing_address][:first_name]).to eq(body[:first_name])
@@ -57,30 +34,7 @@ RSpec.describe BeyondApi::Checkout::Cart, vcr: true do
 
     describe '.shipping_address' do
       it 'sets the shipping address of the cart' do
-        body = {
-          salutation: 'Mrs',
-          gender: 'FEMALE',
-          title: 'Dr',
-          first_name: 'Astrid',
-          middle_name: 'Agnes',
-          last_name: 'Alster',
-          street: 'Alsterwasserweg',
-          house_number: '2',
-          street2: 'Erdgeschoss',
-          door_code: '0185',
-          address_extension: 'Hinterhof',
-          postal_code: '20999',
-          dependent_locality: 'Seevetal',
-          city: 'Alsterwasser',
-          country: 'DE',
-          state: 'Hamburg',
-          email: 'a.alsterh@example.com',
-          phone: '(800) 555-0102',
-          mobile: '(800) 555-0103',
-          vat_id: '123456789',
-          tax_number: '123-34-6789',
-          birth_date: '1985-03-20'
-        }
+        body = build(:address_data)
         shipping_address = client.shipping_address(@cart[:id], body)
         expect(shipping_address).not_to be nil
         expect(shipping_address[:shipping_address][:first_name]).to eq(body[:first_name])
@@ -115,16 +69,7 @@ RSpec.describe BeyondApi::Checkout::Cart, vcr: true do
 
     describe '.create_payment_and_order' do
       it 'initiates the creation of a payment and order for the cart' do
-        body = {
-          return_uri: 'https://example.com/return',
-          cancel_uri: 'https://example.com/cancel',
-          customer_comment: 'Please send with UPS.',
-          sales_channel: 'Storefront',
-          marketing_channel: 'Google Shopping',
-          marketing_subchannel: 'Summer Sale',
-          test_order: false,
-          terms_and_conditions_explicitly_accepted: true
-        }
+        body = build(:payment_data)
         # There is no payment method definition associated with this payment method
         expect { client.create_payment_and_order(@cart[:id], body) }.to raise_error(BeyondApi::Error)
       end
