@@ -40,6 +40,46 @@ RSpec.describe BeyondApi::Webhook::Subscription, vcr: true do
       end
     end
 
+    describe '.deactivate' do
+      it 'deactivates a webhook subscription' do
+        response = client.deactivate(@webhook_subscription[:id])
+        expect(response).not_to be nil
+        expect(response[:active]).to eq(false)
+      end
+    end
+
+    describe '.activate' do
+      it 'activates a webhook subscription' do
+        response = client.activate(@webhook_subscription[:id])
+        expect(response).not_to be nil
+        expect(response[:active]).to eq(true)
+      end
+    end
+
+    describe '.failures' do
+      it 'lists all failed deliveries of a webhook subscription' do
+        response = client.failures(@webhook_subscription[:id], { size: 100, page: 0 })
+        expect(response).not_to be nil
+        expect(response.dig(:embedded, :failures)).to be_kind_of(Array)
+      end
+    end
+
+    describe '.retry' do
+      it 'retries a failed webhook delivery' do
+        failure_id = '987e6543-e21b-45d3-b123-654321098765'
+        # Non existing failure ID will raise an error
+        expect { client.retry(@webhook_subscription[:id], failure_id) }.to raise_error(BeyondApi::Error)
+      end
+    end
+
+    describe '.delete_failure' do
+      it 'deletes a webhook failure' do
+        failure_id = '123e4567-e89b-12d3-a456-426614174000'
+        # Non existing failure ID will raise an error
+        expect { client.delete_failure(@webhook_subscription[:id], failure_id) }.to raise_error(BeyondApi::Error)
+      end
+    end
+
     after(:each) do
       client.delete(@webhook_subscription[:id])
     rescue BeyondApi::Error # rubocop:disable Lint/SuppressedException
