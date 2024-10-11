@@ -78,7 +78,8 @@ module BeyondApi
       def upload(image_path, image_name, label)
         upload_file('shop/images',
                     image_path,
-                    { file_name: image_name, content_type: 'multipart/form-data', label: })
+                    'multipart/form-data',
+                    { file_name: image_name, label: })
       end
 
       # Delete a shop image.

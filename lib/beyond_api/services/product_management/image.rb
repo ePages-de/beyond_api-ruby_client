@@ -34,7 +34,10 @@ module BeyondApi
       # @example
       #   @client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', '/home/epages/file.png', 'file.png')
       def upload(product_id, image_path, image_name)
-        upload_file("products/#{product_id}/images", image_path, file_name: image_name)
+        upload_file("products/#{product_id}/images",
+                    image_path,
+                    Utils.file_content_type(image_path),
+                    file_name: image_name)
       end
 
       # Upload up to 10 images and add them to a product. The body of the request must contain the content of the images.
