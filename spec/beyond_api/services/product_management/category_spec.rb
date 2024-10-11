@@ -18,6 +18,11 @@ RSpec.describe BeyondApi::ProductManagement::Category, vcr: true do
       @category = client.create(build(:category_data))
     end
 
+    after(:each) do
+      client.delete(@category[:id])
+    rescue BeyondApi::Error # rubocop:disable Lint/SuppressedException
+    end
+
     describe '.create' do
       it 'creates a new category' do
         expect(@category).not_to be nil
@@ -50,11 +55,6 @@ RSpec.describe BeyondApi::ProductManagement::Category, vcr: true do
         response = client.delete(@category[:id])
         expect(response).to eq({})
       end
-    end
-
-    after(:each) do
-      client.delete(@category[:id])
-    rescue BeyondApi::Error # rubocop:disable Lint/SuppressedException
     end
   end
 end
