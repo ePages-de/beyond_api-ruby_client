@@ -1,0 +1,193 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 07 Oct 2024 19:02:04 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.096'
+      X-B3-Traceid:
+      - a6e693b690fa848bc1cfd7a85a9594f7
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1728327724,
+          "jti" : "0IogORUK/whqV/Hoz0rUJIbuBs4="
+        }
+  recorded_at: Mon, 07 Oct 2024 19:02:04 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/images?fileName=new-image.png&label=logo
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWQ2NGRjMDJhZGYxOTBhZmI4OGRmMTM0MTkxZTY2NzkxDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlMS5wbmciDQpDb250ZW50LUxlbmd0aDogMTA5Nw0KQ29udGVudC1UeXBlOiBpbWFnZS9wbmcNCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQqJUE5HDQoaCgAAAA1JSERSAAABkAAAAZAEAwAAAHKRK/8AAAAbUExURQAAAP///x8fH7+/v9/f339/fz8/P5+fn19fX8TDkjcAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAPUSURBVHic7dnPT9swFMBxK9C0x5lmP45tVaEd6Q7bjg1iP45UGoJjizhwpNp2p9M28Wcv9ntOUjaWKEpWNH0/BxpX8Ytf7NhuMAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgP9DNApH12cX+bGJf5x9qxdgkh81DNCS2VwPPllrk1Mt9NKs9K5O/b0kHDUM0JKencvBlX13d54mI1+I0+Tixxd7XCPAIiTSNEBLVppIbN9nfwepXHqVLLO/37VVfxPbJBw0C9CWVIfWdCgfvllReiQf88r6+0NNpGmAlvSHK7nWWu5kZN0g7+udHD+tDLB+rYk0DdCSzbEkEtlb+WLhiuMXUuglf6pTNkgO5ZymAVoS2aUkkl/RN8E3pty6B42fxVKzaYCW7D01ksh+GAN9N9TTMImujyoCzE41kaYBWrI40kTGB/rNwLr7ONLS5kk4s5fXOTWF3tBoIpUBOhVnF5RENnP9yrVhkI/svHnFre0PSwFWByGRygCd2s/GsySyyIdAeuvuc+kEMQ3frZ+VAmQnayKVATq1vgmJuCMxOzX956Gwl0+fujKYvl0W9d2JmkhlgC75ESCJzPKRn7WouHrRotAlWx3ixpMmUh2gQ2PXKEkkGw9FO4rxUGqHdMlWh0SuoIlUB+iQv4v3E8kGe9GOXunJ9l2y1SH+xv+WyIMBOiMXqZ2I65KtDpEH/BEksvK7o9qJuC7Z6pDYb6h2n0iULt1H/USi9M1Wh0x9VrtPZE+eQ5218na4SeeBZ3Vqyx1iZn7GDbNWnQDd0LW47vTrSra8c9Lle+fTb9gP1VwQ/UlJeaDo7mPnC2IYxzW3KMZ1yGVa6hJ9Kna+RdkkJ16afd7U2vNlU9a06JKBlfon2eeHXW4aN7ZwJIu8b1+iK7acNC8quDUkKrpkUKo/NHUCdCSaiM3xZFL+XeSGd/G76Kao4NeQUpdo/ZfJZDKqFaBjdX/qyqIelZ8S73H81DUhkep3B7qoT++vcPGjePlgQiJmIW9zYt+enr7NWRVzTthl/dYlmkhlgM5pIvty6Su54fK+MC41ehEe5vtdEhKpCtA5TSRKPxr3Jlju6zS5Ne617ig/7WqpB9HH7fohkaoAndNEso3U87PPdjjSVtmv5zP7qkb9kEjjAG0JiZjvbkG41cLA/VfgbZ36eSJNA7Tv8O7nKC9E13eX/zwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP2C/ZfbbcqobJ/QAAAABJRU5ErkJggg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWQ2NGRjMDJhZGYxOTBhZmI4OGRmMTM0MTkxZTY2NzkxLS0NCg==
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-d64dc02adf190afb88df134191e66791
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Content-Length:
+      - '1384'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 07 Oct 2024 19:02:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/images/0121a830-6643-4793-b174-e85ea905f518
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.293'
+      X-B3-Traceid:
+      - 84eef16d400978968d166ce4590ff8e0
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "0121a830-6643-4793-b174-e85ea905f518",
+          "label" : "logo",
+          "width" : 400,
+          "height" : 400,
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/images/0121a830-6643-4793-b174-e85ea905f518"
+            },
+            "image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/images/0121a830-6643-4793-b174-e85ea905f518"
+            },
+            "data" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/new-image.png?hash=54386a565cf2d7f563e8dec800be24434918438d{&width,height,upscale}",
+              "templated" : true
+            }
+          }
+        }
+  recorded_at: Mon, 07 Oct 2024 19:02:05 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/images/0121a830-6643-4793-b174-e85ea905f518
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 07 Oct 2024 19:02:05 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.037'
+      X-B3-Traceid:
+      - b04208975f7ae95f6385c1f28b01e475
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 07 Oct 2024 19:02:05 GMT
+recorded_with: VCR 6.2.0

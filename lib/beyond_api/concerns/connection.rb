@@ -35,7 +35,7 @@ module BeyondApi
       def upload_file(path, file_path, params = {})
         handle_request do
           agent.post(path) do |request|
-            request.headers['Content-Type'] = Utils.file_content_type(file_path)
+            request.headers['Content-Type'] = params.delete(:content_type) || Utils.file_content_type(file_path)
             request.params = parse_request(params)
             request.body = File.binread(file_path)
           end

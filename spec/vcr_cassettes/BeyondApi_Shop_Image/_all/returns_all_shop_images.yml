@@ -1,0 +1,153 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 07 Oct 2024 19:02:03 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.159'
+      X-B3-Traceid:
+      - 9fa4b5497c2d2627a2c6e02e7d2c56f4
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1728327723,
+          "jti" : "rvLiOICi0krh2q8oUCmmj4tYixI="
+        }
+  recorded_at: Mon, 07 Oct 2024 19:02:03 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 07 Oct 2024 19:02:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.020'
+      X-B3-Traceid:
+      - a6eaa8d55b5fb060f31804d759b87edc
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "images" : [ {
+              "_id" : "5c4fcf2b-3297-4d6d-b97e-ca1b4584e5d9",
+              "label" : "invoice logo",
+              "width" : 1140,
+              "height" : 420,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/images/5c4fcf2b-3297-4d6d-b97e-ca1b4584e5d9"
+                },
+                "image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/images/5c4fcf2b-3297-4d6d-b97e-ca1b4584e5d9"
+                },
+                "data" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/logo.png?hash=e4f3d85e586988cb6acc53da319ee8c9d0f3c697{&width,height,upscale}",
+                  "templated" : true
+                }
+              }
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/images?page=0&size=20"
+            }
+          },
+          "page" : {
+            "size" : 20,
+            "totalElements" : 1,
+            "totalPages" : 1,
+            "number" : 0
+          }
+        }
+  recorded_at: Mon, 07 Oct 2024 19:02:04 GMT
+recorded_with: VCR 6.2.0
