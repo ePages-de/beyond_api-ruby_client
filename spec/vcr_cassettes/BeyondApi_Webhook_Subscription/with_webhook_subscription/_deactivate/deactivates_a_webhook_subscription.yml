@@ -1,0 +1,254 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Oct 2024 06:58:48 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.107'
+      X-B3-Traceid:
+      - 93421d636b7e092cc7a76bedb577e104
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1727938728,
+          "jti" : "GRGUemmcTlUrNdm6vnUA2fS2B3E="
+        }
+  recorded_at: Thu, 03 Oct 2024 06:58:47 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"callbackUri":"http://example.com/test","eventTypes":["order.created","product.created"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 03 Oct 2024 06:58:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.055'
+      X-B3-Traceid:
+      - aa578b3abd60b6584917ef2ba3132052
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "callbackUri" : "http://example.com/test",
+          "eventTypes" : [ "product.created", "order.created" ],
+          "active" : true,
+          "_id" : "5a8bba3b-5e7c-4f02-8876-d777af2d9659",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659"
+            },
+            "deactivate" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659/deactivate"
+            }
+          }
+        }
+  recorded_at: Thu, 03 Oct 2024 06:58:48 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659/deactivate
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Oct 2024 06:58:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.044'
+      X-B3-Traceid:
+      - 376b1c8a5c9d1069eaca08a061003094
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "callbackUri" : "http://example.com/test",
+          "eventTypes" : [ "product.created", "order.created" ],
+          "active" : false,
+          "_id" : "5a8bba3b-5e7c-4f02-8876-d777af2d9659",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659"
+            },
+            "activate" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659/activate"
+            }
+          }
+        }
+  recorded_at: Thu, 03 Oct 2024 06:58:48 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/webhook-subscriptions/5a8bba3b-5e7c-4f02-8876-d777af2d9659
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 03 Oct 2024 06:58:48 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.039'
+      X-B3-Traceid:
+      - f1d312c7dae8eb40f6420031c734634e
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 03 Oct 2024 06:58:48 GMT
+recorded_with: VCR 6.2.0

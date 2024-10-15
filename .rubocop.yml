@@ -1,35 +1,46 @@
 require:
-  - rubocop-ordered_methods
-  - rubocop-rspec
+  - rubocop-rails
+
+# Enable all new cops by default
 
 AllCops:
-  Exclude:
-    - spec/**/*.rb
   NewCops: enable
+  Exclude:
+    - bin/*
+    - spec/dummy/bin/*
+    - spec/dummy/db/schema.rb
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+# Disable not wanted cops
 
 Metrics/AbcSize:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
-Metrics/BlockLength:
-  Enabled: false
 Metrics/ClassLength:
   Enabled: false
 Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
-
-Layout/LineLength:
-  IgnoredPatterns: ['(\A|\s)#']
-
-Style/AsciiComments:
+Rails/ContentTag:
   Enabled: false
+Style/HashAsLastArrayItem:
+  Enabled: false
+Naming/VariableNumber:
+  Enabled: false
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
+# Prefer to use brackets on symbol arrays
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+# Prefer to use always lambda literals (->)
+
+Style/Lambda:
+  EnforcedStyle: literal
