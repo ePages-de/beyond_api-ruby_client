@@ -25,16 +25,19 @@ module BeyondApi
       #
       # @see https://developer.epages.com/beyond-docs/#upload_product_image
       #
-      # @param id [String] the product UUID
-      # @param id [String] the image path
-      # @param id [String] the image file name
+      # @param product_id [String] the product UUID
+      # @param image_path [String] the image path
+      # @param image_name [String] the image file name
       #
       # @return [Hash]
       #
       # @example
-      #   client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', '/home/epages/file.png', 'file.png')
+      #   @client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', '/home/epages/file.png', 'file.png')
       def upload(product_id, image_path, image_name)
-        upload_file("products/#{product_id}/images", image_path, file_name: image_name)
+        upload_file("products/#{product_id}/images",
+                    image_path,
+                    Utils.file_content_type(image_path),
+                    file_name: image_name)
       end
 
       # Upload up to 10 images and add them to a product. The body of the request must contain the content of the images.
@@ -51,7 +54,7 @@ module BeyondApi
       # @example
       #   image_paths = ['/home/epages/file1.png', '/home/epages/file2.png']
       #   image_names = ['file1.png', 'file2.png']
-      #   client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', image_paths, image_names)
+      #   @client.upload('4125b993-49fc-47c8-b9b3-76d8871e4e06', image_paths, image_names)
       def upload_multiple(product_id, image_paths, image_names)
         upload_files("products/#{product_id}/images",
                      { image: Utils.faraday_file_parts(image_paths) }, # body
