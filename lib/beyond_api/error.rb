@@ -5,6 +5,8 @@ module BeyondApi
     attr_reader :error_id, :details, :trace_id, :full_message, :status_code, :error, :error_description
 
     def initialize(data, status_code = nil)
+      data ||= {}
+
       @error_id          = data["errorId"]
       @details           = data["details"]
       @trace_id          = data["traceId"]
