@@ -134,6 +134,18 @@ Check out the repo an run `bin/setup` to install dependencies. Rename the file `
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
+```ruby
+# Example
+
+api_url = ENV['API_URL']
+auth_client = BeyondApi::Authentication::Token.new(api_url:)
+token = auth_client.client_credentials
+access_token = token[:access_token]
+
+@client = BeyondApi::Storefront::ScriptTag.new(api_url: api_url, access_token: access_token )
+@client.all
+```
+
 ## Test
 
 Rename the file `.env.test.template` to `.env.test` and fill in the necessary information. Then, run `rspec` to run the tests.
