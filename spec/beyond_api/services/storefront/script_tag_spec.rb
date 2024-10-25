@@ -32,6 +32,24 @@ RSpec.describe BeyondApi::Storefront::ScriptTag, vcr: true do
       end
     end
 
+    describe '.show' do
+      it 'returns a script tag' do
+        response = client.show(@script_tag[:id])
+
+        expect(response).not_to be nil
+        expect(response[:script_url]).to eq('https://example.com/scripts/exampleScript.js')
+      end
+    end
+
+    describe '.update' do
+      it 'updates a script tag' do
+        response = client.update(@script_tag[:id], 'https://example.com/scripts/exampleScriptUpdated.js')
+
+        expect(response).not_to be nil
+        expect(response[:script_url]).to eq('https://example.com/scripts/exampleScriptUpdated.js')
+      end
+    end
+
     after(:each) do
       client.delete(@script_tag[:id])
     rescue BeyondApi::Error # rubocop:disable Lint/SuppressedException
