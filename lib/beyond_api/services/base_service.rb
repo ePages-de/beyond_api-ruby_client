@@ -7,7 +7,7 @@ module BeyondApi
 
     ServiceSession = Struct.new(:api_url, :access_token, :refresh_token)
 
-    def initialize(**params)
+    def initialize(params)
       @session = initialize_session(params)
       @authorization = :bearer
       @camelize_keys = true

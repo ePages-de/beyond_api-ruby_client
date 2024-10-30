@@ -5,7 +5,7 @@ module BeyondApi
     # @example How to instantiate a client
     #   @client = BeyondApi::Authentication::Token.new(api_url: 'https://example.com/api')
     class Token < BaseService
-      def initialize(**params)
+      def initialize(params)
         super
         @authorization = :basic
         @camelize_keys = false
