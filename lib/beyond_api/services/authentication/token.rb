@@ -19,7 +19,7 @@ module BeyondApi
       #
       # @example
       #   @client.refresh_token('your_refresh_token')
-      def refresh(refresh_token)
+      def refresh_token(refresh_token)
         post('oauth/token', {}, { grant_type: 'refresh_token', refresh_token: })
       end
 
@@ -30,8 +30,8 @@ module BeyondApi
       # @return [Hash]
       #
       # @example
-      #   @client.get('GY_GTp')
-      def get(code)
+      #   @client.authorization_code('GY_GTp')
+      def authorization_code(code)
         post('oauth/token', {}, { grant_type: 'authorization_code', code: })
       end
 
