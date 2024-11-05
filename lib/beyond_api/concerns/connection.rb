@@ -12,7 +12,16 @@ module BeyondApi
 
       def put(path, body = {}, params = {})
         handle_request do
-          agent.put(path, body) do |request|
+          agent.put(path) do |request|
+            request.params = parse_request(params)
+            request.body   = parse_request(body)
+          end
+        end
+      end
+
+      def patch(path, body = {}, params = {})
+        handle_request do
+          agent.patch(path) do |request|
             request.params = parse_request(params)
             request.body   = parse_request(body)
           end
@@ -21,15 +30,20 @@ module BeyondApi
 
       def post(path, body = {}, params = {})
         handle_request do
-          agent.post(path, body) do |request|
+          agent.post(path) do |request|
             request.params = parse_request(params)
             request.body   = parse_request(body)
           end
         end
       end
 
-      def delete(path, params = {})
-        handle_request { agent.delete(path, parse_request(params)) }
+      def delete(path, params = {}, body = {})
+        handle_request do
+          agent.delete(path) do |request|
+            request.params = parse_request(params)
+            request.body   = parse_request(body) if body.any?
+          end
+        end
       end
 
       def upload_file(path, file_path, content_type, params = {})
