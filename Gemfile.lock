@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     beyond_api (0.24.2.pre)
-      activesupport (~> 7.0)
+      activesupport
       faraday (~> 2.10.0)
       faraday-multipart
       faraday-retry
