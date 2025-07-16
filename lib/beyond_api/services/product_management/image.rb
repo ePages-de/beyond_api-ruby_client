@@ -64,6 +64,17 @@ module BeyondApi
       # Upload an image from an external resource and add it to a product. The body of the request must contain a single URI of the image to be uploaded.
       #
       # @see https://developer.epages.com/beyond-docs/#upload_external_product_image
+      #
+      # @param product_id [String] the product UUID
+      # @param uri [String] the URI of the image to be uploaded
+      # @param file_name [String] the file name of the image (optional)
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.upload_external('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                           'https://epages.com/wp-content/uploads/2019/08/my-image.jpg',
+      #                           'external-img.jpg')
       def upload_external(product_id, uri, file_name = '')
         file_name = File.basename(URI.parse(uri).path) if file_name.empty?
         post("products/#{product_id}/external-images", { data_uri: uri }, { file_name: })
