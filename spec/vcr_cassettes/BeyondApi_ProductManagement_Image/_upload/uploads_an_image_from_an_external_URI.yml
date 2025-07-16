@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 16 Jul 2025 12:05:03 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.088'
+      X-B3-Traceid:
+      - aea7997aca63052b44872400907399b9
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 899,
+          "scope" : "orde:r prat:dcur pypr:cur prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur shpr:rcu cset:ru ordp:r catg:cdur nltg:m",
+          "tenantId" : 8542,
+          "iat" : 1752667503,
+          "jti" : "njVOoSe5AKsPaQhXD8IJbXhFWMc="
+        }
+  recorded_at: Wed, 16 Jul 2025 12:05:03 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/4bf6d53d-dfb2-4468-b6f9-f6e6265bc0bc/external-images?fileName=external-img.jpg
+    body:
+      encoding: UTF-8
+      string: '{"dataUri":"https://epages.com/wp-content/uploads/2019/08/video-thumbnail-sell-online-supportpage_button_2.jpg"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 16 Jul 2025 12:05:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/4bf6d53d-dfb2-4468-b6f9-f6e6265bc0bc/images/ea6bcf98-09bf-4bf9-888a-cd46b6a5fe38
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.294'
+      X-B3-Traceid:
+      - a7d000db594bf37e3b357f3ae0cdb722
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "position" : 4,
+          "width" : 426,
+          "height" : 240,
+          "_id" : "ea6bcf98-09bf-4bf9-888a-cd46b6a5fe38",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4bf6d53d-dfb2-4468-b6f9-f6e6265bc0bc/images/ea6bcf98-09bf-4bf9-888a-cd46b6a5fe38"
+            },
+            "data" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/external-img.jpg?hash=976ca6025199cead5b5eea7de0ea0b5d83544d5f{&width,height,upscale}",
+              "templated" : true
+            },
+            "image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/4bf6d53d-dfb2-4468-b6f9-f6e6265bc0bc/images/ea6bcf98-09bf-4bf9-888a-cd46b6a5fe38"
+            }
+          }
+        }
+  recorded_at: Wed, 16 Jul 2025 12:05:04 GMT
+recorded_with: VCR 6.2.0

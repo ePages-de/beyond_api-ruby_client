@@ -30,5 +30,14 @@ RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:
       expect(response).not_to be nil
       expect(response.dig(:embedded, :images)).to be_kind_of(Array)
     end
+
+    it 'uploads an image from an external URI' do
+      response = client.upload_external('4bf6d53d-dfb2-4468-b6f9-f6e6265bc0bc',
+                                        'https://epages.com/wp-content/uploads/2019/08/video-thumbnail-sell-online-supportpage_button_2.jpg',
+                                        'external-img.jpg')
+
+      expect(response).not_to be nil
+      expect(response.dig(:links, :data, :href)).to include('external-img.jpg')
+    end
   end
 end
