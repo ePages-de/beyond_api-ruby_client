@@ -60,6 +60,14 @@ module BeyondApi
                      { image: Utils.faraday_file_parts(image_paths) }, # body
                      { file_name: Utils.encode_filenames(image_names) }) # params
       end
+
+      # Upload an image from an external resource and add it to a product. The body of the request must contain a single URI of the image to be uploaded.
+      #
+      # @see https://developer.epages.com/beyond-docs/#upload_external_product_image
+      def upload_external(product_id, uri, file_name = '')
+        file_name = File.basename(URI.parse(uri).path) if file_name.empty?
+        post("products/#{product_id}/external-images", { data_uri: uri }, { file_name: })
+      end
     end
   end
 end
