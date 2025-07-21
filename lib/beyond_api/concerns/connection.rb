@@ -32,6 +32,15 @@ module BeyondApi
         handle_request { agent.delete(path, parse_request(params)) }
       end
 
+      def patch(path, body = {}, params = {})
+        handle_request do
+          agent.patch(path, body) do |request|
+            request.params = parse_request(params)
+            request.body   = parse_request(body)
+          end
+        end
+      end
+
       def upload_file(path, file_path, content_type, params = {})
         handle_request do
           agent.post(path) do |request|
