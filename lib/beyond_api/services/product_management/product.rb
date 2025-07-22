@@ -368,6 +368,27 @@ module BeyondApi
         }
         delete('products/batch/tags', {}, body)
       end
+
+      # Update variation properties of a product.
+      #
+      # @see https://developer.epages.com/beyond-docs/#update_variation_properties
+      #
+      # @param id [String] the product UUID
+      # @param body [Hash] the request body containing variation properties
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   variation_properties = [
+      #     { property: 'salesPrice', enabled: true },
+      #     { property: 'listPrice', enabled: true },
+      #     { property: 'manufacturerPrice', enabled: true },
+      #     { property: 'productIdentifiers', enabled: true },
+      #     { property: 'defaultImage', enabled: true },
+      #   ]
+      def update_variation_properties(id, body)
+        patch("products/#{id}/variation-properties", body)
+      end
     end
   end
 end
