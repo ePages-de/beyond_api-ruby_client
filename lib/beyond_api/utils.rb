@@ -15,8 +15,15 @@ module BeyondApi
       end
     end
 
-    def self.camelize_keys(hash)
-      hash.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+    def self.camelize_keys(input)
+      case input
+      when Array
+        input.map { |item| camelize_keys(item) }
+      when Hash
+        input.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+      else
+        input
+      end
     end
 
     def self.faraday_file_parts(file_paths)
