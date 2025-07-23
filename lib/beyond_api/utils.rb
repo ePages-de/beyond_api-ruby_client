@@ -18,7 +18,7 @@ module BeyondApi
     def self.camelize_keys(input)
       case input
       when Array
-        input.map { |item| camelize_keys(item) }
+        input.map(&method(:camelize_keys))
       when Hash
         input.deep_transform_keys { |key| key.to_s.camelize(:lower) }
       else
