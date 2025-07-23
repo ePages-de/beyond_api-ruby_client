@@ -374,18 +374,19 @@ module BeyondApi
       # @see https://developer.epages.com/beyond-docs/#update_variation_properties
       #
       # @param id [String] the product UUID
-      # @param body [Hash] the request body containing variation properties
+      # @param body [Array] the request body containing variation properties
       #
       # @return [Hash]
       #
       # @example
-      #   variation_properties = [
+      #   body = [
       #     { property: 'salesPrice', enabled: true },
       #     { property: 'listPrice', enabled: true },
       #     { property: 'manufacturerPrice', enabled: true },
       #     { property: 'productIdentifiers', enabled: true },
       #     { property: 'defaultImage', enabled: true },
       #   ]
+      #   @client.update_variation_properties('a32ef424-ecc4-4bfc-815b-4f15bb3cffa1', body)
       def update_variation_properties(id, body)
         patch("products/#{id}/variation-properties", body)
       end

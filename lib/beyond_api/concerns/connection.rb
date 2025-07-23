@@ -19,15 +19,6 @@ module BeyondApi
         end
       end
 
-      def patch(path, body = {}, params = {})
-        handle_request do
-          agent.patch(path) do |request|
-            request.params = parse_request(params)
-            request.body   = parse_request(body)
-          end
-        end
-      end
-
       def post(path, body = {}, params = {})
         handle_request do
           agent.post(path) do |request|
