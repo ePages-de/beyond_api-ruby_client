@@ -12,9 +12,12 @@ module BeyondApi
       # @return [Hash]
       #
       # @example
-      #   @client.find({ search: { term: tag, category: 'TAGS' },
-      #                  filters: [{ key: 'status', values: ['DRAFT'] }],
-      #                  paging: { page: 0, pageSize: 100 } })
+      #   body = {
+      #     search: { term: tag, category: 'TAGS' },
+      #     filters: [{ key: 'status', values: ['DRAFT'] }],
+      #     paging: { page: 0, pageSize: 100 }
+      #   }
+      #   @client.find(body)
       def find(body = {})
         post('products/search', body)
       end
