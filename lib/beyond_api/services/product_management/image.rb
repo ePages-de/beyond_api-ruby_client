@@ -77,6 +77,7 @@ module BeyondApi
       #                           'external-img.jpg')
       def upload_external(product_id, uri, file_name = '')
         file_name = File.basename(URI.parse(uri).path) if file_name.empty?
+
         post("products/#{product_id}/external-images", { data_uri: uri }, { file_name: })
       end
     end
