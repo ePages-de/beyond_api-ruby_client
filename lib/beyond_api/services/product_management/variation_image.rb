@@ -36,6 +36,7 @@ module BeyondApi
       #
       # @example
       #   @client.upload_external('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                           'b1e2c3d4-5678-90ab-cdef-1234567890ab',
       #                           'https://epages.com/wp-content/uploads/2019/08/my-image.jpg',
       #                           'external-img.jpg')
       def upload_external(product_id, variation_id, uri, file_name = '')
