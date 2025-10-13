@@ -7,6 +7,7 @@ module BeyondApi
   autoload :Categories,                  "beyond_api/resources/categories"
   autoload :CheckoutSettings,            "beyond_api/resources/checkout_settings"
   autoload :Customers,                   "beyond_api/resources/customers"
+  autoload :CustomerGroups,               "beyond_api/resources/customer_groups"
   autoload :NewsletterTarget,            "beyond_api/resources/newsletter_target"
   autoload :OrderSettings,               "beyond_api/resources/order_settings"
   autoload :Orders,                      "beyond_api/resources/orders"
@@ -55,6 +56,10 @@ module BeyondApi
 
     def checkout_settings
       BeyondApi::CheckoutSettings.new(self)
+    end
+
+    def customer_groups
+      BeyondApi::CustomerGroups.new(self)
     end
 
     def customers

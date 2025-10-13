@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module BeyondApi
-  VERSION = "0.24.3.pre"
+  VERSION = "0.24.4.pre"
 end
