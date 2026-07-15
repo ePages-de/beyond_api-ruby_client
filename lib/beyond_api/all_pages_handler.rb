@@ -8,6 +8,8 @@ module BeyondApi
       @session = session
       @url = url
       @params = params
+      @authorization = :bearer
+      @camelize_keys = true
 
       first_page_data = fetch_page(0)
       @response       = first_page_data
