@@ -107,6 +107,40 @@ module BeyondApi
       def disable_purchasability(id)
         post("products/#{id}/availability/disable-purchasability")
       end
+
+      # Retrieve the availability of a variation of a variation product.
+      #
+      # @see https://developer.epages.com/beyond-docs/#show_variation_availability_details
+      #
+      # @param product_id [String] the product UUID
+      # @param variation_id [String] the variation UUID
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.variation_availability('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                                   'a1b2c3d4-e5f6-7890-abcd-ef1234567890')
+      def variation_availability(product_id, variation_id)
+        get("products/#{product_id}/variations/#{variation_id}/availability")
+      end
+
+      # Adjust the available stock of a variation.
+      #
+      # @see https://developer.epages.com/beyond-docs/#adjust_variation_stock_level
+      #
+      # @param product_id [String] the product UUID
+      # @param variation_id [String] the variation UUID
+      # @param relative_amount [Integer] the relative amount to change the available stock by
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.adjust_variation_stock_level('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                                        'a1b2c3d4-e5f6-7890-abcd-ef1234567890', -1)
+      def adjust_variation_stock_level(product_id, variation_id, relative_amount)
+        post("products/#{product_id}/variations/#{variation_id}/availability/adjust-available-stock",
+             relative_amount:)
+      end
     end
   end
 end
