@@ -134,4 +134,93 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
       end
     end
   end
+
+  describe '.all_with_variations' do
+    it 'returns products including variation products' do
+      response = client.all_with_variations(size: 20, page: 0)
+
+      expect(response).not_to be nil
+      expect(response.dig(:embedded, :products)).to be_kind_of(Array)
+      expect(response[:page]).to include(:size, :total_elements, :total_pages, :number)
+    end
+  end
+
+  context 'with variation product' do
+    before(:each) do
+      @variation_product = client.create_variation(build(:variation_product_data))
+    end
+
+    describe '.create_variation' do
+      it 'creates a variation product' do
+        expect(@variation_product).not_to be nil
+        expect(@variation_product[:id]).not_to be nil
+        expect(@variation_product[:name]).to eq('Team42 Variation Product')
+        expect(@variation_product[:variation_attributes].map { |attribute| attribute[:display_name] })
+          .to eq(%w[size color])
+        expect(@variation_product[:variation_attributes].map { |attribute| attribute[:values] })
+          .to eq([%w[S M], %w[Black White]])
+      end
+    end
+
+    describe '.find_variation' do
+      it 'returns the details of a variation product' do
+        response = client.find_variation(@variation_product[:id])
+
+        expect(response[:id]).to eq(@variation_product[:id])
+        expect(response[:name]).to eq('Team42 Variation Product')
+        expect(response[:variation_attributes]).to be_kind_of(Array)
+      end
+    end
+
+    describe '.update_variation_product' do
+      it 'updates the variation product' do
+        response = client.update_variation_product(
+          @variation_product[:id], { name: 'Updated Team42 Variation Product' }
+        )
+
+        expect(response).not_to be nil
+        expect(response[:name]).to eq('Updated Team42 Variation Product')
+      end
+    end
+
+    describe '.variation_properties' do
+      it 'returns the variation properties of a product' do
+        response = client.variation_properties(@variation_product[:id])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties).to be_kind_of(Array)
+        expect(properties.map { |property| property[:property] }).to include('sku', 'salesPrice', 'defaultImage')
+        expect(properties.find { |property| property[:property] == 'salesPrice' }[:enabled]).to be false
+      end
+    end
+
+    describe '.update_variation_properties' do
+      it 'enables a variation property' do
+        response = client.update_variation_properties(@variation_product[:id],
+                                                      [{ property: 'salesPrice', enabled: true }])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties.find { |property| property[:property] == 'salesPrice' }[:enabled]).to be true
+      end
+
+      it 'leaves the other variation properties untouched' do
+        response = client.update_variation_properties(@variation_product[:id],
+                                                      [{ property: 'defaultImage', enabled: true }])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties.find { |property| property[:property] == 'defaultImage' }[:enabled]).to be true
+        expect(properties.find { |property| property[:property] == 'listPrice' }[:enabled]).to be false
+      end
+    end
+
+    after(:each) do
+      client.delete_product(@variation_product[:id])
+    rescue StandardError
+      BeyondApi::Error
+      # Cleanup after each test
+    end
+  end
 end
