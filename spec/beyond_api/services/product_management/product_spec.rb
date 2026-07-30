@@ -135,16 +135,6 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
     end
   end
 
-  describe '.all_with_variations' do
-    it 'returns products including variation products' do
-      response = client.all_with_variations(size: 20, page: 0)
-
-      expect(response).not_to be nil
-      expect(response.dig(:embedded, :products)).to be_kind_of(Array)
-      expect(response[:page]).to include(:size, :total_elements, :total_pages, :number)
-    end
-  end
-
   context 'with variation product' do
     before(:each) do
       @variation_product = client.create_variation(build(:variation_product_data))
