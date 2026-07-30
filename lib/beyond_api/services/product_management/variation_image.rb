@@ -19,8 +19,8 @@ module BeyondApi
       #
       # @example
       #   @client.all(size: 100, page: 0)
-      def all(product_id, variation_id, _params = {})
-        get("products/#{product_id}/variations/#{variation_id}/images")
+      def all(product_id, variation_id, params = {})
+        fetch_all_pages("products/#{product_id}/variations/#{variation_id}/images", params)
       end
 
       # A POST request is used to upload an image from an external resource and add it to a variation. The body of the request must contain a single URI of the image to be uploaded.
@@ -108,7 +108,8 @@ module BeyondApi
       #                  'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
       #                  'b2c3d4e5-f678-90ab-cdef-1234567890ab')
       def delete(product_id, variation_id, image_id)
-        delete("products/#{product_id}/variations/#{variation_id}/images/#{image_id}")
+        # Concerns::Connection delete method
+        super("products/#{product_id}/variations/#{variation_id}/images/#{image_id}")
       end
 
       # Sort the images of a variation. The API expects a `text/uri-list` body

@@ -9,6 +9,7 @@ module BeyondApi
       #
       # @see https://developer.epages.com/beyond-docs/#list_product_images
       #
+      # @option params [Boolean] :paginated
       # @option params [Integer] :size the page size
       # @option params [Integer] :page the page number
       #
@@ -17,7 +18,7 @@ module BeyondApi
       # @example
       #   @client.all(size: 100, page: 0)
       def all(id, params = {})
-        get("products/#{id}/images", params)
+        fetch_all_pages("products/#{id}/images", params)
       end
 
       # Upload an image and add it to a product. The body of the request must contain the content of the image.
@@ -93,7 +94,7 @@ module BeyondApi
       # @example
       #   @client.delete('4125b993-49fc-47c8-b9b3-76d8871e4e06', 'a1b2c3d4-e5f6-7890-abcd-ef1234567890')
       def delete(product_id, image_id)
-        delete("products/#{product_id}/images/#{image_id}")
+        super("products/#{product_id}/images/#{image_id}") # Concerns::Connection delete method
       end
 
       # Sort the images of a product. The API expects a `text/uri-list` body

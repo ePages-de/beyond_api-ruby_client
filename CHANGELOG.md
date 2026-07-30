@@ -1,3 +1,32 @@
+### Unreleased
+
+* features
+  * Add product image management
+    * `ProductManagement::Image#delete`
+    * `ProductManagement::Image#sort`
+  * Add variation image management
+    * `ProductManagement::VariationImage#upload`
+    * `ProductManagement::VariationImage#upload_multiple`
+    * `ProductManagement::VariationImage#delete`
+    * `ProductManagement::VariationImage#sort`
+  * Add variation availability
+    * `ProductManagement::Availability#variation_availability`
+    * `ProductManagement::Availability#adjust_variation_stock_level`
+  * Add product attributes and variation properties
+    * `ProductManagement::Product#variation_properties`
+    * `ProductManagement::Product#assign_variation_differentiator`
+    * `ProductManagement::Product#create_custom_attribute`
+  * Add `Concerns::Connection#put_uri_list` for endpoints expecting a `text/uri-list` body
+
+* bug-fixes
+  * Honour `paginated: false` in `ProductManagement::Image#all`,
+    `ProductManagement::Variation#all` and `ProductManagement::VariationImage#all`,
+    which previously returned only the first page
+  * Fix `AllPagesHandler` raising `NoMethodError` on an empty collection, which
+    carries no `_embedded` key
+  * Fix `Response#parsed_response` raising `NoMethodError` when the API answers
+    with a non-JSON body
+
 ### v0.24.2.pre
 
 * features
