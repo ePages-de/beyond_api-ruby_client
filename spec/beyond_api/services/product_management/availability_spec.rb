@@ -83,6 +83,6 @@ RSpec.describe BeyondApi::ProductManagement::Availability, vcr: true do
   end
 
   after do
-    @product_client.delete(@product[:id])
+    @product_client.delete_product(@product[:id])
   end
 end

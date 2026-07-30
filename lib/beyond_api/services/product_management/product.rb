@@ -117,22 +117,6 @@ module BeyondApi
         get("products/#{id}")
       end
 
-      # List products including variation products in a paged manner.
-      #
-      # @see https://developer.epages.com/beyond-docs/#list_products
-      #
-      # @option params [Boolean] :paginated
-      # @option params [Integer] :size the page size
-      # @option params [Integer] :page the page number
-      #
-      # @return [Hash]
-      #
-      # @example
-      #   @client.all_with_variations(size: 20, page: 1)
-      def all_with_variations(params = {})
-        fetch_all_pages('products', params)
-      end
-
       # Create a variation product.
       #
       # @see https://developer.epages.com/beyond-docs/#create_variation_product

@@ -1,0 +1,532 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Jul 2026 11:42:28 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.057'
+      X-B3-Traceid:
+      - d91a260787487987134381a4474b44da
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
+        prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
+        shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1785411748,"jti":"7d66b9fe-3fd5-4372-a99a-6cc58e0b5b70"}'
+  recorded_at: Thu, 30 Jul 2026 11:42:28 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products
+    body:
+      encoding: UTF-8
+      string: '{"name":"Team42 Variation Product","description":"100% cotton, regular
+        fit, needs cold washing (max. 30°C).","manufacturer":"Tony Highfinger","tags":["Shirt","Summer","Sale"],"productIdentifiers":[],"visible":true,"taxClass":"REGULAR","salesPrice":{"taxModel":"GROSS","amount":29.99,"currency":"GBP"},"listPrice":{"taxModel":"GROSS","amount":39.99,"currency":"GBP"},"manufacturerPrice":{"taxModel":"GROSS","amount":40.99,"currency":"GBP"},"shippingWeight":{"value":100.0,"displayUnit":"GRAMS"},"shippingDimension":{"length":2000,"width":750,"height":500},"shippingPeriod":{"min":3,"max":5,"displayUnit":"DAYS"},"pickupPeriod":{"min":1,"max":3,"displayUnit":"DAYS"},"variationAttributes":[{"displayName":"size","values":["S","M"]}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 30 Jul 2026 11:42:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.154'
+      X-B3-Traceid:
+      - 779df7dfe03fd3cdab353827b393a88a
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8",
+          "lastModifiedAt" : "2026-07-30T11:42:28.434796308",
+          "sku" : null,
+          "salesPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 24.99167,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 29.99,
+              "taxRate" : 0.2
+            }
+          },
+          "listPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 33.325,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 39.99,
+              "taxRate" : 0.2
+            }
+          },
+          "manufacturerPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 34.15833,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 40.99,
+              "taxRate" : 0.2
+            }
+          },
+          "tags" : [ "Sale", "Shirt", "Summer" ],
+          "productIdentifiers" : [ ],
+          "visible" : true,
+          "taxClass" : "REGULAR",
+          "shippingWeight" : {
+            "value" : 100.0,
+            "displayUnit" : "GRAMS"
+          },
+          "maxOrderQuantity" : null,
+          "shippingDimension" : {
+            "length" : 2000,
+            "width" : 750,
+            "height" : 500
+          },
+          "refPrice" : null,
+          "shippingPeriod" : {
+            "min" : 3,
+            "max" : 5,
+            "displayUnit" : "DAYS"
+          },
+          "pickupPeriod" : {
+            "min" : 1,
+            "max" : 3,
+            "displayUnit" : "DAYS"
+          },
+          "name" : "Team42 Variation Product",
+          "description" : "100% cotton, regular fit, needs cold washing (max. 30°C).",
+          "manufacturer" : "Tony Highfinger",
+          "essentialFeatures" : null,
+          "variationAttributes" : [ {
+            "_id" : "768cf166-95ae-4b39-9832-dc3aa45d00b2",
+            "displayName" : "size",
+            "values" : [ "S", "M" ],
+            "variationImagesDifferentiator" : false
+          } ],
+          "customText" : null,
+          "productLabels" : [ ],
+          "isVariationProduct" : true,
+          "_embedded" : {
+            "availability" : {
+              "availabilityState" : "NOT_AVAILABLE",
+              "availableStock" : null,
+              "stockThreshold" : null,
+              "purchasable" : false,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/availability"
+                }
+              }
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8"
+            },
+            "availability" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/availability"
+            },
+            "attributes" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/attributes"
+            },
+            "attachments" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/attachments"
+            },
+            "images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/images"
+            },
+            "default-image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/default-image"
+            },
+            "videos" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/videos"
+            },
+            "cross-sells" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/cross-sells"
+            },
+            "multiple-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/multiple-images"
+            },
+            "external-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/external-images"
+            },
+            "additional-descriptions" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/additional-descriptions"
+            },
+            "variation-properties" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variation-properties"
+            },
+            "variation-attributes" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variation-attributes"
+            },
+            "variations" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations"
+            },
+            "variations-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/images"
+            }
+          }
+        }
+  recorded_at: Thu, 30 Jul 2026 11:42:28 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Jul 2026 11:42:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.041'
+      X-B3-Traceid:
+      - e6a147f302e0f36e181a9a2db0e1a5aa
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "variations" : [ {
+              "sku" : "1217",
+              "variationAttributeValues" : [ {
+                "displayName" : "size",
+                "value" : "S"
+              } ],
+              "salesPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 24.99167,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 29.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 33.325,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 39.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 34.15833,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 40.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "refPrice" : null,
+              "productIdentifiers" : [ ],
+              "taxClass" : "REGULAR",
+              "_id" : "cc570261-f577-4ca4-ae1a-ede764040274",
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/cc570261-f577-4ca4-ae1a-ede764040274/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/cc570261-f577-4ca4-ae1a-ede764040274"
+                },
+                "product" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/cc570261-f577-4ca4-ae1a-ede764040274/default-image"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/cc570261-f577-4ca4-ae1a-ede764040274/images"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/cc570261-f577-4ca4-ae1a-ede764040274/multiple-images"
+                }
+              }
+            }, {
+              "sku" : "1218",
+              "variationAttributeValues" : [ {
+                "displayName" : "size",
+                "value" : "M"
+              } ],
+              "salesPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 24.99167,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 29.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "listPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 33.325,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 39.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "manufacturerPrice" : {
+                "taxModel" : "NET",
+                "currency" : "GBP",
+                "amount" : 34.15833,
+                "derivedPrice" : {
+                  "taxModel" : "GROSS",
+                  "currency" : "GBP",
+                  "amount" : 40.99,
+                  "taxRate" : 0.2
+                }
+              },
+              "refPrice" : null,
+              "productIdentifiers" : [ ],
+              "taxClass" : "REGULAR",
+              "_id" : "a349fc03-4d93-4960-b080-a0d8a65ae865",
+              "_embedded" : {
+                "availability" : {
+                  "availabilityState" : "IN_STOCK",
+                  "availableStock" : null,
+                  "stockThreshold" : null,
+                  "purchasable" : true,
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/a349fc03-4d93-4960-b080-a0d8a65ae865/availability"
+                    }
+                  }
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/a349fc03-4d93-4960-b080-a0d8a65ae865"
+                },
+                "product" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8"
+                },
+                "default-image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/a349fc03-4d93-4960-b080-a0d8a65ae865/default-image"
+                },
+                "images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/a349fc03-4d93-4960-b080-a0d8a65ae865/images"
+                },
+                "multiple-images" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations/a349fc03-4d93-4960-b080-a0d8a65ae865/multiple-images"
+                }
+              }
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8/variations?page=0&size=20"
+            }
+          },
+          "page" : {
+            "size" : 20,
+            "totalElements" : 2,
+            "totalPages" : 1,
+            "number" : 0
+          }
+        }
+  recorded_at: Thu, 30 Jul 2026 11:42:28 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/fcbac0d5-1d7b-422c-afd2-a7fd5f37d6d8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 30 Jul 2026 11:42:28 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.122'
+      X-B3-Traceid:
+      - 472e3376ca401a10452e476d0ac0a444
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 30 Jul 2026 11:42:28 GMT
+recorded_with: VCR 6.2.0
