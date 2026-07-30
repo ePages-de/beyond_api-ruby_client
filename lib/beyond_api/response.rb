@@ -18,6 +18,9 @@ module BeyondApi
 
     def parsed_response
       return {} if body.blank?
+      # A non-JSON response (e.g. an upload endpoint answering `text/plain`) is
+      # left untouched by faraday's :json middleware, so `body` is a raw String.
+      return body unless body.respond_to?(:deep_transform_keys!)
 
       body.deep_transform_keys! do |key|
         key = remove_initial_underscore(key)

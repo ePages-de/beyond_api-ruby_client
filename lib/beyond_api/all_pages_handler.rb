@@ -13,12 +13,16 @@ module BeyondApi
 
       first_page_data = fetch_page(0)
       @response       = first_page_data
-      @resource_key   = first_page_data[:embedded].keys.first
-      @total_pages    = first_page_data.dig(:page, :total_pages)
-      @total_elements = first_page_data.dig(:page, :total_elements)
+      # An empty collection has no `_embedded` key at all, so there is no
+      # resource key to merge subsequent pages under.
+      @resource_key   = first_page_data[:embedded]&.keys&.first
+      @total_pages    = first_page_data.dig(:page, :total_pages).to_i
+      @total_elements = first_page_data.dig(:page, :total_elements).to_i
     end
 
     def call
+      return @response if @resource_key.nil?
+
       (1..remaining_pages).each do |page|
         process_page(page)
       end

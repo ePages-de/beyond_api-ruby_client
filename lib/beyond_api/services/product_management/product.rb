@@ -390,6 +390,52 @@ module BeyondApi
       def update_variation_properties(id, body)
         patch("products/#{id}/variation-properties", body)
       end
+
+      # Retrieve the variation properties of a product.
+      #
+      # @see https://developer.epages.com/beyond-docs/#show_variation_properties
+      #
+      # @param id [String] the product UUID
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.variation_properties('4125b993-49fc-47c8-b9b3-76d8871e4e06')
+      def variation_properties(id)
+        get("products/#{id}/variation-properties")
+      end
+
+      # Assign a variation attribute as the differentiator of a product.
+      #
+      # @see https://developer.epages.com/beyond-docs/#assign_variation_differentiator
+      #
+      # @param product_id [String] the product UUID
+      # @param variation_attribute_id [String] the variation attribute UUID
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.assign_variation_differentiator('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                                            'a1b2c3d4-e5f6-7890-abcd-ef1234567890')
+      def assign_variation_differentiator(product_id, variation_attribute_id)
+        post("products/#{product_id}/variation-attributes/#{variation_attribute_id}/make-differentiator")
+      end
+
+      # Create a custom attribute for a product.
+      #
+      # @see https://developer.epages.com/beyond-docs/#create_product_attribute
+      #
+      # @param product_id [String] the product UUID
+      # @param body [Hash] the request body containing the attribute definition
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   body = { type: 'material', value: 'cotton' }
+      #   @client.create_custom_attribute('4125b993-49fc-47c8-b9b3-76d8871e4e06', body)
+      def create_custom_attribute(product_id, body)
+        post("products/#{product_id}/attributes", body)
+      end
     end
   end
 end

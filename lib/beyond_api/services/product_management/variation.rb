@@ -19,7 +19,7 @@ module BeyondApi
       # @example
       #   @client.all(size: 100, page: 0)
       def all(id, params = {})
-        get("products/#{id}/variations", params)
+        fetch_all_pages("products/#{id}/variations", params)
       end
 
       # Update a variation partially with json content type.
