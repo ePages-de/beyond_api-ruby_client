@@ -1,0 +1,393 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:17 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.068'
+      X-B3-Traceid:
+      - 92ad09c0630fee58386dca621ca16c93
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
+        prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
+        shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1785481277,"jti":"f976cb63-4130-4ae8-9d1b-6828efe06fcb"}'
+  recorded_at: Fri, 31 Jul 2026 07:01:17 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products
+    body:
+      encoding: UTF-8
+      string: '{"name":"Team42 Product","description":"Spain\nRioja Tempranillo","manufacturer":"Grape
+        Vineyard","essentialFeatures":"Dry. 12% alcohol. Best vine variety.","tags":["Bestseller","Red
+        Wine","Sale"],"productIdentifiers":[{"type":"EAN","value":"9780134308135"}],"salesPrice":{"taxModel":"GROSS","amount":8.7,"currency":"GBP"},"listPrice":{"taxModel":"GROSS","amount":10.95,"currency":"GBP"},"manufacturerPrice":{"taxModel":"GROSS","amount":11.95,"currency":"GBP"},"visible":true,"taxClass":"REGULAR","shippingWeight":{"value":1175.0,"displayUnit":"GRAMS"},"maxOrderQuantity":6,"shippingDimension":{"length":1500,"width":1000,"height":2000},"refPrice":{"refQuantity":1,"unit":"LITER","quantity":0.75,"price":{"taxModel":"GROSS","amount":11.6,"currency":"GBP"}},"shippingPeriod":{"min":2,"max":4,"displayUnit":"WEEKS"},"pickupPeriod":{"min":1,"max":2,"displayUnit":"WEEKS"},"productLabels":[{"type":"NEW","activeFrom":"2024-08-13T11:31:30.210787732","activeUntil":"2024-09-10T11:31:30.210787732"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.223'
+      X-B3-Traceid:
+      - d0c2bff268b501d9fee6600a8afe13c9
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "5bf89e5a-cd7e-4075-94ed-c9a57b10d918",
+          "lastModifiedAt" : "2026-07-31T07:01:18.175862014",
+          "sku" : "1298",
+          "salesPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 7.25,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 8.7,
+              "taxRate" : 0.2
+            }
+          },
+          "listPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 9.125,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 10.95,
+              "taxRate" : 0.2
+            }
+          },
+          "manufacturerPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 9.95833,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 11.95,
+              "taxRate" : 0.2
+            }
+          },
+          "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+          "productIdentifiers" : [ {
+            "type" : "EAN",
+            "value" : "9780134308135"
+          } ],
+          "visible" : true,
+          "taxClass" : "REGULAR",
+          "shippingWeight" : {
+            "value" : 1175.0,
+            "displayUnit" : "GRAMS"
+          },
+          "maxOrderQuantity" : 6,
+          "shippingDimension" : {
+            "length" : 1500,
+            "width" : 1000,
+            "height" : 2000
+          },
+          "refPrice" : {
+            "refQuantity" : 1,
+            "unit" : "LITER",
+            "quantity" : 0.75,
+            "price" : {
+              "taxModel" : "NET",
+              "currency" : "GBP",
+              "amount" : 9.66667,
+              "derivedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.6,
+                "taxRate" : 0.2
+              }
+            }
+          },
+          "shippingPeriod" : {
+            "min" : 2,
+            "max" : 4,
+            "displayUnit" : "WEEKS"
+          },
+          "pickupPeriod" : {
+            "min" : 1,
+            "max" : 2,
+            "displayUnit" : "WEEKS"
+          },
+          "name" : "Team42 Product",
+          "description" : "Spain\nRioja Tempranillo",
+          "manufacturer" : "Grape Vineyard",
+          "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+          "variationAttributes" : [ ],
+          "customText" : null,
+          "productLabels" : [ {
+            "type" : "NEW",
+            "activeFrom" : "2024-08-13T11:31:30.210787732",
+            "activeUntil" : "2024-09-10T11:31:30.210787732"
+          } ],
+          "isVariationProduct" : false,
+          "_embedded" : {
+            "availability" : {
+              "availabilityState" : "IN_STOCK",
+              "availableStock" : null,
+              "stockThreshold" : null,
+              "purchasable" : true,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/availability"
+                }
+              }
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918"
+            },
+            "availability" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/availability"
+            },
+            "attributes" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/attributes"
+            },
+            "attachments" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/attachments"
+            },
+            "images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/images"
+            },
+            "default-image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/default-image"
+            },
+            "videos" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/videos"
+            },
+            "cross-sells" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/cross-sells"
+            },
+            "multiple-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/multiple-images"
+            },
+            "external-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/external-images"
+            },
+            "additional-descriptions" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/additional-descriptions"
+            }
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:18 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/attributes
+    body:
+      encoding: UTF-8
+      string: '{"key":"material","value":"cotton"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/attributes/material
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.064'
+      X-B3-Traceid:
+      - 3ec12bd6c5a1cd705be824f74e90e9d1
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "value" : "cotton",
+          "key" : "material",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918/attributes/material"
+            },
+            "product" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918"
+            },
+            "product-attribute-definition" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/product-attribute-definitions/f2ff4a0b-d8bd-4233-891b-e9146c2c1fa3"
+            }
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:18 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/5bf89e5a-cd7e-4075-94ed-c9a57b10d918
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:18 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.106'
+      X-B3-Traceid:
+      - bd3bf8b2ab069c23f44af2d49880b1bd
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 31 Jul 2026 07:01:18 GMT
+recorded_with: VCR 6.2.0

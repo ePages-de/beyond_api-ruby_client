@@ -27,7 +27,6 @@ RSpec.configure do |config|
   app_root = File.expand_path(File.dirname('vcr.rb'))
 
   load "#{app_root}/spec/support/vcr.rb"
-  load "#{app_root}/spec/support/stubbed_requests.rb"
 end
 
 BeyondApi.setup do |config|
