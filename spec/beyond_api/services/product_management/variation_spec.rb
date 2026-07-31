@@ -31,6 +31,13 @@ RSpec.describe BeyondApi::ProductManagement::Variation, vcr: true do
       expect(values.map { |value| value[:value] }).to contain_exactly('S', 'M')
     end
 
+    it 'honours the requested page size' do
+      response = client.all(@product[:id], size: 1)
+
+      expect(response.dig(:embedded, :variations).size).to eq(1)
+      expect(response.dig(:page, :total_pages)).to eq(2)
+    end
+
     it 'returns every variation when paginated is false' do
       response = client.all(@product[:id], paginated: false)
 

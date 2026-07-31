@@ -52,6 +52,17 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
       end
     end
 
+    describe '.create_custom_attribute' do
+      it 'creates a custom attribute for the product' do
+        response = client.create_custom_attribute(@product[:id], { key: 'material', value: 'cotton' })
+
+        expect(response).not_to be nil
+        expect(response[:key]).to eq('material')
+        expect(response[:value]).to eq('cotton')
+        expect(response.dig(:links, :product_attribute_definition, :href)).not_to be nil
+      end
+    end
+
     after(:each) do
       client.delete_product(@product[:id])
     rescue StandardError
@@ -203,6 +214,28 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
 
         expect(properties.find { |property| property[:property] == 'defaultImage' }[:enabled]).to be true
         expect(properties.find { |property| property[:property] == 'listPrice' }[:enabled]).to be false
+      end
+    end
+
+    describe '.assign_variation_differentiator' do
+      let(:variation_attribute_id) { @variation_product[:variation_attributes].first[:id] }
+
+      it 'assigns a variation attribute as the variation images differentiator' do
+        # Variation images, and therefore a differentiator, require the
+        # `defaultImage` variation property.
+        client.update_variation_properties(@variation_product[:id], [{ property: 'defaultImage', enabled: true }])
+
+        response = client.assign_variation_differentiator(@variation_product[:id], variation_attribute_id)
+
+        expect(response[:id]).to eq(variation_attribute_id)
+        expect(response[:display_name]).to eq('size')
+        expect(response[:variation_images_differentiator]).to be true
+      end
+
+      it 'raises an error when the defaultImage variation property is not enabled' do
+        expect do
+          client.assign_variation_differentiator(@variation_product[:id], variation_attribute_id)
+        end.to raise_error(Faraday::RetriableResponse)
       end
     end
 

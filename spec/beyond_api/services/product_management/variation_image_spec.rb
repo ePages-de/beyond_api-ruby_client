@@ -72,6 +72,33 @@ RSpec.describe BeyondApi::ProductManagement::VariationImage, vcr: { match_reques
       expect(response.dig(:embedded, :images)).to be_kind_of(Array)
       expect(response[:page]).to include(:size, :total_elements, :total_pages, :number)
     end
+
+    it 'honours the requested page size' do
+      client.upload_multiple(@product[:id], @variation_id,
+                             ['spec/files/image1.png', 'spec/files/image2.png'],
+                             ['var-image1.png', 'var-image2.png'])
+
+      response = client.all(@product[:id], @variation_id, size: 1)
+
+      expect(response.dig(:embedded, :images).size).to eq(1)
+      expect(response.dig(:page, :total_pages)).to eq(2)
+    end
+
+    it 'follows every page when paginated is false' do
+      image_ids = client.upload_multiple(@product[:id], @variation_id,
+                                         ['spec/files/image1.png', 'spec/files/image2.png'],
+                                         ['var-image1.png', 'var-image2.png']).map { |image| image[:id] }
+      # A page size of one spreads the two images over two pages.
+      BeyondApi.configuration.all_pagination_size = 1
+
+      response = client.all(@product[:id], @variation_id, paginated: false)
+
+      expect(response.dig(:embedded, :images).map { |image| image[:id] }).to eq(image_ids)
+      expect(response.dig(:page, :total_pages)).to eq(1)
+      expect(response.dig(:page, :total_elements)).to eq(2)
+    ensure
+      BeyondApi.configuration.all_pagination_size = 200
+    end
   end
 
   describe '.sort' do
