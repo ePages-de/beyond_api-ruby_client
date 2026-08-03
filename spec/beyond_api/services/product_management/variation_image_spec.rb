@@ -102,15 +102,51 @@ RSpec.describe BeyondApi::ProductManagement::VariationImage, vcr: { match_reques
   end
 
   describe '.sort' do
-    it 'reorders the images of a variation' do
+    # Cassettes are matched on method and URI only, because the multipart upload bodies
+    # carry a per-request boundary. Sorting lives entirely in the request body, so the
+    # order reaching the wire is asserted here rather than inferred from a later read.
+    def expect_sorted_uri_list(order)
+      expect(client).to have_received(:put_uri_list).with(
+        "products/#{@product[:id]}/variations/#{@variation_id}/images",
+        order.map do |image_id|
+          "#{ENV.fetch('API_URL', nil)}/products/#{@product[:id]}/variations/#{@variation_id}/images/#{image_id}"
+        end
+      )
+    end
+
+    def upload_three_images
       client.upload(@product[:id], @variation_id, 'spec/files/image1.png', 'var-image1.png')
       client.upload(@product[:id], @variation_id, 'spec/files/image2.png', 'var-image2.png')
-      ids = client.all(@product[:id], @variation_id).dig(:embedded, :images).map { |image| image[:id] }
+      client.upload(@product[:id], @variation_id, 'spec/files/image3.png', 'var-image3.png')
 
-      client.sort(@product[:id], @variation_id, ids.reverse)
+      client.all(@product[:id], @variation_id).dig(:embedded, :images).map { |image| image[:id] }
+    end
 
+    before { allow(client).to receive(:put_uri_list).and_call_original }
+
+    it 'reorders the images of a variation' do
+      ids = upload_three_images
+      # A rotation rather than a reversal, so an implementation that simply
+      # inverted the given order would not satisfy the expectation.
+      desired_order = [ids[1], ids[2], ids[0]]
+
+      client.sort(@product[:id], @variation_id, desired_order)
+
+      expect_sorted_uri_list(desired_order)
       reordered = client.all(@product[:id], @variation_id).dig(:embedded, :images).map { |image| image[:id] }
-      expect(reordered).to eq(ids.reverse)
+      expect(reordered).to eq(desired_order)
+    end
+
+    it 'ignores nil image ids' do
+      ids = upload_three_images
+
+      client.sort(@product[:id], @variation_id, [ids[2], nil, ids[0], nil, ids[1]])
+
+      expected_order = [ids[2], ids[0], ids[1]]
+
+      expect_sorted_uri_list(expected_order)
+      reordered = client.all(@product[:id], @variation_id).dig(:embedded, :images).map { |image| image[:id] }
+      expect(reordered).to eq(expected_order)
     end
   end
 

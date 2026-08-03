@@ -60,7 +60,9 @@ RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:
 
     context 'with images' do
       before do
-        @image_ids = ['spec/files/image1.png', 'spec/files/image2.png'].each_with_index.map do |path, index|
+        image_paths = ['spec/files/image1.png', 'spec/files/image2.png', 'spec/files/image3.png']
+
+        @image_ids = image_paths.each_with_index.map do |path, index|
           client.upload(@product[:id], path, "sortable-image#{index + 1}.png")[:id]
         end
       end
@@ -70,36 +72,56 @@ RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:
           response = client.all(@product[:id], size: 1)
 
           expect(response.dig(:embedded, :images).size).to eq(1)
-          expect(response.dig(:page, :total_pages)).to eq(2)
+          expect(response.dig(:page, :total_pages)).to eq(3)
         end
 
         it 'follows every page when paginated is false' do
-          # A page size of one spreads the two images over two pages.
+          # A page size of one spreads the three images over three pages.
           BeyondApi.configuration.all_pagination_size = 1
 
           response = client.all(@product[:id], paginated: false)
 
           expect(response.dig(:embedded, :images).map { |image| image[:id] }).to eq(@image_ids)
           expect(response.dig(:page, :total_pages)).to eq(1)
-          expect(response.dig(:page, :total_elements)).to eq(2)
+          expect(response.dig(:page, :total_elements)).to eq(3)
         ensure
           BeyondApi.configuration.all_pagination_size = 200
         end
       end
 
       describe '.sort' do
-        it 'reorders the images of a product' do
-          client.sort(@product[:id], @image_ids.reverse)
+        # Cassettes are matched on method and URI only, because the multipart upload bodies
+        # carry a per-request boundary. Sorting lives entirely in the request body, so the
+        # order reaching the wire is asserted here rather than inferred from a later read.
+        def expect_sorted_uri_list(order)
+          expect(client).to have_received(:put_uri_list).with(
+            "products/#{@product[:id]}/images",
+            order.map { |image_id| "#{ENV.fetch('API_URL', nil)}/products/#{@product[:id]}/images/#{image_id}" }
+          )
+        end
 
+        before { allow(client).to receive(:put_uri_list).and_call_original }
+
+        it 'reorders the images of a product' do
+          # A rotation rather than a reversal, so an implementation that simply
+          # inverted the given order would not satisfy the expectation.
+          desired_order = [@image_ids[1], @image_ids[2], @image_ids[0]]
+
+          client.sort(@product[:id], desired_order)
+
+          expect_sorted_uri_list(desired_order)
           reordered = client.all(@product[:id]).dig(:embedded, :images).map { |image| image[:id] }
-          expect(reordered).to eq(@image_ids.reverse)
+          expect(reordered).to eq(desired_order)
         end
 
         it 'ignores nil image ids' do
-          client.sort(@product[:id], [@image_ids.last, nil, @image_ids.first])
+          client.sort(@product[:id], [@image_ids[2], nil, @image_ids[0], nil, @image_ids[1]])
 
+          expected_order = [@image_ids[2], @image_ids[0], @image_ids[1]]
+
+          expect_sorted_uri_list(expected_order)
           reordered = client.all(@product[:id]).dig(:embedded, :images).map { |image| image[:id] }
-          expect(reordered).to eq(@image_ids.reverse)
+          expect(reordered).to eq(expected_order)
         end
       end
 
@@ -108,7 +130,7 @@ RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:
           response = client.delete(@product[:id], @image_ids.first)
 
           expect(response).to eq({})
-          expect(client.all(@product[:id]).dig(:page, :total_elements)).to eq(1)
+          expect(client.all(@product[:id]).dig(:page, :total_elements)).to eq(2)
         end
       end
     end
