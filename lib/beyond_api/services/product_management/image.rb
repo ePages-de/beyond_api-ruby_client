@@ -9,6 +9,7 @@ module BeyondApi
       #
       # @see https://developer.epages.com/beyond-docs/#list_product_images
       #
+      # @option params [Boolean] :paginated
       # @option params [Integer] :size the page size
       # @option params [Integer] :page the page number
       #
@@ -17,7 +18,7 @@ module BeyondApi
       # @example
       #   @client.all(size: 100, page: 0)
       def all(id, params = {})
-        get("products/#{id}/images", params)
+        fetch_all_pages("products/#{id}/images", params)
       end
 
       # Upload an image and add it to a product. The body of the request must contain the content of the image.
@@ -79,6 +80,41 @@ module BeyondApi
         file_name = File.basename(URI.parse(uri).path) if file_name.empty?
 
         post("products/#{product_id}/external-images", { data_uri: uri }, { file_name: })
+      end
+
+      # Delete a product image.
+      #
+      # @see https://developer.epages.com/beyond-docs/#delete_product_image
+      #
+      # @param product_id [String] the product UUID
+      # @param image_id [String] the image UUID
+      #
+      # @return [nil]
+      #
+      # @example
+      #   @client.delete('4125b993-49fc-47c8-b9b3-76d8871e4e06', 'a1b2c3d4-e5f6-7890-abcd-ef1234567890')
+      def delete(product_id, image_id)
+        super("products/#{product_id}/images/#{image_id}") # Concerns::Connection delete method
+      end
+
+      # Sort the images of a product. The API expects a `text/uri-list` body
+      # with the absolute URIs of the images in the desired order.
+      #
+      # @see https://developer.epages.com/beyond-docs/#sort_product_images
+      #
+      # @param product_id [String] the product UUID
+      # @param image_ids [Array<String>] the image UUIDs in the desired order
+      #
+      # @return [Hash]
+      #
+      # @example
+      #   @client.sort('4125b993-49fc-47c8-b9b3-76d8871e4e06',
+      #                 ['a1b2c3d4-e5f6-7890-abcd-ef1234567890', 'b2c3d4e5-f678-90ab-cdef-1234567890ab'])
+      def sort(product_id, image_ids)
+        uris = Array(image_ids).compact.map do |image_id|
+          "#{@session.api_url}/products/#{product_id}/images/#{image_id}"
+        end
+        put_uri_list("products/#{product_id}/images", uris)
       end
     end
   end

@@ -10,14 +10,14 @@ RSpec.describe BeyondApi::Authentication::Token, vcr: true do
   end
 
   it 'retrieves token via authorization code' do
-    expect { auth_client.get('abcde') }.to raise_error(BeyondApi::Error) do |error|
+    expect { auth_client.authorization_code('abcde') }.to raise_error(BeyondApi::Error) do |error|
       expect(error.response[:error]).to eq('invalid_grant')
       expect(error.response[:error_description]).to eq('Invalid authorization code: abcde')
     end
   end
 
   it 'refreshes the token' do
-    response = auth_client.refresh(ENV.fetch('REFRESH_TOKEN', nil))
+    response = auth_client.refresh_token(ENV.fetch('REFRESH_TOKEN', nil))
 
     expect(response).not_to be nil
     expect(response[:access_token].class).to be(String)

@@ -2,6 +2,9 @@
 
 RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:method, :uri] } do
   let(:client) { described_class.new(api_url: ENV.fetch('API_URL', nil), access_token: beyond_access_token) }
+  let(:product_client) do
+    BeyondApi::ProductManagement::Product.new(api_url: ENV.fetch('API_URL', nil), access_token: beyond_access_token)
+  end
 
   describe '.all' do
     it 'returns all images' do
@@ -38,6 +41,83 @@ RSpec.describe BeyondApi::ProductManagement::Image, vcr: { match_requests_on: [:
 
       expect(response).not_to be nil
       expect(response.dig(:links, :data, :href)).to include('external-img.jpg')
+    end
+  end
+
+  context 'with own product' do
+    before do
+      @product = product_client.create(build(:product_data))
+    end
+
+    describe '.all' do
+      it 'returns an empty page for a product without images' do
+        response = client.all(@product[:id], paginated: false)
+
+        expect(response.dig(:embedded, :images)).to eq([])
+        expect(response.dig(:page, :total_elements)).to eq(0)
+      end
+    end
+
+    context 'with images' do
+      before do
+        @image_ids = ['spec/files/image1.png', 'spec/files/image2.png'].each_with_index.map do |path, index|
+          client.upload(@product[:id], path, "sortable-image#{index + 1}.png")[:id]
+        end
+      end
+
+      describe '.all' do
+        it 'honours the requested page size' do
+          response = client.all(@product[:id], size: 1)
+
+          expect(response.dig(:embedded, :images).size).to eq(1)
+          expect(response.dig(:page, :total_pages)).to eq(2)
+        end
+
+        it 'follows every page when paginated is false' do
+          # A page size of one spreads the two images over two pages.
+          BeyondApi.configuration.all_pagination_size = 1
+
+          response = client.all(@product[:id], paginated: false)
+
+          expect(response.dig(:embedded, :images).map { |image| image[:id] }).to eq(@image_ids)
+          expect(response.dig(:page, :total_pages)).to eq(1)
+          expect(response.dig(:page, :total_elements)).to eq(2)
+        ensure
+          BeyondApi.configuration.all_pagination_size = 200
+        end
+      end
+
+      describe '.sort' do
+        it 'reorders the images of a product' do
+          client.sort(@product[:id], @image_ids.reverse)
+
+          reordered = client.all(@product[:id]).dig(:embedded, :images).map { |image| image[:id] }
+          expect(reordered).to eq(@image_ids.reverse)
+        end
+
+        it 'ignores nil image ids' do
+          client.sort(@product[:id], [@image_ids.last, nil, @image_ids.first])
+
+          reordered = client.all(@product[:id]).dig(:embedded, :images).map { |image| image[:id] }
+          expect(reordered).to eq(@image_ids.reverse)
+        end
+      end
+
+      describe '.delete' do
+        it 'deletes a product image' do
+          response = client.delete(@product[:id], @image_ids.first)
+
+          expect(response).to eq({})
+          expect(client.all(@product[:id]).dig(:page, :total_elements)).to eq(1)
+        end
+      end
+    end
+
+    after do
+      product_client.delete_product(@product[:id])
+    rescue StandardError
+      BeyondApi::Error
+      # Cleanup after each test
     end
   end
 end

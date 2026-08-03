@@ -67,6 +67,29 @@ module BeyondApi
         end
       end
 
+      # Issue a PUT with a `text/uri-list` body (newline-separated URIs).
+      # Used by image-sort endpoints which expect URIs rather than JSON.
+      # A dedicated connection is used because the standard `agent` always
+      # JSON-encodes the request body via the `:json` middleware.
+      def put_uri_list(path, uris)
+        handle_request do
+          connection = Faraday.new(url: @session.api_url, ssl: { verify: true }) do |faraday|
+            faraday.options.timeout      = BeyondApi.configuration.timeout.to_i
+            faraday.options.open_timeout = BeyondApi.configuration.open_timeout.to_i
+            faraday.request :authorization, *authorization_config
+            faraday.headers['Accept'] = 'application/json'
+            faraday.request :retry, BeyondApi.configuration.retry_options
+            faraday.response :json, content_type: 'application/json'
+            faraday.response :logger, *logger_config { |logger| apply_filters(logger) }
+          end
+
+          connection.put(path) do |request|
+            request.headers['Content-Type'] = 'text/uri-list'
+            request.body = uris.join("\n")
+          end
+        end
+      end
+
       private
 
       def parse_request(hash)

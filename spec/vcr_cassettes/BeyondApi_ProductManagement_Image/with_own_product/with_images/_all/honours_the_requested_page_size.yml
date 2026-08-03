@@ -1,0 +1,635 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:29 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.054'
+      X-B3-Traceid:
+      - d5815ec1d99257d796501676cd8c8fa2
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
+        prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
+        shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1785481289,"jti":"9f592772-d6bc-4936-a9d9-398716fea45a"}'
+  recorded_at: Fri, 31 Jul 2026 07:01:29 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products
+    body:
+      encoding: UTF-8
+      string: '{"name":"Team42 Product","description":"Spain\nRioja Tempranillo","manufacturer":"Grape
+        Vineyard","essentialFeatures":"Dry. 12% alcohol. Best vine variety.","tags":["Bestseller","Red
+        Wine","Sale"],"productIdentifiers":[{"type":"EAN","value":"9780134308135"}],"salesPrice":{"taxModel":"GROSS","amount":8.7,"currency":"GBP"},"listPrice":{"taxModel":"GROSS","amount":10.95,"currency":"GBP"},"manufacturerPrice":{"taxModel":"GROSS","amount":11.95,"currency":"GBP"},"visible":true,"taxClass":"REGULAR","shippingWeight":{"value":1175.0,"displayUnit":"GRAMS"},"maxOrderQuantity":6,"shippingDimension":{"length":1500,"width":1000,"height":2000},"refPrice":{"refQuantity":1,"unit":"LITER","quantity":0.75,"price":{"taxModel":"GROSS","amount":11.6,"currency":"GBP"}},"shippingPeriod":{"min":2,"max":4,"displayUnit":"WEEKS"},"pickupPeriod":{"min":1,"max":2,"displayUnit":"WEEKS"},"productLabels":[{"type":"NEW","activeFrom":"2024-08-13T11:31:30.210787732","activeUntil":"2024-09-10T11:31:30.210787732"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.578'
+      X-B3-Traceid:
+      - 0d8e0e623056cb894472361d3ac5bcd5
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "6e2fc96c-133e-4499-bab5-8cbb7f1a4e12",
+          "lastModifiedAt" : "2026-07-31T07:01:29.712336636",
+          "sku" : "1308",
+          "salesPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 7.25,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 8.7,
+              "taxRate" : 0.2
+            }
+          },
+          "listPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 9.125,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 10.95,
+              "taxRate" : 0.2
+            }
+          },
+          "manufacturerPrice" : {
+            "taxModel" : "NET",
+            "currency" : "GBP",
+            "amount" : 9.95833,
+            "derivedPrice" : {
+              "taxModel" : "GROSS",
+              "currency" : "GBP",
+              "amount" : 11.95,
+              "taxRate" : 0.2
+            }
+          },
+          "tags" : [ "Sale", "Bestseller", "Red Wine" ],
+          "productIdentifiers" : [ {
+            "type" : "EAN",
+            "value" : "9780134308135"
+          } ],
+          "visible" : true,
+          "taxClass" : "REGULAR",
+          "shippingWeight" : {
+            "value" : 1175.0,
+            "displayUnit" : "GRAMS"
+          },
+          "maxOrderQuantity" : 6,
+          "shippingDimension" : {
+            "length" : 1500,
+            "width" : 1000,
+            "height" : 2000
+          },
+          "refPrice" : {
+            "refQuantity" : 1,
+            "unit" : "LITER",
+            "quantity" : 0.75,
+            "price" : {
+              "taxModel" : "NET",
+              "currency" : "GBP",
+              "amount" : 9.66667,
+              "derivedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "GBP",
+                "amount" : 11.6,
+                "taxRate" : 0.2
+              }
+            }
+          },
+          "shippingPeriod" : {
+            "min" : 2,
+            "max" : 4,
+            "displayUnit" : "WEEKS"
+          },
+          "pickupPeriod" : {
+            "min" : 1,
+            "max" : 2,
+            "displayUnit" : "WEEKS"
+          },
+          "name" : "Team42 Product",
+          "description" : "Spain\nRioja Tempranillo",
+          "manufacturer" : "Grape Vineyard",
+          "essentialFeatures" : "Dry. 12% alcohol. Best vine variety.",
+          "variationAttributes" : [ ],
+          "customText" : null,
+          "productLabels" : [ {
+            "type" : "NEW",
+            "activeFrom" : "2024-08-13T11:31:30.210787732",
+            "activeUntil" : "2024-09-10T11:31:30.210787732"
+          } ],
+          "isVariationProduct" : false,
+          "_embedded" : {
+            "availability" : {
+              "availabilityState" : "IN_STOCK",
+              "availableStock" : null,
+              "stockThreshold" : null,
+              "purchasable" : true,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/availability"
+                }
+              }
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12"
+            },
+            "availability" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/availability"
+            },
+            "attributes" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/attributes"
+            },
+            "attachments" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/attachments"
+            },
+            "images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images"
+            },
+            "default-image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/default-image"
+            },
+            "videos" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/videos"
+            },
+            "cross-sells" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/cross-sells"
+            },
+            "multiple-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/multiple-images"
+            },
+            "external-images" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/external-images"
+            },
+            "additional-descriptions" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/additional-descriptions"
+            }
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:29 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:29 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.058'
+      X-B3-Traceid:
+      - cf81d04be53b83dd8cfaade6d1f8ff80
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
+        prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
+        shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1785481289,"jti":"305edfa5-2dea-4da3-b9ad-f54970bb6d1e"}'
+  recorded_at: Fri, 31 Jul 2026 07:01:29 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?fileName=sortable-image1.png
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQBAMAAABykSv/AAAAG1BMVEUAAAD///8fHx+/v7/f399/f38/Pz+fn59fX1/Ew5I3AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD1ElEQVR4nO3Zz0/bMBTAcSvQtMeZZj+ObVWhHekO244NYj+OVBqCY4s4cKTadqfTNvFnL/Z7TlI2lihKVjR9PwcaV/GLX+zYbjAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/QzQKR9dnF/mxiX+cfasXYJIfNQzQktlcDz5Za5NTLfTSrPSuTv29JBw1DNCSnp3LwZV9d3eeJiNfiNPk4scXe1wjwCIk0jRAS1aaSGzfZ38HqVx6lSyzv9+1VX8T2yQcNAvQllSH1nQoH75ZUXokH/PK+vtDTaRpgJb0hyu51lruZGTdIO/rnRw/rQywfq2JNA3Qks2xJBLZW/li4YrjF1LoJX+qUzZIDuWcpgFaEtmlJJJf0TfBN6bcugeNn8VSs2mAluw9NZLIfhgDfTfU0zCJro8qAsxONZGmAVqyONJExgf6zcC6+zjS0uZJOLOX1zk1hd7QaCKVAToVZxeURDZz/cq1YZCP7Lx5xa3tD0sBVgchkcoAndrPxrMkssiHQHrr7nPpBDEN362flQJkJ2silQE6tb4JibgjMTs1/eehsJdPn7oymL5dFvXdiZpIZYAu+REgiczykZ+1qLh60aLQJVsd4saTJlIdoENj1yhJJBsPRTuK8VBqh3TJVodErqCJVAfokL+L9xPJBnvRjl7pyfZdstUh/sb/lsiDATojF6mdiOuSrQ6RB/wRJLLyu6Paibgu2eqQ2G+odp9IlC7dR/1EovTNVodMfVa7T2RPnkOdtfJ2uEnngWd1assdYmZ+xg2zVp0A3dC1uO7060q2vHPS5Xvn02/YD9VcEP1JSXmg6O5j5wtiGMc1tyjGdchlWuoSfSp2vkXZJCdemn3e1NrzZVPWtOiSgZX6J9nnh11uGje2cCSLvG9foiu2nDQvKrg1JCq6ZFCqPzR1AnQkmojN8WRS/l3khnfxu+imqODXkFKXaP2XyWQyqhWgY3V/6sqiHpWfEu9x/NQ1IZHqdwe6qE/vr3Dxo3j5YEIiZiFvc2Lfnp6+zVkVc07YZf3WJZpIZYDOaSL7cukrueHyvjAuNXoRHub7XRISqQrQOU0kSj8a9yZY7us0uTXute4oP+1qqQfRx+36IZGqAJ3TRLKN1POzz3Y40lbZr+cz+6pG/ZBI4wBtCYmY725BuNXCwP1X4G2d+nkiTQO07/Du5ygvRNd3l/88AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj9gv2X223KqGyf0AAAAASUVORK5CYII=
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - image/png
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/ffd87187-4768-4a3f-986a-e9ec0ccf9f3f
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.301'
+      X-B3-Traceid:
+      - 19ff4fcd45abab3a684b19c7a98787c8
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "position" : 0,
+          "width" : 400,
+          "height" : 400,
+          "_id" : "ffd87187-4768-4a3f-986a-e9ec0ccf9f3f",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/ffd87187-4768-4a3f-986a-e9ec0ccf9f3f"
+            },
+            "data" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/sortable-image1.png?hash=54386a565cf2d7f563e8dec800be24434918438d{&width,height,upscale}",
+              "templated" : true
+            },
+            "image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/ffd87187-4768-4a3f-986a-e9ec0ccf9f3f"
+            }
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:30 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?fileName=sortable-image2.png
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - image/png
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/279b534b-d4ac-4eac-b420-b2bd459ef2a6
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.261'
+      X-B3-Traceid:
+      - 026cd4ad7b958e3e83d5b71ce2bbbb9a
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "position" : 1,
+          "width" : 600,
+          "height" : 400,
+          "_id" : "279b534b-d4ac-4eac-b420-b2bd459ef2a6",
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/279b534b-d4ac-4eac-b420-b2bd459ef2a6"
+            },
+            "data" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/sortable-image2.png?hash=69edee39d8acbbb605eb5116c46c3a2eb6b2429f{&width,height,upscale}",
+              "templated" : true
+            },
+            "image" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/279b534b-d4ac-4eac-b420-b2bd459ef2a6"
+            }
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:30 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?size=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.077'
+      X-B3-Traceid:
+      - 03461ba705451b41691c2a269d2235bf
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "images" : [ {
+              "position" : 0,
+              "width" : 400,
+              "height" : 400,
+              "_id" : "ffd87187-4768-4a3f-986a-e9ec0ccf9f3f",
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/ffd87187-4768-4a3f-986a-e9ec0ccf9f3f"
+                },
+                "data" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/core-storage/images/sortable-image1.png?hash=54386a565cf2d7f563e8dec800be24434918438d{&width,height,upscale}",
+                  "templated" : true
+                },
+                "image" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images/ffd87187-4768-4a3f-986a-e9ec0ccf9f3f"
+                }
+              }
+            } ]
+          },
+          "_links" : {
+            "first" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?page=0&size=1"
+            },
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?page=0&size=1"
+            },
+            "next" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?page=1&size=1"
+            },
+            "last" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12/images?page=1&size=1"
+            }
+          },
+          "page" : {
+            "size" : 1,
+            "totalElements" : 2,
+            "totalPages" : 2,
+            "number" : 0
+          }
+        }
+  recorded_at: Fri, 31 Jul 2026 07:01:30 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/products/6e2fc96c-133e-4499-bab5-8cbb7f1a4e12
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 31 Jul 2026 07:01:31 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.122'
+      X-B3-Traceid:
+      - 510e33b85e0fd4f6152151a487e2bc78
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 31 Jul 2026 07:01:31 GMT
+recorded_with: VCR 6.2.0

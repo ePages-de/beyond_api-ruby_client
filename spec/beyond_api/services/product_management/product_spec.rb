@@ -52,6 +52,17 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
       end
     end
 
+    describe '.create_custom_attribute' do
+      it 'creates a custom attribute for the product' do
+        response = client.create_custom_attribute(@product[:id], { key: 'material', value: 'cotton' })
+
+        expect(response).not_to be nil
+        expect(response[:key]).to eq('material')
+        expect(response[:value]).to eq('cotton')
+        expect(response.dig(:links, :product_attribute_definition, :href)).not_to be nil
+      end
+    end
+
     after(:each) do
       client.delete_product(@product[:id])
     rescue StandardError
@@ -132,6 +143,107 @@ RSpec.describe BeyondApi::ProductManagement::Product, vcr: true do
       rescue StandardError
         BeyondApi::Error
       end
+    end
+  end
+
+  context 'with variation product' do
+    before(:each) do
+      @variation_product = client.create_variation(build(:variation_product_data))
+    end
+
+    describe '.create_variation' do
+      it 'creates a variation product' do
+        expect(@variation_product).not_to be nil
+        expect(@variation_product[:id]).not_to be nil
+        expect(@variation_product[:name]).to eq('Team42 Variation Product')
+        expect(@variation_product[:variation_attributes].map { |attribute| attribute[:display_name] })
+          .to eq(%w[size color])
+        expect(@variation_product[:variation_attributes].map { |attribute| attribute[:values] })
+          .to eq([%w[S M], %w[Black White]])
+      end
+    end
+
+    describe '.find_variation' do
+      it 'returns the details of a variation product' do
+        response = client.find_variation(@variation_product[:id])
+
+        expect(response[:id]).to eq(@variation_product[:id])
+        expect(response[:name]).to eq('Team42 Variation Product')
+        expect(response[:variation_attributes]).to be_kind_of(Array)
+      end
+    end
+
+    describe '.update_variation_product' do
+      it 'updates the variation product' do
+        response = client.update_variation_product(
+          @variation_product[:id], { name: 'Updated Team42 Variation Product' }
+        )
+
+        expect(response).not_to be nil
+        expect(response[:name]).to eq('Updated Team42 Variation Product')
+      end
+    end
+
+    describe '.variation_properties' do
+      it 'returns the variation properties of a product' do
+        response = client.variation_properties(@variation_product[:id])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties).to be_kind_of(Array)
+        expect(properties.map { |property| property[:property] }).to include('sku', 'salesPrice', 'defaultImage')
+        expect(properties.find { |property| property[:property] == 'salesPrice' }[:enabled]).to be false
+      end
+    end
+
+    describe '.update_variation_properties' do
+      it 'enables a variation property' do
+        response = client.update_variation_properties(@variation_product[:id],
+                                                      [{ property: 'salesPrice', enabled: true }])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties.find { |property| property[:property] == 'salesPrice' }[:enabled]).to be true
+      end
+
+      it 'leaves the other variation properties untouched' do
+        response = client.update_variation_properties(@variation_product[:id],
+                                                      [{ property: 'defaultImage', enabled: true }])
+
+        properties = response.dig(:embedded, :variation_properties)
+
+        expect(properties.find { |property| property[:property] == 'defaultImage' }[:enabled]).to be true
+        expect(properties.find { |property| property[:property] == 'listPrice' }[:enabled]).to be false
+      end
+    end
+
+    describe '.assign_variation_differentiator' do
+      let(:variation_attribute_id) { @variation_product[:variation_attributes].first[:id] }
+
+      it 'assigns a variation attribute as the variation images differentiator' do
+        # Variation images, and therefore a differentiator, require the
+        # `defaultImage` variation property.
+        client.update_variation_properties(@variation_product[:id], [{ property: 'defaultImage', enabled: true }])
+
+        response = client.assign_variation_differentiator(@variation_product[:id], variation_attribute_id)
+
+        expect(response[:id]).to eq(variation_attribute_id)
+        expect(response[:display_name]).to eq('size')
+        expect(response[:variation_images_differentiator]).to be true
+      end
+
+      it 'raises an error when the defaultImage variation property is not enabled' do
+        expect do
+          client.assign_variation_differentiator(@variation_product[:id], variation_attribute_id)
+        end.to raise_error(Faraday::RetriableResponse)
+      end
+    end
+
+    after(:each) do
+      client.delete_product(@variation_product[:id])
+    rescue StandardError
+      BeyondApi::Error
+      # Cleanup after each test
     end
   end
 end
