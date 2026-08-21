@@ -67,6 +67,10 @@ FactoryBot.define do
       company_name { 'Updated Cornershop' }
     end
 
+    trait :without_store_code do
+      store_code { nil }
+    end
+
     initialize_with { attributes }
   end
 end

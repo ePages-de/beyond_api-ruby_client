@@ -1,0 +1,1771 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:07 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      - max-age=86400
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.082'
+      X-B3-Traceid:
+      - 4438e276a5d7f31a3c3c09f338f6cc36
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
+        prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
+        shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1787303767,"jti":"c3f03bde-5a7f-47e0-b0d1-722065e2bb78"}'
+  recorded_at: Fri, 21 Aug 2026 09:16:07 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
+    body:
+      encoding: UTF-8
+      string: '{"languageCode":"en","storeCode":"MLC-St-Ives","companyName":"My little
+        Cornershop - MLC-St-Ives","primaryPhone":"(800) 555-0102","address":{"postalCode":"90999","street":"Hudson
+        Way","houseNumber":"27","city":"St.Ives","country":"GB","dependentLocality":"","state":"Cornwall"},"googleStatus":"ACTIVE","googlePrimaryCategory":{"categoryId":"gcid:storefood","displayName":"Food"},"googleAdditionalCategories":[{"displayName":"Drinks","categoryId":"gcid:storedrinks"}],"regularHours":{"periods":[{"openDay":"MONDAY","openTime":"08:00","closeDay":"MONDAY","closeTime":"17:00"},{"openDay":"SATURDAY","openTime":"10:00","closeDay":"SATURDAY","closeTime":"16:00"}]},"latLng":{"latitude":53.5847424,"longitude":9.968901}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.058'
+      X-B3-Traceid:
+      - 6b71c1cf141d2415487609ede0d8e3bc
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "39ec9892-93cb-4364-b8b1-5352ef2ac355",
+          "storeCode" : "MLC-St-Ives",
+          "languageCode" : "en",
+          "address" : {
+            "street" : "Hudson Way",
+            "houseNumber" : "27",
+            "postalCode" : "90999",
+            "city" : "St.Ives",
+            "country" : "GB",
+            "dependentLocality" : "",
+            "state" : "Cornwall",
+            "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+          },
+          "companyName" : "My little Cornershop - MLC-St-Ives",
+          "primaryPhone" : "(800) 555-0102",
+          "googleStatus" : "ACTIVE",
+          "googlePrimaryCategory" : {
+            "displayName" : "Food",
+            "categoryId" : "gcid:storefood"
+          },
+          "googleAdditionalCategories" : [ {
+            "displayName" : "Drinks",
+            "categoryId" : "gcid:storedrinks"
+          } ],
+          "latLng" : {
+            "latitude" : 53.5847424,
+            "longitude" : 9.968901
+          },
+          "regularHours" : {
+            "periods" : [ {
+              "openDay" : "MONDAY",
+              "openTime" : "08:00",
+              "closeDay" : "MONDAY",
+              "closeTime" : "17:00"
+            }, {
+              "openDay" : "SATURDAY",
+              "openTime" : "10:00",
+              "closeDay" : "SATURDAY",
+              "closeTime" : "16:00"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355"
+            }
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:07 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: '{"name":"My little Cornershop - MLC-St-Ives","description":"We will
+        send you an email when your items are ready for pickup. Please bring a copy
+        of your order confirmation.","taxClass":"REGULAR","phoneNumberRequired":true,"freePickupValue":{"currency":"EUR","amount":50},"fixedPrice":{"taxModel":"GROSS","currency":"EUR","amount":1},"locationId":"39ec9892-93cb-4364-b8b1-5352ef2ac355"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.044'
+      X-B3-Traceid:
+      - f2e376543c743e35da0b994d8070bb74
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name" : "My little Cornershop - MLC-St-Ives",
+          "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+          "taxClass" : "REGULAR",
+          "position" : 17,
+          "freePickupValue" : {
+            "currency" : "EUR",
+            "amount" : 50
+          },
+          "fixedPrice" : {
+            "taxModel" : "GROSS",
+            "currency" : "EUR",
+            "amount" : 1
+          },
+          "phoneNumberRequired" : true,
+          "_embedded" : {
+            "location" : {
+              "languageCode" : "en",
+              "storeCode" : "MLC-St-Ives",
+              "companyName" : "My little Cornershop - MLC-St-Ives",
+              "primaryPhone" : "(800) 555-0102",
+              "address" : {
+                "street" : "Hudson Way",
+                "houseNumber" : "27",
+                "city" : "St.Ives",
+                "country" : "GB",
+                "dependentLocality" : "",
+                "state" : "Cornwall",
+                "postalCode" : "90999",
+                "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+              },
+              "regularHours" : {
+                "periods" : [ {
+                  "openDay" : "MONDAY",
+                  "openTime" : "08:00",
+                  "closeDay" : "MONDAY",
+                  "closeTime" : "17:00"
+                }, {
+                  "openDay" : "SATURDAY",
+                  "openTime" : "10:00",
+                  "closeDay" : "SATURDAY",
+                  "closeTime" : "16:00"
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355"
+                }
+              },
+              "_id" : "39ec9892-93cb-4364-b8b1-5352ef2ac355"
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+            },
+            "pickup-option" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+            }
+          },
+          "_id" : "62bb12ec-e84c-4986-b300-0bfcc488395b"
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:07 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
+    body:
+      encoding: UTF-8
+      string: '{"languageCode":"en","storeCode":"MLC-Penzance","companyName":"My little
+        Cornershop - MLC-Penzance","primaryPhone":"(800) 555-0102","address":{"postalCode":"90999","street":"Hudson
+        Way","houseNumber":"27","city":"St.Ives","country":"GB","dependentLocality":"","state":"Cornwall"},"googleStatus":"ACTIVE","googlePrimaryCategory":{"categoryId":"gcid:storefood","displayName":"Food"},"googleAdditionalCategories":[{"displayName":"Drinks","categoryId":"gcid:storedrinks"}],"regularHours":{"periods":[{"openDay":"MONDAY","openTime":"08:00","closeDay":"MONDAY","closeTime":"17:00"},{"openDay":"SATURDAY","openTime":"10:00","closeDay":"SATURDAY","closeTime":"16:00"}]},"latLng":{"latitude":53.5847424,"longitude":9.968901}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.048'
+      X-B3-Traceid:
+      - 2af72f816df76b802dfa242a997e22b3
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "e5dac2df-fe05-4533-b00e-3a4ff667d956",
+          "storeCode" : "MLC-Penzance",
+          "languageCode" : "en",
+          "address" : {
+            "street" : "Hudson Way",
+            "houseNumber" : "27",
+            "postalCode" : "90999",
+            "city" : "St.Ives",
+            "country" : "GB",
+            "dependentLocality" : "",
+            "state" : "Cornwall",
+            "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+          },
+          "companyName" : "My little Cornershop - MLC-Penzance",
+          "primaryPhone" : "(800) 555-0102",
+          "googleStatus" : "ACTIVE",
+          "googlePrimaryCategory" : {
+            "displayName" : "Food",
+            "categoryId" : "gcid:storefood"
+          },
+          "googleAdditionalCategories" : [ {
+            "displayName" : "Drinks",
+            "categoryId" : "gcid:storedrinks"
+          } ],
+          "latLng" : {
+            "latitude" : 53.5847424,
+            "longitude" : 9.968901
+          },
+          "regularHours" : {
+            "periods" : [ {
+              "openDay" : "MONDAY",
+              "openTime" : "08:00",
+              "closeDay" : "MONDAY",
+              "closeTime" : "17:00"
+            }, {
+              "openDay" : "SATURDAY",
+              "openTime" : "10:00",
+              "closeDay" : "SATURDAY",
+              "closeTime" : "16:00"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956"
+            }
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:07 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: '{"name":"My little Cornershop - MLC-Penzance","description":"We will
+        send you an email when your items are ready for pickup. Please bring a copy
+        of your order confirmation.","taxClass":"REGULAR","phoneNumberRequired":true,"freePickupValue":{"currency":"EUR","amount":50},"fixedPrice":{"taxModel":"GROSS","currency":"EUR","amount":1},"locationId":"e5dac2df-fe05-4533-b00e-3a4ff667d956"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.061'
+      X-B3-Traceid:
+      - c8f9a2b576116980cb19b1d6545e8cb5
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name" : "My little Cornershop - MLC-Penzance",
+          "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+          "taxClass" : "REGULAR",
+          "position" : 18,
+          "freePickupValue" : {
+            "currency" : "EUR",
+            "amount" : 50
+          },
+          "fixedPrice" : {
+            "taxModel" : "GROSS",
+            "currency" : "EUR",
+            "amount" : 1
+          },
+          "phoneNumberRequired" : true,
+          "_embedded" : {
+            "location" : {
+              "languageCode" : "en",
+              "storeCode" : "MLC-Penzance",
+              "companyName" : "My little Cornershop - MLC-Penzance",
+              "primaryPhone" : "(800) 555-0102",
+              "address" : {
+                "street" : "Hudson Way",
+                "houseNumber" : "27",
+                "city" : "St.Ives",
+                "country" : "GB",
+                "dependentLocality" : "",
+                "state" : "Cornwall",
+                "postalCode" : "90999",
+                "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+              },
+              "regularHours" : {
+                "periods" : [ {
+                  "openDay" : "MONDAY",
+                  "openTime" : "08:00",
+                  "closeDay" : "MONDAY",
+                  "closeTime" : "17:00"
+                }, {
+                  "openDay" : "SATURDAY",
+                  "openTime" : "10:00",
+                  "closeDay" : "SATURDAY",
+                  "closeTime" : "16:00"
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956"
+                }
+              },
+              "_id" : "e5dac2df-fe05-4533-b00e-3a4ff667d956"
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+            },
+            "pickup-option" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+            }
+          },
+          "_id" : "d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:07 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
+    body:
+      encoding: UTF-8
+      string: '{"languageCode":"en","storeCode":"MLC-Truro","companyName":"My little
+        Cornershop - MLC-Truro","primaryPhone":"(800) 555-0102","address":{"postalCode":"90999","street":"Hudson
+        Way","houseNumber":"27","city":"St.Ives","country":"GB","dependentLocality":"","state":"Cornwall"},"googleStatus":"ACTIVE","googlePrimaryCategory":{"categoryId":"gcid:storefood","displayName":"Food"},"googleAdditionalCategories":[{"displayName":"Drinks","categoryId":"gcid:storedrinks"}],"regularHours":{"periods":[{"openDay":"MONDAY","openTime":"08:00","closeDay":"MONDAY","closeTime":"17:00"},{"openDay":"SATURDAY","openTime":"10:00","closeDay":"SATURDAY","closeTime":"16:00"}]},"latLng":{"latitude":53.5847424,"longitude":9.968901}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.046'
+      X-B3-Traceid:
+      - 709e9841f0987276eda15899a229b052
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_id" : "fbe30a08-be5a-428b-9178-ede3c20a2888",
+          "storeCode" : "MLC-Truro",
+          "languageCode" : "en",
+          "address" : {
+            "street" : "Hudson Way",
+            "houseNumber" : "27",
+            "postalCode" : "90999",
+            "city" : "St.Ives",
+            "country" : "GB",
+            "dependentLocality" : "",
+            "state" : "Cornwall",
+            "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+          },
+          "companyName" : "My little Cornershop - MLC-Truro",
+          "primaryPhone" : "(800) 555-0102",
+          "googleStatus" : "ACTIVE",
+          "googlePrimaryCategory" : {
+            "displayName" : "Food",
+            "categoryId" : "gcid:storefood"
+          },
+          "googleAdditionalCategories" : [ {
+            "displayName" : "Drinks",
+            "categoryId" : "gcid:storedrinks"
+          } ],
+          "latLng" : {
+            "latitude" : 53.5847424,
+            "longitude" : 9.968901
+          },
+          "regularHours" : {
+            "periods" : [ {
+              "openDay" : "MONDAY",
+              "openTime" : "08:00",
+              "closeDay" : "MONDAY",
+              "closeTime" : "17:00"
+            }, {
+              "openDay" : "SATURDAY",
+              "openTime" : "10:00",
+              "closeDay" : "SATURDAY",
+              "closeTime" : "16:00"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888"
+            }
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: '{"name":"My little Cornershop - MLC-Truro","description":"We will send
+        you an email when your items are ready for pickup. Please bring a copy of
+        your order confirmation.","taxClass":"REGULAR","phoneNumberRequired":true,"freePickupValue":{"currency":"EUR","amount":50},"fixedPrice":{"taxModel":"GROSS","currency":"EUR","amount":1},"locationId":"fbe30a08-be5a-428b-9178-ede3c20a2888"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.050'
+      X-B3-Traceid:
+      - f6c01415cf15b462dfec1418882e9b1c
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name" : "My little Cornershop - MLC-Truro",
+          "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+          "taxClass" : "REGULAR",
+          "position" : 19,
+          "freePickupValue" : {
+            "currency" : "EUR",
+            "amount" : 50
+          },
+          "fixedPrice" : {
+            "taxModel" : "GROSS",
+            "currency" : "EUR",
+            "amount" : 1
+          },
+          "phoneNumberRequired" : true,
+          "_embedded" : {
+            "location" : {
+              "languageCode" : "en",
+              "storeCode" : "MLC-Truro",
+              "companyName" : "My little Cornershop - MLC-Truro",
+              "primaryPhone" : "(800) 555-0102",
+              "address" : {
+                "street" : "Hudson Way",
+                "houseNumber" : "27",
+                "city" : "St.Ives",
+                "country" : "GB",
+                "dependentLocality" : "",
+                "state" : "Cornwall",
+                "postalCode" : "90999",
+                "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+              },
+              "regularHours" : {
+                "periods" : [ {
+                  "openDay" : "MONDAY",
+                  "openTime" : "08:00",
+                  "closeDay" : "MONDAY",
+                  "closeTime" : "17:00"
+                }, {
+                  "openDay" : "SATURDAY",
+                  "openTime" : "10:00",
+                  "closeDay" : "SATURDAY",
+                  "closeTime" : "16:00"
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888"
+                }
+              },
+              "_id" : "fbe30a08-be5a-428b-9178-ede3c20a2888"
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+            },
+            "pickup-option" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+            }
+          },
+          "_id" : "64c66b59-08f2-4fd6-b971-a08b206996ff"
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options?size=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.043'
+      X-B3-Traceid:
+      - a975708d537a4ff8e6b5237dd9c18a8c
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "pickup-options" : [ {
+              "name" : "My little Cornershop - MLC-Truro",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 16,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Truro",
+                  "companyName" : "My little Cornershop - MLC-Truro",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/f9e7f3f8-604e-48e1-9d5b-cadf5cf87f70"
+                    }
+                  },
+                  "_id" : "f9e7f3f8-604e-48e1-9d5b-cadf5cf87f70"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/87cfb9b1-d322-4f78-8039-efcfac1db753"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/87cfb9b1-d322-4f78-8039-efcfac1db753"
+                }
+              },
+              "_id" : "87cfb9b1-d322-4f78-8039-efcfac1db753"
+            }, {
+              "name" : "My little Cornershop - MLC-St-Ives",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 17,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-St-Ives",
+                  "companyName" : "My little Cornershop - MLC-St-Ives",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355"
+                    }
+                  },
+                  "_id" : "39ec9892-93cb-4364-b8b1-5352ef2ac355"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+                }
+              },
+              "_id" : "62bb12ec-e84c-4986-b300-0bfcc488395b"
+            }, {
+              "name" : "My little Cornershop - MLC-Penzance",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 18,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Penzance",
+                  "companyName" : "My little Cornershop - MLC-Penzance",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956"
+                    }
+                  },
+                  "_id" : "e5dac2df-fe05-4533-b00e-3a4ff667d956"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+                }
+              },
+              "_id" : "d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+            }, {
+              "name" : "My little Cornershop - MLC-Truro",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 19,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Truro",
+                  "companyName" : "My little Cornershop - MLC-Truro",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888"
+                    }
+                  },
+                  "_id" : "fbe30a08-be5a-428b-9178-ede3c20a2888"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+                }
+              },
+              "_id" : "64c66b59-08f2-4fd6-b971-a08b206996ff"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options?page=0&size=100"
+            }
+          },
+          "page" : {
+            "size" : 100,
+            "totalElements" : 4,
+            "totalPages" : 1,
+            "number" : 0
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: put
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: |-
+        https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b
+        https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e
+        https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff
+        https://team42-beyond-api.beyondshop.cloud/api/pickup-options/87cfb9b1-d322-4f78-8039-efcfac1db753
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Content-Type:
+      - text/uri-list
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Connection:
+      - keep-alive
+      Location:
+      - "/api/pickup-options"
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.080'
+      X-B3-Traceid:
+      - f3ad7fcce43977d7f2494f37ff66882a
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options?size=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.042'
+      X-B3-Traceid:
+      - 6305832fc75566925f92f60edb542258
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "pickup-options" : [ {
+              "name" : "My little Cornershop - MLC-St-Ives",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 17,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-St-Ives",
+                  "companyName" : "My little Cornershop - MLC-St-Ives",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355"
+                    }
+                  },
+                  "_id" : "39ec9892-93cb-4364-b8b1-5352ef2ac355"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b"
+                }
+              },
+              "_id" : "62bb12ec-e84c-4986-b300-0bfcc488395b"
+            }, {
+              "name" : "My little Cornershop - MLC-Penzance",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 18,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Penzance",
+                  "companyName" : "My little Cornershop - MLC-Penzance",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956"
+                    }
+                  },
+                  "_id" : "e5dac2df-fe05-4533-b00e-3a4ff667d956"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+                }
+              },
+              "_id" : "d7ef3e63-392c-45e4-9d71-fc3f0bba439e"
+            }, {
+              "name" : "My little Cornershop - MLC-Truro",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 19,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Truro",
+                  "companyName" : "My little Cornershop - MLC-Truro",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888"
+                    }
+                  },
+                  "_id" : "fbe30a08-be5a-428b-9178-ede3c20a2888"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff"
+                }
+              },
+              "_id" : "64c66b59-08f2-4fd6-b971-a08b206996ff"
+            }, {
+              "name" : "My little Cornershop - MLC-Truro",
+              "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+              "taxClass" : "REGULAR",
+              "position" : 20,
+              "freePickupValue" : {
+                "currency" : "EUR",
+                "amount" : 50
+              },
+              "fixedPrice" : {
+                "taxModel" : "GROSS",
+                "currency" : "EUR",
+                "amount" : 1
+              },
+              "phoneNumberRequired" : true,
+              "_embedded" : {
+                "location" : {
+                  "languageCode" : "en",
+                  "storeCode" : "MLC-Truro",
+                  "companyName" : "My little Cornershop - MLC-Truro",
+                  "primaryPhone" : "(800) 555-0102",
+                  "address" : {
+                    "street" : "Hudson Way",
+                    "houseNumber" : "27",
+                    "city" : "St.Ives",
+                    "country" : "GB",
+                    "dependentLocality" : "",
+                    "state" : "Cornwall",
+                    "postalCode" : "90999",
+                    "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+                  },
+                  "regularHours" : {
+                    "periods" : [ {
+                      "openDay" : "MONDAY",
+                      "openTime" : "08:00",
+                      "closeDay" : "MONDAY",
+                      "closeTime" : "17:00"
+                    }, {
+                      "openDay" : "SATURDAY",
+                      "openTime" : "10:00",
+                      "closeDay" : "SATURDAY",
+                      "closeTime" : "16:00"
+                    } ]
+                  },
+                  "_links" : {
+                    "self" : {
+                      "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/f9e7f3f8-604e-48e1-9d5b-cadf5cf87f70"
+                    }
+                  },
+                  "_id" : "f9e7f3f8-604e-48e1-9d5b-cadf5cf87f70"
+                }
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/87cfb9b1-d322-4f78-8039-efcfac1db753"
+                },
+                "pickup-option" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/87cfb9b1-d322-4f78-8039-efcfac1db753"
+                }
+              },
+              "_id" : "87cfb9b1-d322-4f78-8039-efcfac1db753"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options?page=0&size=100"
+            }
+          },
+          "page" : {
+            "size" : 100,
+            "totalElements" : 4,
+            "totalPages" : 1,
+            "number" : 0
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options/62bb12ec-e84c-4986-b300-0bfcc488395b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.044'
+      X-B3-Traceid:
+      - 3fd09a11960cafbf37debaedbbd31a4f
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options/d7ef3e63-392c-45e4-9d71-fc3f0bba439e
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:08 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.052'
+      X-B3-Traceid:
+      - 898a75e2baacc9fadd463b6657ea7ce1
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options/64c66b59-08f2-4fd6-b971-a08b206996ff
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:09 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.059'
+      X-B3-Traceid:
+      - 0c1c624d645e497349e6fc6a1eef5d87
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:08 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/39ec9892-93cb-4364-b8b1-5352ef2ac355
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:09 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.041'
+      X-B3-Traceid:
+      - 91eec3cc1d139ec41492daaeaff7ebd1
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:09 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5dac2df-fe05-4533-b00e-3a4ff667d956
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:09 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.045'
+      X-B3-Traceid:
+      - 42b5680be2b304ed29e855cc55847171
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:09 GMT
+- request:
+    method: delete
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/fbe30a08-be5a-428b-9178-ede3c20a2888
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:09 GMT
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.054'
+      X-B3-Traceid:
+      - e3fedeffab6fde65a9813d57770f6bcb
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 21 Aug 2026 09:16:09 GMT
+recorded_with: VCR 6.2.0

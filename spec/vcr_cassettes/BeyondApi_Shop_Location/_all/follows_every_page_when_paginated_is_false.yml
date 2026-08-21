@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:54 GMT
+      - Fri, 21 Aug 2026 09:09:56 GMT
       Content-Type:
       - application/json;charset=utf-8
       Transfer-Encoding:
@@ -49,9 +49,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.110'
+      - '0.067'
       X-B3-Traceid:
-      - 68af1a47c4eb16930b786f6941f51c8b
+      - c63c573ed81bce899e98a84663d77029
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
@@ -59,8 +59,8 @@ http_interactions:
       string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
         prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
         shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
-        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1787303394,"jti":"cc14d361-0eda-4519-827c-7a1689083d90"}'
-  recorded_at: Fri, 21 Aug 2026 09:09:54 GMT
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1787303396,"jti":"b725757d-0799-4d0c-9850-e8c671fb5f6e"}'
+  recorded_at: Fri, 21 Aug 2026 09:09:56 GMT
 - request:
     method: post
     uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
@@ -86,7 +86,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:54 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -94,7 +94,7 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5aaabe8-57f2-4d48-ba45-3c9bded516f2
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/31e8a94c-9a10-4b71-bd45-16dcb65be225
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -111,9 +111,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.055'
+      - '0.076'
       X-B3-Traceid:
-      - b942d47baaedd9d5c6153260aaf4626f
+      - fc66be598663f590733076b3cc35889b
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -122,7 +122,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "_id" : "e5aaabe8-57f2-4d48-ba45-3c9bded516f2",
+          "_id" : "31e8a94c-9a10-4b71-bd45-16dcb65be225",
           "storeCode" : "MLC-St-Ives",
           "languageCode" : "en",
           "address" : {
@@ -165,11 +165,11 @@ http_interactions:
           },
           "_links" : {
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5aaabe8-57f2-4d48-ba45-3c9bded516f2"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/31e8a94c-9a10-4b71-bd45-16dcb65be225"
             }
           }
         }
-  recorded_at: Fri, 21 Aug 2026 09:09:54 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:56 GMT
 - request:
     method: post
     uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
@@ -195,7 +195,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:54 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -203,7 +203,7 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a87b218a-3c3f-46b5-ab8e-e13069278b1d
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -220,9 +220,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.052'
+      - '0.064'
       X-B3-Traceid:
-      - 32fffbfa7042be74289590b9b61b41ae
+      - a9123c92732c0a74f02a0e4095be4f45
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -231,7 +231,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "_id" : "a87b218a-3c3f-46b5-ab8e-e13069278b1d",
+          "_id" : "d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd",
           "storeCode" : "MLC-Penzance",
           "languageCode" : "en",
           "address" : {
@@ -274,11 +274,11 @@ http_interactions:
           },
           "_links" : {
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a87b218a-3c3f-46b5-ab8e-e13069278b1d"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd"
             }
           }
         }
-  recorded_at: Fri, 21 Aug 2026 09:09:54 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 - request:
     method: post
     uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
@@ -304,7 +304,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:55 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -312,7 +312,7 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a2ded05d-ca52-4e15-b5e1-32e6c1fe152f
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -331,7 +331,7 @@ http_interactions:
       X-Request-Time:
       - '0.045'
       X-B3-Traceid:
-      - ee47f225c8fb74b96fd06400069c71c5
+      - 8f44fca52fc221a4aace5aa49d49a6ad
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -340,7 +340,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "_id" : "cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c",
+          "_id" : "a2ded05d-ca52-4e15-b5e1-32e6c1fe152f",
           "storeCode" : "MLC-Truro",
           "languageCode" : "en",
           "address" : {
@@ -383,14 +383,14 @@ http_interactions:
           },
           "_links" : {
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a2ded05d-ca52-4e15-b5e1-32e6c1fe152f"
             }
           }
         }
-  recorded_at: Fri, 21 Aug 2026 09:09:55 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 - request:
     method: get
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations?page=0&paginated=false&size=2
     body:
       encoding: US-ASCII
       string: ''
@@ -411,7 +411,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:55 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -436,7 +436,7 @@ http_interactions:
       X-Request-Time:
       - '0.029'
       X-B3-Traceid:
-      - 9a7cf2bdb7e98cb5e6a0d5091aca5b67
+      - 521d47141cf1d1aef5fbf4980ea5caa1
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -447,7 +447,7 @@ http_interactions:
         {
           "_embedded" : {
             "locations" : [ {
-              "_id" : "e5aaabe8-57f2-4d48-ba45-3c9bded516f2",
+              "_id" : "31e8a94c-9a10-4b71-bd45-16dcb65be225",
               "storeCode" : "MLC-St-Ives",
               "languageCode" : "en",
               "address" : {
@@ -490,11 +490,11 @@ http_interactions:
               },
               "_links" : {
                 "self" : {
-                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5aaabe8-57f2-4d48-ba45-3c9bded516f2"
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/31e8a94c-9a10-4b71-bd45-16dcb65be225"
                 }
               }
             }, {
-              "_id" : "a87b218a-3c3f-46b5-ab8e-e13069278b1d",
+              "_id" : "d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd",
               "storeCode" : "MLC-Penzance",
               "languageCode" : "en",
               "address" : {
@@ -537,11 +537,93 @@ http_interactions:
               },
               "_links" : {
                 "self" : {
-                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a87b218a-3c3f-46b5-ab8e-e13069278b1d"
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd"
                 }
               }
-            }, {
-              "_id" : "cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c",
+            } ]
+          },
+          "_links" : {
+            "first" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=0&size=2&sort=createdAt,asc"
+            },
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=0&size=2&sort=createdAt,asc"
+            },
+            "next" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=1&size=2&sort=createdAt,asc"
+            },
+            "last" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=1&size=2&sort=createdAt,asc"
+            }
+          },
+          "page" : {
+            "size" : 2,
+            "totalElements" : 3,
+            "totalPages" : 2,
+            "number" : 0
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations?page=1&paginated=false&size=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:09:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.020'
+      X-B3-Traceid:
+      - 3c2c4ddd81dbe08e3ee94cd06cf02db3
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "locations" : [ {
+              "_id" : "a2ded05d-ca52-4e15-b5e1-32e6c1fe152f",
               "storeCode" : "MLC-Truro",
               "languageCode" : "en",
               "address" : {
@@ -584,27 +666,36 @@ http_interactions:
               },
               "_links" : {
                 "self" : {
-                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c"
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a2ded05d-ca52-4e15-b5e1-32e6c1fe152f"
                 }
               }
             } ]
           },
           "_links" : {
+            "first" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=0&size=2&sort=createdAt,asc"
+            },
+            "prev" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=0&size=2&sort=createdAt,asc"
+            },
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?page=0&size=20&sort=createdAt,asc"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=1&size=2&sort=createdAt,asc"
+            },
+            "last" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations?paginated=false&page=1&size=2&sort=createdAt,asc"
             }
           },
           "page" : {
-            "size" : 20,
+            "size" : 2,
             "totalElements" : 3,
-            "totalPages" : 1,
-            "number" : 0
+            "totalPages" : 2,
+            "number" : 1
           }
         }
-  recorded_at: Fri, 21 Aug 2026 09:09:55 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 - request:
     method: delete
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/e5aaabe8-57f2-4d48-ba45-3c9bded516f2
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/31e8a94c-9a10-4b71-bd45-16dcb65be225
     body:
       encoding: US-ASCII
       string: ''
@@ -625,7 +716,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:55 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Connection:
       - keep-alive
       X-Content-Type-Options:
@@ -644,9 +735,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.041'
+      - '0.047'
       X-B3-Traceid:
-      - dac0acd49173f3b08f94b7f85f5d1279
+      - 349030d587c2f844eb4030f2c8c50b98
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -654,10 +745,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 21 Aug 2026 09:09:55 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 - request:
     method: delete
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a87b218a-3c3f-46b5-ab8e-e13069278b1d
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/d07d1c8a-2bd8-4e15-bbd1-d3b08680e8bd
     body:
       encoding: US-ASCII
       string: ''
@@ -678,7 +769,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:55 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Connection:
       - keep-alive
       X-Content-Type-Options:
@@ -697,9 +788,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.041'
+      - '0.046'
       X-B3-Traceid:
-      - 8216f0828af7b576d1da926a6b68dea2
+      - d87ab23cd0e3cab88a7eba29cab30eb3
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -707,10 +798,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 21 Aug 2026 09:09:55 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 - request:
     method: delete
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/cf5b9e5c-f14e-4f3a-985f-c76e01cb5b6c
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/a2ded05d-ca52-4e15-b5e1-32e6c1fe152f
     body:
       encoding: US-ASCII
       string: ''
@@ -731,7 +822,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:09:55 GMT
+      - Fri, 21 Aug 2026 09:09:57 GMT
       Connection:
       - keep-alive
       X-Content-Type-Options:
@@ -750,9 +841,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.042'
+      - '0.047'
       X-B3-Traceid:
-      - 3158b2ee4250d1ee057dea6d4cdfe904
+      - 93d2101f93e47f0f7391b911506e67e3
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -760,5 +851,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 21 Aug 2026 09:09:55 GMT
+  recorded_at: Fri, 21 Aug 2026 09:09:57 GMT
 recorded_with: VCR 6.2.0
