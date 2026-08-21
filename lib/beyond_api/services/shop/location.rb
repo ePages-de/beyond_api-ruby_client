@@ -73,7 +73,7 @@ module BeyondApi
       # @example
       #   @client.all(size: 100, page: 0)
       def all(params = {})
-        get('shop/locations', params)
+        fetch_all_pages('shop/locations', params)
       end
 
       # Retrieve details of a location

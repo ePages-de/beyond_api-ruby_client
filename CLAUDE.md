@@ -54,10 +54,13 @@ Services live under `lib/beyond_api/services/` and are exposed as `BeyondApi::<N
 - `BeyondApi::ProductManagement::Image` / `VariationImage` / `Variation` — product media and variations
 - `BeyondApi::ProductView::Category` — storefront product view
 - `BeyondApi::Checkout::ShippingZone` / `Cart` — checkout flows
+- `BeyondApi::Checkout::PickupOption` — pickup options for in-store pickup during checkout
 - `BeyondApi::Shop::Shop` / `Address` — shop configuration
+- `BeyondApi::Shop::Location` — shop locations (store details, opening hours, Google Business data)
 - `BeyondApi::Storefront::ScriptTag` — storefront scripting
 - `BeyondApi::Webhook::Subscription` — webhook management
 - `BeyondApi::Customer` — customer records
+- `BeyondApi::CustomerGroup` — customer groups and group membership
 
 ### Request/Response Flow
 

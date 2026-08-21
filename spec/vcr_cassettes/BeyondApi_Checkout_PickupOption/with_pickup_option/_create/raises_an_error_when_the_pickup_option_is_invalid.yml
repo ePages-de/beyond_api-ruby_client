@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:10:01 GMT
+      - Fri, 21 Aug 2026 09:16:10 GMT
       Content-Type:
       - application/json;charset=utf-8
       Transfer-Encoding:
@@ -49,9 +49,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.179'
+      - '0.069'
       X-B3-Traceid:
-      - 00655e259bc1dd998d505a6ebb1a04b7
+      - 61222bcae2d69b8cad4a5f730e762cef
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
     body:
@@ -59,15 +59,15 @@ http_interactions:
       string: '{"access_token":"<ACCESS_TOKEN>","scope":"orde:r prat:dcur pypr:cur
         prod:urdc lcnt:u pymt:ur loca:urcd sctg:m shat:cdru rfpr:ur prad:rcd shpz:dcur
         shad:u ordr:cur shop:u shim:cd cust:urcd clpr:cr legl:ur prda:ru rtpr:rc oset:ur
-        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1787303401,"jti":"04c5a5b4-87e8-45c7-a49b-ddf1a6365789"}'
-  recorded_at: Fri, 21 Aug 2026 09:10:01 GMT
+        shpr:rcu cset:ru ordp:r catg:cdur nltg:m","tenantId":8542,"token_type":"bearer","expires_in":899,"iat":1787303770,"jti":"ce9255f7-d9c8-4a62-b318-10dcdba838a1"}'
+  recorded_at: Fri, 21 Aug 2026 09:16:10 GMT
 - request:
     method: post
     uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations
     body:
       encoding: UTF-8
       string: '{"languageCode":"en","storeCode":"MLC-St-Ives","companyName":"My little
-        Cornershop - St.Ives","primaryPhone":"(800) 555-0102","address":{"postalCode":"90999","street":"Hudson
+        Cornershop - MLC-St-Ives","primaryPhone":"(800) 555-0102","address":{"postalCode":"90999","street":"Hudson
         Way","houseNumber":"27","city":"St.Ives","country":"GB","dependentLocality":"","state":"Cornwall"},"googleStatus":"ACTIVE","googlePrimaryCategory":{"categoryId":"gcid:storefood","displayName":"Food"},"googleAdditionalCategories":[{"displayName":"Drinks","categoryId":"gcid:storedrinks"}],"regularHours":{"periods":[{"openDay":"MONDAY","openTime":"08:00","closeDay":"MONDAY","closeTime":"17:00"},{"openDay":"SATURDAY","openTime":"10:00","closeDay":"SATURDAY","closeTime":"16:00"}]},"latLng":{"latitude":53.5847424,"longitude":9.968901}}'
     headers:
       Accept:
@@ -86,7 +86,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:10:01 GMT
+      - Fri, 21 Aug 2026 09:16:10 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -94,7 +94,7 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/8d2ae60a-960c-486b-ab9b-6c7b9704b51c
+      - https://team42-beyond-api.beyondshop.cloud/api/shop/locations/65e15c79-43f6-40a1-b820-8f42b7bfc897
       X-Content-Type-Options:
       - nosniff
       - nosniff
@@ -111,9 +111,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.047'
+      - '0.068'
       X-B3-Traceid:
-      - 250469d23fcaec42dfa95e9d1808b05e
+      - e84c9f8042755378d3db285d99dccc37
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -122,7 +122,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "_id" : "8d2ae60a-960c-486b-ab9b-6c7b9704b51c",
+          "_id" : "65e15c79-43f6-40a1-b820-8f42b7bfc897",
           "storeCode" : "MLC-St-Ives",
           "languageCode" : "en",
           "address" : {
@@ -135,7 +135,7 @@ http_interactions:
             "state" : "Cornwall",
             "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
           },
-          "companyName" : "My little Cornershop - St.Ives",
+          "companyName" : "My little Cornershop - MLC-St-Ives",
           "primaryPhone" : "(800) 555-0102",
           "googleStatus" : "ACTIVE",
           "googlePrimaryCategory" : {
@@ -165,14 +165,209 @@ http_interactions:
           },
           "_links" : {
             "self" : {
-              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/8d2ae60a-960c-486b-ab9b-6c7b9704b51c"
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/65e15c79-43f6-40a1-b820-8f42b7bfc897"
             }
           }
         }
-  recorded_at: Fri, 21 Aug 2026 09:10:01 GMT
+  recorded_at: Fri, 21 Aug 2026 09:16:10 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: '{"name":"My little Cornershop - St.Ives","description":"We will send
+        you an email when your items are ready for pickup. Please bring a copy of
+        your order confirmation.","taxClass":"REGULAR","phoneNumberRequired":true,"freePickupValue":{"currency":"EUR","amount":50},"fixedPrice":{"taxModel":"GROSS","currency":"EUR","amount":1},"locationId":"65e15c79-43f6-40a1-b820-8f42b7bfc897"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://team42-beyond-api.beyondshop.cloud/api/pickup-options/7b61d1ea-6a9d-402e-baf5-40ef45f28e52
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.059'
+      X-B3-Traceid:
+      - 9e377f4d973aec3b3bd401dbaa11c4c1
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name" : "My little Cornershop - St.Ives",
+          "description" : "We will send you an email when your items are ready for pickup. Please bring a copy of your order confirmation.",
+          "taxClass" : "REGULAR",
+          "position" : 21,
+          "freePickupValue" : {
+            "currency" : "EUR",
+            "amount" : 50
+          },
+          "fixedPrice" : {
+            "taxModel" : "GROSS",
+            "currency" : "EUR",
+            "amount" : 1
+          },
+          "phoneNumberRequired" : true,
+          "_embedded" : {
+            "location" : {
+              "languageCode" : "en",
+              "storeCode" : "MLC-St-Ives",
+              "companyName" : "My little Cornershop - MLC-St-Ives",
+              "primaryPhone" : "(800) 555-0102",
+              "address" : {
+                "street" : "Hudson Way",
+                "houseNumber" : "27",
+                "city" : "St.Ives",
+                "country" : "GB",
+                "dependentLocality" : "",
+                "state" : "Cornwall",
+                "postalCode" : "90999",
+                "displayAddressLines" : [ "27 Hudson Way", "ST.IVES", "90999", "UNITED KINGDOM" ]
+              },
+              "regularHours" : {
+                "periods" : [ {
+                  "openDay" : "MONDAY",
+                  "openTime" : "08:00",
+                  "closeDay" : "MONDAY",
+                  "closeTime" : "17:00"
+                }, {
+                  "openDay" : "SATURDAY",
+                  "openTime" : "10:00",
+                  "closeDay" : "SATURDAY",
+                  "closeTime" : "16:00"
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/shop/locations/65e15c79-43f6-40a1-b820-8f42b7bfc897"
+                }
+              },
+              "_id" : "65e15c79-43f6-40a1-b820-8f42b7bfc897"
+            }
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/7b61d1ea-6a9d-402e-baf5-40ef45f28e52"
+            },
+            "pickup-option" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/pickup-options/7b61d1ea-6a9d-402e-baf5-40ef45f28e52"
+            }
+          },
+          "_id" : "7b61d1ea-6a9d-402e-baf5-40ef45f28e52"
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:10 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options
+    body:
+      encoding: UTF-8
+      string: '{"name":null,"description":"We will send you an email when your items
+        are ready for pickup. Please bring a copy of your order confirmation.","taxClass":"REGULAR","phoneNumberRequired":true,"freePickupValue":{"currency":"EUR","amount":50},"fixedPrice":{"taxModel":"GROSS","currency":"EUR","amount":1},"locationId":"65e15c79-43f6-40a1-b820-8f42b7bfc897"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 21 Aug 2026 09:16:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
+      Server:
+      - epages-beyond
+      X-Request-Time:
+      - '0.032'
+      X-B3-Traceid:
+      - 4497a0e810e05ba2fe3d963b299efa0a
+      X-Hello-Human:
+      - Come work with us! https://developer.epages.com/devjobs/
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "errorId" : "input-validation-failed",
+          "details" : {
+            "validationErrors" : [ {
+              "entity" : "pickupOptionRequestPayload",
+              "property" : "name",
+              "invalidValue" : null,
+              "message" : "must not be empty",
+              "constraintName" : "NotEmpty"
+            } ]
+          },
+          "message" : "Input validation failed",
+          "traceId" : null
+        }
+  recorded_at: Fri, 21 Aug 2026 09:16:10 GMT
 - request:
     method: delete
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/8d2ae60a-960c-486b-ab9b-6c7b9704b51c
+    uri: https://team42-beyond-api.beyondshop.cloud/api/pickup-options/7b61d1ea-6a9d-402e-baf5-40ef45f28e52
     body:
       encoding: US-ASCII
       string: ''
@@ -193,7 +388,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:10:01 GMT
+      - Fri, 21 Aug 2026 09:16:10 GMT
       Connection:
       - keep-alive
       X-Content-Type-Options:
@@ -212,9 +407,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.080'
+      - '0.077'
       X-B3-Traceid:
-      - c9ee0ea577d261ebd1f17c4daca7d614
+      - f14e4326520fff9131e6e55c65e186bc
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -222,65 +417,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 21 Aug 2026 09:10:01 GMT
-- request:
-    method: get
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/8d2ae60a-960c-486b-ab9b-6c7b9704b51c
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - Faraday v2.14.1
-      Authorization:
-      - Bearer <ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Date:
-      - Fri, 21 Aug 2026 09:10:01 GMT
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      - nosniff
-      X-Xss-Protection:
-      - '0'
-      Cache-Control:
-      - no-cache, no-store, max-age=0, must-revalidate
-      Pragma:
-      - no-cache
-      Expires:
-      - '0'
-      X-Frame-Options:
-      - DENY
-      Server:
-      - epages-beyond
-      X-Request-Time:
-      - '0.013'
-      X-B3-Traceid:
-      - 76b13ae9ff788dea3bc80b3026712eb2
-      X-Hello-Human:
-      - Come work with us! https://developer.epages.com/devjobs/
-      Strict-Transport-Security:
-      - max-age=86400
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 21 Aug 2026 09:10:01 GMT
+  recorded_at: Fri, 21 Aug 2026 09:16:10 GMT
 - request:
     method: delete
-    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/8d2ae60a-960c-486b-ab9b-6c7b9704b51c
+    uri: https://team42-beyond-api.beyondshop.cloud/api/shop/locations/65e15c79-43f6-40a1-b820-8f42b7bfc897
     body:
       encoding: US-ASCII
       string: ''
@@ -297,13 +437,11 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 204
+      message: No Content
     headers:
       Date:
-      - Fri, 21 Aug 2026 09:10:01 GMT
-      Content-Length:
-      - '0'
+      - Fri, 21 Aug 2026 09:16:11 GMT
       Connection:
       - keep-alive
       X-Content-Type-Options:
@@ -322,9 +460,9 @@ http_interactions:
       Server:
       - epages-beyond
       X-Request-Time:
-      - '0.018'
+      - '0.071'
       X-B3-Traceid:
-      - b0b8cc6d6c155de6d53b78462fe69f1c
+      - 9255f87f962c56be9338b5a43d13fc33
       X-Hello-Human:
       - Come work with us! https://developer.epages.com/devjobs/
       Strict-Transport-Security:
@@ -332,5 +470,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 21 Aug 2026 09:10:01 GMT
+  recorded_at: Fri, 21 Aug 2026 09:16:11 GMT
 recorded_with: VCR 6.2.0
