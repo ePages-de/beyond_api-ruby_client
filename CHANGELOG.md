@@ -16,6 +16,9 @@
     * `ProductManagement::Product#variation_properties`
     * `ProductManagement::Product#assign_variation_differentiator`
     * `ProductManagement::Product#create_custom_attribute`
+  * Add customer groups
+    * `CustomerGroup#all`
+    * `CustomerGroup#add_customer`
   * Add `Concerns::Connection#put_uri_list` for endpoints expecting a `text/uri-list` body
 
 * bug-fixes
