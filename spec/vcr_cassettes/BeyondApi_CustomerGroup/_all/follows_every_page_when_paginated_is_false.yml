@@ -1,0 +1,202 @@
+# Hand-written cassette: the credentials available for recording lack the
+# `cugr:r`/`cugr:u` scopes, so the interactions below mirror the example
+# requests and responses of https://developer.epages.com/beyond-docs/#customer_groups.
+# Re-record it against a shop whose API client holds the customer group scopes.
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Server:
+      - epages-beyond
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "cugr:r cugr:u cust:urcd",
+          "tenantId" : 8542,
+          "iat" : 1755766800,
+          "jti" : "WlwVZBu3mn6PxSlPXI2D8alxDgQ="
+        }
+  recorded_at: Fri, 21 Aug 2026 09:00:00 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customer-groups?page=0&paginated=false&size=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - epages-beyond
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "customerGroups" : [ {
+              "discountPercentage" : -0.3,
+              "name" : "PREF3",
+              "customerCount" : 0,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/05f34f85-a270-47f0-a65f-2b0eb4fd03f2"
+                },
+                "customer-group" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/05f34f85-a270-47f0-a65f-2b0eb4fd03f2"
+                },
+                "customers" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/05f34f85-a270-47f0-a65f-2b0eb4fd03f2/customers"
+                }
+              },
+              "_id" : "05f34f85-a270-47f0-a65f-2b0eb4fd03f2"
+            }, {
+              "discountPercentage" : -0.1,
+              "name" : "VIP1",
+              "customerCount" : 2,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/1fc06f54-8709-47f5-8b07-852439c978fd"
+                },
+                "customer-group" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/1fc06f54-8709-47f5-8b07-852439c978fd"
+                },
+                "customers" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/1fc06f54-8709-47f5-8b07-852439c978fd/customers"
+                }
+              },
+              "_id" : "1fc06f54-8709-47f5-8b07-852439c978fd"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups?page=0&size=2"
+            }
+          },
+          "page" : {
+            "size" : 2,
+            "totalElements" : 4,
+            "totalPages" : 2,
+            "number" : 0
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:00:00 GMT
+- request:
+    method: get
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customer-groups?page=1&paginated=false&size=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - epages-beyond
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_embedded" : {
+            "customerGroups" : [ {
+              "discountPercentage" : -0.2,
+              "name" : "PREF2",
+              "customerCount" : 0,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/42b1255b-451a-44f1-8598-7e3bbbb20c41"
+                },
+                "customer-group" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/42b1255b-451a-44f1-8598-7e3bbbb20c41"
+                },
+                "customers" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/42b1255b-451a-44f1-8598-7e3bbbb20c41/customers"
+                }
+              },
+              "_id" : "42b1255b-451a-44f1-8598-7e3bbbb20c41"
+            }, {
+              "discountPercentage" : -0.1,
+              "name" : "PREF1",
+              "customerCount" : 0,
+              "_links" : {
+                "self" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/62d2944d-246b-4709-8501-5b0120cc64b0"
+                },
+                "customer-group" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/62d2944d-246b-4709-8501-5b0120cc64b0"
+                },
+                "customers" : {
+                  "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups/62d2944d-246b-4709-8501-5b0120cc64b0/customers"
+                }
+              },
+              "_id" : "62d2944d-246b-4709-8501-5b0120cc64b0"
+            } ]
+          },
+          "_links" : {
+            "self" : {
+              "href" : "https://team42-beyond-api.beyondshop.cloud/api/customer-groups?page=1&size=2"
+            }
+          },
+          "page" : {
+            "size" : 2,
+            "totalElements" : 4,
+            "totalPages" : 2,
+            "number" : 1
+          }
+        }
+  recorded_at: Fri, 21 Aug 2026 09:00:00 GMT
+recorded_with: VCR 6.2.0

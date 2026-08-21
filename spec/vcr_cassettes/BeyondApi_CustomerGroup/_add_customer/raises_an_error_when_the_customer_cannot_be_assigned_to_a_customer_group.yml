@@ -1,0 +1,84 @@
+# Hand-written cassette: the credentials available for recording lack the
+# `cugr:r`/`cugr:u` scopes, so the interactions below mirror the example
+# requests and responses of https://developer.epages.com/beyond-docs/#customer_groups.
+# Re-record it against a shop whose API client holds the customer group scopes.
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/oauth/token?grant_type=client_credentials
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Basic <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Server:
+      - epages-beyond
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "access_token" : "<ACCESS_TOKEN>",
+          "token_type" : "bearer",
+          "expires_in" : 3599,
+          "scope" : "cugr:r cugr:u cust:urcd",
+          "tenantId" : 8542,
+          "iat" : 1755766800,
+          "jti" : "WlwVZBu3mn6PxSlPXI2D8alxDgQ="
+        }
+  recorded_at: Fri, 21 Aug 2026 09:00:00 GMT
+- request:
+    method: post
+    uri: https://team42-beyond-api.beyondshop.cloud/api/customers/a55ff2a4-eb1c-4bbf-9e6c-2ea1c5a89d02/customer-groups
+    body:
+      encoding: UTF-8
+      string: '["5e173c7c-b5b3-4f39-8b4c-932a1240afb6"]'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.10.1
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - epages-beyond
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "errorId" : "customer-not-available-for-customer-group",
+          "details" : {
+            "customerOrigin" : "GUEST"
+          },
+          "message" : "Customer is not available for customer group.",
+          "traceId" : null
+        }
+  recorded_at: Fri, 21 Aug 2026 09:00:00 GMT
+recorded_with: VCR 6.2.0
