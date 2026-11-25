@@ -2,12 +2,13 @@
 
 module BeyondApi
   class Error < StandardError
-    attr_reader :response
+    attr_reader :response, :status
 
-    def initialize(response)
+    def initialize(response, status: nil)
       @response = response
+      @status = status
 
-      super
+      super(response)
     end
   end
 end
