@@ -38,7 +38,7 @@ module BeyondApi
     end
 
     def raise_error
-      raise Error, parsed_response
+      raise Error.new(parsed_response, status:)
     end
   end
 end
